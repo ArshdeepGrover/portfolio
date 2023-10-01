@@ -1,5 +1,5 @@
 nav {
-  @apply cre-h-navbar;
+  @apply cre-h-navbar cre-bg-[#fff];
   div:first-child {
     @apply cre-container cre-mx-auto cre-h-full cre-flex cre-justify-between cre-items-center;
     .image-section {
