@@ -1,0 +1,21 @@
+nav {
+  @apply cre-h-navbar;
+  div:first-child {
+    @apply cre-container cre-mx-auto cre-h-full cre-flex cre-justify-between cre-items-center;
+    .image-section {
+      img {
+        @apply cre-h-full;
+      }
+    }
+
+    .menu {
+      @apply cre-flex cre-items-center cre-gap-4;
+      div {
+        @apply cre-text-base;
+      }
+      .selected {
+        @apply cre-text-primary-500 cre-font-semibold;
+      }
+    }
+  }
+}
