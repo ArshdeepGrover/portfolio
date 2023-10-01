@@ -1,5 +1,5 @@
 section {
-  @apply cre-flex cre-flex-col md:cre-flex-row  cre-h-[calc(100dvh-56px)];
+  @apply cre-flex cre-flex-col md:cre-flex-row  cre-h-[calc(95dvh-56px)] cre-container cre-mx-auto;
   .image {
     @apply cre-h-full cre-hidden md:cre-block;
     img {
@@ -7,7 +7,7 @@ section {
     }
   }
   .right-section {
-    @apply cre-h-full cre-flex cre-flex-col cre-justify-center cre-ml-4;
+    @apply cre-h-full cre-flex cre-flex-col cre-justify-center cre-ml-4 cre-w-2/3;
     .text {
       .first-line {
         @apply cre-text-2xl cre-text-[#6D7378];
@@ -19,7 +19,7 @@ section {
         @apply cre-text-xl cre-text-[#485056];
       }
       .fourth-line {
-        @apply cre-w-1/2;
+        // @apply cre-w-1/2;
       }
     }
     .action-buttons {
