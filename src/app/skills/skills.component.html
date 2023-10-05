@@ -1,1 +1,18 @@
-<p>skills works!</p>
+<section>
+  <h1>Skills</h1>
+  <div class="skills">
+    <div *ngFor="let skill of skills">
+      <div class="cre-my-2 cre-flex cre-justify-center">
+        <img [src]="skill.src" [alt]="skill.name" [title]="skill.name" />
+      </div>
+      <div
+        class="cre-w-full cre-bg-Gray cre-rounded-full cre-h-1.5 dark:cre-bg-gray-700"
+      >
+        <div
+          class="c cre-h-1.5 cre-rounded-full"
+          [ngStyle]="{ 'background-color': skill.color, width: skill.rating }"
+        ></div>
+      </div>
+    </div>
+  </div>
+</section>
