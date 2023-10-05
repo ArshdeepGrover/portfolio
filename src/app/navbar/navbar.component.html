@@ -5,11 +5,26 @@
     </div>
 
     <div class="menu">
-      <div class="selected">Home</div>
-      <div>About</div>
-      <div>Service</div>
-      <div>Portfolio</div>
-      <div>Blog</div>
+      <a
+        routerLink="."
+        fragment="home"
+        class="selected"
+        class="{{
+          highlight === 'home'
+            ? 'cre-text-primary-500'
+            : 'cre-text-[#000]'
+        }}"
+        >Home</a
+      >
+      <!-- <div  href="#home">About</div> -->
+      <a routerLink="." fragment="skills" class="{{
+          highlight === 'skills'
+            ? 'cre-text-primary-500'
+            : 'cre-text-[#000]'
+        }}">Skills</a>
+      <a routerLink="." fragment="service">Service</a>
+      <a routerLink="." fragment="portfolio">Portfolio</a>
+      <a routerLink="." fragment="blog">Blog</a>
     </div>
   </div>
 </nav>
