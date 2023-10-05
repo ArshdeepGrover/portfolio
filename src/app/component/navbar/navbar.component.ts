@@ -8,6 +8,30 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   highlight!: any;
+
+  menu = [
+    {
+      name: 'Home',
+      routerLink: 'home',
+    },
+    {
+      name: 'Skills',
+      routerLink: 'skills',
+    },
+    {
+      name: 'Experience',
+      routerLink: 'experience',
+    },
+    // {
+    //   name: 'Home',
+    //   routerLink: 'home',
+    // },
+    // {
+    //   name: 'Home',
+    //   routerLink: 'home',
+    // },
+  ];
+
   constructor(private activatedRoute: ActivatedRoute) {}
   ngOnInit(): void {
     this.checkFragment();

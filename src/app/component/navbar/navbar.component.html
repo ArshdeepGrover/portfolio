@@ -1,0 +1,20 @@
+<nav>
+  <div>
+    <div class="image-section">
+      <img src="./assets/images/as.png" alt="" />
+    </div>
+
+    <div class="menu">
+      <div *ngFor="let menuItems of menu">
+        <a
+          routerLink="."
+          [fragment]="menuItems.routerLink"
+          class="{{
+            highlight === menuItems.routerLink ? 'selected' : 'cre-text-[#000]'
+          }}"
+          >{{ menuItems.name }}</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>
