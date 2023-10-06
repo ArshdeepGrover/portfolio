@@ -3,14 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { AboutMeComponent } from './about-me/about-me.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { SkillsComponent } from './skills/skills.component';
-import { SocialMediaComponent } from './social-media/social-media.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { HeaderComponent } from './component/header/header.component';
+import { AboutMeComponent } from './component/about-me/about-me.component';
+import { ProjectsComponent } from './component/projects/projects.component';
+import { SkillsComponent } from './component/skills/skills.component';
+import { SocialMediaComponent } from './component/social-media/social-media.component';
+import { ContactUsComponent } from './component/contact-us/contact-us.component';
+import { ExperienceComponent } from './component/experience/experience.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     ProjectsComponent,
     SkillsComponent,
     SocialMediaComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    ExperienceComponent,
   ],
   imports: [
     BrowserModule,

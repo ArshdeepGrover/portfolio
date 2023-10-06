@@ -1,10 +1,22 @@
-<div class="cre-fixed cre-top-0 cre-w-full cre-shadow-sm cre-h-14">
-  <app-navbar></app-navbar>
-</div>
-<div class="cre-mt-14">
-  <app-header [attr.id]="'home'"></app-header>
-  <div class="cre-container cre-mx-auto">
-    <app-skills [attr.id]="'skills'" ></app-skills>
-    <!-- <app-about-me></app-about-me> -->
+<div class="main">
+  <div class="cre-fixed cre-top-0 cre-w-full cre-shadow-sm cre-h-14">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="cre-mt-14 cre-cursor-grabbing">
+    <section>
+      <div [attr.id]="'home'">
+        <app-header></app-header>
+      </div>
+    </section>
+    <section>
+      <div [attr.id]="'skills'">
+        <app-skills></app-skills>
+      </div>
+    </section>
+    <section>
+      <div [attr.id]="'experience'">
+        <app-experience></app-experience>
+      </div>
+    </section>
   </div>
 </div>

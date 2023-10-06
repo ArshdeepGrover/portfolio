@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewportScroller } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,10 +7,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'portfolio';
   constructor(
     private activatedRoute: ActivatedRoute,
-    private viewportScroller: ViewportScroller
   ) {}
 
   ngOnInit(): void {
@@ -27,6 +24,12 @@ export class AppComponent implements OnInit {
   }
 
   scrollAuto(elementId: string): void {
-    this.viewportScroller.scrollToAnchor(elementId);
+    const element = document.getElementById(elementId);
+    if (element)
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+        inline: 'start',
+      });
   }
 }
