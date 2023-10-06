@@ -24,7 +24,7 @@ import { ExperienceComponent } from './component/experience/experience.component
     SkillsComponent,
     SocialMediaComponent,
     ContactUsComponent,
-    ExperienceComponent
+    ExperienceComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,28 @@
-<p>experience works!</p>
+<section>
+  <h1>Experience</h1>
+  <div class="cre-grid cre-grid-cols-1 cre-gap-4">
+    <div *ngFor="let experience of experiences">
+      <div class="experience">
+        <div class="cre-flex cre-justify-between cre-items-center">
+          <p class="title">{{ experience.title }}</p>
+          <div class="cre-flex cre-justify-between cre-items-center">
+            <p class="start-date">{{ experience.start_date }} -&nbsp;</p>
+            <p class="end-date">
+              {{
+                experience.currently_working === true
+                  ? "Working"
+                  : experience.end_date
+              }}
+            </p>
+          </div>
+        </div>
+        <div class="cre-flex cre-justify-between cre-items-center">
+          <p class="company">{{ experience.company }}</p>
+          <p class="location">{{ experience.location }}</p>
+        </div>
+
+        <div class="description" [innerHTML]="experience.description"></div>
+      </div>
+    </div>
+  </div>
+</section>

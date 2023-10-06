@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   highlight!: any;
+  isScrolled = false;
 
   menu = [
     {
@@ -41,5 +42,14 @@ export class NavbarComponent implements OnInit {
     this.activatedRoute.fragment.subscribe((fragment) => {
       this.highlight = fragment;
     });
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (window.scrollY > 0) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
   }
 }
