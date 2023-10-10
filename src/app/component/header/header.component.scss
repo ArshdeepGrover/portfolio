@@ -7,8 +7,11 @@ section {
     }
   }
   .right-section {
-    @apply cre-h-full cre-flex cre-flex-col cre-justify-center cre-ml-4 cre-w-2/3;
+    @apply cre-h-full cre-flex cre-flex-col cre-justify-center md:cre-ml-4 cre-w-full md:cre-w-2/3;
     .text {
+      p {
+        @apply cre-text-center md:cre-text-left;
+      }
       .first-line {
         @apply cre-text-2xl cre-text-[#6D7378];
       }
@@ -19,7 +22,6 @@ section {
         @apply cre-text-xl cre-text-[#485056];
       }
       .fourth-line {
-        // @apply cre-w-1/2;
       }
     }
     .action-as {
@@ -30,7 +32,7 @@ section {
 }
 
 .action-buttons {
-  @apply cre-mt-2;
+  @apply cre-mt-2 cre-flex cre-justify-center md:cre-justify-start;
   a {
     width: max-content;
     cursor: pointer;

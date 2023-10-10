@@ -3,14 +3,14 @@ section {
     @apply cre-text-6xl cre-mb-6 cre-text-center cre-text-primary-500;
   }
   .services {
-    @apply cre-grid cre-grid-cols-3 cre-gap-5;
+    @apply cre-mx-4 md:cre-mx-0 cre-grid cre-grid-cols-1 md:cre-grid-cols-3 cre-gap-5;
     .service {
       @apply cre-text-center cre-h-32 cre-bg-[#fff] cre-rounded-lg cre-py-4 cre-px-3 cre-border cre-border-gray-100/50;
       .title {
         @apply cre-text-lg cre-mb-1;
       }
       .sub-title {
-        @apply cre-text-sm cre-text-gray-400;
+        @apply cre-line-clamp-3 cre-text-sm cre-text-gray-400;
       }
     }
   }

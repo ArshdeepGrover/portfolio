@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     if (element)
       element.scrollIntoView({
         behavior: 'smooth',
-        block: 'end',
+        block: 'start',
         inline: 'start',
       });
   }
