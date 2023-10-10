@@ -22,9 +22,45 @@ section {
         // @apply cre-w-1/2;
       }
     }
-    .action-buttons {
+    .action-as {
     }
     .social-accounts {
     }
+  }
+}
+
+.action-buttons {
+  @apply cre-mt-2;
+  a {
+    width: max-content;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: Helvetica, "sans-serif";
+    transition: all 0.2s;
+    padding: 10px 20px;
+    border-radius: 100px;
+    @apply cre-bg-primary-200;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+  }
+
+  a:hover {
+    @apply cre-bg-primary-300;
+  }
+
+  a > svg {
+    width: 34px;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  a:hover svg {
+    transform: translateX(5px);
+  }
+
+  a:active {
+    transform: scale(0.95);
   }
 }
