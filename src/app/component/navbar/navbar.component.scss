@@ -1,8 +1,9 @@
 nav {
   @apply cre-h-navbar cre-bg-white-100;
   div:first-child {
-    @apply cre-container cre-mx-auto cre-h-full cre-flex cre-justify-between cre-items-center;
+    @apply cre-container cre-mx-auto cre-h-full cre-flex cre-justify-center md:cre-justify-between cre-items-center;
     .image-section {
+      @apply cre-hidden md:cre-block;
       img {
         @apply cre-h-full;
       }
@@ -13,12 +14,12 @@ nav {
       div {
         @apply cre-text-base;
         a:not(.selected) {
-          @apply hover:cre-border-b-2 hover:cre-border-solid hover:cre-border-primary-500 ;
+          @apply hover:cre-border-b-2 hover:cre-border-solid hover:cre-border-primary-500;
           transition: border-color 0.3s ease-in-out;
         }
       }
       .selected {
-        @apply cre-text-primary-500 cre-font-semibold  cre-border-b-2 hover:cre-border-solid cre-border-primary-500 ;
+        @apply cre-text-primary-500 cre-font-semibold  cre-border-b-2 hover:cre-border-solid cre-border-primary-500;
       }
     }
   }

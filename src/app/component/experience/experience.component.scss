@@ -2,10 +2,7 @@ section {
   h1 {
     @apply cre-text-6xl cre-mb-6 cre-text-center cre-text-primary-500;
   }
-  h1::after {
-    content: "";
-    @apply cre-border-b cre-border-solid cre-border-Gray/50;
-  }
+
   .experience {
     @apply cre-block cre-h-max cre-p-6 cre-bg-[#fff] cre-border cre-border-gray-200 cre-rounded-lg cre-shadow hover:cre-shadow-lg;
     .title {
