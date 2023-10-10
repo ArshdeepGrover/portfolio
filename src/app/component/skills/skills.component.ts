@@ -116,6 +116,24 @@ export class SkillsComponent {
       color: '#CC0100',
       src: 'https://img.shields.io/badge/rails-%23CC0000.svg?style=for-the-badge&logo=ruby-on-rails&logoColor=white',
     },
+    {
+      name: 'Figma',
+      rating: '80%',
+      color: '#F24E1E',
+      src: 'https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white',
+    },
+    {
+      name: 'Chart.js',
+      rating: '80%',
+      color: '#FF6384',
+      src: 'https://img.shields.io/badge/Chart%20js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white',
+    },
+    {
+      name: 'NPM',
+      rating: '80%',
+      color: '#CB3837',
+      src: 'https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white',
+    },
   ];
   randomColor!: string;
 }

@@ -23,10 +23,10 @@ export class NavbarComponent implements OnInit {
       name: 'Experience',
       routerLink: 'experience',
     },
-    // {
-    //   name: 'Home',
-    //   routerLink: 'home',
-    // },
+    {
+      name: 'Service',
+      routerLink: 'service',
+    },
     // {
     //   name: 'Home',
     //   routerLink: 'home',

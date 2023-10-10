@@ -12,6 +12,7 @@ import { SkillsComponent } from './component/skills/skills.component';
 import { SocialMediaComponent } from './component/social-media/social-media.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { ExperienceComponent } from './component/experience/experience.component';
+import { ServiceComponent } from './component/service/service.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ExperienceComponent } from './component/experience/experience.component
     SocialMediaComponent,
     ContactUsComponent,
     ExperienceComponent,
+    ServiceComponent,
   ],
   imports: [
     BrowserModule,
