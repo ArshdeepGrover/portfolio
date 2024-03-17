@@ -14,12 +14,25 @@ nav {
       div {
         @apply cre-text-base;
         a:not(.selected) {
-          @apply hover:cre-border-b-2 hover:cre-border-solid hover:cre-border-primary-500;
-          transition: border-color 0.3s ease-in-out;
+          @apply cre-relative;
         }
       }
       .selected {
-        @apply cre-text-primary-500 cre-font-semibold  cre-border-b-2 hover:cre-border-solid cre-border-primary-500;
+        @apply cre-text-primary-500 cre-border-b-2  cre-border-primary-500;
+      }
+      a:not(.selected)::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        transform: scaleX(0);
+        @apply cre-bg-primary-500;
+        transition: 1s;
+      }
+      a:not(.selected):hover::after {
+        transform: scaleX(1);
       }
     }
   }
