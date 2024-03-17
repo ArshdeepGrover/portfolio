@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
-import { AboutMeComponent } from './component/about-me/about-me.component';
 import { ProjectsComponent } from './component/projects/projects.component';
 import { SkillsComponent } from './component/skills/skills.component';
 import { SocialMediaComponent } from './component/social-media/social-media.component';
@@ -20,7 +19,6 @@ import { ServiceComponent } from './component/service/service.component';
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
-    AboutMeComponent,
     ProjectsComponent,
     SkillsComponent,
     SocialMediaComponent,
