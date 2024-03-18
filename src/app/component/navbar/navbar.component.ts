@@ -13,24 +13,24 @@ export class NavbarComponent implements OnInit {
   menu = [
     {
       name: 'Home',
-      routerLink: 'home',
+      fragment: 'home',
     },
     {
       name: 'Skills',
-      routerLink: 'skills',
+      fragment: 'skills',
+    },
+    {
+      name: 'Certification',
+      fragment: 'certification',
     },
     {
       name: 'Experience',
-      routerLink: 'experience',
+      fragment: 'experience',
     },
     {
       name: 'Service',
-      routerLink: 'service',
+      fragment: 'service',
     },
-    // {
-    //   name: 'Home',
-    //   routerLink: 'home',
-    // },
   ];
 
   constructor(private activatedRoute: ActivatedRoute) {}
@@ -40,7 +40,11 @@ export class NavbarComponent implements OnInit {
 
   checkFragment() {
     this.activatedRoute.fragment.subscribe((fragment) => {
-      this.highlight = fragment;
+      if (fragment) {
+        this.highlight = fragment;
+      } else {
+        this.highlight = 'home';
+      }
     });
   }
 

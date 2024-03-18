@@ -8,9 +8,9 @@
       <div *ngFor="let menuItems of menu">
         <a
           routerLink="."
-          [fragment]="menuItems.routerLink"
+          [fragment]="menuItems.fragment"
           class="{{
-            highlight === menuItems.routerLink ? 'selected' : 'cre-text-[#000]'
+            highlight === menuItems.fragment ? 'selected' : 'cre-text-[#000]'
           }}"
           >{{ menuItems.name }}</a
         >
