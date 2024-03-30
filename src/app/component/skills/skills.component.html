@@ -2,18 +2,19 @@
   <h1>Skills</h1>
   <div class="skills">
     <div *ngFor="let skill of skills">
-      <div class="cre-my-2 cre-flex cre-justify-center">
+      <div class="skill-image">
         <img [src]="skill.src" [alt]="skill.name" [title]="skill.name" />
+        <span>{{ skill.name }}</span>
       </div>
-      <div
-        class="cre-w-full cre-bg-gray-200 cre-rounded-full cre-h-1.5"
-      >
-        <div
+      <div class="skill-name"></div>
+      <!-- <div
+          class="cre-w-full cre-bg-gray-200 cre-rounded-full cre-h-1.5"
+          >
+          <div
           class="c cre-h-1.5 cre-rounded-full"
           [ngStyle]="{ 'background-color': skill.color, width: skill.rating }"
-        ></div>
-      </div>
+          ></div>
+        </div> -->
     </div>
   </div>
 </section>
-

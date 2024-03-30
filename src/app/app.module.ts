@@ -12,6 +12,7 @@ import { SocialMediaComponent } from './component/social-media/social-media.comp
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { ExperienceComponent } from './component/experience/experience.component';
 import { ServiceComponent } from './component/service/service.component';
+import { CertificationComponent } from './component/certification/certification.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,10 @@ import { ServiceComponent } from './component/service/service.component';
     ContactUsComponent,
     ExperienceComponent,
     ServiceComponent,
+    CertificationComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
