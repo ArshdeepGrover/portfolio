@@ -41,7 +41,7 @@ section {
     transition: all 0.2s;
     padding: 10px 20px;
     border-radius: 100px;
-    @apply cre-bg-primary-200;
+    @apply cre-bg-primary-100;
     border: 1px solid transparent;
     display: flex;
     align-items: center;
@@ -49,7 +49,7 @@ section {
   }
 
   a:hover {
-    @apply cre-bg-primary-300;
+    @apply cre-bg-primary-300/50;
   }
 
   a > svg {

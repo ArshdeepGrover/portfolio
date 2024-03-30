@@ -1,16 +1,16 @@
 <nav [ngClass]="{ scrolled: isScrolled }">
   <div>
     <div class="image-section">
-      <img src="./assets/images/as.png" alt="" />
+      <!-- <img src="./assets/images/ArshdeepSingh.png" alt="Arshdeep Singh" /> -->
     </div>
 
     <div class="menu">
       <div *ngFor="let menuItems of menu">
         <a
           routerLink="."
-          [fragment]="menuItems.routerLink"
+          [fragment]="menuItems.fragment"
           class="{{
-            highlight === menuItems.routerLink ? 'selected' : 'cre-text-[#000]'
+            highlight === menuItems.fragment ? 'selected' : 'cre-text-[#000]'
           }}"
           >{{ menuItems.name }}</a
         >
