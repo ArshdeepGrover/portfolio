@@ -3,6 +3,15 @@ section {
     @apply cre-text-6xl cre-mb-6 cre-text-center cre-text-primary-500;
   }
   .skills {
-    @apply cre-mx-4 md:cre-mx-0 cre-grid cre-grid-cols-2 md:cre-grid-cols-3 cre-gap-10;
+    @apply cre-mx-4 md:cre-mx-0 cre-flex cre-flex-wrap cre-gap-10 cre-justify-center;
+    .skill-image {
+      @apply cre-my-2 cre-flex cre-justify-center cre-w-20 cre-aspect-square cre-flex-col;
+      span {
+        @apply cre-text-center;
+      }
+    }
+    .skill-image:hover {
+      @apply cre-scale-125;
+    }
   }
 }
