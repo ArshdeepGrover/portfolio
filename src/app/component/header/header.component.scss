@@ -16,7 +16,7 @@ section {
         @apply cre-text-2xl cre-text-[#6D7378];
       }
       .second-line {
-        @apply cre-text-7xl cre-text-primary-500 cre-font-bold;
+        @apply cre-text-7xl cre-text-primary-500 cre-font-bold cre-text-center md:cre-text-left;
       }
       .third-line {
         @apply cre-text-xl cre-text-[#485056];

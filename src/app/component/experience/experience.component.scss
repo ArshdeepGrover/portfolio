@@ -4,7 +4,7 @@ section {
   }
 
   .experience {
-    @apply cre-block cre-h-max cre-p-6 cre-bg-[#fff] cre-border cre-border-gray-100 cre-rounded-lg;
+    @apply cre-block cre-h-max cre-p-6 cre-bg-[#fff] cre-border cre-border-gray-100 cre-rounded-lg cre-text-center md:cre-text-left;
     .title {
       @apply cre-mb-2 cre-text-2xl cre-font-bold cre-tracking-tight cre-text-gray-900;
     }

@@ -3,14 +3,12 @@
   <div class="cre-grid cre-grid-cols-1 cre-gap-4 cre-mx-4 md:cre-mx-0">
     <div
       *ngFor="let experience of experiences"
-      data-aos="fade-up"
-      data-aos-anchor-placement="top-center"
     >
       <div class="experience">
         <div class="md:cre-flex cre-justify-between cre-items-center">
           <p class="title">{{ experience.title }}</p>
           <div
-            class="cre-flex cre-flex-row md:cre-justify-between cre-items-center"
+            class="cre-flex cre-flex-row md:cre-justify-between cre-items-center cre-justify-center"
           >
             <p class="start-date">{{ experience.start_date }} -&nbsp;</p>
             <p class="end-date">

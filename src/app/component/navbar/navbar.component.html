@@ -8,6 +8,7 @@
       <div *ngFor="let menuItems of menu">
         <a
           routerLink="."
+          [title]="menuItems.name"
           [fragment]="menuItems.fragment"
           class="{{
             highlight === menuItems.fragment ? 'selected' : 'cre-text-[#000]'
