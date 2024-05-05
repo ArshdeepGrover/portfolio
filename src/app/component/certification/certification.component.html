@@ -1,0 +1,18 @@
+<section>
+  <h2>My Certifications</h2>
+  <div class="certification-cards">
+    <div
+      class="certification-card"
+      *ngFor="let certification of certifications"
+    >
+      <div class="image">
+        <img [src]="certification.image_url" [alt]="certification.name" [title]="certification.name" />
+      </div>
+      <div class="details">
+        <div class="name">{{ certification.name }}</div>
+        <div class="credential-id" [title]="certification.credential_id">{{ certification.credential_id }}</div>
+        <div class="issue-date">{{ certification.issue_date }}</div>
+      </div>
+    </div>
+  </div>
+</section>
