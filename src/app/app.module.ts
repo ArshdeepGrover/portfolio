@@ -13,10 +13,13 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
 import { ExperienceComponent } from './component/experience/experience.component';
 import { ServiceComponent } from './component/service/service.component';
 import { CertificationComponent } from './component/certification/certification.component';
+import { ResumeComponent } from 'src/app/component/resume/resume.component';
+import { HomePageComponent } from 'src/app/component/home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomePageComponent,
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
@@ -27,6 +30,7 @@ import { CertificationComponent } from './component/certification/certification.
     ExperienceComponent,
     ServiceComponent,
     CertificationComponent,
+    ResumeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

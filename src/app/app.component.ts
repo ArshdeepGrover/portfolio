@@ -9,31 +9,12 @@ import { SchemaMarkupService } from 'src/app/service/schema-markup.service';
 })
 export class AppComponent implements OnInit {
   constructor(
-    private activatedRoute: ActivatedRoute,
+   
     private schemaMarkupService: SchemaMarkupService
   ) {}
 
   ngOnInit(): void {
-    this.checkFragment();
     this.schema();
-  }
-
-  checkFragment() {
-    this.activatedRoute.fragment.subscribe((fragment) => {
-      if (fragment) {
-        this.scrollAuto(fragment);
-      }
-    });
-  }
-
-  scrollAuto(elementId: string): void {
-    const element = document.getElementById(elementId);
-    if (element)
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'start',
-      });
   }
 
   schema() {
