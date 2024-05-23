@@ -7,28 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CertificationComponent implements OnInit {
   certifications = [
-    {
-      name: 'AngularJS Course for Beginners to Advanced',
-      organization: 'Udemy',
-      credential_id: 'UC-ae3d643b-f778-4c3c-a0f7-d8727b367d6a',
-      credential_url:
-        'https://www.udemy.com/certificate/UC-ae3d643b-f778-4c3c-a0f7-d8727b367d6a/',
-      issue_date: 'January 2019',
-      skills: ['Java', 'DSA', 'oops'],
-      image_url:
-        './../../../assets/images/certification/UC-ae3d643b-f778-4c3c-a0f7-d8727b367d6a.jpg',
-    },
-    {
-      name: 'CSS Complete Course For Beginners',
-      organization: 'Udemy',
-      credential_id: 'UC-25e2db72-6b27-4aef-bc6e-0bcc50294b3a',
-      credential_url:
-        'https://www.udemy.com/certificate/UC-25e2db72-6b27-4aef-bc6e-0bcc50294b3a/',
-      issue_date: 'January 2019',
-      skills: ['Java', 'DSA', 'oops'],
-      image_url:
-        './../../../assets/images/certification/UC-25e2db72-6b27-4aef-bc6e-0bcc50294b3a.jpg',
-    },
+    // {
+    //   name: 'AngularJS Course for Beginners to Advanced',
+    //   organization: 'Udemy',
+    //   credential_id: 'UC-ae3d643b-f778-4c3c-a0f7-d8727b367d6a',
+    //   credential_url:
+    //     'https://www.udemy.com/certificate/UC-ae3d643b-f778-4c3c-a0f7-d8727b367d6a/',
+    //   issue_date: 'January 2019',
+    //   skills: ['Java', 'DSA', 'oops'],
+    //   image_url:
+    //     './../../../assets/images/certification/UC-ae3d643b-f778-4c3c-a0f7-d8727b367d6a.jpg',
+    // },
+    // {
+    //   name: 'CSS Complete Course For Beginners',
+    //   organization: 'Udemy',
+    //   credential_id: 'UC-25e2db72-6b27-4aef-bc6e-0bcc50294b3a',
+    //   credential_url:
+    //     'https://www.udemy.com/certificate/UC-25e2db72-6b27-4aef-bc6e-0bcc50294b3a/',
+    //   issue_date: 'January 2019',
+    //   skills: ['Java', 'DSA', 'oops'],
+    //   image_url:
+    //     './../../../assets/images/certification/UC-25e2db72-6b27-4aef-bc6e-0bcc50294b3a.jpg',
+    // },
     {
       name: 'Back End | Web development with Node.js',
       organization: 'Coding Ninjas India',
