@@ -19,6 +19,10 @@ export class NavbarComponent implements OnInit {
       name: 'Skills',
       fragment: 'skills',
     },
+    {
+      name: 'Certification',
+      fragment: 'certification',
+    },
     // {
     //   name: 'Works',
     //   fragment: 'projects',
