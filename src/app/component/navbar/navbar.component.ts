@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
       name: 'Experience',
       fragment: 'experience',
     },
-    { name: 'Achievements', fragment: 'achievements' },
+    // { name: 'Achievements', fragment: 'achievements' },
     {
       name: 'Service',
       fragment: 'service',
