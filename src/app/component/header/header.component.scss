@@ -19,7 +19,14 @@ section {
         @apply cre-text-7xl cre-text-primary-500 cre-font-bold;
       }
       .third-line {
-        @apply cre-text-xl cre-text-[#485056];
+        @apply cre-text-xl cre-text-[#485056] cre-border-r-2 cre-border-solid cre-border-primary-500 cre-pr-2;
+        animation: blink 1s infinite;
+
+        @keyframes blink {
+          50% {
+            border-color: transparent;
+          }
+        }
       }
       .fourth-line {
       }
