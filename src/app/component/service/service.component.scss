@@ -1,16 +1,16 @@
 section {
   h1 {
-    @apply cre-text-6xl cre-mb-6 cre-text-center cre-text-primary-500;
+    @apply text-6xl mb-6 text-center text-primary-500;
   }
   .services {
-    @apply cre-mx-4 md:cre-mx-0 cre-grid cre-grid-cols-1 md:cre-grid-cols-3 cre-gap-5;
+    @apply mx-4 md:mx-0 grid grid-cols-1 md:grid-cols-3 gap-5;
     .service {
-      @apply cre-text-center cre-h-32 cre-bg-[#fff] cre-rounded-lg cre-py-4 cre-px-3 cre-border cre-border-gray-100/50;
+      @apply text-center h-32 bg-white-0 rounded-lg py-4 px-3 border border-gray-100/50 dark:bg-gray-700;
       .title {
-        @apply cre-text-lg cre-mb-1;
+        @apply text-lg mb-1  dark:text-white-200;
       }
       .sub-title {
-        @apply cre-line-clamp-3 cre-text-sm cre-text-gray-400;
+        @apply line-clamp-3 text-sm text-gray-400  dark:text-white-200;
       }
     }
   }
