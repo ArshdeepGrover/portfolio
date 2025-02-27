@@ -1,6 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SchemaMarkupService } from 'src/app/service/schema-markup.service';
+import { SchemaMarkupService } from 'src/app/services/schema-markup.service';
 
 @Component({
   selector: 'app-root',

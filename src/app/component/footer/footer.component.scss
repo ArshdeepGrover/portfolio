@@ -1,3 +1,9 @@
-.count-badges{
-    @apply cre-flex cre-gap-6;
+footer {
+  @apply h-navbar w-full bg-white-200 grid place-items-center dark:bg-gray-800;
+  .text {
+    @apply dark:text-white-0;
+  }
+}
+.count-badges {
+  @apply flex gap-6;
 }
