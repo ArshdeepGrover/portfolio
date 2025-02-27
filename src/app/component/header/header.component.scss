@@ -1,34 +1,28 @@
 section {
-  @apply cre-flex cre-flex-col md:cre-flex-row  cre-h-[calc(95dvh-56px)] cre-container cre-mx-auto;
+  @apply flex flex-col md:flex-row  h-[calc(95dvh-56px)] container mx-auto;
   .image {
-    @apply cre-h-full cre-hidden md:cre-block;
+    @apply h-full hidden md:block;
     img {
-      @apply cre-h-full cre-object-cover;
+      @apply h-full object-cover;
     }
   }
   .right-section {
-    @apply cre-h-full cre-flex cre-flex-col cre-justify-center md:cre-ml-4 cre-w-full md:cre-w-2/3;
+    @apply h-full flex flex-col justify-center md:ml-4 w-full md:w-2/3;
     .text {
       p {
-        @apply cre-text-center md:cre-text-left;
+        @apply text-center md:text-left;
       }
       .first-line {
-        @apply cre-text-2xl cre-text-[#6D7378];
+        @apply text-2xl text-[#6D7378] dark:text-white-100;
       }
       .second-line {
-        @apply cre-text-7xl cre-text-primary-500 cre-font-bold;
+        @apply text-7xl text-primary-500 font-bold;
       }
       .third-line {
-        @apply cre-text-xl cre-text-[#485056] cre-border-r-2 cre-border-solid cre-border-primary-500 cre-pr-2;
-        animation: blink 1s infinite;
-
-        @keyframes blink {
-          50% {
-            border-color: transparent;
-          }
-        }
+        @apply text-xl text-[#485056] dark:text-white-100;
       }
       .fourth-line {
+        @apply dark:text-white-100;
       }
     }
     .action-as {
@@ -39,7 +33,7 @@ section {
 }
 
 .action-buttons {
-  @apply cre-mt-2 cre-flex cre-justify-center md:cre-justify-start;
+  @apply mt-2 flex justify-center md:justify-start;
   a {
     width: max-content;
     cursor: pointer;
@@ -48,7 +42,7 @@ section {
     transition: all 0.2s;
     padding: 10px 20px;
     border-radius: 100px;
-    @apply cre-bg-primary-100;
+    @apply bg-primary-100;
     border: 1px solid transparent;
     display: flex;
     align-items: center;
@@ -56,7 +50,7 @@ section {
   }
 
   a:hover {
-    @apply cre-bg-primary-300/50;
+    @apply bg-primary-300/50;
   }
 
   a > svg {

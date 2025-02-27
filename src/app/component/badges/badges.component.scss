@@ -1,16 +1,16 @@
 /* holopin-badges.component.css */
 section {
   h2 {
-    @apply cre-text-6xl cre-mb-6 cre-text-center cre-text-primary-500;
+    @apply text-6xl mb-6 text-center text-primary-500;
   }
 
   .github-achievements {
-    @apply cre-flex cre-justify-evenly cre-mb-6 cre-flex-col md:cre-flex-row;
+    @apply flex justify-evenly mb-6 flex-col md:flex-row;
   }
 
-  .holopin-badges{
-    img{
-      @apply cre-rounded-md;
+  .holopin-badges {
+    img {
+      @apply rounded-md;
     }
   }
 }

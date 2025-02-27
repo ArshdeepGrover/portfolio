@@ -7,7 +7,6 @@ body::-webkit-scrollbar {
   width: 6px; /* width of the entire scrollbar */
 }
 
-
 body::-webkit-scrollbar-thumb {
-  @apply cre-bg-primary-200 cre-rounded-full;
+  @apply bg-primary-200 dark:bg-gray-500 rounded-full;
 }

@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Typed from 'typed.js';
 
 @Component({
@@ -21,7 +15,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     const options = {
-      strings: ['a Developer', 'a Engineer'],
+      strings: ['a Developer', 'a Web Designer'],
       typeSpeed: 80,
       backSpeed: 25,
       loop: true,
