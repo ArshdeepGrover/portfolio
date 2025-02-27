@@ -1,23 +1,27 @@
 section {
   h1 {
-    @apply cre-text-6xl cre-mb-6 cre-text-center cre-text-primary-500;
+    @apply text-6xl mb-6 text-center text-primary-500;
   }
 
   .experience {
-    @apply cre-block cre-h-max cre-p-6 cre-bg-[#fff] cre-border cre-border-gray-100 cre-rounded-lg;
+    @apply block h-max p-6 bg-white-0 border border-gray-100 rounded-lg dark:bg-gray-700;
     .title {
-      @apply cre-mb-2 cre-text-2xl cre-font-bold cre-tracking-tight cre-text-gray-900;
+      @apply mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white-200;
     }
     .company {
-      @apply cre-font-normal cre-text-gray-700 dark:cre-text-gray-400;
+      @apply font-normal text-gray-700 dark:text-white-200;
     }
     .location {
+      @apply dark:text-white-200;
     }
     .start-date {
+      @apply dark:text-white-200;
     }
     .end-date {
+      @apply dark:text-white-200;
     }
     .description {
+      @apply dark:text-white-200;
     }
   }
 }
