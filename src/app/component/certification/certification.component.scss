@@ -1,32 +1,32 @@
 section {
   h2 {
-    @apply cre-text-6xl cre-mb-6 cre-text-center cre-text-primary-500;
+    @apply text-6xl  mb-6  text-center  text-primary-500;
   }
 
   .certification-cards {
-    @apply cre-grid cre-grid-cols-1 md:cre-grid-cols-2 cre-gap-4 cre-mx-4 md:cre-mx-0;
+    @apply grid  grid-cols-1 md:grid-cols-2  gap-4  mx-4 md:mx-0;
     .certification-card {
-      @apply cre-flex cre-flex-col md:cre-flex-row md:cre-gap-4  cre-bg-[#fff] cre-border cre-border-gray-100 cre-rounded-lg cre-h-max md:cre-h-[218px];
+      @apply flex  flex-col md:flex-row md:gap-4   bg-[#fff]  border  border-gray-100  rounded-lg  h-max md:h-[218px];
       .image {
-        @apply cre-w-full md:cre-w-1/2 cre-overflow-hidden;
+        @apply w-full md:w-1/2  overflow-hidden;
         img {
-          @apply cre-rounded-tl-lg cre-rounded-bl-lg;
+          @apply rounded-tl-lg  rounded-bl-lg;
         }
       }
       .details {
-        @apply cre-py-3 cre-px-3 md:cre-px-0 cre-flex cre-flex-col cre-gap-4 cre-justify-between cre-items-center md:cre-items-start;
+        @apply py-3  px-3 md:px-0  flex  flex-col  gap-4  justify-between  items-center md:items-start;
         .credential-id {
-          @apply cre-truncate cre-text-gray-300 cre-text-center md:cre-text-left;
+          @apply truncate  text-gray-300  text-center md:text-left;
         }
         .issue-date {
-          @apply cre-text-center md:cre-text-left;
+          @apply text-center md:text-left;
         }
         .credential-link {
-          @apply cre-text-primary-600 cre-border cre-border-solid cre-border-primary-300 cre-rounded cre-p-2 cre-w-max cre-bg-primary-100/20 hover:cre-bg-primary-100/40 cre-cursor-pointer;
+          @apply text-primary-600  border  border-solid  border-primary-300  rounded  p-2  w-max  bg-primary-100/20 hover:bg-primary-100/40  cursor-pointer;
           a {
-            @apply cre-flex cre-gap-2;
+            @apply flex  gap-2;
             svg {
-              @apply cre-h-6 cre-w-6;
+              @apply h-6  w-6;
             }
           }
         }

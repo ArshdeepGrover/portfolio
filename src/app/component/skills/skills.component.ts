@@ -161,12 +161,19 @@ export class SkillsComponent {
       // src: 'https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white',
       src: 'https://raw.githubusercontent.com/devicons/devicon/v2.16.0/icons/sanity/sanity-original.svg',
     },
+    // {
+    //   name: 'Sentry',
+    //   rating: '80%',
+    //   color: '#CB3837',
+    //   // src: 'https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white',
+    //   src: 'https://raw.githubusercontent.com/devicons/devicon/v2.16.0/icons/sentry/sentry-original.svg',
+    // },
     {
-      name: 'Sentry',
+      name: 'JSON',
       rating: '80%',
       color: '#CB3837',
       // src: 'https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white',
-      src: 'https://raw.githubusercontent.com/devicons/devicon/v2.16.0/icons/sentry/sentry-original.svg',
+      src: 'https://raw.githubusercontent.com/devicons/devicon/v2.16.0/icons/json/json-original.svg',
     },
   ];
 }
