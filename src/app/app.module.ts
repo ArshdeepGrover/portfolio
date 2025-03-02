@@ -13,6 +13,7 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
 import { ExperienceComponent } from './component/experience/experience.component';
 import { ServiceComponent } from './component/service/service.component';
 import { CertificationComponent } from './component/certification/certification.component';
+import { BadgesComponent } from 'src/app/component/badges/badges.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CertificationComponent } from './component/certification/certification.
     ExperienceComponent,
     ServiceComponent,
     CertificationComponent,
+    BadgesComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

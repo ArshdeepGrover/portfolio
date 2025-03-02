@@ -6,10 +6,10 @@ section {
   .experience {
     @apply cre-block cre-h-max cre-p-6 cre-bg-[#fff] cre-border cre-border-gray-100 cre-rounded-lg cre-text-center md:cre-text-left;
     .title {
-      @apply cre-mb-2 cre-text-2xl cre-font-bold cre-tracking-tight cre-text-gray-900;
+      @apply mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white-200;
     }
     .company {
-      @apply cre-font-normal cre-text-gray-700 dark:cre-text-gray-400;
+      @apply font-normal text-gray-700 dark:text-white-200;
     }
   }
 }

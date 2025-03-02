@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class NavbarComponent implements OnInit {
   highlight!: any;
   isScrolled = false;
+  isDarkMode = false;
 
   menu = [
     {
@@ -31,15 +33,20 @@ export class NavbarComponent implements OnInit {
       name: 'Experience',
       fragment: 'experience',
     },
+    // { name: 'Achievements', fragment: 'achievements' },
     {
       name: 'Service',
       fragment: 'service',
     },
   ];
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    public darkModeService: DarkModeService
+  ) {}
   ngOnInit(): void {
     this.checkFragment();
+    this.checkTheme();
   }
 
   checkFragment() {
@@ -50,6 +57,16 @@ export class NavbarComponent implements OnInit {
         this.highlight = 'home';
       }
     });
+  }
+
+  checkTheme() {
+    this.isDarkMode = this.darkModeService.isDarkMode();
+  }
+
+  toggleTheme(): void {
+    const isCurrentlyDark = this.darkModeService.isDarkMode();
+    this.darkModeService.toggleDarkMode(!isCurrentlyDark);
+    this.checkTheme();
   }
 
   @HostListener('window:scroll', [])

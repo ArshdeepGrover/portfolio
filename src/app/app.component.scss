@@ -1,13 +1,12 @@
 .main {
-  @apply cre-scroll-smooth cre-select-none;
-  scrollbar-color: red;
+  @apply scroll-smooth select-none bg-white-0 dark:bg-gray-700;
 }
 
 section:not(:first-child) > div {
-  @apply cre-container cre-mx-auto;
+  @apply container mx-auto;
 }
 
 section:not(:first-child) {
-  @apply cre-pt-10 cre-pb-16;
-  @apply cre-bg-gradient-to-b cre-from-gray-100/30;
+  @apply pt-10 pb-16;
+  @apply bg-gradient-to-b from-gray-100/30;
 }
