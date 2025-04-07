@@ -8,6 +8,7 @@
       <div *ngFor="let menuItems of menu">
         <a
           routerLink="."
+          [title]="menuItems.name"
           [fragment]="menuItems.fragment"
           [ngClass]="{ selected: highlight === menuItems.fragment }"
           >{{ menuItems.name }}</a

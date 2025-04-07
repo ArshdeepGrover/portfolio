@@ -1,0 +1,36 @@
+section {
+  h2 {
+    @apply text-6xl  mb-6  text-center  text-primary-500;
+  }
+
+  .certification-cards {
+    @apply grid  grid-cols-1 md:grid-cols-2  gap-4  mx-4 md:mx-0;
+    .certification-card {
+      @apply flex  flex-col md:flex-row md:gap-4   bg-[#fff]  border  border-gray-100  rounded-lg  h-max md:h-[218px];
+      .image {
+        @apply w-full md:w-1/2  overflow-hidden;
+        img {
+          @apply rounded-tl-lg  rounded-bl-lg;
+        }
+      }
+      .details {
+        @apply py-3  px-3 md:px-0  flex  flex-col  gap-4  justify-between  items-center md:items-start;
+        .credential-id {
+          @apply truncate  text-gray-300  text-center md:text-left;
+        }
+        .issue-date {
+          @apply text-center md:text-left;
+        }
+        .credential-link {
+          @apply text-primary-600  border  border-solid  border-primary-300  rounded  p-2  w-max  bg-primary-100/20 hover:bg-primary-100/40  cursor-pointer;
+          a {
+            @apply flex  gap-2;
+            svg {
+              @apply h-6  w-6;
+            }
+          }
+        }
+      }
+    }
+  }
+}
