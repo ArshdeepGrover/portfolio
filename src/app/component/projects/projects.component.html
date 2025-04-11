@@ -1,12 +1,15 @@
-<section>
+<section class="projects-section">
   <h2>My Works</h2>
-  <div>
-    <div class="image-wrap">
-      <a>
-        <img
-          src="/assets/images/screencapture-moviesearchapp-15aec-web-app-MSearch-2024-03-18-12_37_12.png"
-        />
-      </a>
+  <div class="projects-grid">
+    <div *ngFor="let project of projects" class="project-card">
+      <div class="card-image">
+        <img [src]="project.image" [alt]="project.name" />
+      </div>
+      <div class="card-content">
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.description }}</p>
+        <a [href]="project.link" target="_blank" class="btn">View Project</a>
+      </div>
     </div>
   </div>
 </section>

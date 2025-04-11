@@ -8,9 +8,9 @@ section {
     .certification-card {
       @apply flex  flex-col md:flex-row md:gap-4   bg-[#fff]  border  border-gray-100  rounded-lg  h-max md:h-[218px];
       .image {
-        @apply w-full md:w-1/2  overflow-hidden;
+        @apply w-full md:w-2/5  overflow-hidden;
         img {
-          @apply rounded-tl-lg  rounded-bl-lg;
+          @apply rounded-tl-lg  rounded-bl-lg h-full;
         }
       }
       .details {
@@ -22,11 +22,11 @@ section {
           @apply text-center md:text-left;
         }
         .credential-link {
-          @apply text-primary-600  border  border-solid  border-primary-300  rounded  p-2  w-max  bg-primary-100/20 hover:bg-primary-100/40  cursor-pointer;
+          @apply text-xs text-primary-600  border  border-solid  border-primary-300  rounded  p-2  w-max  bg-primary-100/20 hover:bg-primary-100/40  cursor-pointer;
           a {
             @apply flex  gap-2;
             svg {
-              @apply h-6  w-6;
+              @apply h-4  w-4;
             }
           }
         }
