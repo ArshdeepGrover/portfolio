@@ -8,7 +8,7 @@ section {
     .certification-card {
       @apply flex  flex-col md:flex-row md:gap-4   bg-[#fff]  border  border-gray-100  rounded-lg  h-max md:h-[218px];
       .image {
-        @apply w-full md:w-2/5  overflow-hidden;
+        @apply w-full md:w-auto  overflow-hidden;
         img {
           @apply rounded-tl-lg  rounded-bl-lg h-full;
         }

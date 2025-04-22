@@ -1,9 +1,9 @@
-<section>
-  <h1>Expertise In</h1>
-  <div class="services">
-    <div *ngFor="let service of services" class="service">
-      <p class="title">{{ service.title }}</p>
-      <p class="sub-title">{{ service.sub_title }}</p>
+<section class="expertise classic-section">
+  <h2 class="section-heading">Areas of Expertise</h2>
+  <div class="expertise-grid">
+    <div class="expertise-card" *ngFor="let item of services">
+      <h3 class="expertise-title">{{ item.title }}</h3>
+      <p class="expertise-desc">{{ item.sub_title }}</p>
     </div>
   </div>
 </section>

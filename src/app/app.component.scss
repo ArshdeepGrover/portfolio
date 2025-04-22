@@ -1,5 +1,5 @@
 .main {
-  @apply scroll-smooth select-none bg-white-0 dark:bg-gray-700;
+  @apply scroll-smooth select-none bg-white-0 dark:bg-gray-800;
 }
 
 section:not(:first-child) > div {
@@ -8,5 +8,9 @@ section:not(:first-child) > div {
 
 section:not(:first-child) {
   @apply pt-10 pb-16;
-  @apply bg-gradient-to-b from-gray-100/30;
+  // @apply bg-gradient-to-b from-gray-100/30;
+}
+
+.divider {
+  @apply bg-gradient-to-r from-[transparent] via-primary-200 to-[transparent] h-0.5 dark:h-[1px];
 }
