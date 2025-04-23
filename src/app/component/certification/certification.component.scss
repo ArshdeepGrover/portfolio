@@ -4,31 +4,34 @@ section {
   }
 
   .certification-cards {
-    @apply grid  grid-cols-1 md:grid-cols-2  gap-4  mx-4 md:mx-0;
+    @apply grid  grid-cols-1 md:grid-cols-3  gap-8  mx-4 md:mx-0;
     .certification-card {
-      @apply flex  flex-col md:flex-row md:gap-4   bg-[#fff]  border  border-gray-100  rounded-lg  h-max md:h-[218px];
+      @apply rounded-2xl  hover:shadow-xl transition duration-300 border border-solid cursor-pointer;
       .image {
         @apply w-full md:w-auto  overflow-hidden;
         img {
-          @apply rounded-tl-lg  rounded-bl-lg h-full;
+          @apply rounded-tl-2xl  rounded-tr-2xl h-full overflow-hidden;
         }
       }
       .details {
-        @apply py-3  px-3 md:px-0  flex  flex-col  gap-4  justify-between  items-center md:items-start;
-        .credential-id {
-          @apply truncate  text-gray-300  text-center md:text-left;
+        @apply px-4 py-3;
+        .title {
+          @apply text-xl font-semibold dark:text-white-0 text-gray-900 h-16;
         }
         .issue-date {
-          @apply text-center md:text-left;
+          @apply text-sm text-gray-400 mt-1;
+        }
+        .skills-container {
+          @apply mt-2 text-base text-primary-400;
+          ul {
+            @apply text-gray-300 flex;
+          }
+          li:not(:first-child):before {
+            content: ", ";
+          }
         }
         .credential-link {
-          @apply text-xs text-primary-600  border  border-solid  border-primary-300  rounded  p-2  w-max  bg-primary-100/20 hover:bg-primary-100/40  cursor-pointer;
-          a {
-            @apply flex  gap-2;
-            svg {
-              @apply h-4  w-4;
-            }
-          }
+          @apply text-xs text-primary-600  border  border-solid  border-primary-300  rounded-lg  p-2  w-max  bg-primary-100/20 hover:bg-primary-100/40  cursor-pointer dark:text-white-0 mt-4;
         }
       }
     }

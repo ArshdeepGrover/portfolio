@@ -1,20 +1,18 @@
 <section>
-  <h1>Skills</h1>
-  <div class="skills">
-    <div *ngFor="let skill of skills">
-      <div class="skill-image">
-        <img [src]="skill.src" [alt]="skill.name" [title]="skill.name" />
-        <span>{{ skill.name }}</span>
+  <h2>🛠 Skills</h2>
+
+  <div *ngFor="let group of skills" class="mb-7">
+    <h3 class="category-name">
+      {{ group.category }}
+    </h3>
+
+    <div class="skills-list">
+      <div *ngFor="let skill of group.items" class="skills">
+        <img [src]="skill.icon" [alt]="skill.name" class="skill-image" />
+        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{{
+          skill.name
+        }}</span>
       </div>
-      <div class="skill-name"></div>
-      <!-- <div
-          class="w-full bg-gray-200 rounded-full h-1.5"
-          >
-          <div
-          class="c h-1.5 rounded-full"
-          [ngStyle]="{ 'background-color': skill.color, width: skill.rating }"
-          ></div>
-        </div> -->
     </div>
   </div>
 </section>

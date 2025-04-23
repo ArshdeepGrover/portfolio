@@ -1,17 +1,20 @@
 section {
-  h1 {
+  h2 {
     @apply text-6xl mb-6 text-center text-primary-500;
   }
+  .category-name {
+    @apply text-xl text-primary-400 font-semibold;
+  }
+  .skills-list {
+    @apply grid grid-cols-3 sm:grid-cols-4 md:grid-cols-10 gap-3;
+  }
   .skills {
-    @apply mx-4 md:mx-0 flex flex-wrap gap-10 justify-center;
+    @apply flex flex-col items-center justify-center;
     .skill-image {
-      @apply my-2 flex justify-center w-20 aspect-square flex-col;
+      @apply my-2 flex justify-center w-20 aspect-square;
       span {
         @apply text-center dark:text-white-100;
       }
     }
-    // .skill-image:hover {
-    //   @apply scale-125;
-    // }
   }
 }
