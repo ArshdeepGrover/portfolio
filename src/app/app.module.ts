@@ -14,10 +14,12 @@ import { ExperienceComponent } from './component/experience/experience.component
 import { ServiceComponent } from './component/service/service.component';
 import { CertificationComponent } from './component/certification/certification.component';
 import { BadgesComponent } from 'src/app/component/badges/badges.component';
+import { HomePageComponent } from 'src/app/component/home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomePageComponent,
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
