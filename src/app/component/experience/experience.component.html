@@ -1,11 +1,11 @@
 <section>
   <h1>Experience</h1>
-  <div class="cre-grid cre-grid-cols-1 cre-gap-4 cre-mx-4 md:cre-mx-0">
+  <div class="grid grid-cols-1 gap-4 mx-4 md:mx-0">
     <div *ngFor="let experience of experiences">
       <div class="experience">
-        <div class="md:cre-flex cre-justify-between cre-items-center">
+        <div class="md:flex justify-between items-center">
           <p class="title">{{ experience.title }}</p>
-          <div class="cre-flex cre-flex-row  md:cre-justify-between cre-items-center">
+          <div class="flex flex-row md:justify-between items-center">
             <p class="start-date">{{ experience.start_date }} -&nbsp;</p>
             <p class="end-date">
               {{
@@ -16,7 +16,7 @@
             </p>
           </div>
         </div>
-        <div class="md:cre-flex cre-justify-between cre-items-center">
+        <div class="md:flex justify-between items-center">
           <p class="company">{{ experience.company }}</p>
           <p class="location">{{ experience.location }}</p>
         </div>

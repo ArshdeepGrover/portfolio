@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class", // Enables dark mode class-based toggle
   content: ["./src/**/*.{html,ts}"],
-  prefix: "cre-",
   theme: {
     colors: {
       white: {
+        0: "#ffffff",
         100: "#fffaf8",
         200: "#fff4f1",
         300: "#ffefeb",

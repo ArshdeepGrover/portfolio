@@ -1,1 +1,45 @@
-<router-outlet></router-outlet>
+<div class="main">
+  <div class="fixed top-0 w-full shadow-sm h-14">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="mt-14 cursor-grabbing">
+    <section>
+      <div [attr.id]="'home'">
+        <app-header></app-header>
+      </div>
+    </section>
+    <section>
+      <div [attr.id]="'skills'">
+        <app-skills></app-skills>
+      </div>
+    </section>
+    <section>
+      <div [attr.id]="'certification'">
+        <app-certification></app-certification>
+      </div>
+    </section>
+    <!-- <section>
+      <div [attr.id]="'projects'">
+        <app-projects></app-projects>
+      </div>
+    </section> -->
+    <section>
+      <div [attr.id]="'experience'">
+        <app-experience></app-experience>
+      </div>
+    </section>
+    <!-- <section>
+      <div [attr.id]="'achievements'">
+        <app-badges></app-badges>
+      </div>
+    </section> -->
+    <section>
+      <div [attr.id]="'service'">
+        <app-service></app-service>
+      </div>
+    </section>
+  </div>
+  <div>
+    <app-footer></app-footer>
+  </div>
+</div>
