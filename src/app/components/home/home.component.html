@@ -1,0 +1,149 @@
+<section class="hero min-h-screen flex items-center bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4 py-16">
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white" data-aos="fade-up">
+          Hi, I'm <span class="text-primary">Arshdeep Singh</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300" data-aos="fade-up" data-aos-delay="100">
+          Full Stack Developer & UI/UX Enthusiast
+        </p>
+        <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-lg" data-aos="fade-up" data-aos-delay="200">
+          I build modern web applications with cutting-edge technologies and create seamless user experiences.
+        </p>
+        <div class="flex space-x-4" data-aos="fade-up" data-aos-delay="300">
+          <a routerLink="/projects" class="px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors duration-300">
+            View Projects
+          </a>
+          <a routerLink="/contact" class="px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-white rounded-md transition-colors duration-300">
+            Contact Me
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2" data-aos="fade-left" data-aos-delay="400">
+        <div class="relative">
+          <div class="absolute -top-6 -left-6 w-64 h-64 bg-primary/20 rounded-full filter blur-xl"></div>
+          <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-blue-500/20 rounded-full filter blur-xl"></div>
+          <img [src]="'/assets/images/arshdeep.png'" alt="Arshdeep Singh" class="relative z-10 w-full max-w-lg mx-auto">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-gray-50 dark:bg-gray-800">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-16 text-gray-900 dark:text-white" data-aos="fade-up">
+      Featured <span class="text-primary">Projects</span>
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <img src="/assets/images/arshdeep.png" alt="Project 1" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">E-Commerce Platform</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">A full-featured online shopping platform with payment integration.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">Angular</span>
+            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">Node.js</span>
+            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">MongoDB</span>
+          </div>
+          <a href="#" class="text-primary hover:text-primary-dark transition-colors duration-300">View Project →</a>
+        </div>
+      </div>
+      
+      <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <img src="/assets/images/arshdeep.png" alt="Project 2" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Task Management App</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">A collaborative task management application with real-time updates.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">React</span>
+            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">Firebase</span>
+            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">Tailwind</span>
+          </div>
+          <a href="#" class="text-primary hover:text-primary-dark transition-colors duration-300">View Project →</a>
+        </div>
+      </div>
+      
+      <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+        <img src="/assets/images/arshdeep.png" alt="Project 3" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Portfolio Website</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">A responsive portfolio website with modern animations and dark mode.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">Angular</span>
+            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">Tailwind</span>
+            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">AOS</span>
+          </div>
+          <a href="#" class="text-primary hover:text-primary-dark transition-colors duration-300">View Project →</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-12">
+      <a routerLink="/projects" class="inline-block px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors duration-300" data-aos="fade-up">
+        View All Projects
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+        <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+          Let's work <span class="text-primary">together</span>
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-lg">
+          I'm currently available for freelance work or full-time positions. 
+          If you're interested in working together, let's connect!
+        </p>
+        <a routerLink="/contact" class="inline-block px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors duration-300">
+          Get in Touch
+        </a>
+      </div>
+      <div class="md:w-1/2" data-aos="fade-left">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+            <div class="text-primary text-4xl mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Web Development</h3>
+            <p class="text-gray-600 dark:text-gray-400">Modern, responsive websites and web applications.</p>
+          </div>
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+            <div class="text-primary text-4xl mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">UI/UX Design</h3>
+            <p class="text-gray-600 dark:text-gray-400">User-centered design with intuitive interfaces.</p>
+          </div>
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+            <div class="text-primary text-4xl mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Mobile Development</h3>
+            <p class="text-gray-600 dark:text-gray-400">Cross-platform mobile applications.</p>
+          </div>
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+            <div class="text-primary text-4xl mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Data Visualization</h3>
+            <p class="text-gray-600 dark:text-gray-400">Interactive charts and data dashboards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

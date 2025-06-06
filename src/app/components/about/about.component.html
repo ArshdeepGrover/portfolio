@@ -1,0 +1,66 @@
+<section class="py-20 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h1 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white" data-aos="fade-up">
+        About <span class="text-primary">Me</span>
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
+        I'm a passionate full-stack developer with expertise in modern web technologies.
+        I love creating beautiful, functional, and user-friendly applications.
+      </p>
+    </div>
+
+    <div class=" mb-20">
+      <div data-aos="fade-right">
+        <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">My Journey</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          With over 6 years of experience in web development, I've worked on a variety of projects ranging from small business websites to complex enterprise applications.
+        </p>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          My passion for coding started when I was in college, and since then, I've been constantly learning and improving my skills to stay up-to-date with the latest technologies and best practices.
+        </p>
+        <p class="text-gray-600 dark:text-gray-400">
+          I believe in writing clean, maintainable code and creating intuitive user experiences. My goal is to build applications that not only look great but also perform exceptionally well.
+        </p>
+      </div>
+      <!-- <div class="md:w-1/2" data-aos="fade-left">
+        <div class="relative h-full">
+          <div class="absolute top-4 left-4 w-full h-full bg-primary/20 rounded-lg"></div>
+          <img src="assets/images/about-image.jpg" alt="Arshdeep Singh" class="relative z-10 w-full h-full object-cover rounded-lg shadow-lg">
+        </div>
+      </div> -->
+    </div>
+
+    <div class="mb-20" data-aos="fade-up">
+      <h2 class="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Work Experience</h2>
+      <div class="space-y-8">
+        <div *ngFor="let exp of experiences; let i = index" class="relative pl-8 pb-8 border-l-2 border-gray-200 dark:border-gray-700" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 100">
+          <div class="absolute left-[-8px] top-0 w-4 h-4 rounded-full bg-primary"></div>
+          <h3 class="text-xl font-bold mb-1 text-gray-900 dark:text-white">{{ exp.title }}</h3>
+          <div class="flex items-center mb-2">
+            <span class="text-primary font-medium">{{ exp.company }}</span>
+            <span class="mx-2 text-gray-400">•</span>
+            <span class="text-gray-500 dark:text-gray-400">{{ exp.period }}</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400">{{ exp.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-aos="fade-up">
+      <h2 class="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Education</h2>
+      <div class="space-y-8">
+        <div *ngFor="let edu of education; let i = index" class="relative pl-8 pb-8 border-l-2 border-gray-200 dark:border-gray-700" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 100">
+          <div class="absolute left-[-8px] top-0 w-4 h-4 rounded-full bg-primary"></div>
+          <h3 class="text-xl font-bold mb-1 text-gray-900 dark:text-white">{{ edu.degree }}</h3>
+          <div class="flex items-center mb-2">
+            <span class="text-primary font-medium">{{ edu.institution }}</span>
+            <span class="mx-2 text-gray-400">•</span>
+            <span class="text-gray-500 dark:text-gray-400">{{ edu.year }}</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400">{{ edu.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

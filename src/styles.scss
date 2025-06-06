@@ -1,12 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'aos/dist/aos.css';
 
-body::-webkit-scrollbar {
-  width: 6px; /* width of the entire scrollbar */
+:root {
+  --primary-color: #FF7955;
+  --primary-light: #FF9B80;
+  --primary-dark: #E65E3B;
 }
 
-body::-webkit-scrollbar-thumb {
-  @apply bg-primary-200 dark:bg-gray-500 rounded-full;
+body {
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.dark {
+  @apply bg-gray-900 text-white;
+}
+
+.light {
+  @apply bg-white text-gray-900;
 }

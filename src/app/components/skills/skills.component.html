@@ -1,0 +1,66 @@
+<section class="py-20 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h1
+        class="text-4xl font-bold mb-6 text-gray-900 dark:text-white"
+        data-aos="fade-up"
+      >
+        My <span class="text-primary">Skills</span>
+      </h1>
+      <p
+        class="text-lg text-gray-600 dark:text-gray-400"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Here are the technologies and tools I work with. I'm constantly learning
+        and expanding my skill set.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div
+        *ngFor="let category of skillCategories; let i = index"
+        [attr.data-aos]="'fade-up'"
+        [attr.data-aos-delay]="i * 100"
+      >
+        <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+          {{ category.name }}
+        </h2>
+        <div class="space-y-6">
+          <div *ngFor="let skill of category.skills" class="skill-item">
+            <div class="flex justify-between mb-2">
+              <span class="font-medium text-gray-700 dark:text-gray-300">{{
+                skill.name
+              }}</span>
+              <span class="text-primary">{{ skill.level }}%</span>
+            </div>
+            <div
+              class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"
+            >
+              <div
+                class="skill-progress-bar h-full bg-primary rounded-full w-0"
+                [attr.data-width]="skill.level"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-20" data-aos="fade-up">
+      <h2
+        class="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white"
+      >
+        Other Technologies I've Worked With
+      </h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div
+          class="px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300"
+          *ngFor="let skill of otherSkills"
+        >
+          {{ skill }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

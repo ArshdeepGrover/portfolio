@@ -1,59 +1,54 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { SchemaMarkupService } from 'src/app/services/schema-markup.service';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private schemaMarkupService: SchemaMarkupService
-  ) {}
+  title = 'arshdeep-portfolio';
+  isDarkMode = false;
+  currentYear = new Date().getFullYear();
+  
+  navItems = [
+    { label: 'Home', route: '/' },
+    { label: 'About', route: '/about' },
+    { label: 'Projects', route: '/projects' },
+    { label: 'Skills', route: '/skills' },
+    { label: 'Contact', route: '/contact' }
+  ];
 
-  ngOnInit(): void {
-    this.checkFragment();
-    this.schema();
-  }
-
-  checkFragment() {
-    this.activatedRoute.fragment.subscribe((fragment) => {
-      if (fragment) {
-        this.scrollAuto(fragment);
-      }
+  ngOnInit() {
+    // Initialize AOS animation library
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
     });
+
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      this.isDarkMode = true;
+      document.documentElement.classList.add('dark');
+    }
   }
 
-  scrollAuto(elementId: string): void {
-    const element = document.getElementById(elementId);
-    if (element)
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'start',
-      });
-  }
-
-  schema() {
-    this.schemaMarkupService.setSchema({
-      '@context': 'https://schema.org/',
-      '@type': 'Person',
-      name: 'Arshdeep Singh',
-      url: 'https://arshdeep-singh.vercel.app/',
-      image:
-        'https://arshdeep-singh.vercel.app/assets/images/ArshdeepSingh.png',
-      sameAs: [
-        'https://www.linkedin.com/in/arshdeepgrover/',
-        'https://github.com/ArshdeepGrover',
-        'https://arshdeep-singh.vercel.app/',
-      ],
-      jobTitle: 'Software Developer Engineer',
-      worksFor: {
-        '@type': 'Organization',
-        name: 'Commudle',
-      },
-    });
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    if (this.isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
   }
 }

@@ -1,0 +1,55 @@
+<section class="py-20 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h1 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white" data-aos="fade-up">
+        My <span class="text-primary">Projects</span>
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
+        Here are some of the projects I've worked on. Each project represents a unique challenge and solution.
+      </p>
+    </div>
+
+    <div class="flex justify-center mb-12" data-aos="fade-up">
+      <div class="inline-flex flex-wrap justify-center gap-2">
+        <button *ngFor="let category of categories" 
+                (click)="filterProjects(category)"
+                [class.bg-primary]="selectedCategory === category"
+                [class.text-white]="selectedCategory === category"
+                [class.bg-gray-100]="selectedCategory !== category"
+                [class.dark:bg-gray-800]="selectedCategory !== category"
+                [class.text-gray-800]="selectedCategory !== category"
+                [class.dark:text-gray-200]="selectedCategory !== category"
+                class="px-4 py-2 rounded-full transition-colors duration-300">
+          {{ category }}
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let project of projects; let i = index" 
+           class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+           [attr.data-aos]="'fade-up'" 
+           [attr.data-aos-delay]="i * 100">
+        <div class="relative">
+          <img [src]="project.image" [alt]="project.title" class="w-full h-56 object-cover">
+          <div class="absolute top-4 right-4" *ngIf="project.featured">
+            <span class="bg-primary text-white text-xs px-2 py-1 rounded-full">Featured</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">{{ project.title }}</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">{{ project.description }}</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span *ngFor="let tech of project.technologies" class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full text-sm">
+              {{ tech }}
+            </span>
+          </div>
+          <div class="flex justify-between">
+            <a [href]="project.demoLink" class="text-primary hover:text-primary-dark transition-colors duration-300">Live Demo</a>
+            <a [href]="project.codeLink" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-300">View Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
