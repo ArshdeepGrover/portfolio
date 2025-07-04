@@ -6,17 +6,16 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   isDarkMode = false;
-  
+
   navItems = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
     { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact' }
   ];
 
   toggleTheme() {
@@ -33,8 +32,10 @@ export class HeaderComponent {
   ngOnInit() {
     // Check for saved theme preference or use system preference
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+    const systemPrefersDark = window.matchMedia(
+      '(prefers-color-scheme: light)'
+    ).matches;
+
     if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
       this.isDarkMode = true;
       document.documentElement.classList.add('dark');

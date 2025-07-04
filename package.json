@@ -27,6 +27,7 @@
     "@angular-devkit/build-angular": "^18.2.14",
     "@angular/cli": "^18.2.14",
     "@angular/compiler-cli": "^18.2.0",
+    "@types/aos": "^3.0.7",
     "@types/jasmine": "~5.1.0",
     "autoprefixer": "^10.4.21",
     "jasmine-core": "~5.2.0",
