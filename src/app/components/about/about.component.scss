@@ -1,0 +1,67 @@
+.about-section {
+  @apply py-20 bg-gray-50 dark:bg-gray-800;
+}
+
+.about-container {
+  @apply container mx-auto px-4;
+}
+
+.about-header {
+  @apply max-w-3xl mx-auto text-center mb-16;
+}
+
+.about-title {
+  @apply text-3xl font-bold mb-6 text-gray-900 dark:text-white;
+}
+
+.title-highlight {
+  @apply text-primary;
+}
+
+.experience-section {
+  @apply mb-20;
+}
+
+.education-section {
+  // No additional styles needed, inherits from parent
+}
+
+.section-title {
+  @apply text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white;
+}
+
+.timeline {
+  @apply space-y-8;
+}
+
+.timeline-item {
+  @apply relative pl-8 pb-8 border-l-2 border-gray-200 dark:border-gray-700;
+}
+
+.timeline-marker {
+  @apply absolute left-[-8px] top-0 w-4 h-4 rounded-full bg-primary;
+}
+
+.item-title {
+  @apply text-xl font-bold mb-1 text-gray-900 dark:text-white;
+}
+
+.item-meta {
+  @apply flex items-center mb-2;
+}
+
+.company-name {
+  @apply text-primary font-medium;
+}
+
+.meta-separator {
+  @apply mx-2 text-gray-400;
+}
+
+.period {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.item-description {
+  @apply text-gray-600 dark:text-gray-400;
+}

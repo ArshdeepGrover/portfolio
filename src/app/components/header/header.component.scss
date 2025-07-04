@@ -1,0 +1,68 @@
+.header {
+  @apply sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md;
+}
+
+.nav {
+  @apply container mx-auto px-4 py-4 flex justify-between items-center;
+}
+
+.logo {
+  @apply text-2xl font-bold text-primary;
+}
+
+.logo-extension {
+  @apply text-black dark:text-white;
+}
+
+.desktop-nav {
+  @apply hidden md:flex items-center space-x-6;
+}
+
+.nav-link {
+  @apply hover:text-primary transition-colors duration-300 text-gray-700 dark:text-gray-300;
+}
+
+.theme-toggle {
+  @apply p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 focus:outline-none;
+}
+
+.theme-icon {
+  @apply h-5 w-5;
+}
+
+.sun-icon {
+  @apply text-yellow-400;
+}
+
+.moon-icon {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.mobile-controls {
+  @apply md:hidden flex items-center space-x-2;
+}
+
+.mobile-theme {
+  @apply mr-2;
+}
+
+.mobile-menu-toggle {
+  @apply text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 focus:outline-none;
+}
+
+.menu-icon {
+  @apply h-6 w-6;
+}
+
+.mobile-menu {
+  @apply md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 ease-in-out;
+  max-height: 0;
+  
+  &.mobile-menu-open {
+    max-height: 300px;
+  }
+}
+
+.mobile-nav-link {
+  @apply block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary transition-colors duration-300;
+}

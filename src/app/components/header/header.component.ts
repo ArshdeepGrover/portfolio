@@ -10,10 +10,11 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   isDarkMode = false;
+  isMobileMenuOpen = false;
 
   navItems = [
     { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
+    { label: 'Experience', href: '#experience' },
     { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
   ];
@@ -29,11 +30,19 @@ export class HeaderComponent {
     }
   }
 
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+  }
+
   ngOnInit() {
     // Check for saved theme preference or use system preference
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia(
-      '(prefers-color-scheme: light)'
+      '(prefers-color-scheme: dark)'
     ).matches;
 
     if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
