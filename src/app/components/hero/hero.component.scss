@@ -29,7 +29,27 @@
 }
 
 .hero-description {
-  @apply text-gray-600 dark:text-gray-400 mb-8 max-w-lg;
+  @apply text-gray-600 dark:text-gray-400 mb-6 max-w-lg;
+}
+
+.hero-highlights {
+  @apply grid grid-cols-2 md:grid-cols-3 gap-4 mb-8 max-w-lg;
+}
+
+.highlight-item {
+  @apply flex items-center space-x-2 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg;
+}
+
+.highlight-number {
+  @apply text-lg font-bold text-primary;
+}
+
+.highlight-icon {
+  @apply text-lg;
+}
+
+.highlight-text {
+  @apply text-sm font-medium text-gray-700 dark:text-gray-300;
 }
 
 .hero-actions {
