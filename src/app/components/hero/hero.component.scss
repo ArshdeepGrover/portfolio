@@ -1,28 +1,71 @@
 .hero {
+  @apply min-h-screen flex items-center bg-white dark:bg-gray-900;
   position: relative;
   overflow: hidden;
+}
+
+.hero-container {
+  @apply container mx-auto px-4 py-16;
+}
+
+.hero-content {
+  @apply flex flex-col md:flex-row items-center;
+}
+
+.hero-text {
+  @apply md:w-1/2 mb-10 md:mb-0;
+}
+
+.hero-title {
+  @apply text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white;
+}
+
+.hero-name {
+  @apply text-primary;
+}
+
+.hero-subtitle {
+  @apply text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300;
+}
+
+.hero-description {
+  @apply text-gray-600 dark:text-gray-400 mb-8 max-w-lg;
+}
+
+.hero-actions {
+  @apply flex space-x-4;
+}
+
+.hero-button {
+  @apply px-6 py-3 bg-primary text-white rounded-md transition-colors duration-300;
   
-  &::before {
-    content: '';
-    position: absolute;
-    top: -10%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,121,85,0.1) 0%, rgba(255,121,85,0) 70%);
-    z-index: 0;
+  &:hover {
+    @apply bg-primary-dark;
+  }
+}
+
+.hero-image {
+  @apply md:w-1/2;
+}
+
+.hero-image-container {
+  @apply relative;
+  
+  .bg-blur-1 {
+    @apply absolute -top-6 -left-6 w-64 h-64 bg-primary/20 rounded-full;
+    filter: blur(60px);
   }
   
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -10%;
-    left: -10%;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,121,85,0.1) 0%, rgba(255,121,85,0) 70%);
-    z-index: 0;
+  .bg-blur-2 {
+    @apply absolute -bottom-10 -right-10 w-72 h-72 bg-blue-500/20 rounded-full;
+    filter: blur(60px);
   }
+}
+
+.hero-image-wrapper {
+  @apply relative z-10 w-full max-w-lg mx-auto overflow-hidden aspect-square;
+}
+
+.hero-profile-image {
+  @apply w-full h-full object-cover rounded-full;
 }
