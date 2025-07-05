@@ -1,82 +1,74 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
+  constructor(private sanitizer: DomSanitizer) {}
+
+  getSafeUrl(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
   projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online shopping platform with payment integration, user authentication, and admin dashboard.',
-      image: 'https://via.placeholder.com/600x400/FF7955/FFFFFF?text=E-Commerce+Platform',
-      technologies: ['Angular', 'Node.js', 'MongoDB', 'Express', 'Stripe API'],
-      demoLink: '#',
-      codeLink: '#',
-      featured: true
+      title: '🚀 Groupix Spinner – A Customizable Web App Loader Component',
+      description:
+        'Groupix Spinner is a lightweight, zero-dependency spinner (loader) component library designed to improve user experience during loading states in modern web applications. It provides developers with a suite of vibrant, responsive, and highly customizable CSS-based loading animations that can be easily integrated into Web App project.',
+      image: '/project-images/groupix-lib.png',
+      iframe:
+        'https://groupix-spinner.vercel.app/spinner?utm_source=portfolio&utm_medium=profile&utm_campaign=groupix_spinner',
+      technologies: [
+        'Angular',
+        'TypeScript',
+        'Animation',
+        'Open-Source Development',
+        'NPM',
+        'Web App',
+      ],
+      demoLink:
+        'https://groupix-spinner.vercel.app/?utm_source=portfolio&utm_medium=profile&utm_campaign=groupix_spinner',
+      codeLink: 'https://github.com/ArshdeepGrover/groupix-spinner-library',
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, task assignments, and progress tracking.',
-      image: 'https://via.placeholder.com/600x400/FF7955/FFFFFF?text=Task+Management+App',
-      technologies: ['React', 'Firebase', 'Tailwind CSS', 'Redux'],
-      demoLink: '#',
-      codeLink: '#',
-      featured: true
+      title:
+        '🚀 TextTransformer – A Chrome Extension for Instant Text Case Conversion',
+      description:
+        'TextTransformer is a Chrome extension built to simplify text case transformations for developers, writers, and productivity enthusiasts. Designed with an intuitive tabbed interface and real-time conversion display, the tool makes it easy to switch between case styles such as camelCase, snake_case, Title Case, and more.',
+      image: '/project-images/text-transformation.png',
+      technologies: [
+        'JavaScript',
+        'Chrome Extensions',
+        'Text Processing',
+        'HTML',
+        'CSS',
+      ],
+      demoLink: 'https://github.com/ArshdeepGrover/TextTransformer-Chrome',
+      codeLink: 'https://github.com/ArshdeepGrover/TextTransformer-Chrome',
     },
     {
       id: 3,
-      title: 'Portfolio Website',
-      description: 'A responsive portfolio website with modern animations, dark mode, and contact form integration.',
-      image: 'https://via.placeholder.com/600x400/FF7955/FFFFFF?text=Portfolio+Website',
-      technologies: ['Angular', 'Tailwind CSS', 'AOS', 'TypeScript'],
-      demoLink: '#',
-      codeLink: '#',
-      featured: true
+      title: 'CineScope – Discover and Explore Movies Instantly',
+      description:
+        'CineScope is a modern, responsive movie search and discovery web application that enables users to quickly explore detailed movie information with speed and style. Designed for both casual movie lovers and tech-savvy users, CineScope delivers a smooth, app-like experience that makes finding the right film fast and enjoyable. Powered by the OMDb API',
+      image: '/project-images/cine-scope.png',
+      technologies: [
+        'Angular',
+        'Tailwind CSS',
+        'OMDb API ',
+        'TypeScript',
+        'Vercel',
+        'Movie Search',
+      ],
+      demoLink: 'https://cinescope-lyart.vercel.app/Movies',
+      codeLink: 'https://github.com/ArshdeepGrover/movies-details',
     },
-    {
-      id: 4,
-      title: 'Weather Dashboard',
-      description: 'A weather application that displays current and forecasted weather data for any location.',
-      image: 'https://via.placeholder.com/600x400/FF7955/FFFFFF?text=Weather+Dashboard',
-      technologies: ['JavaScript', 'HTML/CSS', 'Weather API', 'Chart.js'],
-      demoLink: '#',
-      codeLink: '#',
-      featured: false
-    },
-    {
-      id: 5,
-      title: 'Blog Platform',
-      description: 'A content management system for creating and managing blog posts with user authentication.',
-      image: 'https://via.placeholder.com/600x400/FF7955/FFFFFF?text=Blog+Platform',
-      technologies: ['Vue.js', 'Node.js', 'MySQL', 'Express'],
-      demoLink: '#',
-      codeLink: '#',
-      featured: false
-    },
-    {
-      id: 6,
-      title: 'Fitness Tracker',
-      description: 'A mobile-responsive application for tracking workouts, nutrition, and fitness progress.',
-      image: 'https://via.placeholder.com/600x400/FF7955/FFFFFF?text=Fitness+Tracker',
-      technologies: ['React Native', 'Firebase', 'Redux', 'Chart.js'],
-      demoLink: '#',
-      codeLink: '#',
-      featured: false
-    }
   ];
-
-  categories = ['All', 'Web App', 'Mobile App', 'UI/UX', 'Other'];
-  selectedCategory = 'All';
-
-  filterProjects(category: string) {
-    this.selectedCategory = category;
-    // In a real application, you would filter projects based on category
-  }
 }
