@@ -1,0 +1,31 @@
+.footer {
+  @apply bg-gray-100 dark:bg-gray-800 py-8;
+}
+
+.footer-container {
+  @apply container mx-auto px-4;
+}
+
+.footer-content {
+  @apply flex flex-col md:flex-row justify-between items-center;
+}
+
+.footer-text {
+  @apply mb-4 md:mb-0;
+}
+
+.copyright {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+.footer-social {
+  @apply flex space-x-4;
+}
+
+.footer-social-link {
+  @apply text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-300;
+}
+
+.social-icon {
+  @apply h-6 w-6;
+}

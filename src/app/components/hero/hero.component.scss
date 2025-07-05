@@ -64,6 +64,18 @@
   }
 }
 
+.hero-social {
+  @apply flex space-x-4 mt-6;
+}
+
+.social-link {
+  @apply w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors duration-300;
+}
+
+.social-icon {
+  @apply w-5 h-5;
+}
+
 .hero-image {
   @apply md:w-1/2;
 }
