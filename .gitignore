@@ -46,3 +46,7 @@ Thumbs.db
 # Amazon Q
 .amazonq/
 .amazonq/*
+
+#cursor
+.cursor/
+.cursor/*
