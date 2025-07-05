@@ -1,43 +1,101 @@
 <section id="skills" class="py-20 bg-white dark:bg-gray-900">
   <div class="container mx-auto px-4">
-    <div class="max-w-3xl mx-auto text-center mb-16">
-      <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white" data-aos="fade-up">
-        My <span class="text-primary">Skills</span>
+    <div class="max-w-6xl mx-auto text-center mb-16">
+      <h2
+        class="text-4xl font-bold mb-6 text-gray-900 dark:text-white"
+        data-aos="fade-up"
+      >
+        My <span class="text-primary">Skills</span> & Expertise
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
-        Here are the technologies and tools I work with. I'm constantly learning and expanding my skill set.
+      <p
+        class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        A comprehensive overview of the technologies and tools I've mastered
+        through years of hands-on experience. I'm constantly expanding my skill
+        set to stay current with industry trends.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-      <div *ngFor="let category of skillCategories; let i = index" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 100">
-        <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">{{ category.name }}</h3>
-        <div class="space-y-6">
-          <div *ngFor="let skill of category.skills" class="skill-item">
-            <div class="flex justify-between mb-2">
-              <span class="font-medium text-gray-700 dark:text-gray-300">{{ skill.name }}</span>
-              <span class="text-primary">{{ skill.level }}%</span>
+    <!-- Skill Categories -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+      <div
+        *ngFor="let category of skillCategories; let i = index"
+        [attr.data-aos]="'fade-up'"
+        [attr.data-aos-delay]="i * 150"
+        class="skill-category"
+      >
+        <!-- Category Header -->
+        <div class="category-header">
+          <span class="category-icon">{{ category.icon }}</span>
+          <div>
+            <h3 class="category-title">
+              {{ category.name }}
+            </h3>
+            <p class="category-description">
+              {{ category.description }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Skills List -->
+        <div class="skills-container">
+          <div
+            *ngFor="let skill of category.skills"
+            class="skill-card"
+            (click)="selectSkill(skill)"
+          >
+            <!-- Skill Header -->
+            <div class="skill-header">
+              <div class="skill-info">
+                <span class="skill-icon">{{ skill.icon }}</span>
+                <div>
+                  <h4 class="skill-name">
+                    {{ skill.name }}
+                  </h4>
+                  <div class="skill-badge-container">
+                    <span
+                      class="skill-badge"
+                      [ngClass]="getProficiencyColor(skill.proficiency)"
+                    >
+                      {{ getProficiencyBadge(skill.proficiency) }}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-              <div class="skill-progress-bar h-full bg-primary rounded-full w-0" [attr.data-width]="skill.level"></div>
+
+            <!-- Skill Description (on hover) -->
+            <div class="skill-description">
+              {{ skill.description }}
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Other Technologies Section -->
     <div class="mt-20" data-aos="fade-up">
-      <h3 class="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white">Other Technologies I've Worked With</h3>
-      <div class="flex flex-wrap justify-center gap-4">
-        <div class="px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300">GraphQL</div>
-        <div class="px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300">Redux</div>
-        <div class="px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300">Next.js</div>
-        <div class="px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300">Webpack</div>
-        <div class="px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300">Jest</div>
-        <div class="px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300">Cypress</div>
-        <div class="px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300">Storybook</div>
-        <div class="px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300">Bootstrap</div>
-        <div class="px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300">Material UI</div>
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+          Additional Technologies
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Technologies and tools I've worked with and continue to explore for
+          various projects.
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 max-w-6xl mx-auto"
+      >
+        <div *ngFor="let tech of otherTechnologies" class="tech-card">
+          <div class="tech-icon">{{ tech.icon }}</div>
+          <div class="tech-name">
+            {{ tech.name }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
