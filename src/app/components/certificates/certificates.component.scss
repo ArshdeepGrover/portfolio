@@ -1,0 +1,63 @@
+.certificates-section {
+  @apply py-20 bg-white dark:bg-gray-900;
+}
+
+.certificates-container {
+  @apply container mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.certificates-header {
+  @apply max-w-3xl mx-auto text-center mb-16;
+}
+
+.certificates-title {
+  @apply text-3xl sm:text-4xl font-bold mb-6 text-gray-900 dark:text-white;
+}
+
+.title-highlight {
+  @apply text-primary;
+}
+
+.certificates-description {
+  @apply text-lg text-gray-600 dark:text-gray-300 leading-relaxed;
+}
+
+.certificates-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.certificate-card {
+  @apply bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700;
+}
+
+.certificate-image-container {
+  @apply relative overflow-hidden h-48;
+}
+
+.certificate-image {
+  @apply w-full h-full object-contain bg-white;
+}
+
+.certificate-content {
+  @apply p-6;
+}
+
+.certificate-title {
+  @apply text-xl font-bold mb-2 text-gray-900 dark:text-white;
+}
+
+.certificate-issuer {
+  @apply text-primary font-medium mb-1;
+}
+
+.certificate-date {
+  @apply text-gray-500 dark:text-gray-400 text-sm mb-3;
+}
+
+.certificate-description {
+  @apply text-gray-600 dark:text-gray-300 mb-4 leading-relaxed;
+}
+
+.certificate-link {
+  @apply inline-flex items-center px-4 py-2 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark transition-colors duration-300;
+}

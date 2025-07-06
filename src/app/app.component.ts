@@ -7,6 +7,7 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import AOS from 'aos';
+import { CertificatesComponent } from './components/certificates/certificates.component';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ import AOS from 'aos';
     SkillsComponent,
     ProjectsComponent,
     FooterComponent,
+    CertificatesComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

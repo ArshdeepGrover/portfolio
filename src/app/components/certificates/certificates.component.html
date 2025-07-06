@@ -1,0 +1,43 @@
+<section id="certificates" class="certificates-section">
+  <div class="certificates-container">
+    <div class="certificates-header">
+      <h2 class="certificates-title" data-aos="fade-up">
+        <span class="title-highlight">Certificates</span>
+      </h2>
+      <p class="certificates-description" data-aos="fade-up" data-aos-delay="100">
+        Professional certifications and achievements that validate my expertise and commitment to continuous learning.
+      </p>
+    </div>
+
+    <div class="certificates-grid">
+      <div
+        *ngFor="let certificate of certificates; let i = index"
+        class="certificate-card"
+        [attr.data-aos]="'fade-up'"
+        [attr.data-aos-delay]="i * 100"
+      >
+        <div class="certificate-image-container">
+          <img
+            [src]="certificate.image"
+            [alt]="certificate.title"
+            class="certificate-image"
+          />
+        </div>
+        <div class="certificate-content">
+          <h3 class="certificate-title">{{ certificate.title }}</h3>
+          <p class="certificate-issuer">{{ certificate.issuer }}</p>
+          <p class="certificate-date">{{ certificate.date }}</p>
+          <p class="certificate-description">{{ certificate.description }}</p>
+          <a 
+            *ngIf="certificate.credentialUrl" 
+            [href]="certificate.credentialUrl" 
+            target="_blank" 
+            class="certificate-link"
+          >
+            View Credential
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
