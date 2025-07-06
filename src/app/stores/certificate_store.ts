@@ -39,8 +39,7 @@ export const certificates: ICertificate[] = [
     date: 'Jun 2019 - Sep 2019',
     description:
       'Frontend development certification covering HTML, CSS, JavaScript, and modern frontend frameworks.',
-    image:
-      'https://ninjasfiles.s3.amazonaws.com/certificate26888380bd48343dc7bf43df1f5d10e5ea92b0.pdf',
+    image: '/certificates/cn_frontend.jpg',
     credentialUrl:
       'https://ninjasfiles.s3.amazonaws.com/certificate26888380bd48343dc7bf43df1f5d10e5ea92b0.pdf',
   },
@@ -51,7 +50,7 @@ export const certificates: ICertificate[] = [
     date: 'Jul 2018',
     description:
       'Java programming fundamentals with focus on data structures, algorithms, and object-oriented programming.',
-    image: '/certificates/java-coding-ninjas.png',
+    image: '/certificates/cn_java.jpg',
     credentialUrl:
       'https://ninjasfiles.s3.amazonaws.com/certificate26466c018bc8d2b8be2e1afa4bed9e0e37346.pdf',
   },
