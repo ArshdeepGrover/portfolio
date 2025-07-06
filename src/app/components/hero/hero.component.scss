@@ -53,7 +53,7 @@
 }
 
 .hero-actions {
-  @apply flex space-x-4;
+  @apply flex flex-col sm:flex-row gap-4;
 }
 
 .hero-button {
@@ -62,6 +62,18 @@
   &:hover {
     @apply bg-primary-dark;
   }
+}
+
+.resume-button {
+  @apply inline-flex items-center px-6 py-3 bg-transparent border-2 border-primary text-primary rounded-md transition-all duration-300;
+  
+  &:hover {
+    @apply bg-primary text-white;
+  }
+}
+
+.button-icon {
+  @apply w-4 h-4 mr-2;
 }
 
 .hero-social {
