@@ -6,7 +6,8 @@ import { AboutComponent } from './components/about/about.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component';
-// import { CertificatesComponent } from './components/certificates/certificates.component';
+import { CertificatesComponent } from './components/certificates/certificates.component';
+import { BlogsComponent } from "./components/blogs/blogs.component";
 
 @Component({
   selector: 'app-root',
@@ -19,8 +20,9 @@ import { FooterComponent } from './components/footer/footer.component';
     SkillsComponent,
     ProjectsComponent,
     FooterComponent,
-    // CertificatesComponent
-  ],
+    CertificatesComponent,
+    BlogsComponent
+],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

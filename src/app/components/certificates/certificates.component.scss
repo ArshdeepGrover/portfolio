@@ -1,25 +1,21 @@
 .certificates-section {
-  @apply py-20 bg-white dark:bg-gray-900;
+  @apply py-20 bg-gray-50 dark:bg-gray-800;
 }
 
 .certificates-container {
-  @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  @apply container mx-auto px-4;
 }
 
 .certificates-header {
-  @apply max-w-3xl mx-auto text-center mb-16;
+  @apply text-center mb-16;
 }
 
 .certificates-title {
-  @apply text-3xl sm:text-4xl font-bold mb-6 text-gray-900 dark:text-white;
+  @apply text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white;
 }
 
 .title-highlight {
   @apply text-primary;
-}
-
-.certificates-description {
-  @apply text-lg text-gray-600 dark:text-gray-300 leading-relaxed;
 }
 
 .certificates-grid {
@@ -27,15 +23,24 @@
 }
 
 .certificate-card {
-  @apply bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700;
+  @apply bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300;
+  
+  &:hover {
+    @apply shadow-2xl border-primary/30;
+  }
 }
 
 .certificate-image-container {
-  @apply relative overflow-hidden h-48;
+  @apply h-64 md:h-72 overflow-hidden bg-white;
 }
 
 .certificate-image {
-  @apply w-full h-full object-contain bg-white;
+  @apply w-full h-full object-contain;
+}
+
+.certificate-iframe {
+  @apply w-full h-full;
+  aspect-ratio: 4063 / 2813;
 }
 
 .certificate-content {
@@ -51,13 +56,13 @@
 }
 
 .certificate-date {
-  @apply text-gray-500 dark:text-gray-400 text-sm mb-3;
-}
-
-.certificate-description {
-  @apply text-gray-600 dark:text-gray-300 mb-4 leading-relaxed;
+  @apply text-gray-500 dark:text-gray-400 text-sm mb-4;
 }
 
 .certificate-link {
-  @apply inline-flex items-center px-4 py-2 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark transition-colors duration-300;
+  @apply inline-flex items-center px-4 py-2 bg-primary text-white font-medium rounded-lg transition-colors duration-300;
+  
+  &:hover {
+    @apply bg-primary-dark;
+  }
 }

@@ -1,0 +1,107 @@
+.blogs-section {
+  @apply py-20 bg-white dark:bg-gray-900;
+}
+
+.blogs-container {
+  @apply container mx-auto px-4;
+}
+
+.blogs-header {
+  @apply text-center mb-16;
+}
+
+.blogs-title {
+  @apply text-3xl sm:text-4xl font-bold mb-6 text-gray-900 dark:text-white;
+}
+
+.title-highlight {
+  @apply text-primary;
+}
+
+.blogs-description {
+  @apply text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto;
+}
+
+.blogs-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16;
+}
+
+.blog-card {
+  @apply bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300;
+  
+  &:hover {
+    @apply shadow-2xl border-primary/30;
+  }
+}
+
+.blog-image-container {
+  @apply relative h-48 overflow-hidden;
+}
+
+.blog-image {
+  @apply w-full h-full object-cover;
+}
+
+.blog-category {
+  @apply absolute top-4 left-4 px-3 py-1 bg-primary text-white text-sm font-medium rounded-full;
+}
+
+.blog-content {
+  @apply p-6;
+}
+
+.blog-meta {
+  @apply flex justify-between items-center mb-3 text-sm text-gray-500 dark:text-gray-400;
+}
+
+.blog-date {
+  // No additional styles needed
+}
+
+.blog-read-time {
+  // No additional styles needed
+}
+
+.blog-title {
+  @apply text-xl font-bold mb-3 text-gray-900 dark:text-white;
+}
+
+.blog-excerpt {
+  @apply text-gray-600 dark:text-gray-300 mb-4 leading-relaxed;
+}
+
+.blog-tags {
+  @apply flex flex-wrap gap-2 mb-4;
+}
+
+.blog-tag {
+  @apply px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full;
+}
+
+.blog-link {
+  @apply inline-flex items-center text-primary font-medium transition-colors duration-300;
+  
+  &:hover {
+    @apply text-primary-dark;
+  }
+}
+
+.link-icon {
+  @apply w-4 h-4 ml-1;
+}
+
+.blogs-cta {
+  @apply text-center;
+}
+
+.cta-button {
+  @apply inline-flex items-center px-8 py-3 bg-primary text-white font-semibold rounded-lg transition-colors duration-300;
+  
+  &:hover {
+    @apply bg-primary-dark;
+  }
+}
+
+.button-icon {
+  @apply w-5 h-5 ml-2;
+}
