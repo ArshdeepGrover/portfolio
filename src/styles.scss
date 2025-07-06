@@ -1,17 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import 'aos/dist/aos.css';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 :root {
-  --primary-color: #FF7955;
-  --primary-light: #FF9B80;
-  --primary-dark: #E65E3B;
+  --primary-color: #ff7955;
+  --primary-light: #ff9b80;
+  --primary-dark: #e65e3b;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   transition: background-color 0.3s ease;
 }
 
@@ -21,4 +20,115 @@ body {
 
 .light {
   @apply bg-white text-gray-900;
+}
+
+/* Custom Animation Styles to replace AOS */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+[data-aos="fade-up"].animate-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-aos="fade-in"] {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+[data-aos="fade-in"].animate-fade-in {
+  opacity: 1;
+}
+
+[data-aos="slide-left"] {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+[data-aos="slide-left"].animate-fade-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+[data-aos="slide-right"] {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+[data-aos="slide-right"].animate-fade-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animation delays */
+[data-aos-delay="100"] {
+  transition-delay: 0.1s;
+}
+
+[data-aos-delay="200"] {
+  transition-delay: 0.2s;
+}
+
+[data-aos-delay="300"] {
+  transition-delay: 0.3s;
+}
+
+[data-aos-delay="400"] {
+  transition-delay: 0.4s;
+}
+
+[data-aos-delay="500"] {
+  transition-delay: 0.5s;
 }
