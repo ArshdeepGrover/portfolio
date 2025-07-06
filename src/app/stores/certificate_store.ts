@@ -1,4 +1,4 @@
-import { ICertificate } from '../models/certificate.model';
+import { ICertificate } from '@models/certificate.model';
 
 export const certificates: ICertificate[] = [
   {

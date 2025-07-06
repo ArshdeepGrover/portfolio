@@ -1,6 +1,6 @@
-import { SkillCategory, OtherTechnology } from '@models/skill.model';
+import { ISkillCategory, IOtherTechnology } from '@models/skill.model';
 
-export const skillCategories: SkillCategory[] = [
+export const skillCategories: ISkillCategory[] = [
   {
     name: 'Frontend Development',
     description:
@@ -137,7 +137,7 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
-export const otherTechnologies: OtherTechnology[] = [
+export const otherTechnologies: IOtherTechnology[] = [
   { name: 'Bootstrap', icon: '🎨' },
   { name: 'Material UI', icon: '🎨' },
   { name: 'Figma', icon: '🎨' },

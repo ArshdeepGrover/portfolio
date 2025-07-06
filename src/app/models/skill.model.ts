@@ -1,4 +1,4 @@
-export interface Skill {
+export interface ISkill {
   name: string;
   description: string;
   icon?: string;
@@ -6,14 +6,14 @@ export interface Skill {
   proficiency: 'beginner' | 'intermediate' | 'advanced' | 'expert';
 }
 
-export interface SkillCategory {
+export interface ISkillCategory {
   name: string;
   description: string;
   icon: string;
-  skills: Skill[];
+  skills: ISkill[];
 }
 
-export interface OtherTechnology {
+export interface IOtherTechnology {
   name: string;
   icon: string;
 }

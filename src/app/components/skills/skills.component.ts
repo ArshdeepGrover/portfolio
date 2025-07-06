@@ -1,7 +1,7 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { skillCategories, otherTechnologies } from '@stores/skills_store';
-import { SkillCategory, OtherTechnology } from '@models/skill.model';
+import { ISkillCategory, IOtherTechnology } from '@models/skill.model';
 
 @Component({
   selector: 'app-skills',
@@ -10,11 +10,9 @@ import { SkillCategory, OtherTechnology } from '@models/skill.model';
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
 })
-export class SkillsComponent implements AfterViewInit {
-  skillCategories: SkillCategory[] = skillCategories;
-  otherTechnologies: OtherTechnology[] = otherTechnologies;
-
-  selectedSkill: any = null;
+export class SkillsComponent {
+  skillCategories: ISkillCategory[] = skillCategories;
+  otherTechnologies: IOtherTechnology[] = otherTechnologies;
 
   getProficiencyColor(proficiency: string): string {
     switch (proficiency) {
@@ -44,17 +42,5 @@ export class SkillsComponent implements AfterViewInit {
       default:
         return 'Beginner';
     }
-  }
-
-  selectSkill(skill: any) {
-    this.selectedSkill = skill;
-  }
-
-  closeSkillDetails() {
-    this.selectedSkill = null;
-  }
-
-  ngAfterViewInit() {
-    // Animation will be handled by CSS transitions
   }
 }
