@@ -11,7 +11,7 @@
 }
 
 .certificates-title {
-  @apply text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white;
+  @apply text-3xl font-bold mb-6 text-gray-900 dark:text-white;
 }
 
 .title-highlight {
@@ -24,7 +24,7 @@
 
 .certificate-card {
   @apply bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300;
-  
+
   &:hover {
     @apply shadow-2xl border-primary/30;
   }
@@ -61,7 +61,7 @@
 
 .certificate-link {
   @apply inline-flex items-center px-4 py-2 bg-primary text-white font-medium rounded-lg transition-colors duration-300;
-  
+
   &:hover {
     @apply bg-primary-dark;
   }
