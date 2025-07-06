@@ -5,24 +5,20 @@
         Latest <span class="title-highlight">Blogs</span>
       </h2>
       <p class="blogs-description" data-aos="fade-up" data-aos-delay="100">
-        Sharing insights, tutorials, and experiences from my development journey.
+        Sharing insights, tutorials, and experiences from my development
+        journey.
       </p>
     </div>
 
     <div class="blogs-grid">
       <div
-        *ngFor="let blog of blogs; let i = index"
+        *ngFor="let blog of blogs ; let i = index"
         class="blog-card"
         [attr.data-aos]="'fade-up'"
         [attr.data-aos-delay]="i * 100"
       >
         <div class="blog-image-container">
-          <img
-            [src]="blog.image"
-            [alt]="blog.title"
-            class="blog-image"
-          />
-          <div class="blog-category">{{ blog.category }}</div>
+          <img [src]="blog.image" [alt]="blog.title" class="blog-image" />
         </div>
         <div class="blog-content">
           <div class="blog-meta">
@@ -32,12 +28,24 @@
           <h3 class="blog-title">{{ blog.title }}</h3>
           <p class="blog-excerpt">{{ blog.excerpt }}</p>
           <div class="blog-tags">
-            <span *ngFor="let tag of blog.tags" class="blog-tag">{{ tag }}</span>
+            <span *ngFor="let tag of blog.tags" class="blog-tag">{{
+              tag
+            }}</span>
           </div>
           <a [href]="blog.url" target="_blank" class="blog-link">
             Read More
-            <svg class="link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            <svg
+              class="link-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              ></path>
             </svg>
           </a>
         </div>
@@ -45,10 +53,24 @@
     </div>
 
     <div class="blogs-cta" data-aos="fade-up">
-      <a href="https://medium.com/@ArshdeepGrover" target="_blank" class="cta-button">
+      <a
+        href="https://medium.com/@ArshdeepGrover"
+        target="_blank"
+        class="cta-button"
+      >
         View All Articles
-        <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        <svg
+          class="button-icon"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          ></path>
         </svg>
       </a>
     </div>

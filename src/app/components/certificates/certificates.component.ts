@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { certificates } from '@stores/certificate_store';
+import { ICertificate } from '@models/certificate.model';
 
 @Component({
   selector: 'app-certificates',
@@ -10,5 +11,5 @@ import { certificates } from '@stores/certificate_store';
   styleUrls: ['./certificates.component.scss'],
 })
 export class CertificatesComponent {
-  certificates = certificates;
+  certificates: ICertificate[] = certificates.slice().sort((a, b) => b.id - a.id);
 }
