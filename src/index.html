@@ -26,7 +26,10 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://arshdeepsingh.info/" />
-    <meta property="og:title" content="Arshdeep Singh | Full Stack Developer | Portfolio" />
+    <meta
+      property="og:title"
+      content="Arshdeep Singh | Full Stack Developer | Portfolio"
+    />
     <meta
       property="og:description"
       content="Professional portfolio showcasing full stack development projects, skills, and experience."
@@ -38,10 +41,7 @@
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content="https://arshdeepsingh.info/"
-    />
+    <meta property="twitter:url" content="https://arshdeepsingh.info/" />
     <meta
       property="twitter:title"
       content="Arshdeep Singh | Full Stack Developer | Portfolio"
@@ -57,23 +57,9 @@
 
     <!-- Favicon and Icons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/favicon-16x16.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Fonts -->
@@ -85,8 +71,48 @@
     <!-- Theme Color -->
     <meta name="theme-color" content="#FF7955" />
     <meta name="msapplication-TileColor" content="#FF7955" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-PGCTLPD8");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZCSZVM6DWT"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-ZCSZVM6DWT");
+    </script>
+    <!-- End Google Analytics -->
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-PGCTLPD8"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <app-root></app-root>
   </body>
 </html>
