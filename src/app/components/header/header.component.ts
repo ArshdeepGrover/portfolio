@@ -13,10 +13,11 @@ export class HeaderComponent {
   isMobileMenuOpen = false;
 
   navItems = [
-    { label: 'Home', href: '#home' },
     { label: 'Experience', href: '#experience' },
     { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
+    { label: 'Certificates', href: '#certificates' },
+    { label: 'Blogs', href: '#blogs' },
   ];
 
   toggleTheme() {
