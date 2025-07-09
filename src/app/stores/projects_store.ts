@@ -3,9 +3,9 @@ import { IProject } from '@models/project.model';
 export const projects: IProject[] = [
   {
     id: 1,
-    title: 'CineScope – Discover and Explore Movies Instantly',
+    title: 'Quizzy Spark – Interactive Quiz Web App',
     description:
-      'Quizzy Spark Blitz is an electrifying web-based quiz platform built on Vercel, delivering fast-paced, interactive trivia and learning experiences. Likely powered by Next.js, it offers dynamic quiz creation, diverse topics, and a slick interface, with potential features like AI-driven questions, real-time challenges, or multiplayer modes for ultimate user engagement.',
+      'Quizzy Spark is an electrifying web-based quiz platform built on Vercel, delivering fast-paced, interactive trivia and learning experiences. Likely powered by Next.js, it offers dynamic quiz creation, diverse topics, and a slick interface, with potential features like AI-driven questions, real-time challenges, or multiplayer modes for ultimate user engagement.',
     image: '/project-images/quizzy-spark.png',
     technologies: [
       'Angular',
