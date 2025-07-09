@@ -17,5 +17,5 @@ export class ProjectsComponent {
   getSafeUrl(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
-  projects: IProject[] = projects
+  projects: IProject[] = projects.slice().sort((a, b) => b.id - a.id);
 }
