@@ -33,8 +33,8 @@ export const projects: IProject[] = [
       'Vercel',
       'Movie Search',
     ],
-    demoLink: 'https://cinescope-lyart.vercel.app/Movies',
-    githubUrl: 'https://github.com/ArshdeepGrover/movies-details',
+    demoLink: 'https://cinescope-lyart.vercel.app',
+    githubUrl: 'https://github.com/ArshdeepGrover/CineScope',
   },
   {
     id: 3,
