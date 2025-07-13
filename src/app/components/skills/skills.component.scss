@@ -1,156 +1,201 @@
-/* Skill Category Styling */
-.skill-category {
-  @apply mb-8;
+.skills-section {
+  @apply py-20 bg-white dark:bg-gray-900;
 }
 
-/* Category Header */
-.category-header {
-  @apply mb-6;
-}
-
-.category-icon {
-  @apply text-2xl mr-3;
-}
-
-.category-title {
-  @apply text-lg font-bold text-gray-900 dark:text-white mb-1;
-}
-
-.category-description {
-  @apply text-gray-600 dark:text-gray-400 text-sm;
-}
-
-/* Skills Container */
 .skills-container {
-  @apply space-y-2;
+  @apply container mx-auto px-4;
 }
 
-/* Skill Card */
+.skills-header {
+  @apply max-w-6xl mx-auto text-center mb-16;
+
+  .section-title {
+    @apply text-4xl font-bold mb-6 text-gray-900 dark:text-white;
+
+    .highlight {
+      color: #ff7955;
+    }
+  }
+
+  .section-description {
+    @apply text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto;
+  }
+}
+
+.bento-grid {
+  @apply grid grid-cols-12 gap-4 max-w-7xl mx-auto mb-20;
+}
+
 .skill-card {
-  @apply bg-white dark:bg-gray-800 rounded-lg p-4 cursor-pointer;
-  @apply border-l-4 border-gray-300 dark:border-gray-600;
+  @apply rounded-3xl shadow-xl p-8 relative;
+
+  &.frontend-card {
+    @apply col-span-12 lg:col-span-8 bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-gray-800 dark:to-gray-700;
+  }
+
+  &.backend-card {
+    @apply col-span-12 lg:col-span-4 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-purple-900 p-6;
+  }
+
+  &.database-card {
+    @apply col-span-12 lg:col-span-7 bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-gray-800 dark:to-blue-900 p-6;
+  }
+
+  &.tools-card {
+    @apply col-span-12 lg:col-span-5 bg-gradient-to-br from-indigo-50 to-cyan-50 dark:from-gray-800 dark:to-indigo-900 p-6;
+  }
+
+  &.analytics-card {
+    @apply col-span-12 bg-gradient-to-br from-rose-50 to-teal-50 dark:from-gray-800 dark:to-gray-700;
+  }
 }
 
-/* Skill Header */
-.skill-header {
-  @apply flex items-center justify-between;
+.card-header {
+  @apply flex items-center gap-4 mb-6;
+
+  .category-icon {
+    @apply text-4xl;
+  }
+
+  .category-title {
+    @apply text-2xl font-bold text-gray-900 dark:text-white;
+  }
+
+  .category-description {
+    @apply text-gray-600 dark:text-gray-300;
+  }
 }
 
-.skill-info {
-  @apply flex items-center space-x-3;
+.card-header-small {
+  @apply flex items-center gap-3 mb-4;
+
+  .category-icon {
+    @apply text-3xl;
+  }
+
+  .category-title {
+    @apply text-lg font-bold text-gray-900 dark:text-white;
+  }
 }
 
-.skill-icon {
-  @apply text-xl;
+.skills-grid {
+  @apply grid gap-3;
+
+  &.grid-2-3 {
+    @apply grid-cols-2 md:grid-cols-3;
+  }
+
+  &.grid-2 {
+    @apply grid-cols-2;
+  }
+
+  &.grid-2-4 {
+    @apply grid-cols-2 md:grid-cols-4;
+  }
 }
 
-.skill-name {
-  @apply font-medium text-gray-900 dark:text-white;
+.skills-list {
+  @apply space-y-3;
 }
 
-.skill-badge-container {
-  @apply flex items-center space-x-2;
+.skill-item {
+  @apply bg-white/70 dark:bg-gray-600/50 rounded-xl px-3 py-2 flex items-center gap-2;
+
+  .skill-logo {
+    @apply w-6 h-6 object-contain;
+  }
+
+  .skill-info {
+    .skill-name {
+      @apply font-medium text-sm text-gray-900 dark:text-white block;
+    }
+
+    .skill-proficiency {
+      @apply text-xs px-2 py-0.5 rounded-full;
+
+      &.expert {
+        @apply text-green-600 dark:text-green-400;
+      }
+
+      &.advanced {
+        @apply text-blue-600 dark:text-blue-400;
+      }
+
+      &.intermediate {
+        @apply text-yellow-600 dark:text-yellow-400;
+      }
+
+      &.beginner {
+        @apply text-gray-600 dark:text-gray-400;
+      }
+    }
+  }
 }
 
-.skill-badge {
-  @apply text-xs px-2 py-1 rounded font-medium;
-  @apply bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
+.skill-item-compact {
+  @apply bg-white/70 dark:bg-gray-600/50 rounded-lg px-3 py-2;
+
+  .skill-header {
+    @apply flex items-center gap-2 mb-1;
+
+    .skill-logo {
+      @apply w-5 h-5 object-contain;
+    }
+
+    .skill-name {
+      @apply font-medium text-sm text-gray-900 dark:text-white;
+    }
+  }
+
+  .skill-proficiency {
+    @apply text-xs px-2 py-0.5 rounded-full;
+
+    &.expert {
+      @apply text-green-600 dark:text-green-400;
+    }
+
+    &.advanced {
+      @apply text-blue-600 dark:text-blue-400;
+    }
+
+    &.intermediate {
+      @apply text-yellow-600 dark:text-yellow-400;
+    }
+
+    &.beginner {
+      @apply text-gray-600 dark:text-gray-400;
+    }
+  }
 }
 
-/* Skill Description */
-.skill-description {
-  @apply mt-2 text-sm text-gray-600 dark:text-gray-400;
-}
+.additional-tech-section {
+  @apply mt-20;
 
-/* Technology Cards */
-.tech-card {
-  @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-3 text-center;
-  @apply border border-gray-200 dark:border-gray-700;
-}
+  .section-header {
+    @apply text-center mb-12;
 
-.tech-icon {
-  @apply text-xl mb-1;
-}
+    .section-title {
+      @apply text-3xl font-bold mb-4 text-gray-900 dark:text-white;
+    }
 
-.tech-name {
-  @apply font-medium text-gray-900 dark:text-white text-sm;
-}
+    .section-description {
+      @apply text-gray-600 dark:text-gray-400 max-w-2xl mx-auto;
+    }
+  }
 
-/* Modal Styles */
-.modal-overlay {
-  @apply fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4;
-}
-
-.modal-content {
-  @apply bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full;
-  @apply shadow-lg;
-}
-
-.modal-header {
-  @apply flex items-center justify-between mb-4;
-}
-
-.modal-title-section {
-  @apply flex items-center space-x-3;
-}
-
-.modal-icon {
-  @apply text-2xl;
-}
-
-.modal-title {
-  @apply text-lg font-bold text-gray-900 dark:text-white;
-}
-
-.modal-close-button {
-  @apply text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200;
-  @apply p-1 rounded;
-}
-
-.modal-badge-section {
-  @apply mb-4;
-}
-
-.modal-badge {
-  @apply inline-block px-3 py-1 rounded text-sm font-medium;
-  @apply bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
-}
-
-.modal-description-section {
-  @apply mb-4;
-}
-
-.modal-description-title {
-  @apply font-semibold text-gray-900 dark:text-white mb-2;
-}
-
-.modal-description-text {
-  @apply text-gray-600 dark:text-gray-400 text-sm;
-}
-
-.modal-close-btn {
-  @apply w-full bg-primary text-white py-2 px-4 rounded-lg;
-  @apply hover:bg-primary-dark transition-colors duration-200 font-medium;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .skill-card {
-    @apply p-3;
+  .tech-grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 max-w-6xl mx-auto;
   }
 
   .tech-card {
-    @apply p-2;
+    @apply bg-white dark:bg-gray-800 rounded-xl p-4 shadow-md flex flex-col items-center gap-2;
+
+    .tech-logo {
+      @apply w-8 h-8 object-contain;
+    }
+
+    .tech-name {
+      @apply text-sm font-medium text-gray-900 dark:text-white text-center;
+    }
   }
-}
-
-/* Focus States for Accessibility */
-.skill-card:focus,
-.tech-card:focus {
-  @apply outline-2 outline-primary outline-offset-2;
-}
-
-/* Smooth Scrolling */
-html {
-  @apply scroll-smooth;
 }

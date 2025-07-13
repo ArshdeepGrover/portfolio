@@ -7,9 +7,9 @@
     <div class="desktop-nav">
       <a
         *ngFor="let item of navItems"
-        [href]="item.href"
         class="nav-link"
-        (click)="closeMobileMenu()"
+        [class.active]="isActive(item.id)"
+        (click)="scrollToSection(item.id)"
       >
         {{ item.label }}
       </a>
@@ -118,9 +118,9 @@
   <div class="mobile-menu" [class.mobile-menu-open]="isMobileMenuOpen">
     <a
       *ngFor="let item of navItems"
-      [href]="item.href"
       class="mobile-nav-link"
-      (click)="closeMobileMenu()"
+      [class.active]="isActive(item.id)"
+      (click)="scrollToSection(item.id)"
     >
       {{ item.label }}
     </a>

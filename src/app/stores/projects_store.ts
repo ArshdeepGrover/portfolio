@@ -58,9 +58,7 @@ export const projects: IProject[] = [
     title: '🚀 Groupix Spinner – A Customizable Web App Loader Component',
     description:
       'Groupix Spinner is a lightweight, zero-dependency spinner (loader) component library designed to improve user experience during loading states in modern web applications. It provides developers with a suite of vibrant, responsive, and highly customizable CSS-based loading animations that can be easily integrated into Web App project.',
-    image: '/project-images/groupix-lib.png',
-    iframe:
-      'https://groupix-spinner.vercel.app/spinner?utm_source=portfolio&utm_medium=profile&utm_campaign=groupix_spinner',
+    image: '/project-images/groupix-spinner.gif',
     technologies: [
       'Angular',
       'TypeScript',

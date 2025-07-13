@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,16 +8,17 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isDarkMode = false;
   isMobileMenuOpen = false;
+  activeSection = 'hero';
 
   navItems = [
-    { label: 'Experience', href: '#experience' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Certificates', href: '#certificates' },
-    { label: 'Blogs', href: '#blogs' },
+    { label: 'Experience', href: '#experience', id: 'experience' },
+    { label: 'Skills', href: '#skills', id: 'skills' },
+    { label: 'Projects', href: '#projects', id: 'projects' },
+    { label: 'Certificates', href: '#certificates', id: 'certificates' },
+    { label: 'Blogs', href: '#blogs', id: 'blogs' },
   ];
 
   toggleTheme() {
@@ -37,6 +38,48 @@ export class HeaderComponent {
 
   closeMobileMenu() {
     this.isMobileMenuOpen = false;
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const sections = [
+      'hero',
+      'experience',
+      'skills',
+      'projects',
+      'certificates',
+      'blogs',
+    ];
+    const scrollPosition = window.scrollY + 100;
+
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const offsetTop = element.offsetTop;
+        const offsetHeight = element.offsetHeight;
+
+        if (
+          scrollPosition >= offsetTop &&
+          scrollPosition < offsetTop + offsetHeight
+        ) {
+          this.activeSection = section;
+          break;
+        }
+      }
+    }
+  }
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      this.activeSection = sectionId;
+      this.closeMobileMenu();
+    }
+  }
+
+  isActive(sectionId: string): boolean {
+    return this.activeSection === sectionId;
   }
 
   ngOnInit() {
