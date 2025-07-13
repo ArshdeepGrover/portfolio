@@ -19,7 +19,11 @@
 }
 
 .nav-link {
-  @apply hover:text-primary transition-colors duration-300 text-gray-700 dark:text-gray-300;
+  @apply hover:text-primary transition-colors duration-300 text-gray-700 dark:text-gray-300 cursor-pointer hover:dark:text-primary-dark;
+
+  &.active {
+    @apply text-primary dark:text-primary-dark font-semibold border-b border-solid border-primary-light dark:border-primary-dark;
+  }
 }
 
 .theme-toggle {
@@ -57,12 +61,17 @@
 .mobile-menu {
   @apply md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 ease-in-out;
   max-height: 0;
-  
+
   &.mobile-menu-open {
     max-height: 300px;
   }
 }
 
 .mobile-nav-link {
-  @apply block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary transition-colors duration-300;
+  @apply block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary transition-colors duration-300 cursor-pointer;
+
+  &.active {
+    color: #ff7955;
+    @apply font-semibold bg-gray-50 dark:bg-gray-800;
+  }
 }
