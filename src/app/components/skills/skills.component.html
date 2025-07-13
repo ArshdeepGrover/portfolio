@@ -1,96 +1,128 @@
-<section id="skills" class="py-20 bg-white dark:bg-gray-900">
-  <div class="container mx-auto px-4">
-    <div class="max-w-6xl mx-auto text-center mb-16">
-      <h2
-        class="text-4xl font-bold mb-6 text-gray-900 dark:text-white"
-        data-aos="fade-up"
-      >
-        My <span class="text-primary">Skills</span> & Expertise
+<section id="skills" class="skills-section">
+  <div class="skills-container">
+    <div class="skills-header" data-aos="fade-up">
+      <h2 class="section-title">
+        My <span class="highlight">Skills</span> & Expertise
       </h2>
-      <p
-        class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        A comprehensive overview of the technologies and tools I've mastered
-        through years of hands-on experience. I'm constantly expanding my skill
-        set to stay current with industry trends.
+      <p class="section-description" data-aos="fade-up" data-aos-delay="100">
+        A comprehensive overview of the technologies and tools I've mastered through years of hands-on experience.
       </p>
     </div>
 
-    <!-- Skill Categories -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-      <div
-        *ngFor="let category of skillCategories; let i = index"
-        [attr.data-aos]="'fade-up'"
-        [attr.data-aos-delay]="i * 150"
-        class="skill-category"
-      >
-        <!-- Category Header -->
-        <div class="category-header">
-          <span class="category-icon">{{ category.icon }}</span>
+    <!-- Bento Grid Layout -->
+    <div class="bento-grid">
+      <!-- Frontend Development - Large Card -->
+      <div class="skill-card frontend-card" data-aos="fade-up">
+        <div class="card-header">
+          <span class="category-icon">🎨</span>
           <div>
-            <h3 class="category-title">
-              {{ category.name }}
-            </h3>
-            <p class="category-description">
-              {{ category.description }}
-            </p>
+            <h3 class="category-title">Frontend Development</h3>
+            <p class="category-description">Modern web technologies and frameworks</p>
           </div>
         </div>
+        <div class="skills-grid grid-2-3">
+          <div *ngFor="let skill of skillCategories[0]?.skills" class="skill-item">
+            <img [src]="skill.icon" [alt]="skill.name" class="skill-logo">
+            <div class="skill-info">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-proficiency" [ngClass]="skill.proficiency">
+                {{ getProficiencyBadge(skill.proficiency) }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <!-- Skills List -->
-        <div class="skills-container">
-          <div *ngFor="let skill of category.skills" class="skill-card">
-            <!-- Skill Header -->
+      <!-- Backend Development - Medium Card -->
+      <div class="skill-card backend-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="card-header-small">
+          <span class="category-icon">⚙️</span>
+          <h3 class="category-title">Backend Development</h3>
+        </div>
+        <div class="skills-list">
+          <div *ngFor="let skill of skillCategories[1]?.skills" class="skill-item-compact">
             <div class="skill-header">
-              <div class="skill-info">
-                <span class="skill-icon">{{ skill.icon }}</span>
-                <div>
-                  <h4 class="skill-name">
-                    {{ skill.name }}
-                  </h4>
-                  <div class="skill-badge-container">
-                    <span
-                      class="skill-badge"
-                      [ngClass]="getProficiencyColor(skill.proficiency)"
-                    >
-                      {{ getProficiencyBadge(skill.proficiency) }}
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <img [src]="skill.icon" [alt]="skill.name" class="skill-logo">
+              <span class="skill-name">{{ skill.name }}</span>
             </div>
+            <span class="skill-proficiency" [ngClass]="skill.proficiency">
+              {{ getProficiencyBadge(skill.proficiency) }}
+            </span>
+          </div>
+        </div>
+      </div>
 
-            <!-- Skill Description (on hover) -->
-            <div class="skill-description">
-              {{ skill.description }}
+      <!-- Database & Cloud - Large Card -->
+      <div class="skill-card database-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-header-small">
+          <span class="category-icon">🗄️</span>
+          <h3 class="category-title">Database & Cloud</h3>
+        </div>
+        <div class="skills-grid grid-2-3">
+          <div *ngFor="let skill of skillCategories[2]?.skills" class="skill-item-compact">
+            <div class="skill-header">
+              <img [src]="skill.icon" [alt]="skill.name" class="skill-logo">
+              <span class="skill-name">{{ skill.name }}</span>
             </div>
+            <span class="skill-proficiency" [ngClass]="skill.proficiency">
+              {{ getProficiencyBadge(skill.proficiency) }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools & DevOps - Medium Card -->
+      <div class="skill-card tools-card" data-aos="fade-up" data-aos-delay="450">
+        <div class="card-header-small">
+          <span class="category-icon">🛠️</span>
+          <h3 class="category-title">Tools & DevOps</h3>
+        </div>
+        <div class="skills-grid grid-2">
+          <div *ngFor="let skill of skillCategories[3]?.skills" class="skill-item-compact">
+            <div class="skill-header">
+              <img [src]="skill.icon" [alt]="skill.name" class="skill-logo">
+              <span class="skill-name">{{ skill.name }}</span>
+            </div>
+            <span class="skill-proficiency" [ngClass]="skill.proficiency">
+              {{ getProficiencyBadge(skill.proficiency) }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics & Marketing - Full Width Card -->
+      <div class="skill-card analytics-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="card-header-small">
+          <span class="category-icon">📊</span>
+          <h3 class="category-title">Analytics & Marketing</h3>
+        </div>
+        <div class="skills-grid grid-2-4">
+          <div *ngFor="let skill of skillCategories[4]?.skills" class="skill-item-compact">
+            <div class="skill-header">
+              <img [src]="skill.icon" [alt]="skill.name" class="skill-logo">
+              <span class="skill-name">{{ skill.name }}</span>
+            </div>
+            <span class="skill-proficiency" [ngClass]="skill.proficiency">
+              {{ getProficiencyBadge(skill.proficiency) }}
+            </span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Other Technologies Section -->
-    <div class="mt-20" data-aos="fade-up">
-      <div class="text-center mb-12">
-        <h3 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-          Additional Technologies
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Technologies and tools I've worked with and continue to explore for
-          various projects.
+    <!-- Additional Technologies Grid -->
+    <div class="additional-tech-section" data-aos="fade-up">
+      <div class="section-header">
+        <h3 class="section-title">Additional Technologies</h3>
+        <p class="section-description">
+          Technologies and tools I've worked with and continue to explore.
         </p>
       </div>
 
-      <div
-        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 max-w-6xl mx-auto"
-      >
+      <div class="tech-grid">
         <div *ngFor="let tech of otherTechnologies" class="tech-card">
-          <div class="tech-icon">{{ tech.icon }}</div>
-          <div class="tech-name">
-            {{ tech.name }}
-          </div>
+          <img [src]="tech.icon" [alt]="tech.name" class="tech-logo">
+          <span class="tech-name">{{ tech.name }}</span>
         </div>
       </div>
     </div>
