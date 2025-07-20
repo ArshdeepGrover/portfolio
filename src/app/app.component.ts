@@ -8,6 +8,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CertificatesComponent } from './components/certificates/certificates.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 
@@ -24,6 +25,7 @@ import { ViewportScroller } from '@angular/common';
     FooterComponent,
     CertificatesComponent,
     BlogsComponent,
+    ChatbotComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
