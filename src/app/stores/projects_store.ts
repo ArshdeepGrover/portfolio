@@ -50,7 +50,8 @@ export const projects: IProject[] = [
       'HTML',
       'CSS',
     ],
-    demoLink: 'https://github.com/ArshdeepGrover/TextTransformer-Chrome',
+    demoLink:
+      'https://chromewebstore.google.com/detail/ajekflcjkiojnebaonccmaemifdndgdi?utm_source=item-share-cb',
     githubUrl: 'https://github.com/ArshdeepGrover/TextTransformer-Chrome',
   },
   {
