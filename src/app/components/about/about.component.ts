@@ -20,14 +20,14 @@ export class AboutComponent {
     {
       title: 'Software Developer',
       company: 'Commudle, New Delhi',
-      period: 'May 2023 - May 2024',
+      period: 'August 2022 - April 2024',
       description:
         'Built high-performance Angular applications with reusable components, improving frontend load times by 20%. Integrated Google Tag Manager for real-time analytics and marketing tracking.',
     },
     {
       title: 'Software Developer, Intern',
       company: 'Commudle, New Delhi',
-      period: 'May 2022 - May 2023',
+      period: 'May 2022 - July 2022',
       description:
         'Developed responsive web interfaces using Angular for 10,000+ monthly users. Integrated Sanity.io as headless CMS, reducing content update times by 30%.',
     },
