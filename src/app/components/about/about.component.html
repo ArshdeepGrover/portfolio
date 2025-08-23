@@ -8,15 +8,35 @@
 
     <div class="experience-section" data-aos="fade-up">
       <div class="timeline">
-        <div *ngFor="let exp of experiences; let i = index" class="timeline-item" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 100">
+        <div
+          *ngFor="let exp of experiences; let i = index"
+          class="timeline-item company-group"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="i * 100"
+        >
           <div class="timeline-marker"></div>
-          <h4 class="item-title">{{ exp.title }}</h4>
-          <div class="item-meta">
-            <span class="company-name">{{ exp.company }}</span>
-            <span class="meta-separator">•</span>
-            <span class="period">{{ exp.period }}</span>
+          <div class="company-header">
+            <h4 class="company-title">{{ exp.company }}</h4>
+            <span class="total-period">{{ exp.totalPeriod }}</span>
           </div>
-          <p class="item-description">{{ exp.description }}</p>
+
+          <div class="positions-list">
+            <div
+              *ngFor="let position of exp.positions; let j = index"
+              class="position-item"
+              [class.multiple-positions]="exp.positions.length > 1"
+            >
+              <div
+                class="position-marker"
+                *ngIf="exp.positions.length > 1"
+              ></div>
+              <div class="position-content">
+                <h5 class="position-title">{{ position.title }}</h5>
+                <span class="position-period">{{ position.period }}</span>
+                <p class="position-description">{{ position.description }}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -24,7 +44,12 @@
     <div class="education-section" data-aos="fade-up">
       <h3 class="section-title">Education</h3>
       <div class="timeline">
-        <div *ngFor="let edu of education; let i = index" class="timeline-item" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 100">
+        <div
+          *ngFor="let edu of education; let i = index"
+          class="timeline-item"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="i * 100"
+        >
           <div class="timeline-marker"></div>
           <h4 class="item-title">{{ edu.degree }}</h4>
           <div class="item-meta">

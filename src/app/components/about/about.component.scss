@@ -1,5 +1,5 @@
 .about-section {
-  @apply py-20 bg-gray-50 dark:bg-gray-800;
+  @apply py-12 bg-gray-50 dark:bg-gray-800;
 }
 
 .about-container {
@@ -7,7 +7,7 @@
 }
 
 .about-header {
-  @apply max-w-3xl mx-auto text-center mb-16;
+  @apply max-w-3xl mx-auto text-center mb-8;
 }
 
 .about-title {
@@ -19,7 +19,7 @@
 }
 
 .experience-section {
-  @apply mb-20;
+  @apply mb-8;
 }
 
 .section-title {
@@ -27,11 +27,11 @@
 }
 
 .timeline {
-  @apply space-y-8;
+  @apply space-y-4;
 }
 
 .timeline-item {
-  @apply relative pl-8 pb-8 border-l-2 border-gray-200 dark:border-gray-700;
+  @apply relative pl-8 pb-4 border-l-2 border-gray-200 dark:border-gray-700;
 }
 
 .timeline-marker {
@@ -60,4 +60,53 @@
 
 .item-description {
   @apply text-gray-600 dark:text-gray-400;
+}
+
+// LinkedIn-style company grouping
+.company-group {
+  @apply mb-4;
+}
+
+.company-header {
+  @apply mb-2;
+}
+
+.company-title {
+  @apply text-xl font-bold text-gray-900 dark:text-white mb-1;
+}
+
+.total-period {
+  @apply text-gray-500 dark:text-gray-400 text-sm;
+}
+
+.positions-list {
+  @apply space-y-2;
+}
+
+.position-item {
+  @apply relative;
+
+  &.multiple-positions {
+    @apply pl-6 border-l border-gray-300 dark:border-gray-600 ml-2;
+  }
+}
+
+.position-marker {
+  @apply absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-500;
+}
+
+.position-content {
+  @apply space-y-0;
+}
+
+.position-title {
+  @apply text-lg font-semibold text-gray-800 dark:text-gray-200;
+}
+
+.position-period {
+  @apply text-gray-500 dark:text-gray-400 text-sm block;
+}
+
+.position-description {
+  @apply text-gray-600 dark:text-gray-400 mt-1 text-sm leading-relaxed;
 }
