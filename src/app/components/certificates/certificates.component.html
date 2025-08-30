@@ -1,9 +1,12 @@
 <section id="certificates" class="certificates-section">
   <div class="certificates-container">
-    <div class="certificates-header">
-      <h2 class="certificates-title" data-aos="fade-up">
-        <span class="title-highlight">Certificates</span> & Achievements
+    <div class="certificates-header" data-aos="fade-up">
+      <h2 class="section-title">
+        <span class="highlight">Certificates</span> & Achievements
       </h2>
+      <p class="section-description">
+        Professional certifications and achievements that validate my expertise
+      </p>
     </div>
 
     <div class="certificates-grid">
@@ -18,18 +21,25 @@
             [src]="certificate.image"
             [alt]="certificate.title"
             class="certificate-image"
+            loading="lazy"
           />
         </div>
+        
         <div class="certificate-content">
           <h3 class="certificate-title">{{ certificate.title }}</h3>
           <p class="certificate-issuer">{{ certificate.issuer }}</p>
           <p class="certificate-date">{{ certificate.date }}</p>
+          
           <a
             *ngIf="certificate.credentialUrl"
             [href]="certificate.credentialUrl"
             target="_blank"
-            class="certificate-link"
+            class="certificate-btn"
           >
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-1a1 1 0 10-2 0v1H5V7h1a1 1 0 000-2H5z"/>
+            </svg>
             View Credential
           </a>
         </div>

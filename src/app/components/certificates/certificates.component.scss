@@ -1,5 +1,5 @@
 .certificates-section {
-  @apply py-20 bg-gray-50 dark:bg-gray-800;
+  @apply py-20 bg-gray-50 dark:bg-gray-900;
 }
 
 .certificates-container {
@@ -7,62 +7,72 @@
 }
 
 .certificates-header {
-  @apply text-center mb-16;
-}
-
-.certificates-title {
-  @apply text-3xl font-bold mb-6 text-gray-900 dark:text-white;
-}
-
-.title-highlight {
-  @apply text-primary;
+  @apply max-w-4xl mx-auto text-center mb-16;
+  
+  .section-title {
+    @apply text-4xl font-bold mb-6 text-gray-900 dark:text-white;
+    
+    .highlight {
+      color: #FF7955;
+    }
+  }
+  
+  .section-description {
+    @apply text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto;
+  }
 }
 
 .certificates-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto;
 }
 
 .certificate-card {
-  @apply bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300;
-
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 flex flex-col;
+  
   &:hover {
-    @apply shadow-2xl border-primary/30;
+    @apply shadow-xl transform -translate-y-1;
+    
+    .certificate-title {
+      color: #FF7955;
+    }
   }
 }
 
 .certificate-image-container {
-  @apply h-64 md:h-72 overflow-hidden bg-white;
-}
-
-.certificate-image {
-  @apply w-full h-full object-contain;
-}
-
-.certificate-iframe {
-  @apply w-full h-full;
-  aspect-ratio: 4063 / 2813;
+  @apply overflow-hidden bg-white;
+  height: 14rem;
+  
+  .certificate-image {
+    @apply w-full h-full object-contain;
+  }
 }
 
 .certificate-content {
-  @apply p-6;
+  @apply p-4 flex flex-col flex-1;
 }
 
 .certificate-title {
-  @apply text-xl font-bold mb-2 text-gray-900 dark:text-white;
+  @apply text-base font-bold mb-2 text-gray-900 dark:text-white line-clamp-2;
 }
 
 .certificate-issuer {
-  @apply text-primary font-medium mb-1;
+  @apply text-sm font-medium mb-1;
+  color: #FF7955;
 }
 
 .certificate-date {
-  @apply text-gray-500 dark:text-gray-400 text-sm mb-4;
+  @apply text-sm text-gray-500 dark:text-gray-400 mb-3;
 }
 
-.certificate-link {
-  @apply inline-flex items-center px-4 py-2 bg-primary text-white font-medium rounded-lg transition-colors duration-300;
-
+.certificate-btn {
+  @apply w-full px-3 py-2 text-sm font-semibold rounded-md transition-colors duration-200 flex items-center justify-center gap-1 text-white mt-auto;
+  background-color: #FF7955;
+  
   &:hover {
-    @apply bg-primary-dark;
+    background-color: #E65E3B;
+  }
+  
+  .btn-icon {
+    @apply w-3 h-3;
   }
 }
