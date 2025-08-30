@@ -1,111 +1,102 @@
 .projects-section {
-  @apply py-24 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800;
+  @apply py-20 bg-white dark:bg-gray-900;
 }
 
 .projects-container {
-  @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  @apply container mx-auto px-4;
 }
 
 .projects-header {
-  @apply max-w-4xl mx-auto text-center mb-20;
-}
-
-.projects-title {
-  @apply text-3xl font-bold mb-6 text-gray-900 dark:text-white;
-}
-
-.title-highlight {
-  @apply text-primary bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent;
-}
-
-.projects-description {
-  @apply text-xl text-gray-600 dark:text-gray-300 leading-relaxed;
+  @apply max-w-4xl mx-auto text-center mb-16;
+  
+  .section-title {
+    @apply text-4xl font-bold mb-6 text-gray-900 dark:text-white;
+    
+    .highlight {
+      color: #FF7955;
+    }
+  }
+  
+  .section-description {
+    @apply text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto;
+  }
 }
 
 .projects-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto;
 }
 
 .project-card {
-  @apply bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transform transition-all duration-500  border border-gray-200 dark:border-gray-700;
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300;
+  
+  &:hover {
+    @apply shadow-xl transform -translate-y-1;
+    
+    .project-title {
+      color: #FF7955;
+    }
+  }
 }
 
 .project-image-container {
-  @apply relative overflow-hidden;
-}
-
-.project-image {
-  @apply w-full h-64 object-contain transition-transform duration-500;
-}
-
-.project-iframe {
-  @apply w-full h-64;
-}
-
-.featured-badge {
-  @apply absolute top-4 right-4;
-}
-
-.badge-text {
-  @apply bg-gradient-to-r from-primary to-orange-400 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg;
-}
-
-.image-overlay {
-  @apply absolute inset-0 bg-black bg-opacity-0 transition-all duration-300;
+  @apply h-40 overflow-hidden;
+  
+  .project-image {
+    @apply w-full h-full object-contain bg-gray-50 dark:bg-gray-700;
+  }
 }
 
 .project-content {
-  @apply p-8;
+  @apply p-4;
+}
+
+.project-buttons {
+  @apply flex gap-2 mt-3;
+  
+  .btn-demo, .btn-code {
+    @apply flex-1 px-3 py-2 text-sm font-semibold rounded-md transition-colors duration-200 flex items-center justify-center gap-1;
+  }
+  
+  .btn-icon {
+    @apply w-3 h-3;
+  }
+  
+  .btn-demo {
+    @apply text-white;
+    background-color: #FF7955;
+    
+    &:hover {
+      background-color: #E65E3B;
+    }
+  }
+  
+  .btn-code {
+    @apply bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
+    
+    &:hover {
+      @apply bg-gray-200 dark:bg-gray-600;
+    }
+  }
 }
 
 .project-title {
-  @apply text-2xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300;
-}
-
-.project-card:hover .project-title {
-  @apply text-primary;
+  @apply text-base font-bold mb-2 text-gray-900 dark:text-white line-clamp-2;
 }
 
 .project-description {
-  @apply text-gray-600 dark:text-gray-300 mb-6 leading-relaxed;
+  @apply text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2 leading-relaxed;
 }
 
-.technologies-list {
-  @apply flex flex-wrap gap-2 mb-8;
-}
-
-.tech-tag {
-  @apply px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300;
-}
-
-.project-actions {
-  @apply flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700;
-}
-
-.demo-button {
-  @apply inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary to-orange-400 text-white font-semibold rounded-lg hover:from-orange-600 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
-}
-
-.code-button {
-  @apply inline-flex items-center px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary font-semibold transition-colors duration-300;
-}
-
-.button-icon {
-  @apply w-4 h-4 mr-2;
-}
-
-.projects-cta {
-  @apply text-center mt-16;
-}
-
-.cta-text {
-  @apply text-gray-600 dark:text-gray-300 mb-6 text-lg;
-}
-
-.cta-button {
-  @apply inline-flex items-center px-8 py-3 bg-gradient-to-r from-primary to-orange-400 text-white font-semibold rounded-lg hover:from-orange-600 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
-
-  .button-icon {
-    @apply w-5 h-5 ml-2;
+.tech-stack {
+  @apply flex flex-wrap gap-1;
+  
+  .tech-tag {
+    @apply px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-md font-medium;
+  }
+  
+  .tech-more {
+    @apply px-2 py-1 text-xs font-medium rounded-md;
+    color: #FF7955;
+    background-color: rgba(255, 121, 85, 0.1);
   }
 }

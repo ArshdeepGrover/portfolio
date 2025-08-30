@@ -1,12 +1,11 @@
 <section id="projects" class="projects-section">
   <div class="projects-container">
-    <div class="projects-header">
-      <h2 class="projects-title" data-aos="fade-up">
-        My <span class="title-highlight">Projects</span>
+    <div class="projects-header" data-aos="fade-up">
+      <h2 class="section-title">
+        My <span class="highlight">Projects</span>
       </h2>
-      <p class="projects-description" data-aos="fade-up" data-aos-delay="100">
-        Here are some of the projects I've worked on. Each project represents a
-        unique challenge and solution that showcases my skills and creativity.
+      <p class="section-description">
+        A showcase of my recent work and creative solutions
       </p>
     </div>
 
@@ -19,64 +18,54 @@
       >
         <div class="project-image-container">
           <img
-            *ngIf="!project.iframe"
             [src]="project.image"
             [alt]="project.title"
             class="project-image"
+            loading="lazy"
           />
-          <iframe
-            *ngIf="project.iframe"
-            [src]="getSafeUrl(project.iframe)"
-            [title]="project.title"
-            class="project-iframe"
-            frameborder="0"
-            allowfullscreen
-          >
-          </iframe>
+          <div class="project-overlay">
+            <div class="project-actions">
+              <a [href]="project.demoLink" class="action-btn demo-btn" target="_blank">
+                <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
+                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-1a1 1 0 10-2 0v1H5V7h1a1 1 0 000-2H5z"/>
+                </svg>
+              </a>
+              <a [href]="project.githubUrl" class="action-btn code-btn" target="_blank">
+                <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
 
         <div class="project-content">
           <h3 class="project-title">{{ project.title }}</h3>
           <p class="project-description">{{ project.description }}</p>
-
-          <div class="technologies-list">
-            <span *ngFor="let tech of project.technologies" class="tech-tag">
+          
+          <div class="tech-stack">
+            <span *ngFor="let tech of project.technologies.slice(0, 3)" class="tech-tag">
               {{ tech }}
             </span>
+            <span *ngIf="project.technologies.length > 3" class="tech-more">
+              +{{ project.technologies.length - 3 }}
+            </span>
           </div>
-
-          <div class="project-actions">
-            <a [href]="project.demoLink" class="demo-button" target="_blank">
-              <svg
-                class="button-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                ></path>
+          
+          <div class="project-buttons">
+            <a [href]="project.demoLink" class="btn-demo" target="_blank">
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
+                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-1a1 1 0 10-2 0v1H5V7h1a1 1 0 000-2H5z"/>
               </svg>
-              Live Demo
+              Demo
             </a>
-            <a [href]="project.githubUrl" class="code-button" target="_blank">
-              <svg
-                class="button-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                ></path>
+            <a [href]="project.githubUrl" class="btn-code" target="_blank">
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
               </svg>
-              View Code
+              Code
             </a>
           </div>
         </div>
