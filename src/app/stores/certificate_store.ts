@@ -53,4 +53,14 @@ export const certificates: ICertificate[] = [
     image: '/certificates/angular_basic.jpg',
     credentialUrl: 'https://www.hackerrank.com/certificates/e087914985b6',
   },
+  {
+    id: 6,
+    title: 'JavaScript Basics',
+    issuer: 'HackerRank',
+    date: 'May 2025',
+    description:
+      'It covers topics like functions, currying, hoisting, scope, inheritance, events and error handling.',
+    image: '/certificates/javascript_basic.jpg',
+    credentialUrl: 'https://www.hackerrank.com/certificates/bc19ebd388e9',
+  },
 ];
