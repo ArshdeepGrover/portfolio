@@ -1,4 +1,29 @@
 <section id="hero" class="hero">
+  <div class="floating-icons">
+    <div class="tech-icon tech-icon-1">🌟</div>
+    <div class="tech-icon tech-icon-2">💎</div>
+    <div class="tech-icon tech-icon-3">🅰️</div>
+    <div class="tech-icon tech-icon-4">📱</div>
+    <div class="tech-icon tech-icon-5">🚀</div>
+    <div class="tech-icon tech-icon-6">💻</div>
+  </div>
+  <div class="particles">
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+    <div class="particle particle-5"></div>
+    <div class="particle particle-6"></div>
+    <div class="particle particle-7"></div>
+    <div class="particle particle-8"></div>
+    <div class="particle particle-9"></div>
+    <div class="particle particle-10"></div>
+    <div class="particle particle-11"></div>
+    <div class="particle particle-12"></div>
+    <div class="particle particle-13"></div>
+    <div class="particle particle-14"></div>
+    <div class="particle particle-15"></div>
+  </div>
   <div class="hero-container">
     <div class="hero-content">
       <div class="hero-text">
@@ -6,16 +31,14 @@
           Hi, I'm <span class="hero-name">Arshdeep Singh</span>
         </h1>
         <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
-          Full Stack Developer | Angular | Ruby on Rails
+          <span #typedElement></span><span class="typing-cursor">|</span>
         </p>
         <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
-          Dynamic Full-Stack Developer with 3+ years of experience deploying
-          scalable web applications using Angular and Ruby on Rails. Advanced
-          from intern to Lead Developer, showcasing leadership in end-to-end
-          project delivery and cross-functional collaboration with designers,
-          product managers, and stakeholders. Skilled in integrating headless
-          CMS, secure payment gateways, and analytics tools to drive user
-          engagement and business growth.
+          Passionate Full-Stack Developer with 3+ years of experience building
+          scalable web applications using Angular, Ruby on Rails, and modern technologies.
+          From crafting interactive web apps to developing Ruby gems and Chrome extensions,
+          I create solutions that solve real-world problems. Experienced in leading projects
+          from concept to deployment with focus on clean code and user experience.
         </p>
         <div class="hero-highlights" data-aos="fade-up" data-aos-delay="250">
           <div class="highlight-item">
@@ -23,7 +46,7 @@
             <span class="highlight-text">Years Experience</span>
           </div>
           <div class="highlight-item">
-            <span class="highlight-number">6+</span>
+            <span class="highlight-number">7+</span>
             <span class="highlight-text">Projects Completed</span>
           </div>
           <div class="highlight-item">
@@ -39,12 +62,46 @@
             <span class="highlight-text">Mobile Responsive</span>
           </div>
           <div class="highlight-item">
-            <span class="highlight-icon">🤖</span>
-            <span class="highlight-text">AI Tools Enthusiast</span>
+            <span class="highlight-icon">🌟</span>
+            <span class="highlight-text">Open Source Contributor</span>
+          </div>
+        </div>
+        <div class="code-snippet" data-aos="fade-up" data-aos-delay="275">
+          <div class="code-header">
+            <div class="code-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="code-title">portfolio.ts</span>
+          </div>
+          <div class="code-content">
+            <span class="code-line" #typedCodeElement></span>
+            <span class="code-cursor">|</span>
           </div>
         </div>
         <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
           <a href="#projects" class="hero-button"> View Projects </a>
+          <a
+            href="https://calendly.com/arshdeepgrover"
+            target="_blank"
+            class="meeting-button"
+          >
+            <svg
+              class="button-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              ></path>
+            </svg>
+            Book a Meeting
+          </a>
           <a
             href="/resume/Arshdeep_Singh_SoftwareDeveloper_Resume.pdf"
             target="_blank"
@@ -125,6 +182,15 @@
           </div>
         </div>
       </div>
+    </div>
+    
+    <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="500">
+      <a href="#about" class="scroll-arrow">
+        <svg class="scroll-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </a>
+      <span class="scroll-text">Scroll Down</span>
     </div>
   </div>
 </section>

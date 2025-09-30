@@ -4,8 +4,123 @@
   overflow: hidden;
 }
 
+.floating-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tech-icon {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.tech-icon-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.tech-icon-2 {
+  top: 60%;
+  left: 80%;
+  animation-delay: 1s;
+}
+
+.tech-icon-3 {
+  top: 30%;
+  left: 85%;
+  animation-delay: 2s;
+}
+
+.tech-icon-4 {
+  top: 80%;
+  left: 15%;
+  animation-delay: 3s;
+}
+
+.tech-icon-5 {
+  top: 15%;
+  left: 70%;
+  animation-delay: 4s;
+}
+
+.tech-icon-6 {
+  top: 70%;
+  left: 5%;
+  animation-delay: 5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #FF7955;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: particleFloat 8s linear infinite;
+}
+
+.particle-1 { top: 10%; left: 20%; animation-delay: 0s; }
+.particle-2 { top: 20%; left: 80%; animation-delay: 1s; }
+.particle-3 { top: 60%; left: 10%; animation-delay: 2s; }
+.particle-4 { top: 80%; left: 70%; animation-delay: 3s; }
+.particle-5 { top: 30%; left: 60%; animation-delay: 4s; }
+.particle-6 { top: 70%; left: 30%; animation-delay: 5s; }
+.particle-7 { top: 40%; left: 90%; animation-delay: 6s; }
+.particle-8 { top: 90%; left: 50%; animation-delay: 7s; }
+.particle-9 { top: 15%; left: 45%; animation-delay: 0.5s; }
+.particle-10 { top: 35%; left: 15%; animation-delay: 1.5s; }
+.particle-11 { top: 55%; left: 85%; animation-delay: 2.5s; }
+.particle-12 { top: 75%; left: 55%; animation-delay: 3.5s; }
+.particle-13 { top: 25%; left: 35%; animation-delay: 4.5s; }
+.particle-14 { top: 65%; left: 75%; animation-delay: 5.5s; }
+.particle-15 { top: 85%; left: 25%; animation-delay: 6.5s; }
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-60px) scale(0.8);
+    opacity: 0;
+  }
+}
+
 .hero-container {
   @apply container mx-auto px-4 py-16;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content {
@@ -28,12 +143,63 @@
   @apply text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300;
 }
 
+.typing-cursor {
+  @apply text-primary;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
 .hero-description {
   @apply text-gray-600 dark:text-gray-400 mb-6 max-w-lg;
 }
 
 .hero-highlights {
-  @apply grid grid-cols-2 md:grid-cols-3 gap-4 mb-8 max-w-lg;
+  @apply grid grid-cols-2 lg:grid-cols-3 gap-4 mb-6;
+}
+
+.code-snippet {
+  @apply bg-gray-900 dark:bg-gray-800 rounded-lg p-4 mb-6 max-w-lg font-mono text-sm;
+}
+
+.code-header {
+  @apply flex items-center justify-between mb-3 pb-2 border-b border-gray-700;
+}
+
+.code-dots {
+  @apply flex space-x-2;
+}
+
+.dot {
+  @apply w-3 h-3 rounded-full;
+}
+
+.dot.red {
+  @apply bg-red-500;
+}
+
+.dot.yellow {
+  @apply bg-yellow-500;
+}
+
+.dot.green {
+  @apply bg-green-500;
+}
+
+.code-title {
+  @apply text-gray-400 text-xs;
+}
+
+.code-content {
+  @apply text-green-400 min-h-[24px];
+}
+
+.code-cursor {
+  @apply text-green-400;
+  animation: blink 1s infinite;
 }
 
 .highlight-item {
@@ -61,6 +227,22 @@
   
   &:hover {
     @apply bg-primary-dark;
+  }
+}
+
+.meeting-button {
+  @apply inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-md transition-colors duration-300;
+  
+  &:hover {
+    @apply bg-green-700;
+  }
+}
+
+.email-button {
+  @apply inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-md transition-colors duration-300;
+  
+  &:hover {
+    @apply bg-blue-700;
   }
 }
 
@@ -112,4 +294,33 @@
 
 .hero-profile-image {
   @apply w-full h-full object-cover rounded-full;
+}
+
+.scroll-indicator {
+  @apply absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center;
+}
+
+.scroll-arrow {
+  @apply text-gray-400 dark:text-gray-500 hover:text-primary transition-colors duration-300;
+  animation: bounce 2s infinite;
+}
+
+.scroll-icon {
+  @apply w-6 h-6;
+}
+
+.scroll-text {
+  @apply text-xs text-gray-400 dark:text-gray-500 mt-2 font-medium;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }

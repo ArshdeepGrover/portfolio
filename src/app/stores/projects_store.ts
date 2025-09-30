@@ -122,4 +122,21 @@ export const projects: IProject[] = [
     demoLink: 'https://periodic-table-phi-mocha.vercel.app',
     githubUrl: 'https://github.com/ArshdeepGrover/periodic-table',
   },
+  {
+    id: 8,
+    title: 'Content Flagging - Ruby Gem for Content Moderation',
+    description:
+      'A Ruby gem that provides content moderation and flagging capabilities for web applications. Features automated content filtering, customizable flagging rules, and easy integration with Rails applications for maintaining clean and safe user-generated content.',
+    image: '/project-images/content-flagging.svg',
+    technologies: [
+      'Ruby',
+      'Ruby Gem',
+      'Content Moderation',
+      'Rails',
+      'Open Source',
+      'RubyGems',
+    ],
+    demoLink: 'https://content-flagging.netlify.app',
+    githubUrl: 'https://rubygems.org/gems/content_flagging',
+  },
 ];
