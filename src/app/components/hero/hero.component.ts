@@ -44,10 +44,10 @@ export class HeroComponent implements OnInit, OnDestroy {
     // Code typing animation
     this.typedCode = new Typed(this.typedCodeElement.nativeElement, {
       strings: [
-        'const developer = new FullStackDev();',
-        'developer.skills = ["Angular", "Ruby"];',
-        'developer.build("amazing-projects");',
-        'console.log("Ready to code!");'
+        '<span class="code-keyword">const</span> <span class="code-variable">developer</span> = <span class="code-keyword">new</span> <span class="code-class">FullStackDev</span>();',
+        '<span class="code-variable">developer</span>.<span class="code-property">skills</span> = [<span class="code-string">"Angular"</span>, <span class="code-string">"Ruby"</span>];',
+        '<span class="code-variable">developer</span>.<span class="code-method">build</span>(<span class="code-string">"amazing-projects"</span>);',
+        '<span class="code-console">console</span>.<span class="code-method">log</span>(<span class="code-string">"Ready to code!"</span>);'
       ],
       typeSpeed: 60,
       backSpeed: 30,

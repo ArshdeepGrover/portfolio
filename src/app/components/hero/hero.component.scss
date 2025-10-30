@@ -1,64 +1,50 @@
 .hero {
-  @apply min-h-screen flex items-center bg-white dark:bg-gray-900;
-  position: relative;
-  overflow: hidden;
+  @apply relative overflow-hidden bg-white dark:bg-gray-900 flex items-center;
+  height: 90dvh;
 }
 
 .floating-icons {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
+  @apply absolute inset-0 w-full h-full pointer-events-none z-[1];
 }
 
 .tech-icon {
-  position: absolute;
-  font-size: 2rem;
-  opacity: 0.1;
+  @apply absolute text-3xl opacity-10;
   animation: float 6s ease-in-out infinite;
 }
 
 .tech-icon-1 {
-  top: 20%;
-  left: 10%;
+  @apply top-[20%] left-[10%];
   animation-delay: 0s;
 }
 
 .tech-icon-2 {
-  top: 60%;
-  left: 80%;
+  @apply top-[60%] left-[80%];
   animation-delay: 1s;
 }
 
 .tech-icon-3 {
-  top: 30%;
-  left: 85%;
+  @apply top-[30%] left-[85%];
   animation-delay: 2s;
 }
 
 .tech-icon-4 {
-  top: 80%;
-  left: 15%;
+  @apply top-[80%] left-[15%];
   animation-delay: 3s;
 }
 
 .tech-icon-5 {
-  top: 15%;
-  left: 70%;
+  @apply top-[15%] left-[70%];
   animation-delay: 4s;
 }
 
 .tech-icon-6 {
-  top: 70%;
-  left: 5%;
+  @apply top-[70%] left-[5%];
   animation-delay: 5s;
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
@@ -67,40 +53,74 @@
 }
 
 .particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
+  @apply absolute inset-0 w-full h-full pointer-events-none z-0;
 }
 
 .particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #FF7955;
-  border-radius: 50%;
-  opacity: 0.3;
+  @apply absolute w-1 h-1 bg-primary rounded-full opacity-30;
   animation: particleFloat 8s linear infinite;
 }
 
-.particle-1 { top: 10%; left: 20%; animation-delay: 0s; }
-.particle-2 { top: 20%; left: 80%; animation-delay: 1s; }
-.particle-3 { top: 60%; left: 10%; animation-delay: 2s; }
-.particle-4 { top: 80%; left: 70%; animation-delay: 3s; }
-.particle-5 { top: 30%; left: 60%; animation-delay: 4s; }
-.particle-6 { top: 70%; left: 30%; animation-delay: 5s; }
-.particle-7 { top: 40%; left: 90%; animation-delay: 6s; }
-.particle-8 { top: 90%; left: 50%; animation-delay: 7s; }
-.particle-9 { top: 15%; left: 45%; animation-delay: 0.5s; }
-.particle-10 { top: 35%; left: 15%; animation-delay: 1.5s; }
-.particle-11 { top: 55%; left: 85%; animation-delay: 2.5s; }
-.particle-12 { top: 75%; left: 55%; animation-delay: 3.5s; }
-.particle-13 { top: 25%; left: 35%; animation-delay: 4.5s; }
-.particle-14 { top: 65%; left: 75%; animation-delay: 5.5s; }
-.particle-15 { top: 85%; left: 25%; animation-delay: 6.5s; }
+.particle-1 {
+  @apply top-[10%] left-[20%];
+  animation-delay: 0s;
+}
+.particle-2 {
+  @apply top-[20%] left-[80%];
+  animation-delay: 1s;
+}
+.particle-3 {
+  @apply top-[60%] left-[10%];
+  animation-delay: 2s;
+}
+.particle-4 {
+  @apply top-[80%] left-[70%];
+  animation-delay: 3s;
+}
+.particle-5 {
+  @apply top-[30%] left-[60%];
+  animation-delay: 4s;
+}
+.particle-6 {
+  @apply top-[70%] left-[30%];
+  animation-delay: 5s;
+}
+.particle-7 {
+  @apply top-[40%] left-[90%];
+  animation-delay: 6s;
+}
+.particle-8 {
+  @apply top-[90%] left-[50%];
+  animation-delay: 7s;
+}
+.particle-9 {
+  @apply top-[15%] left-[45%];
+  animation-delay: 0.5s;
+}
+.particle-10 {
+  @apply top-[35%] left-[15%];
+  animation-delay: 1.5s;
+}
+.particle-11 {
+  @apply top-[55%] left-[85%];
+  animation-delay: 2.5s;
+}
+.particle-12 {
+  @apply top-[75%] left-[55%];
+  animation-delay: 3.5s;
+}
+.particle-13 {
+  @apply top-[25%] left-[35%];
+  animation-delay: 4.5s;
+}
+.particle-14 {
+  @apply top-[65%] left-[75%];
+  animation-delay: 5.5s;
+}
+.particle-15 {
+  @apply top-[85%] left-[25%];
+  animation-delay: 6.5s;
+}
 
 @keyframes particleFloat {
   0% {
@@ -118,9 +138,7 @@
 }
 
 .hero-container {
-  @apply container mx-auto px-4 py-16;
-  position: relative;
-  z-index: 2;
+  @apply container mx-auto px-4 py-16 relative z-[2];
 }
 
 .hero-content {
@@ -132,7 +150,7 @@
 }
 
 .hero-title {
-  @apply text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white;
+  @apply text-3xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white;
 }
 
 .hero-name {
@@ -149,8 +167,14 @@
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .hero-description {
@@ -162,7 +186,7 @@
 }
 
 .code-snippet {
-  @apply bg-gray-900 dark:bg-gray-800 rounded-lg p-4 mb-6 max-w-lg font-mono text-sm;
+  @apply bg-gray-900 dark:bg-gray-800 rounded-lg p-4 mt-6 max-w-sm font-mono text-sm;
 }
 
 .code-header {
@@ -194,12 +218,40 @@
 }
 
 .code-content {
-  @apply text-green-400 min-h-[24px];
+  @apply text-green-400 min-h-[24px] w-96;
 }
 
 .code-cursor {
   @apply text-green-400;
   animation: blink 1s infinite;
+}
+
+.code-keyword {
+  @apply text-purple-400;
+}
+
+.code-variable {
+  @apply text-blue-300;
+}
+
+.code-class {
+  @apply text-yellow-300;
+}
+
+.code-property {
+  @apply text-cyan-300;
+}
+
+.code-method {
+  @apply text-green-300;
+}
+
+.code-string {
+  @apply text-orange-300;
+}
+
+.code-console {
+  @apply text-red-300;
 }
 
 .highlight-item {
@@ -224,7 +276,7 @@
 
 .hero-button {
   @apply px-6 py-3 bg-primary text-white rounded-md transition-colors duration-300;
-  
+
   &:hover {
     @apply bg-primary-dark;
   }
@@ -232,7 +284,7 @@
 
 .meeting-button {
   @apply inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-md transition-colors duration-300;
-  
+
   &:hover {
     @apply bg-green-700;
   }
@@ -240,7 +292,7 @@
 
 .email-button {
   @apply inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-md transition-colors duration-300;
-  
+
   &:hover {
     @apply bg-blue-700;
   }
@@ -248,7 +300,7 @@
 
 .resume-button {
   @apply inline-flex items-center px-6 py-3 bg-transparent border-2 border-primary text-primary rounded-md transition-all duration-300;
-  
+
   &:hover {
     @apply bg-primary text-white;
   }
@@ -271,21 +323,19 @@
 }
 
 .hero-image {
-  @apply md:w-1/2;
+  @apply md:w-1/2 flex flex-col items-center;
 }
 
 .hero-image-container {
   @apply relative;
-  
-  .bg-blur-1 {
-    @apply absolute -top-6 -left-6 w-64 h-64 bg-primary/20 rounded-full;
-    filter: blur(60px);
-  }
-  
-  .bg-blur-2 {
-    @apply absolute -bottom-10 -right-10 w-72 h-72 bg-blue-500/20 rounded-full;
-    filter: blur(60px);
-  }
+}
+
+.bg-blur-1 {
+  @apply absolute -top-6 -left-6 w-64 h-64 bg-primary/20 rounded-full blur-[60px];
+}
+
+.bg-blur-2 {
+  @apply absolute -bottom-10 -right-10 w-72 h-72 bg-blue-500/20 rounded-full blur-[60px];
 }
 
 .hero-image-wrapper {
@@ -297,7 +347,7 @@
 }
 
 .scroll-indicator {
-  @apply absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center;
+  @apply absolute bottom-2 left-1/2 transform -translate-x-1/2 flex flex-col items-center;
 }
 
 .scroll-arrow {
@@ -314,7 +364,11 @@
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {
