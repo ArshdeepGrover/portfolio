@@ -98,7 +98,7 @@ export const blogs: IBlog[] = [
       'A powerful Ruby gem that simplifies content moderation in Rails applications with customizable flagging, automated workflows, and comprehensive reporting.',
     image:
       'https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftcpgvia6r6hu7bx4s680.jpg',
-    date: 'January 15, 2025',
+    date: 'November 5, 2025',
     readTime: 6,
     tags: [
       'Ruby',
