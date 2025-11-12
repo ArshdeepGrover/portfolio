@@ -1,4 +1,4 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Compiled output
 /dist
@@ -29,8 +29,6 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-.angular/
-.angular/*
 /.angular/cache
 .sass-cache/
 /connect.lock
@@ -43,10 +41,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Amazon Q
-.amazonq/
-.amazonq/*
-
-#cursor
-.cursor/
-.cursor/*
+# Sanity
+/sanity/node_modules
+/sanity/dist
+/sanity/.sanity

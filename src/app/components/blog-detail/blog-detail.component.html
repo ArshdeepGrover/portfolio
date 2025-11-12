@@ -1,0 +1,108 @@
+<div class="blog-detail-container">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Back Button -->
+    <a
+      routerLink="/blog"
+      class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8"
+    >
+      <svg
+        class="w-5 h-5 mr-2"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        ></path>
+      </svg>
+      Back to Blog
+    </a>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="text-center py-12">
+      <p class="text-gray-600">Loading post...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error" class="text-center py-12">
+      <p class="text-red-600">{{ error }}</p>
+    </div>
+
+    <!-- Blog Post -->
+    <article
+      *ngIf="!loading && !error && post"
+      class="bg-white rounded-lg shadow-lg overflow-hidden"
+    >
+      <!-- Banner Image -->
+      <div *ngIf="post.banner" class="w-full aspect-video overflow-hidden">
+        <img
+          [src]="post.banner"
+          [alt]="post.title"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- Content -->
+      <div class="p-8 md:p-12">
+        <!-- Meta Info -->
+        <div class="flex items-center gap-4 mb-6 text-sm text-gray-500">
+          <span>{{ formatDate(post.publishedAt) }}</span>
+          <span *ngIf="post.tags && post.tags.length" class="flex gap-2">
+            <span
+              *ngFor="let tag of post.tags"
+              class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full"
+            >
+              {{ tag }}
+            </span>
+          </span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">{{ post.title }}</h1>
+
+        <!-- Excerpt -->
+        <p *ngIf="post.excerpt" class="text-xl text-gray-600 mb-8 italic">
+          {{ post.excerpt }}
+        </p>
+
+        <!-- Body Content -->
+        <!-- Show Markdown content if available -->
+        <div
+          *ngIf="post.markdown"
+          class="prose prose-lg max-w-none markdown-content"
+          [innerHTML]="markdownHtml"
+        ></div>
+
+        <!-- Show Rich Text content if no markdown -->
+        <div
+          *ngIf="!post.markdown && post.body"
+          class="prose prose-lg max-w-none"
+        >
+          <div *ngFor="let block of post.body">
+            <p
+              *ngIf="block._type === 'block' && block.style === 'normal'"
+              class="mb-4"
+            >
+              <span *ngFor="let child of block.children">{{ child.text }}</span>
+            </p>
+            <h2
+              *ngIf="block._type === 'block' && block.style === 'h2'"
+              class="text-3xl font-bold mt-8 mb-4"
+            >
+              <span *ngFor="let child of block.children">{{ child.text }}</span>
+            </h2>
+            <h3
+              *ngIf="block._type === 'block' && block.style === 'h3'"
+              class="text-2xl font-bold mt-6 mb-3"
+            >
+              <span *ngFor="let child of block.children">{{ child.text }}</span>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -12,14 +14,49 @@ export class HeaderComponent implements OnInit {
   isDarkMode = false;
   isMobileMenuOpen = false;
   activeSection = 'hero';
+  isOnHomePage = true;
 
   navItems = [
-    { label: 'Experience', href: '#experience', id: 'experience' },
-    { label: 'Skills', href: '#skills', id: 'skills' },
-    { label: 'Projects', href: '#projects', id: 'projects' },
-    { label: 'Certificates', href: '#certificates', id: 'certificates' },
-    { label: 'Blogs', href: '#blogs', id: 'blogs' },
+    { label: 'Experience', href: '#experience', id: 'experience', route: '/' },
+    { label: 'Skills', href: '#skills', id: 'skills', route: '/' },
+    { label: 'Projects', href: '#projects', id: 'projects', route: '/' },
+    {
+      label: 'Certificates',
+      href: '#certificates',
+      id: 'certificates',
+      route: '/',
+    },
+    { label: 'Blogs', href: '#blogs', id: 'blogs', route: '/' },
+    { label: 'Blog', href: '/blog', id: 'blog', route: '/blog' },
   ];
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      this.isDarkMode = true;
+      document.documentElement.classList.add('dark');
+    }
+
+    // Track current route
+    this.checkCurrentRoute();
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.checkCurrentRoute();
+      });
+  }
+
+  checkCurrentRoute() {
+    this.isOnHomePage =
+      this.router.url === '/' || this.router.url.startsWith('/#');
+  }
 
   toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
@@ -70,6 +107,28 @@ export class HeaderComponent implements OnInit {
   }
 
   scrollToSection(sectionId: string) {
+    // If clicking "Blog", navigate to blog page
+    if (sectionId === 'blog') {
+      this.router.navigate(['/blog']);
+      this.closeMobileMenu();
+      return;
+    }
+
+    // If not on home page, navigate to home first
+    if (!this.isOnHomePage) {
+      this.router.navigate(['/'], { fragment: sectionId }).then(() => {
+        setTimeout(() => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      });
+      this.closeMobileMenu();
+      return;
+    }
+
+    // If on home page, just scroll
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -79,19 +138,14 @@ export class HeaderComponent implements OnInit {
   }
 
   isActive(sectionId: string): boolean {
+    if (sectionId === 'blog') {
+      return this.router.url.startsWith('/blog');
+    }
     return this.activeSection === sectionId;
   }
 
-  ngOnInit() {
-    // Check for saved theme preference or use system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia(
-      '(prefers-color-scheme: dark)'
-    ).matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-      this.isDarkMode = true;
-      document.documentElement.classList.add('dark');
-    }
+  navigateHome() {
+    this.router.navigate(['/']);
+    this.closeMobileMenu();
   }
 }
