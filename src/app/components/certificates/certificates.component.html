@@ -15,6 +15,11 @@
         class="certificate-card"
         [attr.data-aos]="'fade-up'"
         [attr.data-aos-delay]="i * 100"
+        [class.clickable]="certificate.credentialUrl"
+        (click)="
+          certificate.credentialUrl &&
+            openCertificate(certificate.credentialUrl)
+        "
       >
         <div class="certificate-image-container">
           <img
@@ -24,23 +29,28 @@
             loading="lazy"
           />
         </div>
-        
+
         <div class="certificate-content">
           <h3 class="certificate-title">{{ certificate.title }}</h3>
           <p class="certificate-issuer">{{ certificate.issuer }}</p>
           <p class="certificate-date">{{ certificate.date }}</p>
-          
+
           <a
             *ngIf="certificate.credentialUrl"
             [href]="certificate.credentialUrl"
             target="_blank"
             class="certificate-btn"
+            (click)="$event.stopPropagation()"
           >
             <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
-              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-1a1 1 0 10-2 0v1H5V7h1a1 1 0 000-2H5z"/>
+              <path
+                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+              />
+              <path
+                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-1a1 1 0 10-2 0v1H5V7h1a1 1 0 000-2H5z"
+              />
             </svg>
-            View Credential
+            View Certificate
           </a>
         </div>
       </div>

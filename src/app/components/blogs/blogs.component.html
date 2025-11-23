@@ -12,10 +12,11 @@
 
     <div class="blogs-grid">
       <div
-        *ngFor="let blog of blogs ; let i = index"
+        *ngFor="let blog of blogs; let i = index"
         class="blog-card"
         [attr.data-aos]="'fade-up'"
         [attr.data-aos-delay]="i * 100"
+        (click)="openBlog(blog.url)"
       >
         <div class="blog-image-container">
           <img [src]="blog.image" [alt]="blog.title" class="blog-image" />
@@ -32,7 +33,12 @@
               tag
             }}</span>
           </div>
-          <a [href]="blog.url" target="_blank" class="blog-link">
+          <a
+            [href]="blog.url"
+            target="_blank"
+            class="blog-link"
+            (click)="$event.stopPropagation()"
+          >
             Read More
             <svg
               class="link-icon"

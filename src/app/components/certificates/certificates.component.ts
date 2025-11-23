@@ -11,5 +11,11 @@ import { ICertificate } from '@models/certificate.model';
   styleUrls: ['./certificates.component.scss'],
 })
 export class CertificatesComponent {
-  certificates: ICertificate[] = certificates.slice().sort((a, b) => b.id - a.id);
+  certificates: ICertificate[] = certificates
+    .slice()
+    .sort((a, b) => b.id - a.id);
+
+  openCertificate(url: string): void {
+    window.open(url, '_blank');
+  }
 }

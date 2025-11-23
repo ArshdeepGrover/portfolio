@@ -18,4 +18,8 @@ export class ProjectsComponent {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
   projects: IProject[] = projects.slice().sort((a, b) => b.id - a.id);
+
+  openProject(url: string): void {
+    window.open(url, '_blank');
+  }
 }

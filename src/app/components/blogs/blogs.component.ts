@@ -12,4 +12,8 @@ import { blogs } from '@stores/blogs_store';
 })
 export class BlogsComponent {
   blogs: IBlog[] = blogs.slice().sort((a, b) => b.id - a.id);
+
+  openBlog(url: string): void {
+    window.open(url, '_blank');
+  }
 }

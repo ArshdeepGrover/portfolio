@@ -8,15 +8,15 @@
 
 .projects-header {
   @apply max-w-4xl mx-auto text-center mb-16;
-  
+
   .section-title {
     @apply text-4xl font-bold mb-6 text-gray-900 dark:text-white;
-    
+
     .highlight {
-      color: #FF7955;
+      color: #ff7955;
     }
   }
-  
+
   .section-description {
     @apply text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto;
   }
@@ -27,20 +27,18 @@
 }
 
 .project-card {
-  @apply bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300;
-  
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden cursor-pointer;
+  transition: all 0.3s ease;
+
   &:hover {
-    @apply shadow-xl transform -translate-y-1;
-    
-    .project-title {
-      color: #FF7955;
-    }
+    box-shadow: 0 0 20px rgba(255, 121, 85, 0.4),
+      0 10px 25px -5px rgba(0, 0, 0, 0.1);
   }
 }
 
 .project-image-container {
   @apply h-40 overflow-hidden;
-  
+
   .project-image {
     @apply w-full h-full object-contain bg-gray-50 dark:bg-gray-700;
   }
@@ -52,27 +50,28 @@
 
 .project-buttons {
   @apply flex gap-2 mt-3;
-  
-  .btn-demo, .btn-code {
+
+  .btn-demo,
+  .btn-code {
     @apply flex-1 px-3 py-2 text-sm font-semibold rounded-md transition-colors duration-200 flex items-center justify-center gap-1;
   }
-  
+
   .btn-icon {
     @apply w-3 h-3;
   }
-  
+
   .btn-demo {
     @apply text-white;
-    background-color: #FF7955;
-    
+    background-color: #ff7955;
+
     &:hover {
-      background-color: #E65E3B;
+      background-color: #e65e3b;
     }
   }
-  
+
   .btn-code {
     @apply bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
-    
+
     &:hover {
       @apply bg-gray-200 dark:bg-gray-600;
     }
@@ -89,14 +88,14 @@
 
 .tech-stack {
   @apply flex flex-wrap gap-1;
-  
+
   .tech-tag {
     @apply px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-md font-medium;
   }
-  
+
   .tech-more {
     @apply px-2 py-1 text-xs font-medium rounded-md;
-    color: #FF7955;
+    color: #ff7955;
     background-color: rgba(255, 121, 85, 0.1);
   }
 }

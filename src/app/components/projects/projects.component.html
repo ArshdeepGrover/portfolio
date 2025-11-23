@@ -1,9 +1,7 @@
 <section id="projects" class="projects-section">
   <div class="projects-container">
     <div class="projects-header" data-aos="fade-up">
-      <h2 class="section-title">
-        My <span class="highlight">Projects</span>
-      </h2>
+      <h2 class="section-title">My <span class="highlight">Projects</span></h2>
       <p class="section-description">
         A showcase of my recent work and creative solutions
       </p>
@@ -15,6 +13,7 @@
         class="project-card"
         [attr.data-aos]="'fade-up'"
         [attr.data-aos-delay]="i * 100"
+        (click)="openProject(project.demoLink)"
       >
         <div class="project-image-container">
           <img
@@ -25,15 +24,34 @@
           />
           <div class="project-overlay">
             <div class="project-actions">
-              <a [href]="project.demoLink" class="action-btn demo-btn" target="_blank">
+              <a
+                [href]="project.demoLink"
+                class="action-btn demo-btn"
+                target="_blank"
+                (click)="$event.stopPropagation()"
+              >
                 <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
-                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-1a1 1 0 10-2 0v1H5V7h1a1 1 0 000-2H5z"/>
+                  <path
+                    d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                  />
+                  <path
+                    d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-1a1 1 0 10-2 0v1H5V7h1a1 1 0 000-2H5z"
+                  />
                 </svg>
               </a>
-              <a [href]="project.githubUrl" class="action-btn code-btn" target="_blank">
+              <a
+                *ngIf="project.githubUrl"
+                [href]="project.githubUrl"
+                class="action-btn code-btn"
+                target="_blank"
+                (click)="$event.stopPropagation()"
+              >
                 <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
               </a>
             </div>
@@ -43,27 +61,49 @@
         <div class="project-content">
           <h3 class="project-title">{{ project.title }}</h3>
           <p class="project-description">{{ project.description }}</p>
-          
+
           <div class="tech-stack">
-            <span *ngFor="let tech of project.technologies.slice(0, 3)" class="tech-tag">
+            <span
+              *ngFor="let tech of project.technologies.slice(0, 3)"
+              class="tech-tag"
+            >
               {{ tech }}
             </span>
             <span *ngIf="project.technologies.length > 3" class="tech-more">
               +{{ project.technologies.length - 3 }}
             </span>
           </div>
-          
+
           <div class="project-buttons">
-            <a [href]="project.demoLink" class="btn-demo" target="_blank">
+            <a
+              [href]="project.demoLink"
+              class="btn-demo"
+              target="_blank"
+              (click)="$event.stopPropagation()"
+            >
               <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
-                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-1a1 1 0 10-2 0v1H5V7h1a1 1 0 000-2H5z"/>
+                <path
+                  d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                />
+                <path
+                  d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-1a1 1 0 10-2 0v1H5V7h1a1 1 0 000-2H5z"
+                />
               </svg>
-              Demo
+              Visit Site
             </a>
-            <a [href]="project.githubUrl" class="btn-code" target="_blank">
+            <a
+              *ngIf="project.githubUrl"
+              [href]="project.githubUrl"
+              class="btn-code"
+              target="_blank"
+              (click)="$event.stopPropagation()"
+            >
               <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                <path
+                  fill-rule="evenodd"
+                  d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
               </svg>
               Code
             </a>

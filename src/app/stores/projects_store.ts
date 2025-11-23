@@ -139,4 +139,36 @@ export const projects: IProject[] = [
     demoLink: 'https://content-flagging.netlify.app',
     githubUrl: 'https://rubygems.org/gems/content_flagging',
   },
+  {
+    id: 9,
+    title: 'Rails Health Monitor - Application Health Monitoring',
+    description:
+      'A comprehensive health monitoring solution for Ruby on Rails applications. Provides real-time monitoring of application health, database connectivity, system resources, and service dependencies. Features include customizable health checks, status dashboards, and alerting capabilities for maintaining robust Rails applications.',
+    image: '/project-images/rails-health-monitor.png',
+    technologies: [
+      'Ruby on Rails',
+      'Monitoring',
+      'Health Checks',
+      'System Monitoring',
+      'Netlify',
+      'DevOps',
+    ],
+    demoLink: 'https://rails-health-monitor.netlify.app/',
+    githubUrl: 'https://github.com/ArshdeepGrover/rails-health-monitor',
+  },
+  {
+    id: 10,
+    title: 'Staff Manager - Employee Management System',
+    description:
+      'A modern staff management application designed to streamline employee data management and organizational workflows. Features include employee profiles, role management, department organization, and administrative tools. Built with a clean, intuitive interface for efficient HR operations and team management.',
+    image: '/project-images/staff-manager.png',
+    technologies: [
+      'Angular',
+      'TypeScript',
+      'Tailwind CSS',
+      'Vercel',
+      'CRUD Operations',
+    ],
+    demoLink: 'https://staff-manager-tau.vercel.app/',
+  },
 ];
