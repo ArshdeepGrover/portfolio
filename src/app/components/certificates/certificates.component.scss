@@ -27,7 +27,7 @@
 }
 
 .certificate-card {
-  @apply bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden flex flex-col;
+  @apply bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col;
   transition: all 0.3s ease;
 
   &.clickable {
@@ -37,6 +37,7 @@
   &:hover {
     box-shadow: 0 0 20px rgba(255, 121, 85, 0.4),
       0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
   }
 }
 
