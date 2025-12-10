@@ -109,66 +109,109 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Arshdeep Singh",
-        "jobTitle": "Full Stack Developer",
-        "description": "Professional full stack developer specializing in modern web technologies including Angular, JavaScript, TypeScript, Ruby on Rails, and Node.js",
-        "url": "https://arshdeepsingh.info",
-        "image": "https://arshdeepsingh.info/images/arshdeep.png",
-        "sameAs": [
-          "https://github.com/arshdeepsingh",
-          "https://linkedin.com/in/arshdeepsingh"
-        ],
-        "knowsAbout": [
-          "JavaScript",
-          "TypeScript",
-          "Angular",
-          "Ruby on Rails",
-          "Node.js",
-          "Full Stack Development",
-          "Frontend Development",
-          "Backend Development",
-          "Web Development",
-          "Software Engineering"
-        ],
-        "hasOccupation": {
-          "@type": "Occupation",
-          "name": "Full Stack Developer",
-          "occupationLocation": {
-            "@type": "Place",
-            "name": "Remote"
+        "@type": ["Person", "ProfilePage"],
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Arshdeep Singh",
+          "givenName": "Arshdeep",
+          "familyName": "Singh",
+          "jobTitle": "Full Stack Developer",
+          "description": "Professional full stack developer specializing in modern web technologies including Angular, JavaScript, TypeScript, Ruby on Rails, and Node.js",
+          "url": "https://arshdeepsingh.info",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://arshdeepsingh.info/images/arshdeep.png",
+            "width": "400",
+            "height": "400"
           },
-          "skills": [
+          "sameAs": [
+            "https://github.com/arshdeepsingh",
+            "https://linkedin.com/in/arshdeepsingh"
+          ],
+          "knowsAbout": [
             "JavaScript",
             "TypeScript",
             "Angular",
             "Ruby on Rails",
             "Node.js",
-            "HTML",
-            "CSS",
-            "SCSS",
-            "Git",
-            "Database Design",
-            "API Development"
-          ]
-        },
-        "alumniOf": {
-          "@type": "EducationalOrganization",
-          "name": "Educational Institution"
-        },
-        "owns": {
-          "@type": "WebSite",
-          "name": "Arshdeep Singh Portfolio",
-          "url": "https://arshdeepsingh.info",
-          "description": "Professional portfolio showcasing full stack development projects, skills, and experience",
-          "author": {
-            "@type": "Person",
-            "name": "Arshdeep Singh"
+            "Full Stack Development",
+            "Frontend Development",
+            "Backend Development",
+            "Web Development",
+            "Software Engineering"
+          ],
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Full Stack Developer"
           },
-          "inLanguage": "en-US",
-          "copyrightYear": "2025",
-          "genre": "Portfolio"
-        }
+          "workLocation": "Remote",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+          }
+        },
+        "name": "Arshdeep Singh - Full Stack Developer Portfolio",
+        "url": "https://arshdeepsingh.info",
+        "description": "Professional portfolio showcasing full stack development projects, skills, and experience"
+      }
+    </script>
+
+    <!-- Organization Schema for Professional Identity -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Arshdeep Singh Development",
+        "url": "https://arshdeepsingh.info",
+        "logo": "https://arshdeepsingh.info/images/arshdeep.png",
+        "description": "Professional web development services specializing in full stack solutions",
+        "founder": {
+          "@type": "Person",
+          "name": "Arshdeep Singh"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Professional Inquiries",
+          "url": "https://arshdeepsingh.info/#contact"
+        },
+        "sameAs": [
+          "https://github.com/arshdeepsingh",
+          "https://linkedin.com/in/arshdeepsingh"
+        ]
+      }
+    </script>
+
+    <!-- FAQ Schema for Rich Results -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What technologies does Arshdeep Singh specialize in?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Arshdeep Singh specializes in full stack development with expertise in JavaScript, TypeScript, Angular, Ruby on Rails, Node.js, HTML, CSS, and modern web development frameworks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What services does Arshdeep Singh offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Arshdeep Singh offers comprehensive web development services including frontend development with Angular, backend development with Ruby on Rails and Node.js, and full stack application development."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I contact Arshdeep Singh for projects?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can contact Arshdeep Singh through the contact section on his portfolio website at arshdeepsingh.info or connect via LinkedIn and GitHub profiles."
+            }
+          }
+        ]
       }
     </script>
 
