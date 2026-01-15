@@ -169,6 +169,6 @@ export const projects: IProject[] = [
       'Vercel',
       'CRUD Operations',
     ],
-    demoLink: 'https://staff-manager-tau.vercel.app/',
+    demoLink: 'https://www.staffease.in/',
   },
 ];
