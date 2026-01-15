@@ -16,8 +16,8 @@ export const projects: IProject[] = [
       'Trivia',
       'Interactive Learning',
     ],
-    demoLink: 'https://quizzy-spark.vercel.app',
-    githubUrl: 'https://github.com/ArshdeepGrover/QuizzySpark',
+    demoLink: 'https://quizzy-spark.vercel.app?utm_source=portfolio&utm_medium=profile&utm_campaign=quizzy_spark',
+    githubUrl: 'https://github.com/ArshdeepGrover/QuizzySpark?utm_source=portfolio&utm_medium=profile&utm_campaign=quizzy_spark',
   },
   {
     id: 2,
@@ -33,8 +33,8 @@ export const projects: IProject[] = [
       'Vercel',
       'Movie Search',
     ],
-    demoLink: 'https://cinescope-lyart.vercel.app',
-    githubUrl: 'https://github.com/ArshdeepGrover/CineScope',
+    demoLink: 'https://cinescope-lyart.vercel.app?utm_source=portfolio&utm_medium=profile&utm_campaign=cinescope',
+    githubUrl: 'https://github.com/ArshdeepGrover/CineScope?utm_source=portfolio&utm_medium=profile&utm_campaign=cinescope',
   },
   {
     id: 3,
@@ -50,8 +50,8 @@ export const projects: IProject[] = [
       'CSS',
     ],
     demoLink:
-      'https://chromewebstore.google.com/detail/ajekflcjkiojnebaonccmaemifdndgdi?utm_source=item-share-cb',
-    githubUrl: 'https://github.com/ArshdeepGrover/TextTransformer-Chrome',
+      'https://chromewebstore.google.com/detail/ajekflcjkiojnebaonccmaemifdndgdi?utm_source=portfolio&utm_medium=profile&utm_campaign=text_transformer',
+    githubUrl: 'https://github.com/ArshdeepGrover/TextTransformer-Chrome?utm_source=portfolio&utm_medium=profile&utm_campaign=text_transformer',
   },
   {
     id: 4,
@@ -69,7 +69,7 @@ export const projects: IProject[] = [
     ],
     demoLink:
       'https://groupix-spinner.vercel.app/?utm_source=portfolio&utm_medium=profile&utm_campaign=groupix_spinner',
-    githubUrl: 'https://github.com/ArshdeepGrover/groupix-spinner-library',
+    githubUrl: 'https://github.com/ArshdeepGrover/groupix-spinner-library?utm_source=portfolio&utm_medium=profile&utm_campaign=groupix_spinner',
   },
   {
     id: 5,
@@ -86,8 +86,8 @@ export const projects: IProject[] = [
       'AI Tools',
       'Directory',
     ],
-    demoLink: 'https://ai-tool-collection.vercel.app',
-    githubUrl: 'https://github.com/ArshdeepGrover/ai-tool-collection',
+    demoLink: 'https://ai-tool-collection.vercel.app?utm_source=portfolio&utm_medium=profile&utm_campaign=ai_tool_collection',
+    githubUrl: 'https://github.com/ArshdeepGrover/ai-tool-collection?utm_source=portfolio&utm_medium=profile&utm_campaign=ai_tool_collection',
   },
   {
     id: 6,
@@ -103,8 +103,8 @@ export const projects: IProject[] = [
       'Interactive UI',
       'Fun',
     ],
-    demoLink: 'https://tic-tac-toe-nu-ten-20.vercel.app',
-    githubUrl: 'https://github.com/ArshdeepGrover/tic-tac-toe',
+    demoLink: 'https://tic-tac-toe-nu-ten-20.vercel.app?utm_source=portfolio&utm_medium=profile&utm_campaign=tic_tac_toe',
+    githubUrl: 'https://github.com/ArshdeepGrover/tic-tac-toe?utm_source=portfolio&utm_medium=profile&utm_campaign=tic_tac_toe',
   },
   {
     id: 7,
@@ -119,8 +119,8 @@ export const projects: IProject[] = [
       'Vercel',
       'Educational Tool',
     ],
-    demoLink: 'https://periodic-table-phi-mocha.vercel.app',
-    githubUrl: 'https://github.com/ArshdeepGrover/periodic-table',
+    demoLink: 'https://periodic-table-phi-mocha.vercel.app?utm_source=portfolio&utm_medium=profile&utm_campaign=periodic_table',
+    githubUrl: 'https://github.com/ArshdeepGrover/periodic-table?utm_source=portfolio&utm_medium=profile&utm_campaign=periodic_table',
   },
   {
     id: 8,
@@ -136,8 +136,8 @@ export const projects: IProject[] = [
       'Open Source',
       'RubyGems',
     ],
-    demoLink: 'https://content-flagging.netlify.app',
-    githubUrl: 'https://rubygems.org/gems/content_flagging',
+    demoLink: 'https://content-flagging.netlify.app?utm_source=portfolio&utm_medium=profile&utm_campaign=content_flagging',
+    githubUrl: 'https://rubygems.org/gems/content_flagging?utm_source=portfolio&utm_medium=profile&utm_campaign=content_flagging',
   },
   {
     id: 9,
@@ -153,8 +153,8 @@ export const projects: IProject[] = [
       'Netlify',
       'DevOps',
     ],
-    demoLink: 'https://rails-health-monitor.netlify.app/',
-    githubUrl: 'https://github.com/ArshdeepGrover/rails-health-monitor',
+    demoLink: 'https://rails-health-monitor.netlify.app/?utm_source=portfolio&utm_medium=profile&utm_campaign=rails_health_monitor',
+    githubUrl: 'https://github.com/ArshdeepGrover/rails-health-monitor?utm_source=portfolio&utm_medium=profile&utm_campaign=rails_health_monitor',
   },
   {
     id: 10,
@@ -169,6 +169,6 @@ export const projects: IProject[] = [
       'Vercel',
       'CRUD Operations',
     ],
-    demoLink: 'https://www.staffease.in/',
+    demoLink: 'https://www.staffease.in/?utm_source=portfolio&utm_medium=profile&utm_campaign=staff_manager',
   },
 ];
