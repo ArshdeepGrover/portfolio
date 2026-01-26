@@ -8,8 +8,8 @@
       <a
         *ngFor="let item of navItems"
         class="nav-link"
-        [class.active]="isActive(item.id)"
-        (click)="scrollToSection(item.id)"
+        [class.active]="isActive(item)"
+        (click)="navigateOrScroll(item)"
       >
         {{ item.label }}
       </a>
@@ -119,8 +119,8 @@
     <a
       *ngFor="let item of navItems"
       class="mobile-nav-link"
-      [class.active]="isActive(item.id)"
-      (click)="scrollToSection(item.id)"
+      [class.active]="isActive(item)"
+      (click)="navigateOrScroll(item)"
     >
       {{ item.label }}
     </a>
