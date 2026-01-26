@@ -18,6 +18,8 @@ export class ContactComponent implements OnInit, AfterViewInit {
     message: '',
   };
 
+  emailCopied = false;
+
   isSubmitting = false;
   submitMessage = '';
   submitSuccess = false;
@@ -81,6 +83,15 @@ export class ContactComponent implements OnInit, AfterViewInit {
           }, 5000);
         },
       });
+  }
+
+  copyEmail() {
+    navigator.clipboard.writeText('arsh199820@gmail.com').then(() => {
+      this.emailCopied = true;
+      setTimeout(() => {
+        this.emailCopied = false;
+      }, 2000);
+    });
   }
 
   resetForm() {
