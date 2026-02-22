@@ -32,6 +32,7 @@ export class HeroComponent implements OnInit, OnDestroy {
         'Full Stack Developer',
         'Angular Developer', 
         'Ruby on Rails Developer',
+        'Hackathon Mentor & Judge',
         'Open Source Contributor'
       ],
       typeSpeed: 80,
@@ -47,10 +48,11 @@ export class HeroComponent implements OnInit, OnDestroy {
         '<span class="code-keyword">const</span> <span class="code-variable">developer</span> = <span class="code-keyword">new</span> <span class="code-class">FullStackDev</span>();',
         '<span class="code-variable">developer</span>.<span class="code-property">skills</span> = [<span class="code-string">"Angular"</span>, <span class="code-string">"Ruby"</span>];',
         '<span class="code-variable">developer</span>.<span class="code-method">build</span>(<span class="code-string">"amazing-projects"</span>);',
+        '<span class="code-variable">developer</span>.<span class="code-property">role</span> = <span class="code-string">"Hackathon Mentor "</span>;',
         '<span class="code-console">console</span>.<span class="code-method">log</span>(<span class="code-string">"Ready to code!"</span>);'
       ],
-      typeSpeed: 60,
-      backSpeed: 30,
+      typeSpeed: 100,
+      backSpeed: 10,
       backDelay: 3000,
       loop: true,
       showCursor: false

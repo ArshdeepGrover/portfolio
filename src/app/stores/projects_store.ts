@@ -171,4 +171,20 @@ export const projects: IProject[] = [
     ],
     demoLink: 'https://www.staffease.in/?utm_source=portfolio&utm_medium=profile&utm_campaign=staff_manager',
   },
+  {
+    id: 11,
+    title: 'Rails Map - Ruby on Rails Route Visualization',
+    description:
+      'A Ruby gem that provides visual mapping and documentation of Rails application routes. Features include route visualization, endpoint analysis, and interactive route exploration. Helps developers understand and navigate complex Rails application routing structures with ease.',
+    image: '/project-images/rails-map.png',
+    technologies: [
+      'Ruby',
+      'Ruby Gem',
+      'Developer Tools',
+      'Route Mapping',
+      'Rails',
+      'Open Source',
+    ],
+    demoLink: 'https://rails-map.netlify.app/?utm_source=portfolio&utm_medium=profile&utm_campaign=rails_map',
+  },
 ];
