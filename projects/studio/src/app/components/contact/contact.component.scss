@@ -1,0 +1,133 @@
+.contact-grid {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-16;
+}
+
+.section-tag {
+  @apply text-sm font-semibold tracking-widest uppercase mb-4;
+  color: var(--primary-color);
+  letter-spacing: 0.2em;
+}
+
+.contact-title {
+  @apply text-3xl md:text-4xl font-bold mb-6;
+}
+
+.contact-desc {
+  @apply text-gray-400 leading-relaxed mb-8;
+}
+
+.contact-details {
+  @apply space-y-6 mb-8;
+}
+
+.detail-item {
+  @apply flex items-start gap-4;
+}
+
+.detail-icon {
+  @apply text-2xl mt-1;
+}
+
+.detail-label {
+  @apply text-sm text-gray-400 mb-1;
+}
+
+.detail-value {
+  @apply font-medium no-underline transition-colors duration-300;
+  color: var(--primary-color);
+
+  &:hover {
+    color: var(--primary-light);
+  }
+}
+
+.social-links {
+  @apply flex gap-4;
+}
+
+.social-link {
+  @apply w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  svg {
+    @apply w-5 h-5 text-gray-400;
+  }
+
+  &:hover {
+    background: rgba(108, 99, 255, 0.15);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    svg { color: var(--primary-color); }
+  }
+}
+
+.contact-form-wrapper {
+  @apply p-8 rounded-2xl;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.contact-form {
+  @apply space-y-6;
+}
+
+.form-group {
+  @apply flex flex-col;
+}
+
+.form-label {
+  @apply text-sm font-medium mb-2;
+}
+
+.form-input {
+  @apply w-full px-4 py-3 rounded-xl text-sm transition-all duration-300 outline-none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: inherit;
+
+  &::placeholder {
+    @apply text-gray-500;
+  }
+
+  &:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+  }
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  @apply w-full py-4 rounded-xl text-white font-semibold text-base cursor-pointer transition-all duration-300 border-none;
+  background: var(--primary-color);
+
+  &:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+
+  &.submitted {
+    background: #22c55e;
+  }
+}
+
+:host-context(.light) {
+  .contact-desc { @apply text-gray-600; }
+  .detail-label { @apply text-gray-500; }
+  .social-link {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  .contact-form-wrapper {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  .form-input {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+}

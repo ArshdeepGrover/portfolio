@@ -3,11 +3,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".",
     "outDir": "./dist/out-tsc",
-    "baseUrl": "src",
     "paths": {
-      "@stores/*": ["app/stores/*"],
-      "@models/*": ["app/models/*"]
+      "@shared/*": ["shared/*"]
     },
     "strict": true,
     "noImplicitOverride": true,

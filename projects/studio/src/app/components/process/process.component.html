@@ -1,0 +1,30 @@
+<section id="process" class="section">
+  <div class="max-w-7xl mx-auto">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-tag">How We Work</p>
+      <h2 class="section-title">Our Process</h2>
+      <p class="section-subtitle">
+        A proven approach that transforms your vision into reality.
+      </p>
+    </div>
+
+    <div class="process-timeline">
+      <div
+        *ngFor="let step of steps; let i = index; let last = last"
+        class="process-step"
+        data-aos="fade-up"
+        [attr.data-aos-delay]="(i + 1) * 100"
+      >
+        <div class="step-number">
+          <span>{{ step.step | number: '2.0-0' }}</span>
+        </div>
+        <div class="step-content">
+          <span class="step-icon">{{ step.icon }}</span>
+          <h3 class="step-title">{{ step.title }}</h3>
+          <p class="step-description">{{ step.description }}</p>
+        </div>
+        <div *ngIf="!last" class="step-connector"></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,68 @@
+<div class="project-detail" *ngIf="project">
+  <!-- Hero -->
+  <section class="detail-hero">
+    <div class="max-w-5xl mx-auto px-6 pt-32 pb-16">
+      <a routerLink="/" fragment="portfolio" class="back-link">
+        ← Back to Work
+      </a>
+      <span class="project-category">{{ project.category | titlecase }}</span>
+      <h1 class="detail-title">{{ project.title }}</h1>
+      <p class="detail-description">{{ project.description }}</p>
+      <div class="detail-tech">
+        <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Image -->
+  <section class="detail-image-section">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="detail-image-placeholder">
+        <span class="placeholder-icon">{{ project.category === 'web' ? '🌐' : project.category === 'product' ? '📱' : '✨' }}</span>
+        <p class="placeholder-text">Project Preview</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenge & Solution -->
+  <section class="detail-content">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="content-grid">
+        <div class="content-block">
+          <h2 class="content-heading">The Challenge</h2>
+          <p class="content-text">{{ project.challenge }}</p>
+        </div>
+        <div class="content-block">
+          <h2 class="content-heading">Our Solution</h2>
+          <p class="content-text">{{ project.solution }}</p>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="results-section">
+        <h2 class="content-heading">Results</h2>
+        <div class="results-grid">
+          <div *ngFor="let result of project.results" class="result-card">
+            <span class="result-icon">📈</span>
+            <p class="result-text">{{ result }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="detail-cta">
+        <h3 class="cta-title">Like what you see?</h3>
+        <p class="cta-desc">Let's discuss how we can create something similar for your business.</p>
+        <a routerLink="/contact" class="cta-btn">Start a Project</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="not-found" *ngIf="!project">
+  <div class="max-w-3xl mx-auto px-6 pt-32 text-center">
+    <h1 class="text-4xl font-bold mb-4">Project Not Found</h1>
+    <p class="text-gray-400 mb-8">The project you're looking for doesn't exist.</p>
+    <a routerLink="/" class="back-btn">← Back to Home</a>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/studio",
+    "types": [],
+    "paths": {
+      "@shared/*": ["shared/*"],
+      "@models/*": ["projects/studio/src/app/models/*"],
+      "@stores/*": ["projects/studio/src/app/stores/*"],
+      "@components/*": ["projects/studio/src/app/components/*"]
+    }
+  },
+  "files": [
+    "src/main.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts",
+    "../../shared/**/*.ts"
+  ]
+}

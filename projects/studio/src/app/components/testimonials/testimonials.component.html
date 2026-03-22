@@ -1,0 +1,34 @@
+<section id="testimonials" class="section">
+  <div class="max-w-7xl mx-auto">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-tag">Testimonials</p>
+      <h2 class="section-title">What Clients Say</h2>
+      <p class="section-subtitle">
+        Hear from the people we've worked with.
+      </p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div
+        *ngFor="let t of testimonials; let i = index"
+        class="testimonial-card"
+        data-aos="fade-up"
+        [attr.data-aos-delay]="(i + 1) * 100"
+      >
+        <div class="stars">
+          <span *ngFor="let s of getStars(t.rating)" class="star">⭐</span>
+        </div>
+        <p class="quote">"{{ t.quote }}"</p>
+        <div class="client-info">
+          <div class="avatar-placeholder">
+            {{ t.name.charAt(0) }}
+          </div>
+          <div>
+            <p class="client-name">{{ t.name }}</p>
+            <p class="client-role">{{ t.role }}, {{ t.company }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

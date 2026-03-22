@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/portfolio",
+    "types": [],
+    "paths": {
+      "@shared/*": ["shared/*"],
+      "@stores/*": ["projects/portfolio/src/app/stores/*"],
+      "@models/*": ["projects/portfolio/src/app/models/*"]
+    }
+  },
+  "files": [
+    "src/main.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts",
+    "../../shared/**/*.ts"
+  ]
+}

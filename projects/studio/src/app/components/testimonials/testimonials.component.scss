@@ -1,0 +1,68 @@
+.section-header {
+  @apply text-center mb-16;
+}
+
+.section-tag {
+  @apply text-sm font-semibold tracking-widest uppercase mb-4;
+  color: var(--primary-color);
+  letter-spacing: 0.2em;
+}
+
+.section-title {
+  @apply text-3xl md:text-5xl font-bold mb-4;
+}
+
+.section-subtitle {
+  @apply text-gray-400 text-lg max-w-2xl mx-auto;
+}
+
+.testimonials-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+}
+
+.testimonial-card {
+  @apply p-8 rounded-2xl transition-all duration-300;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  &:hover {
+    border-color: rgba(108, 99, 255, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+.stars {
+  @apply mb-4;
+  .star { @apply text-sm; }
+}
+
+.quote {
+  @apply text-gray-300 leading-relaxed mb-6 text-lg italic;
+}
+
+.client-info {
+  @apply flex items-center gap-4;
+}
+
+.avatar-placeholder {
+  @apply w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-white;
+  background: var(--primary-color);
+}
+
+.client-name {
+  @apply font-semibold text-sm;
+}
+
+.client-role {
+  @apply text-gray-400 text-xs;
+}
+
+:host-context(.light) {
+  .testimonial-card {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  .section-subtitle { @apply text-gray-500; }
+  .quote { @apply text-gray-600; }
+  .client-role { @apply text-gray-500; }
+}

@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/spec/studio",
+    "types": ["jasmine"],
+    "paths": {
+      "@shared/*": ["shared/*"],
+      "@models/*": ["projects/studio/src/app/models/*"],
+      "@stores/*": ["projects/studio/src/app/stores/*"],
+      "@components/*": ["projects/studio/src/app/components/*"]
+    }
+  },
+  "include": [
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts",
+    "../../shared/**/*.ts"
+  ]
+}

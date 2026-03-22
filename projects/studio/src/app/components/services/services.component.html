@@ -1,0 +1,30 @@
+<section id="services" class="section">
+  <div class="max-w-7xl mx-auto">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-tag">What We Do</p>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">
+        We offer end-to-end design solutions tailored to your business needs.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div
+        *ngFor="let service of services; let i = index"
+        class="service-card"
+        data-aos="fade-up"
+        [attr.data-aos-delay]="(i + 1) * 100"
+      >
+        <span class="service-icon">{{ service.icon }}</span>
+        <h3 class="service-title">{{ service.title }}</h3>
+        <p class="service-description">{{ service.description }}</p>
+        <ul class="service-features">
+          <li *ngFor="let feature of service.features" class="feature-item">
+            <span class="feature-dot"></span>
+            {{ feature }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

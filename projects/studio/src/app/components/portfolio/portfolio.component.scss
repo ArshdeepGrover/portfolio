@@ -1,0 +1,130 @@
+.section-header {
+  @apply text-center mb-12;
+}
+
+.section-tag {
+  @apply text-sm font-semibold tracking-widest uppercase mb-4;
+  color: var(--primary-color);
+  letter-spacing: 0.2em;
+}
+
+.section-title {
+  @apply text-3xl md:text-5xl font-bold mb-4;
+}
+
+.section-subtitle {
+  @apply text-gray-400 text-lg max-w-2xl mx-auto;
+}
+
+.filters {
+  @apply flex flex-wrap justify-center gap-3 mb-12;
+}
+
+.filter-btn {
+  @apply px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9ca3af;
+
+  &:hover {
+    border-color: rgba(108, 99, 255, 0.3);
+    color: white;
+  }
+
+  &.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+  }
+}
+
+.projects-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.project-card {
+  @apply rounded-2xl overflow-hidden transition-all duration-300;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(108, 99, 255, 0.2);
+
+    .project-overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.project-image {
+  @apply relative h-56 overflow-hidden;
+}
+
+.project-placeholder {
+  @apply w-full h-full flex items-center justify-center;
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(90, 82, 224, 0.05));
+}
+
+.placeholder-icon {
+  @apply text-5xl;
+  opacity: 0.5;
+}
+
+.project-overlay {
+  @apply absolute inset-0 flex items-center justify-center transition-opacity duration-300;
+  background: rgba(10, 10, 10, 0.8);
+  opacity: 0;
+}
+
+.view-btn {
+  @apply px-6 py-3 rounded-full text-white text-sm font-semibold no-underline transition-all duration-300;
+  background: var(--primary-color);
+
+  &:hover {
+    background: var(--primary-dark);
+  }
+}
+
+.project-info {
+  @apply p-6;
+}
+
+.project-category {
+  @apply text-xs font-semibold uppercase tracking-wider;
+  color: var(--primary-color);
+}
+
+.project-title {
+  @apply text-lg font-bold mt-2 mb-2;
+}
+
+.project-desc {
+  @apply text-gray-400 text-sm leading-relaxed mb-4;
+}
+
+.project-tech {
+  @apply flex flex-wrap gap-2;
+}
+
+.tech-tag {
+  @apply text-xs px-3 py-1 rounded-full;
+  background: rgba(108, 99, 255, 0.1);
+  color: var(--primary-light);
+}
+
+:host-context(.light) {
+  .filter-btn {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #6b7280;
+    &:hover { color: #111; }
+    &.active { color: white; }
+  }
+  .project-card {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  .section-subtitle { @apply text-gray-500; }
+  .project-desc { @apply text-gray-600; }
+}

@@ -1,12 +1,17 @@
 {
-  "name": "my-portfolio",
+  "name": "arshdeep-workspace",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "start:portfolio": "ng serve portfolio",
+    "start:studio": "ng serve studio",
+    "build:portfolio": "ng build portfolio",
+    "build:studio": "ng build studio",
+    "build:all": "ng build portfolio && ng build studio",
+    "watch:portfolio": "ng build portfolio --watch --configuration development",
+    "watch:studio": "ng build studio --watch --configuration development",
+    "test:portfolio": "ng test portfolio",
+    "test:studio": "ng test studio"
   },
   "private": true,
   "dependencies": {
@@ -24,19 +29,19 @@
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^18.2.14",
-    "@angular/cli": "^18.2.14",
+    "@angular-devkit/build-angular": "^18.2.21",
+    "@angular/cli": "^18.2.21",
     "@angular/compiler-cli": "^18.2.0",
     "@types/jasmine": "~5.1.0",
-    "autoprefixer": "^10.4.21",
+    "autoprefixer": "^10.4.27",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "postcss": "^8.5.4",
-    "tailwindcss": "^3.4.17",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19",
     "typescript": "~5.5.2"
   }
 }

@@ -1,0 +1,96 @@
+.header {
+  @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
+  background: transparent;
+
+  &.scrolled {
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(108, 99, 255, 0.1);
+  }
+}
+
+.nav {
+  @apply max-w-7xl mx-auto px-6 py-4 flex items-center justify-between;
+}
+
+.logo {
+  @apply text-2xl font-bold text-white no-underline cursor-pointer;
+  .logo-dot {
+    color: var(--primary-color);
+  }
+}
+
+.desktop-nav {
+  @apply hidden md:flex items-center gap-8;
+}
+
+.nav-link {
+  @apply text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer text-sm font-medium;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.theme-toggle {
+  @apply bg-transparent border-none cursor-pointer p-2 rounded-full transition-colors duration-300;
+  &:hover {
+    @apply bg-white/10;
+  }
+}
+
+.theme-icon {
+  @apply w-5 h-5 text-gray-300;
+}
+
+.cta-button {
+  @apply px-5 py-2 rounded-full text-white text-sm font-semibold cursor-pointer transition-all duration-300;
+  background: var(--primary-color);
+
+  &:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+}
+
+.mobile-controls {
+  @apply flex md:hidden items-center gap-3;
+}
+
+.mobile-menu-toggle {
+  @apply bg-transparent border-none cursor-pointer p-2;
+}
+
+.menu-icon {
+  @apply w-6 h-6 text-white;
+}
+
+.mobile-menu {
+  @apply hidden flex-col items-center gap-4 py-6 md:hidden;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(20px);
+
+  &.mobile-menu-open {
+    @apply flex;
+  }
+}
+
+.mobile-nav-link {
+  @apply text-gray-300 text-lg cursor-pointer transition-colors duration-300 py-2;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+:host-context(.light) {
+  .header.scrolled {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(108, 99, 255, 0.15);
+  }
+  .logo { @apply text-gray-900; }
+  .nav-link { @apply text-gray-600 hover:text-gray-900; }
+  .menu-icon { @apply text-gray-900; }
+  .mobile-menu { background: rgba(255, 255, 255, 0.98); }
+  .mobile-nav-link { @apply text-gray-600; }
+}

@@ -1,0 +1,48 @@
+<section id="portfolio" class="section">
+  <div class="max-w-7xl mx-auto">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-tag">Our Work</p>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        A selection of our recent work across web, product, and branding.
+      </p>
+    </div>
+
+    <div class="filters" data-aos="fade-up" data-aos-delay="100">
+      <button
+        *ngFor="let filter of filters"
+        class="filter-btn"
+        [class.active]="activeFilter === filter.value"
+        (click)="filterProjects(filter.value)"
+      >
+        {{ filter.label }}
+      </button>
+    </div>
+
+    <div class="projects-grid">
+      <div
+        *ngFor="let project of filteredProjects; let i = index"
+        class="project-card"
+        data-aos="fade-up"
+        [attr.data-aos-delay]="(i % 3 + 1) * 100"
+      >
+        <div class="project-image">
+          <div class="project-placeholder">
+            <span class="placeholder-icon">{{ project.category === 'web' ? '🌐' : project.category === 'product' ? '📱' : '✨' }}</span>
+          </div>
+          <div class="project-overlay">
+            <a [routerLink]="['/work', project.id]" class="view-btn">View Case Study</a>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="project-category">{{ project.category | titlecase }}</span>
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-desc">{{ project.shortDescription }}</p>
+          <div class="project-tech">
+            <span *ngFor="let tech of project.technologies.slice(0, 3)" class="tech-tag">{{ tech }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

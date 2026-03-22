@@ -1,0 +1,69 @@
+.section-header {
+  @apply text-center mb-16;
+}
+
+.section-tag {
+  @apply text-sm font-semibold tracking-widest uppercase mb-4;
+  color: var(--primary-color);
+  letter-spacing: 0.2em;
+}
+
+.section-title {
+  @apply text-3xl md:text-5xl font-bold mb-4;
+}
+
+.section-subtitle {
+  @apply text-gray-400 text-lg max-w-2xl mx-auto;
+}
+
+.services-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+.service-card {
+  @apply p-8 rounded-2xl transition-all duration-300 cursor-default;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  &:hover {
+    background: rgba(108, 99, 255, 0.05);
+    border-color: rgba(108, 99, 255, 0.2);
+    transform: translateY(-4px);
+  }
+}
+
+.service-icon {
+  @apply text-4xl mb-6 block;
+}
+
+.service-title {
+  @apply text-xl font-bold mb-3;
+}
+
+.service-description {
+  @apply text-gray-400 text-sm leading-relaxed mb-6;
+}
+
+.service-features {
+  @apply list-none space-y-2;
+}
+
+.feature-item {
+  @apply flex items-center gap-2 text-sm text-gray-300;
+}
+
+.feature-dot {
+  @apply w-1.5 h-1.5 rounded-full flex-shrink-0;
+  background: var(--primary-color);
+}
+
+:host-context(.light) {
+  .service-card {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+    &:hover { background: rgba(108, 99, 255, 0.05); }
+  }
+  .section-subtitle { @apply text-gray-500; }
+  .service-description { @apply text-gray-600; }
+  .feature-item { @apply text-gray-700; }
+}
