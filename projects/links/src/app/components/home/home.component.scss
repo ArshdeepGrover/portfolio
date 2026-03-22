@@ -1,0 +1,355 @@
+// ─── Page layout ─────────────────────────────────────
+.links-page {
+  @apply min-h-screen flex items-center justify-center py-12 px-4 relative overflow-hidden;
+  background-color: #0A0A0A;
+  transition: background-color 0.3s ease;
+}
+
+.light .links-page {
+  background-color: #f8f8f8;
+}
+
+// ─── Particle canvas ─────────────────────────────────
+.particle-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+// ─── Cursor glow (appended to body via JS) ───────────
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  margin-left: -200px;
+  margin-top: -200px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    circle,
+    rgba(255, 121, 85, 0.14) 0%,
+    rgba(255, 121, 85, 0.05) 35%,
+    transparent 65%
+  );
+}
+
+.light .cursor-glow {
+  background: radial-gradient(
+    circle,
+    rgba(255, 121, 85, 0.09) 0%,
+    rgba(255, 121, 85, 0.03) 35%,
+    transparent 65%
+  );
+}
+
+// ─── Animated background orbs ────────────────────────
+.bg-orbs {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 121, 85, 0.15);
+  top: -100px;
+  left: -100px;
+  animation: orbFloat1 12s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(230, 94, 59, 0.1);
+  bottom: -80px;
+  right: -80px;
+  animation: orbFloat2 15s ease-in-out infinite;
+}
+
+.orb-3 {
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 155, 128, 0.08);
+  top: 40%;
+  left: 50%;
+  animation: orbFloat3 18s ease-in-out infinite;
+}
+
+.light .orb-1 {
+  background: rgba(255, 121, 85, 0.1);
+}
+.light .orb-2 {
+  background: rgba(230, 94, 59, 0.06);
+}
+.light .orb-3 {
+  background: rgba(255, 155, 128, 0.05);
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(80px, 60px) scale(1.1); }
+  66% { transform: translate(-40px, 100px) scale(0.9); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-60px, -80px) scale(1.15); }
+  66% { transform: translate(50px, -40px) scale(0.85); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(-50%, 0) scale(1); }
+  33% { transform: translate(-30%, -60px) scale(1.2); }
+  66% { transform: translate(-70%, 40px) scale(0.9); }
+}
+
+// ─── Container ───────────────────────────────────────
+.links-container {
+  @apply w-full max-w-md mx-auto relative;
+  z-index: 2;
+}
+
+// ─── Theme toggle ────────────────────────────────────
+.theme-toggle {
+  @apply absolute top-0 right-0 p-2.5 rounded-full transition-all duration-300 cursor-pointer;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(255, 121, 85, 0.15);
+    border-color: rgba(255, 121, 85, 0.3);
+    transform: rotate(15deg);
+  }
+}
+
+.light .theme-toggle {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background: rgba(255, 121, 85, 0.1);
+    border-color: rgba(255, 121, 85, 0.3);
+  }
+}
+
+.toggle-icon {
+  @apply w-5 h-5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.light .toggle-icon {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+// ─── Profile ─────────────────────────────────────────
+.profile {
+  @apply text-center mb-10 pt-4;
+}
+
+.avatar-wrapper {
+  width: 140px;
+  height: 140px;
+  @apply mx-auto mb-5 rounded-full;
+  padding: 3px;
+  background: linear-gradient(135deg, #FF7955, #E65E3B, #FF9B80);
+  box-shadow:
+    0 0 30px rgba(255, 121, 85, 0.3),
+    0 0 60px rgba(255, 121, 85, 0.1);
+  animation: avatarPulse 4s ease-in-out infinite;
+}
+
+@keyframes avatarPulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(255, 121, 85, 0.3), 0 0 60px rgba(255, 121, 85, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(255, 121, 85, 0.4), 0 0 80px rgba(255, 121, 85, 0.15); }
+}
+
+.avatar {
+  @apply w-full h-full rounded-full object-cover;
+}
+
+.profile-name {
+  @apply text-3xl font-bold mb-2;
+  color: #fff;
+}
+
+.light .profile-name {
+  color: #111;
+}
+
+.profile-greeting {
+  @apply text-sm font-medium tracking-wider uppercase mb-1;
+  color: #FF7955;
+  letter-spacing: 0.15em;
+}
+
+.profile-title {
+  @apply text-sm font-medium mb-4;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.light .profile-title {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.profile-bio {
+  @apply text-sm leading-relaxed max-w-sm mx-auto mb-6;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.light .profile-bio {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+// ─── Stats row ───────────────────────────────────────
+.profile-stats {
+  @apply flex justify-center gap-8 mb-6;
+}
+
+.stat {
+  @apply flex flex-col items-center;
+}
+
+.stat-value {
+  @apply text-2xl font-bold;
+  color: #FF7955;
+}
+
+.stat-label {
+  @apply text-xs mt-0.5;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.light .stat-label {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+// ─── Highlight badges ────────────────────────────────
+.profile-highlights {
+  @apply flex flex-wrap justify-center gap-2;
+}
+
+.highlight {
+  @apply text-xs px-3 py-1.5 rounded-full;
+  background: rgba(255, 121, 85, 0.1);
+  border: 1px solid rgba(255, 121, 85, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 121, 85, 0.18);
+    border-color: rgba(255, 121, 85, 0.35);
+  }
+}
+
+.light .highlight {
+  background: rgba(255, 121, 85, 0.08);
+  border-color: rgba(255, 121, 85, 0.15);
+  color: rgba(0, 0, 0, 0.6);
+
+  &:hover {
+    background: rgba(255, 121, 85, 0.14);
+    border-color: rgba(255, 121, 85, 0.3);
+  }
+}
+
+// ─── Links ───────────────────────────────────────────
+.links-list {
+  @apply flex flex-col gap-3;
+}
+
+.link-card {
+  @apply flex items-center gap-4 px-5 py-4 rounded-2xl transition-all duration-300 cursor-pointer no-underline;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(255, 121, 85, 0.08);
+    border-color: rgba(255, 121, 85, 0.25);
+    box-shadow: 0 8px 32px rgba(255, 121, 85, 0.12);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.light .link-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 121, 85, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 121, 85, 0.1);
+  }
+}
+
+.link-icon {
+  @apply text-2xl flex-shrink-0;
+}
+
+.link-content {
+  @apply flex flex-col flex-1 min-w-0;
+}
+
+.link-title {
+  @apply font-semibold text-sm;
+  color: #fff;
+}
+
+.light .link-title {
+  color: #111;
+}
+
+.link-description {
+  @apply text-xs truncate;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.light .link-description {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.link-arrow {
+  @apply w-4 h-4 flex-shrink-0 transition-all duration-300;
+  color: rgba(255, 255, 255, 0.2);
+
+  .link-card:hover & {
+    color: #FF7955;
+    transform: translateX(4px);
+  }
+}
+
+.light .link-arrow {
+  color: rgba(0, 0, 0, 0.15);
+}
+
+// ─── Footer ──────────────────────────────────────────
+.links-footer {
+  @apply text-center mt-10 text-xs;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.light .links-footer {
+  color: rgba(0, 0, 0, 0.25);
+}

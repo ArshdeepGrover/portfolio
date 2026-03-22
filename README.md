@@ -1,8 +1,9 @@
 # Arshdeep's Portfolio — Angular Workspace
 
-An Angular 18 monorepo containing two projects:
+An Angular 18 monorepo containing three projects:
 - **portfolio** — Personal portfolio website (hero, projects, skills, blogs, certificates, contact)
 - **studio** — Project showcase with detailed case studies
+- **links** — Linktree-style page with all social media and professional links
 
 Built with Angular 18 standalone components, Tailwind CSS 3, SCSS, and `typed.js`. Deployed on [Vercel](https://vercel.com).
 
@@ -47,10 +48,10 @@ bash dev.sh
 ```
 
 Options available:
-- Serve a project (portfolio on `:4200`, studio on `:4300`)
+- Serve a project (portfolio on `:4200`, studio on `:4300`, links on `:4400`)
 - Build a project (production or development)
 - Build all projects
-- Serve both projects simultaneously
+- Serve all projects simultaneously
 - Install / clean-reinstall dependencies
 - Run tests
 - Clean build output
@@ -65,13 +66,17 @@ npm run start:portfolio
 
 # Studio → http://localhost:4300
 npm run start:studio
+
+# Links → http://localhost:4400
+npm run start:links
 ```
 
-Or serve both projects simultaneously (each in their own port):
+Or serve all projects simultaneously (each on their own port):
 
 ```bash
 npx ng serve portfolio --port 4200 &
-npx ng serve studio --port 4300
+npx ng serve studio --port 4300 &
+npx ng serve links --port 4400
 ```
 
 ## Build
@@ -81,7 +86,8 @@ npx ng serve studio --port 4300
 ```bash
 npm run build:portfolio   # → dist/portfolio/
 npm run build:studio      # → dist/studio/
-npm run build:all         # builds both sequentially
+npm run build:links       # → dist/links/
+npm run build:all         # builds all sequentially
 ```
 
 ### Development (watch mode)
@@ -89,6 +95,7 @@ npm run build:all         # builds both sequentially
 ```bash
 npm run watch:portfolio
 npm run watch:studio
+npm run watch:links
 ```
 
 Build artifacts are output to `dist/<project>/`.
@@ -100,6 +107,7 @@ Unit tests via [Karma](https://karma-runner.github.io) + Jasmine:
 ```bash
 npm run test:portfolio
 npm run test:studio
+npm run test:links
 ```
 
 To run a single spec file:
@@ -116,6 +124,9 @@ ng generate component components/<name> --project=portfolio
 
 # Generate a component in studio
 ng generate component components/<name> --project=studio
+
+# Generate a component in links
+ng generate component components/<name> --project=links
 ```
 
 All generated components use SCSS by default (configured in `angular.json` schematics).
@@ -137,7 +148,9 @@ All generated components use SCSS by default (configured in `angular.json` schem
 │   │       │   └── components/
 │   │       ├── styles.scss
 │   │       └── index.html
-│   └── studio/              # Studio / case-studies app
+│   ├── studio/              # Studio / case-studies app
+│   │   └── src/
+│   └── links/               # Linktree-style links page
 │       └── src/
 ├── shared/                  # Shared code across both apps
 │   ├── models/              # TypeScript interfaces (IProject, etc.)

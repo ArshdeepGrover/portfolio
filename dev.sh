@@ -100,11 +100,12 @@ print_banner() {
 
 select_project() {
   local __result
-  menu_select __result "Select project" "Portfolio" "Studio"
+  menu_select __result "Select project" "Portfolio" "Studio" "Links"
 
   case $__result in
     0) echo "portfolio" ;;
     1) echo "studio" ;;
+    2) echo "links" ;;
   esac
 }
 
@@ -114,6 +115,7 @@ serve_project() {
 
   local port=4200
   [ "$project" = "studio" ] && port=4300
+  [ "$project" = "links" ] && port=4400
 
   echo -e "\n  ${GREEN}▶ Serving ${BOLD}$project${NC}${GREEN} on http://localhost:$port${NC}\n"
   cd "$WORKSPACE_DIR" && npx ng serve "$project" --port "$port" --open
@@ -143,37 +145,45 @@ build_all() {
   echo -e "\n  ${GREEN}▶ Building all projects...${NC}\n"
   cd "$WORKSPACE_DIR" || exit
 
-  echo -e "  ${CYAN}[1/2]${NC} Building portfolio..."
+  echo -e "  ${CYAN}[1/3]${NC} Building portfolio..."
   npx ng build portfolio
   local p_status=$?
 
-  echo -e "\n  ${CYAN}[2/2]${NC} Building studio..."
+  echo -e "\n  ${CYAN}[2/3]${NC} Building studio..."
   npx ng build studio
   local s_status=$?
 
+  echo -e "\n  ${CYAN}[3/3]${NC} Building links..."
+  npx ng build links
+  local l_status=$?
+
   echo ""
-  if [ $p_status -eq 0 ] && [ $s_status -eq 0 ]; then
+  if [ $p_status -eq 0 ] && [ $s_status -eq 0 ] && [ $l_status -eq 0 ]; then
     echo -e "  ${GREEN}✔ All projects built successfully!${NC}"
   else
     [ $p_status -ne 0 ] && echo -e "  ${RED}✖ Portfolio build failed.${NC}"
     [ $s_status -ne 0 ] && echo -e "  ${RED}✖ Studio build failed.${NC}"
+    [ $l_status -ne 0 ] && echo -e "  ${RED}✖ Links build failed.${NC}"
   fi
 }
 
-serve_both() {
-  echo -e "\n  ${GREEN}▶ Serving both projects...${NC}"
+serve_all() {
+  echo -e "\n  ${GREEN}▶ Serving all projects...${NC}"
   echo -e "  ${CYAN}Portfolio${NC} → http://localhost:4200"
-  echo -e "  ${CYAN}Studio${NC}    → http://localhost:4300\n"
+  echo -e "  ${CYAN}Studio${NC}    → http://localhost:4300"
+  echo -e "  ${CYAN}Links${NC}     → http://localhost:4400\n"
 
   cd "$WORKSPACE_DIR" || exit
   npx ng serve portfolio --port 4200 &
   local pid1=$!
   npx ng serve studio --port 4300 &
   local pid2=$!
+  npx ng serve links --port 4400 &
+  local pid3=$!
 
-  echo -e "\n  ${YELLOW}Press Ctrl+C to stop both servers.${NC}\n"
-  trap "kill $pid1 $pid2 2>/dev/null; echo -e '\n  ${RED}Servers stopped.${NC}'; exit" INT
-  wait $pid1 $pid2
+  echo -e "\n  ${YELLOW}Press Ctrl+C to stop all servers.${NC}\n"
+  trap "kill $pid1 $pid2 $pid3 2>/dev/null; echo -e '\n  ${RED}Servers stopped.${NC}'; exit" INT
+  wait $pid1 $pid2 $pid3
 }
 
 install_deps() {
@@ -216,7 +226,7 @@ MAIN_OPTIONS=(
   "🚀 Serve a project"
   "📦 Build a project"
   "📦 Build all projects"
-  "🚀 Serve both projects"
+  "🚀 Serve all projects"
   "📥 Install dependencies"
   "🧹 Clean & reinstall deps"
   "🧪 Run tests"
@@ -234,7 +244,7 @@ while true; do
     0) serve_project ;;
     1) build_project ;;
     2) build_all ;;
-    3) serve_both ;;
+    3) serve_all ;;
     4) install_deps ;;
     5) clean_install ;;
     6) run_tests ;;

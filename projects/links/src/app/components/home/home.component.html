@@ -1,0 +1,116 @@
+<div class="links-page">
+  <!-- Particle trail canvas -->
+  <canvas #particleCanvas class="particle-canvas"></canvas>
+
+  <!-- Animated grid background -->
+  <div class="grid-bg"></div>
+
+  <!-- Animated background orbs -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
+  <div class="links-container">
+    <!-- Theme Toggle -->
+    <button (click)="toggleTheme()" class="theme-toggle" type="button">
+      <svg
+        *ngIf="isDarkMode()"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="toggle-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+        />
+      </svg>
+      <svg
+        *ngIf="!isDarkMode()"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="toggle-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+        />
+      </svg>
+    </button>
+
+    <!-- Profile Section -->
+    <div class="profile anim-enter">
+      <div class="avatar-ring">
+        <div class="avatar-ring-inner">
+          <img
+            src="/images/arshdeep-singh.png"
+            alt="Arshdeep Singh"
+            class="avatar"
+          />
+        </div>
+      </div>
+
+      <!-- <p class="profile-greeting">Hi, I'm</p> -->
+      <h1 class="profile-name">
+        <span class="name-gradient">Arshdeep Singh</span>
+      </h1>
+      <p class="profile-title">Full Stack Developer</p>
+
+      <!-- Highlights -->
+      <div class="profile-highlights">
+        <span class="highlight">⚡ Angular Expert</span>
+        <span class="highlight">💎 Ruby on Rails</span>
+        <span class="highlight">🏆 Hackathon Mentor &amp; Judge</span>
+        <span class="highlight">🌟 Open Source Contributor</span>
+      </div>
+    </div>
+
+    <!-- Links List -->
+    <div class="links-list">
+      <a
+        *ngFor="let link of visibleLinks; let i = index"
+        [href]="link.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-card anim-card"
+        [style.animation-delay]="i * 0.08 + 's'"
+      >
+        <div class="card-shimmer"></div>
+        <div class="card-border"></div>
+        <div class="card-inner">
+          <span class="link-icon">{{ link.icon }}</span>
+          <div class="link-content">
+            <span class="link-title">{{ link.title }}</span>
+            <span class="link-description">{{ link.description }}</span>
+          </div>
+          <!-- <div class="link-arrow-wrapper">
+            <svg
+              class="link-arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </div> -->
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
