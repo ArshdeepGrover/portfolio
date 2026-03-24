@@ -325,11 +325,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         });
       });
       
-      // Add click effect to avatar
-      const avatar = document.querySelector('.avatar-wrapper');
-      avatar?.addEventListener('click', () => {
-        this.createAvatarBurst();
-      });
     }, 100);
   }
   
@@ -370,24 +365,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     setTimeout(() => pulse.remove(), 600);
   }
   
-  // Create avatar particle burst
-  private createAvatarBurst(): void {
-    const avatar = document.querySelector('.avatar-wrapper');
-    if (!avatar) return;
-    
-    const rect = avatar.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    
-    for (let i = 0; i < 20; i++) {
-      const angle = (i / 20) * Math.PI * 2;
-      const distance = 60 + Math.random() * 40;
-      const x = centerX + Math.cos(angle) * distance;
-      const y = centerY + Math.sin(angle) * distance;
-      
-      this.spawnParticle(x, y, 12);
-    }
-  }
   
   // Create floating background elements
   private createBackgroundElements(): void {

@@ -14,6 +14,20 @@
     pointer-events: none;
     animation: gentleGlow 15s ease-in-out infinite;
   }
+
+  &::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 121, 85, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 121, 85, 0.12) 1px, transparent 1px);
+    background-size: 64px 64px;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 25%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 25%, transparent 70%);
+  }
 }
 
 @keyframes gentleGlow {
@@ -35,6 +49,12 @@
       radial-gradient(circle at 30% 20%, rgba(255, 121, 85, 0.02) 0%, transparent 50%),
       radial-gradient(circle at 70% 80%, rgba(255, 121, 85, 0.015) 0%, transparent 50%);
     animation: gentleGlow 15s ease-in-out infinite;
+  }
+
+  &::after {
+    background-image:
+      linear-gradient(rgba(255, 121, 85, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 121, 85, 0.08) 1px, transparent 1px);
   }
 }
 .particle-canvas {
@@ -148,48 +168,8 @@
   @apply mx-auto mb-5 rounded-full relative;
   padding: 3px;
   box-shadow: 0 0 30px rgba(255, 121, 85, 0.25);
-  animation: avatarPulse 2s ease-in-out infinite;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -5px;
-    border-radius: 50%;
-    background: conic-gradient(from 0deg, #FF7955, #E65E3B, #FF9B80, #FF7955);
-    background-size: 200% 200%;
-    animation: avatarBorderRotate 3s linear infinite;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  
-  &:hover {
-    transform: scale(1.08) rotateY(5deg);
-    box-shadow: 0 0 50px rgba(255, 121, 85, 0.4), 0 0 100px rgba(255, 121, 85, 0.2);
-    
-    &::before {
-      opacity: 0.8;
-    }
-    
-    .avatar {
-      transform: scale(1.02) rotateZ(2deg);
-      filter: brightness(1.1) contrast(1.1);
-    }
-  }
 }
 
-@keyframes avatarBorderRotate {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes avatarPulse {
-  0%, 100% { box-shadow: 0 0 30px rgba(255, 121, 85, 0.25); }
-  50% { box-shadow: 0 0 40px rgba(255, 121, 85, 0.35), 0 0 80px rgba(255, 121, 85, 0.1); }
-}
 
 .avatar {
   @apply w-full h-full rounded-full object-cover;
