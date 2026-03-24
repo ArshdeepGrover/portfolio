@@ -57,13 +57,6 @@
       linear-gradient(90deg, rgba(255, 121, 85, 0.08) 1px, transparent 1px);
   }
 }
-.particle-canvas {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
 // ─── Cursor glow ─────────────────────────────────────
 .cursor-glow {
   position: fixed;
@@ -204,115 +197,14 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  animation: highlightFloat 4s ease-in-out infinite;
-  transform-origin: center;
-  
-  // Shimmer effect
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg, 
-      transparent 0%, 
-      rgba(255, 255, 255, 0.4) 50%, 
-      transparent 100%
-    );
-    transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1;
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(45deg, transparent, rgba(255, 121, 85, 0.1), transparent);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 0;
-  }
-
   &:hover {
-    background: rgba(255, 121, 85, 0.2);
-    border-color: rgba(255, 121, 85, 0.4);
-    transform: translateY(-4px) scale(1.08);
-    box-shadow: 
-      0 8px 25px rgba(255, 121, 85, 0.25),
-      0 0 20px rgba(255, 121, 85, 0.15);
+    background: rgba(255, 121, 85, 0.15);
+    border-color: rgba(255, 121, 85, 0.35);
     color: rgba(255, 255, 255, 0.9);
-    
-    // Trigger shimmer on hover
-    &::before {
-      left: 100%;
-    }
-    
-    &::after {
-      opacity: 1;
-    }
-  }
-  
-  // Staggered timing for each badge
-  &:nth-child(1) { 
-    animation-delay: 0s;
-    animation-duration: 4s;
-  }
-  &:nth-child(2) { 
-    animation-delay: 1s;
-    animation-duration: 4.5s;
-  }
-  &:nth-child(3) { 
-    animation-delay: 2s;
-    animation-duration: 5s;
-  }
-  &:nth-child(4) { 
-    animation-delay: 3s;
-    animation-duration: 4.2s;
   }
 }
 
-// Enhanced floating animation with more movement
-@keyframes highlightFloat {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-8px) rotate(1deg);
-  }
-  50% {
-    transform: translateY(-12px) rotate(0deg);
-  }
-  75% {
-    transform: translateY(-6px) rotate(-1deg);
-  }
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-}
-
-// Additional pulse animation for extra visual interest
-@keyframes highlightPulse {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(255, 121, 85, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 15px rgba(255, 121, 85, 0.2);
-  }
-}
-
-// Apply pulse animation to random badges
-.highlight:nth-child(2n) {
-  animation: highlightFloat 4s ease-in-out infinite, highlightPulse 3s ease-in-out infinite;
-}
-
-.highlight:nth-child(3n) {
-  animation: highlightFloat 4s ease-in-out infinite, highlightPulse 2.5s ease-in-out infinite;
-}
-
-// ─── Links ───────────────────────────────────────────
+// ─── Links
 .links-list {
   @apply flex flex-col gap-3;
 }
@@ -332,21 +224,6 @@
     opacity: 1;
     transform: translateY(0) rotateX(0deg) scale(1);
     filter: blur(0px);
-  }
-}
-
-@keyframes cardBounceIn {
-  0% {
-    transform: scale(0) rotate(-180deg);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1.1) rotate(-90deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
   }
 }
 
@@ -520,91 +397,6 @@
   color: rgba(255, 255, 255, 0.25);
 }
 
-// ─── Interactive Effects ────────────────────────────
-@keyframes pulseWave {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-// ─── Glowing Text Effect ────────────────────────────
-.profile-name {
-  position: relative;
-  
-  &::after {
-    content: attr(data-text);
-    position: absolute;
-    inset: 0;
-    color: #FF7955;
-    opacity: 0;
-    filter: blur(2px);
-    animation: textGlow 3s ease-in-out infinite;
-    z-index: -1;
-  }
-}
-
-@keyframes textGlow {
-  0%, 100% { opacity: 0; transform: scale(1); }
-  50% { opacity: 0.3; transform: scale(1.02); }
-}
-
-// ─── Floating Icons ─────────────────────────────────
-.floating-icons {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  
-  &::before,
-  &::after {
-    content: '✨';
-    position: absolute;
-    font-size: 20px;
-    opacity: 0.3;
-    animation: floatIcon 8s ease-in-out infinite;
-  }
-  
-  &::before {
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
-  }
-  
-  &::after {
-    top: 70%;
-    right: 15%;
-    animation-delay: 4s;
-  }
-}
-
-@keyframes floatIcon {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.3;
-  }
-  50% {
-    transform: translateY(-30px) rotate(180deg);
-    opacity: 0.6;
-  }
-}
-
-// ─── Floating Background Elements ───────────────────
-@keyframes floatDot {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
-    opacity: 0.4;
-  }
-  50% {
-    transform: translateY(-10px) scale(1.1);
-    opacity: 0.8;
-  }
-}
-
 // ─── Responsive Background ──────────────────────────
 @media (max-width: 768px) {
   .links-page::before {
@@ -614,12 +406,12 @@
 
 // ─── Reduced Motion Support ─────────────────────────
 @media (prefers-reduced-motion: reduce) {
-  .links-page::before {
+  .links-page::before,
+  .links-page::after {
     animation: none;
   }
-  
-  .floating-dot {
+
+  .orb {
     animation: none;
-    opacity: 0.3;
   }
 }

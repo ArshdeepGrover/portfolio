@@ -1,20 +1,8 @@
-import { Component, AfterViewInit, OnDestroy, ViewEncapsulation, ViewChild, ElementRef, NgZone, inject } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ViewEncapsulation, NgZone, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ILink } from '@models/link.model';
 import { links } from '@stores/links_store';
-
-interface Particle {
-  x: number;
-  y: number;
-  size: number;
-  alpha: number;
-  vx: number;
-  vy: number;
-  life: number;
-  maxLife: number;
-  hue: number;
-}
 
 @Component({
   selector: 'app-home',
@@ -25,14 +13,8 @@ interface Particle {
   encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('particleCanvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
-
   private sanitizer = inject(DomSanitizer);
   private ngZone = inject(NgZone);
-
-  // Audio context for sound effects
-  private audioContext?: AudioContext;
-  private soundEnabled = true;
 
   private readonly ICONS: Record<string, string> = {
     linkedin: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>',
@@ -53,52 +35,24 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     ...link,
     safeSvg: this.sanitizer.bypassSecurityTrustHtml(this.ICONS[link.icon] || ''),
   }));
-  currentYear = new Date().getFullYear();
 
-  private ctx!: CanvasRenderingContext2D;
-  private particles: Particle[] = [];
   private mouseX = 0;
   private mouseY = 0;
-  private prevMouseX = 0;
-  private prevMouseY = 0;
-  private animationId = 0;
   private glowEl!: HTMLElement;
   private mouseMoveHandler = (e: MouseEvent) => this.handleMouseMove(e);
-  private resizeHandler = () => this.resizeCanvas();
 
   ngAfterViewInit(): void {
-    this.initializeAnimations();
-    this.initCanvas();
     this.initCursorGlow();
-    this.initAudio();
-    this.addSoundEffects();
-    this.createBackgroundElements();
+    this.initCardEffects();
 
-    // Run outside Angular zone for performance — no change detection on every frame
     this.ngZone.runOutsideAngular(() => {
       document.addEventListener('mousemove', this.mouseMoveHandler);
-      window.addEventListener('resize', this.resizeHandler);
-      this.animate();
     });
   }
 
   ngOnDestroy(): void {
-    cancelAnimationFrame(this.animationId);
     document.removeEventListener('mousemove', this.mouseMoveHandler);
-    window.removeEventListener('resize', this.resizeHandler);
     this.glowEl?.remove();
-  }
-
-  private initCanvas(): void {
-    const canvas = this.canvasRef.nativeElement;
-    this.ctx = canvas.getContext('2d')!;
-    this.resizeCanvas();
-  }
-
-  private resizeCanvas(): void {
-    const canvas = this.canvasRef.nativeElement;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
   }
 
   private initCursorGlow(): void {
@@ -111,286 +65,51 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     this.mouseX = e.clientX;
     this.mouseY = e.clientY;
 
-    // Spawn particles on movement
-    const dx = this.mouseX - this.prevMouseX;
-    const dy = this.mouseY - this.prevMouseY;
-    const speed = Math.sqrt(dx * dx + dy * dy);
-    const count = Math.min(Math.floor(speed / 3), 8);
-
-    for (let i = 0; i < count; i++) {
-      this.spawnParticle(
-        this.mouseX + (Math.random() - 0.5) * 10,
-        this.mouseY + (Math.random() - 0.5) * 10,
-        speed
-      );
-    }
-
-    // Move the glow element directly (no Angular CD)
+    // Cursor glow
     this.glowEl.style.transform = `translate(${this.mouseX}px, ${this.mouseY}px)`;
-    
+
+    // Parallax orbs — each orb shifts at a different speed for depth
+    const offsetX = (this.mouseX - window.innerWidth / 2) / window.innerWidth;
+    const offsetY = (this.mouseY - window.innerHeight / 2) / window.innerHeight;
+
+    const orbs = document.querySelectorAll('.orb');
+    orbs.forEach((orb, i) => {
+      const speed = (i + 1) * 20; // 20px, 40px, 60px
+      (orb as HTMLElement).style.translate = `${offsetX * speed}px ${offsetY * speed}px`;
+    });
+
     // Magnetic effect for cards
     const cards = document.querySelectorAll('.link-card');
     cards.forEach((card) => {
       const rect = card.getBoundingClientRect();
       const cardCenterX = rect.left + rect.width / 2;
       const cardCenterY = rect.top + rect.height / 2;
-      
+
       const distance = Math.sqrt(
         Math.pow(this.mouseX - cardCenterX, 2) + Math.pow(this.mouseY - cardCenterY, 2)
       );
-      
+
       if (distance < 120) {
         const strength = (120 - distance) / 120;
         const moveX = (this.mouseX - cardCenterX) * strength * 0.1;
         const moveY = (this.mouseY - cardCenterY) * strength * 0.1;
         const rotation = (this.mouseX - cardCenterX) * strength * 0.02;
-        
+
         (card as HTMLElement).style.transform = `translate(${moveX}px, ${moveY}px) rotateY(${rotation}deg) scale(${1 + strength * 0.02})`;
       } else {
         (card as HTMLElement).style.transform = '';
       }
     });
-    
-    // Magnetic effect for highlights
-    const highlights = document.querySelectorAll('.highlight');
-    highlights.forEach((highlight) => {
-      const rect = highlight.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      
-      const distance = Math.sqrt(
-        Math.pow(this.mouseX - centerX, 2) + Math.pow(this.mouseY - centerY, 2)
-      );
-      
-      if (distance < 80) {
-        const strength = (80 - distance) / 80;
-        const moveX = (this.mouseX - centerX) * strength * 0.05;
-        const moveY = (this.mouseY - centerY) * strength * 0.05;
-        
-        (highlight as HTMLElement).style.transform = `translate(${moveX}px, ${moveY}px) scale(${1 + strength * 0.05})`;
-      }
-    });
-    
-    // Parallax effect for background elements (minimal)
-    const dots = document.querySelectorAll('.floating-dot');
-    dots.forEach((dot, index) => {
-      const speed = 0.005;
-      const x = (this.mouseX - window.innerWidth / 2) * speed;
-      const y = (this.mouseY - window.innerHeight / 2) * speed;
-      (dot as HTMLElement).style.transform += ` translate(${x}px, ${y}px)`;
-    });
-
-    this.prevMouseX = this.mouseX;
-    this.prevMouseY = this.mouseY;
   }
 
-  private spawnParticle(x: number, y: number, speed: number): void {
-    const angle = Math.random() * Math.PI * 2;
-    const velocity = Math.random() * 1.5 + 0.5;
-    const maxLife = Math.random() * 40 + 20;
-
-    this.particles.push({
-      x,
-      y,
-      size: Math.random() * 4 + 2,
-      alpha: 1,
-      vx: Math.cos(angle) * velocity,
-      vy: Math.sin(angle) * velocity - 0.5,
-      life: 0,
-      maxLife,
-      hue: Math.random() * 30 + 10, // 10-40 range → orange-amber
-    });
-  }
-
-  private animate = (): void => {
-    this.animationId = requestAnimationFrame(this.animate);
-
-    const ctx = this.ctx;
-    const canvas = this.canvasRef.nativeElement;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Update and draw particles
-    for (let i = this.particles.length - 1; i >= 0; i--) {
-      const p = this.particles[i];
-      p.life++;
-      p.x += p.vx;
-      p.y += p.vy;
-      p.vy += 0.02; // slight gravity
-      p.alpha = 1 - p.life / p.maxLife;
-      p.size *= 0.98;
-
-      if (p.life >= p.maxLife || p.alpha <= 0) {
-        this.particles.splice(i, 1);
-        continue;
-      }
-
-      // Glowing particle
-      ctx.save();
-      ctx.globalAlpha = p.alpha;
-      ctx.fillStyle = `hsla(${p.hue}, 100%, 65%, ${p.alpha})`;
-      ctx.shadowBlur = 15;
-      ctx.shadowColor = `hsla(${p.hue}, 100%, 60%, ${p.alpha * 0.6})`;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-    }
-  };
-
-  private initializeAnimations(): void {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    document.querySelectorAll('[data-aos]').forEach((el) => observer.observe(el));
-  }
-
-  // Initialize Web Audio API for sound effects
-  private initAudio(): void {
-    try {
-      this.audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-    } catch (e) {
-      console.log('Web Audio API not supported');
-      this.soundEnabled = false;
-    }
-  }
-
-  // Play hover sound effect
-  private playHoverSound(): void {
-    if (!this.soundEnabled || !this.audioContext) return;
-    
-    const oscillator = this.audioContext.createOscillator();
-    const gainNode = this.audioContext.createGain();
-    
-    oscillator.connect(gainNode);
-    gainNode.connect(this.audioContext.destination);
-    
-    oscillator.frequency.setValueAtTime(800, this.audioContext.currentTime);
-    oscillator.frequency.exponentialRampToValueAtTime(1200, this.audioContext.currentTime + 0.1);
-    
-    gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
-    gainNode.gain.linearRampToValueAtTime(0.1, this.audioContext.currentTime + 0.01);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.1);
-    
-    oscillator.start(this.audioContext.currentTime);
-    oscillator.stop(this.audioContext.currentTime + 0.1);
-  }
-
-  // Play click sound effect
-  private playClickSound(): void {
-    if (!this.soundEnabled || !this.audioContext) return;
-    
-    const oscillator = this.audioContext.createOscillator();
-    const gainNode = this.audioContext.createGain();
-    
-    oscillator.connect(gainNode);
-    gainNode.connect(this.audioContext.destination);
-    
-    oscillator.frequency.setValueAtTime(1000, this.audioContext.currentTime);
-    oscillator.frequency.exponentialRampToValueAtTime(600, this.audioContext.currentTime + 0.05);
-    
-    gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
-    gainNode.gain.linearRampToValueAtTime(0.15, this.audioContext.currentTime + 0.01);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.05);
-    
-    oscillator.start(this.audioContext.currentTime);
-    oscillator.stop(this.audioContext.currentTime + 0.05);
-  }
-
-  // Add sound effects to cards
-  private addSoundEffects(): void {
+  // Staggered card entrance
+  private initCardEffects(): void {
     setTimeout(() => {
       const cards = document.querySelectorAll('.link-card');
       cards.forEach((card, index) => {
-        // Staggered entrance animation
-        (card as HTMLElement).style.animationDelay = `${index * 0.1}s`;
-        (card as HTMLElement).style.animation = `cardSlideIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) both`;
-        
-        card.addEventListener('mouseenter', () => {
-          this.playHoverSound();
-          this.createTrailEffect(card as HTMLElement);
-        });
-        
-        card.addEventListener('click', () => {
-          this.playClickSound();
-          this.createPulseEffect(card as HTMLElement);
-        });
+        (card as HTMLElement).style.animationDelay = `${index * 0.06}s`;
+        (card as HTMLElement).style.animation = `cardSlideIn 0.6s ease both`;
       });
-      
     }, 100);
-  }
-  
-  // Create trailing particle effect
-  private createTrailEffect(card: HTMLElement): void {
-    const rect = card.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    
-    for (let i = 0; i < 12; i++) {
-      setTimeout(() => {
-        const angle = (i / 12) * Math.PI * 2;
-        const distance = 40 + Math.random() * 30;
-        const x = centerX + Math.cos(angle) * distance;
-        const y = centerY + Math.sin(angle) * distance;
-        
-        this.spawnParticle(x, y, 8);
-      }, i * 50);
-    }
-  }
-  
-  // Create pulse wave effect
-  private createPulseEffect(card: HTMLElement): void {
-    const pulse = document.createElement('div');
-    pulse.style.cssText = `
-      position: absolute;
-      inset: -10px;
-      border: 2px solid rgba(255, 121, 85, 0.6);
-      border-radius: 16px;
-      pointer-events: none;
-      animation: pulseWave 0.6s ease-out;
-      z-index: 1000;
-    `;
-    
-    card.style.position = 'relative';
-    card.appendChild(pulse);
-    
-    setTimeout(() => pulse.remove(), 600);
-  }
-  
-  
-  // Create floating background elements
-  private createBackgroundElements(): void {
-    const container = document.querySelector('.links-page');
-    if (!container) return;
-    
-    // Create minimal floating dots only
-    for (let i = 0; i < 3; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'floating-dot';
-      dot.style.cssText = `
-        position: absolute;
-        width: 2px;
-        height: 2px;
-        background: rgba(255, 121, 85, 0.4);
-        border-radius: 50%;
-        left: ${20 + Math.random() * 60}%;
-        top: ${20 + Math.random() * 60}%;
-        animation: floatDot ${10 + Math.random() * 5}s ease-in-out infinite;
-        animation-delay: ${Math.random() * 8}s;
-        pointer-events: none;
-        z-index: 1;
-        box-shadow: 0 0 4px rgba(255, 121, 85, 0.6);
-      `;
-      
-      container.appendChild(dot);
-    }
   }
 }
