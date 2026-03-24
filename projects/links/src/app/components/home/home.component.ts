@@ -75,6 +75,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     this.initCursorGlow();
     this.initAudio();
     this.addSoundEffects();
+    this.createBackgroundElements();
 
     // Run outside Angular zone for performance — no change detection on every frame
     this.ngZone.runOutsideAngular(() => {
@@ -133,6 +134,58 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
     // Move the glow element directly (no Angular CD)
     this.glowEl.style.transform = `translate(${this.mouseX}px, ${this.mouseY}px)`;
+    
+    // Magnetic effect for cards
+    const cards = document.querySelectorAll('.link-card');
+    cards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const cardCenterX = rect.left + rect.width / 2;
+      const cardCenterY = rect.top + rect.height / 2;
+      
+      const distance = Math.sqrt(
+        Math.pow(this.mouseX - cardCenterX, 2) + Math.pow(this.mouseY - cardCenterY, 2)
+      );
+      
+      if (distance < 120) {
+        const strength = (120 - distance) / 120;
+        const moveX = (this.mouseX - cardCenterX) * strength * 0.1;
+        const moveY = (this.mouseY - cardCenterY) * strength * 0.1;
+        const rotation = (this.mouseX - cardCenterX) * strength * 0.02;
+        
+        (card as HTMLElement).style.transform = `translate(${moveX}px, ${moveY}px) rotateY(${rotation}deg) scale(${1 + strength * 0.02})`;
+      } else {
+        (card as HTMLElement).style.transform = '';
+      }
+    });
+    
+    // Magnetic effect for highlights
+    const highlights = document.querySelectorAll('.highlight');
+    highlights.forEach((highlight) => {
+      const rect = highlight.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      const distance = Math.sqrt(
+        Math.pow(this.mouseX - centerX, 2) + Math.pow(this.mouseY - centerY, 2)
+      );
+      
+      if (distance < 80) {
+        const strength = (80 - distance) / 80;
+        const moveX = (this.mouseX - centerX) * strength * 0.05;
+        const moveY = (this.mouseY - centerY) * strength * 0.05;
+        
+        (highlight as HTMLElement).style.transform = `translate(${moveX}px, ${moveY}px) scale(${1 + strength * 0.05})`;
+      }
+    });
+    
+    // Parallax effect for background elements (minimal)
+    const dots = document.querySelectorAll('.floating-dot');
+    dots.forEach((dot, index) => {
+      const speed = 0.005;
+      const x = (this.mouseX - window.innerWidth / 2) * speed;
+      const y = (this.mouseY - window.innerHeight / 2) * speed;
+      (dot as HTMLElement).style.transform += ` translate(${x}px, ${y}px)`;
+    });
 
     this.prevMouseX = this.mouseX;
     this.prevMouseY = this.mouseY;
@@ -263,15 +316,111 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   private addSoundEffects(): void {
     setTimeout(() => {
       const cards = document.querySelectorAll('.link-card');
-      cards.forEach((card) => {
+      cards.forEach((card, index) => {
+        // Staggered entrance animation
+        (card as HTMLElement).style.animationDelay = `${index * 0.1}s`;
+        (card as HTMLElement).style.animation = `cardSlideIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) both`;
+        
         card.addEventListener('mouseenter', () => {
           this.playHoverSound();
+          this.createTrailEffect(card as HTMLElement);
         });
         
         card.addEventListener('click', () => {
           this.playClickSound();
+          this.createPulseEffect(card as HTMLElement);
         });
       });
+      
+      // Add click effect to avatar
+      const avatar = document.querySelector('.avatar-wrapper');
+      avatar?.addEventListener('click', () => {
+        this.createAvatarBurst();
+      });
     }, 100);
+  }
+  
+  // Create trailing particle effect
+  private createTrailEffect(card: HTMLElement): void {
+    const rect = card.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    for (let i = 0; i < 12; i++) {
+      setTimeout(() => {
+        const angle = (i / 12) * Math.PI * 2;
+        const distance = 40 + Math.random() * 30;
+        const x = centerX + Math.cos(angle) * distance;
+        const y = centerY + Math.sin(angle) * distance;
+        
+        this.spawnParticle(x, y, 8);
+      }, i * 50);
+    }
+  }
+  
+  // Create pulse wave effect
+  private createPulseEffect(card: HTMLElement): void {
+    const pulse = document.createElement('div');
+    pulse.style.cssText = `
+      position: absolute;
+      inset: -10px;
+      border: 2px solid rgba(255, 121, 85, 0.6);
+      border-radius: 16px;
+      pointer-events: none;
+      animation: pulseWave 0.6s ease-out;
+      z-index: 1000;
+    `;
+    
+    card.style.position = 'relative';
+    card.appendChild(pulse);
+    
+    setTimeout(() => pulse.remove(), 600);
+  }
+  
+  // Create avatar particle burst
+  private createAvatarBurst(): void {
+    const avatar = document.querySelector('.avatar-wrapper');
+    if (!avatar) return;
+    
+    const rect = avatar.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    for (let i = 0; i < 20; i++) {
+      const angle = (i / 20) * Math.PI * 2;
+      const distance = 60 + Math.random() * 40;
+      const x = centerX + Math.cos(angle) * distance;
+      const y = centerY + Math.sin(angle) * distance;
+      
+      this.spawnParticle(x, y, 12);
+    }
+  }
+  
+  // Create floating background elements
+  private createBackgroundElements(): void {
+    const container = document.querySelector('.links-page');
+    if (!container) return;
+    
+    // Create minimal floating dots only
+    for (let i = 0; i < 3; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'floating-dot';
+      dot.style.cssText = `
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: rgba(255, 121, 85, 0.4);
+        border-radius: 50%;
+        left: ${20 + Math.random() * 60}%;
+        top: ${20 + Math.random() * 60}%;
+        animation: floatDot ${10 + Math.random() * 5}s ease-in-out infinite;
+        animation-delay: ${Math.random() * 8}s;
+        pointer-events: none;
+        z-index: 1;
+        box-shadow: 0 0 4px rgba(255, 121, 85, 0.6);
+      `;
+      
+      container.appendChild(dot);
+    }
   }
 }
