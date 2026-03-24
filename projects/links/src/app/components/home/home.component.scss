@@ -163,7 +163,6 @@
   height: 210px;
   @apply mx-auto mb-5 rounded-full;
   padding: 3px;
-  // background: linear-gradient(135deg, #FF7955, #E65E3B, #FF9B80);
   box-shadow: 0 0 30px rgba(255, 121, 85, 0.25);
   animation: avatarPulse 2s ease-in-out infinite;
 }
@@ -175,7 +174,6 @@
 
 .avatar {
   @apply w-full h-full rounded-full object-cover;
-  // border: 3px solid #0A0A0A;
 }
 
 .light .avatar {
