@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ILink } from '@models/link.model';
 import { links } from '@stores/links_store';
-import { ThemeService } from '@shared/services/theme.service';
 
 interface Particle {
   x: number;
@@ -28,10 +27,8 @@ interface Particle {
 export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('particleCanvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
 
-  private themeService = inject(ThemeService);
   private sanitizer = inject(DomSanitizer);
   private ngZone = inject(NgZone);
-  isDarkMode = this.themeService.isDarkMode;
 
   // Audio context for sound effects
   private audioContext?: AudioContext;
@@ -90,10 +87,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     document.removeEventListener('mousemove', this.mouseMoveHandler);
     window.removeEventListener('resize', this.resizeHandler);
     this.glowEl?.remove();
-  }
-
-  toggleTheme(): void {
-    this.themeService.toggleTheme();
   }
 
   private initCanvas(): void {
