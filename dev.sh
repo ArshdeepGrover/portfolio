@@ -99,20 +99,31 @@ print_banner() {
 }
 
 select_project() {
-  local __result
-  menu_select __result "Select project" "Portfolio" "Studio" "Links"
-
-  case $__result in
-    0) echo "portfolio" ;;
-    1) echo "studio" ;;
-    2) echo "links" ;;
+  echo -e "\n  ${BOLD}Select project:${NC}\n"
+  echo -e "  ${CYAN}1)${NC} Portfolio"
+  echo -e "  ${CYAN}2)${NC} Studio"
+  echo -e "  ${CYAN}3)${NC} Links"
+  echo -e "\n  ${DIM}Enter your choice (1-3):${NC} "
+  
+  read -r choice
+  
+  case $choice in
+    1) echo "portfolio" ;;
+    2) echo "studio" ;;
+    3) echo "links" ;;
+    *) 
+      echo -e "  ${RED}Invalid choice. Defaulting to portfolio.${NC}"
+      echo "portfolio" 
+      ;;
   esac
 }
 
 serve_project() {
   local project
   project=$(select_project)
-
+  
+  echo "DEBUG: Selected project is: $project"
+  
   local port=4200
   [ "$project" = "studio" ] && port=4300
   [ "$project" = "links" ] && port=4400
@@ -125,11 +136,15 @@ build_project() {
   local project
   project=$(select_project)
 
-  local __config
-  menu_select __config "Build configuration" "Production" "Development"
-
+  echo -e "\n  ${BOLD}Build configuration:${NC}\n"
+  echo -e "  ${CYAN}1)${NC} Production"
+  echo -e "  ${CYAN}2)${NC} Development"
+  echo -e "\n  ${DIM}Enter your choice (1-2):${NC} "
+  
+  read -r config_choice
+  
   local config="production"
-  [ "$__config" = "1" ] && config="development"
+  [ "$config_choice" = "2" ] && config="development"
 
   echo -e "\n  ${GREEN}▶ Building ${BOLD}$project${NC}${GREEN} ($config)...${NC}\n"
   cd "$WORKSPACE_DIR" && npx ng build "$project" --configuration "$config"

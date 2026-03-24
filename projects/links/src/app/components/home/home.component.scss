@@ -17,7 +17,7 @@
   pointer-events: none;
 }
 
-// ─── Cursor glow (appended to body via JS) ───────────
+// ─── Cursor glow ─────────────────────────────────────
 .cursor-glow {
   position: fixed;
   top: 0;
@@ -91,15 +91,9 @@
   animation: orbFloat3 18s ease-in-out infinite;
 }
 
-.light .orb-1 {
-  background: rgba(255, 121, 85, 0.1);
-}
-.light .orb-2 {
-  background: rgba(230, 94, 59, 0.06);
-}
-.light .orb-3 {
-  background: rgba(255, 155, 128, 0.05);
-}
+.light .orb-1 { background: rgba(255, 121, 85, 0.1); }
+.light .orb-2 { background: rgba(230, 94, 59, 0.06); }
+.light .orb-3 { background: rgba(255, 155, 128, 0.05); }
 
 @keyframes orbFloat1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
@@ -165,28 +159,31 @@
 }
 
 .avatar-wrapper {
-  width: 140px;
-  height: 140px;
+  width: 210px;
+  height: 210px;
   @apply mx-auto mb-5 rounded-full;
   padding: 3px;
-  background: linear-gradient(135deg, #FF7955, #E65E3B, #FF9B80);
-  box-shadow:
-    0 0 30px rgba(255, 121, 85, 0.3),
-    0 0 60px rgba(255, 121, 85, 0.1);
-  animation: avatarPulse 4s ease-in-out infinite;
+  // background: linear-gradient(135deg, #FF7955, #E65E3B, #FF9B80);
+  box-shadow: 0 0 30px rgba(255, 121, 85, 0.25);
+  animation: avatarPulse 2s ease-in-out infinite;
 }
 
 @keyframes avatarPulse {
-  0%, 100% { box-shadow: 0 0 30px rgba(255, 121, 85, 0.3), 0 0 60px rgba(255, 121, 85, 0.1); }
-  50% { box-shadow: 0 0 40px rgba(255, 121, 85, 0.4), 0 0 80px rgba(255, 121, 85, 0.15); }
+  0%, 100% { box-shadow: 0 0 30px rgba(255, 121, 85, 0.25); }
+  50% { box-shadow: 0 0 40px rgba(255, 121, 85, 0.35), 0 0 80px rgba(255, 121, 85, 0.1); }
 }
 
 .avatar {
   @apply w-full h-full rounded-full object-cover;
+  // border: 3px solid #0A0A0A;
+}
+
+.light .avatar {
+  border-color: #f8f8f8;
 }
 
 .profile-name {
-  @apply text-3xl font-bold mb-2;
+  @apply text-3xl font-bold mb-1;
   color: #fff;
 }
 
@@ -194,10 +191,10 @@
   color: #111;
 }
 
-.profile-greeting {
-  @apply text-sm font-medium tracking-wider uppercase mb-1;
+.profile-handle {
+  @apply text-sm font-medium mb-1;
   color: #FF7955;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.02em;
 }
 
 .profile-title {
@@ -207,38 +204,6 @@
 
 .light .profile-title {
   color: rgba(0, 0, 0, 0.45);
-}
-
-.profile-bio {
-  @apply text-sm leading-relaxed max-w-sm mx-auto mb-6;
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.light .profile-bio {
-  color: rgba(0, 0, 0, 0.45);
-}
-
-// ─── Stats row ───────────────────────────────────────
-.profile-stats {
-  @apply flex justify-center gap-8 mb-6;
-}
-
-.stat {
-  @apply flex flex-col items-center;
-}
-
-.stat-value {
-  @apply text-2xl font-bold;
-  color: #FF7955;
-}
-
-.stat-label {
-  @apply text-xs mt-0.5;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.light .stat-label {
-  color: rgba(0, 0, 0, 0.4);
 }
 
 // ─── Highlight badges ────────────────────────────────
@@ -251,12 +216,115 @@
   background: rgba(255, 121, 85, 0.1);
   border: 1px solid rgba(255, 121, 85, 0.2);
   color: rgba(255, 255, 255, 0.7);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: highlightFloat 4s ease-in-out infinite;
+  transform-origin: center;
+  
+  // Shimmer effect
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg, 
+      transparent 0%, 
+      rgba(255, 255, 255, 0.4) 50%, 
+      transparent 100%
+    );
+    transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(45deg, transparent, rgba(255, 121, 85, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+  }
 
   &:hover {
-    background: rgba(255, 121, 85, 0.18);
-    border-color: rgba(255, 121, 85, 0.35);
+    background: rgba(255, 121, 85, 0.2);
+    border-color: rgba(255, 121, 85, 0.4);
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 
+      0 8px 25px rgba(255, 121, 85, 0.25),
+      0 0 20px rgba(255, 121, 85, 0.15);
+    color: rgba(255, 255, 255, 0.9);
+    
+    // Trigger shimmer on hover
+    &::before {
+      left: 100%;
+    }
+    
+    &::after {
+      opacity: 1;
+    }
   }
+  
+  // Staggered timing for each badge
+  &:nth-child(1) { 
+    animation-delay: 0s;
+    animation-duration: 4s;
+  }
+  &:nth-child(2) { 
+    animation-delay: 1s;
+    animation-duration: 4.5s;
+  }
+  &:nth-child(3) { 
+    animation-delay: 2s;
+    animation-duration: 5s;
+  }
+  &:nth-child(4) { 
+    animation-delay: 3s;
+    animation-duration: 4.2s;
+  }
+}
+
+// Enhanced floating animation with more movement
+@keyframes highlightFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+// Additional pulse animation for extra visual interest
+@keyframes highlightPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 121, 85, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 121, 85, 0.2);
+  }
+}
+
+// Apply pulse animation to random badges
+.highlight:nth-child(2n) {
+  animation: highlightFloat 4s ease-in-out infinite, highlightPulse 3s ease-in-out infinite;
+}
+
+.highlight:nth-child(3n) {
+  animation: highlightFloat 4s ease-in-out infinite, highlightPulse 2.5s ease-in-out infinite;
 }
 
 .light .highlight {
@@ -275,37 +343,100 @@
   @apply flex flex-col gap-3;
 }
 
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .link-card {
-  @apply flex items-center gap-4 px-5 py-4 rounded-2xl transition-all duration-300 cursor-pointer no-underline;
+  @apply flex items-center gap-4 px-4 py-3.5 rounded-2xl transition-all duration-300 cursor-pointer no-underline;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(10px);
+  animation: cardSlideIn 0.5s ease both;
+  transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 121, 85, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
 
   &:hover {
-    background: rgba(255, 121, 85, 0.08);
-    border-color: rgba(255, 121, 85, 0.25);
-    box-shadow: 0 8px 32px rgba(255, 121, 85, 0.12);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px) rotateX(2deg) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 121, 85, 0.1);
+
+    &::before {
+      left: 100%;
+    }
+
+    .link-icon-wrapper {
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 0 15px rgba(255, 121, 85, 0.3);
+    }
+
+    .link-arrow {
+      color: #FF7955;
+      transform: translateX(5px) rotate(15deg);
+    }
+
+    .link-title {
+      text-shadow: 0 0 10px rgba(255, 121, 85, 0.3);
+    }
   }
 
   &:active {
-    transform: scale(0.98);
+    transform: scale(0.96) translateY(-2px);
   }
 }
 
 .light .link-card {
-  background: rgba(255, 255, 255, 0.7);
-  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.06);
 
   &:hover {
-    background: rgba(255, 255, 255, 0.9);
-    border-color: rgba(255, 121, 85, 0.3);
-    box-shadow: 0 8px 32px rgba(255, 121, 85, 0.1);
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   }
 }
 
+// ─── Icon wrapper ────────────────────────────────────
+.link-icon-wrapper {
+  @apply w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.light .link-icon-wrapper {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
 .link-icon {
-  @apply text-2xl flex-shrink-0;
+  @apply flex items-center justify-center;
+  width: 20px;
+  height: 20px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .link-content {
@@ -322,7 +453,7 @@
 }
 
 .link-description {
-  @apply text-xs truncate;
+  @apply text-xs truncate mt-0.5;
   color: rgba(255, 255, 255, 0.4);
 }
 
@@ -332,16 +463,11 @@
 
 .link-arrow {
   @apply w-4 h-4 flex-shrink-0 transition-all duration-300;
-  color: rgba(255, 255, 255, 0.2);
-
-  .link-card:hover & {
-    color: #FF7955;
-    transform: translateX(4px);
-  }
+  color: rgba(255, 255, 255, 0.15);
 }
 
 .light .link-arrow {
-  color: rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.12);
 }
 
 // ─── Footer ──────────────────────────────────────────
