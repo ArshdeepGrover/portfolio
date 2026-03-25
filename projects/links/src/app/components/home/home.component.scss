@@ -180,8 +180,47 @@
 }
 
 .profile-title {
-  @apply text-sm font-medium mb-4;
+  @apply text-sm font-medium mb-2;
   color: rgba(255, 255, 255, 0.5);
+}
+
+.profile-email {
+  @apply text-sm font-medium mb-4;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.01em;
+}
+
+.profile-actions {
+  @apply flex justify-center mb-4;
+}
+
+.resume-btn {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 no-underline;
+  background: rgba(255, 121, 85, 0.1);
+  border: 1px solid rgba(255, 121, 85, 0.3);
+  color: #FF7955;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: perspective(500px) rotateX(3deg) translateZ(5px);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    2px 2px 0 rgba(255, 121, 85, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  &:hover {
+    background: rgba(255, 121, 85, 0.15);
+    border-color: rgba(255, 121, 85, 0.5);
+    color: rgba(255, 255, 255, 0.9);
+    transform: perspective(500px) rotateX(3deg) translateZ(8px) translateY(-1px);
+    box-shadow: 
+      0 6px 16px rgba(0, 0, 0, 0.2),
+      3px 3px 0 rgba(255, 121, 85, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .btn-icon {
+    @apply w-4 h-4;
+  }
 }
 
 // ─── Highlight badges ────────────────────────────────
@@ -347,6 +386,11 @@
     inset 0 -1px 0 rgba(255, 255, 255, 0.1);
   position: relative;
   
+  &.brand-icon {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
   &::before {
     content: '';
     position: absolute;
@@ -370,6 +414,13 @@
     width: 100%;
     height: 100%;
   }
+}
+
+.link-icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  // Remove the filter to show the brand colors properly
 }
 
 .link-content {

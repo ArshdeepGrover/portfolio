@@ -33,7 +33,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   visibleLinks = links.filter((link) => link.show).map((link) => ({
     ...link,
-    safeSvg: this.sanitizer.bypassSecurityTrustHtml(this.ICONS[link.icon] || ''),
+    safeSvg: link.iconType === 'svg' ? this.sanitizer.bypassSecurityTrustHtml(this.ICONS[link.icon] || '') : null,
+    imageUrl: link.iconType === 'image' ? link.icon : null,
   }));
 
   private mouseX = 0;
