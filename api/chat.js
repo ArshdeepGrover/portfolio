@@ -6,11 +6,11 @@ export default async function handler(req, res) {
   }
 
   try {
-    if (!process.env.GEMINI_API_KEY) {
-      return res.status(500).json({ error: 'Missing GEMINI_API_KEY environment variable. Please configure it in your Vercel settings.' });
+    if (!process.env.GEMNI_KEY_CHAT) {
+      return res.status(500).json({ error: 'Missing GEMNI_KEY_CHAT environment variable. Please configure it in your Vercel settings.' });
     }
 
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+    const ai = new GoogleGenAI({ apiKey: process.env.GEMNI_KEY_CHAT });
     const { message } = req.body;
 
     const systemInstruction = `You are an AI assistant representing Arshdeep Singh's interactive portfolio website. 
