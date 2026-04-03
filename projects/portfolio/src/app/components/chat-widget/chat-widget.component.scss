@@ -1,0 +1,32 @@
+:host ::ng-deep {
+  .chat-bubble {
+    p {
+      margin-bottom: 0.5rem;
+      &:last-child { margin-bottom: 0; }
+    }
+    
+    ul, ol {
+      margin-left: 1.25rem;
+      margin-bottom: 0.5rem;
+      list-style-type: disc;
+    }
+    
+    li {
+      margin-bottom: 0.25rem;
+    }
+    
+    strong {
+      font-weight: 700;
+      color: inherit;
+    }
+    
+    a {
+      color: #FF7955;
+      font-weight: 600;
+      text-decoration: underline;
+      &:hover {
+        color: #e66d4d;
+      }
+    }
+  }
+}

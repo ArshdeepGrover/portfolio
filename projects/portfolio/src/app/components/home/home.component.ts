@@ -6,6 +6,7 @@ import { SkillsComponent } from '../skills/skills.component';
 import { ProjectsComponent } from '../projects/projects.component';
 import { CertificatesComponent } from '../certificates/certificates.component';
 import { BlogsComponent } from '../blogs/blogs.component';
+import { CameraDrawingComponent } from '../camera-drawing/camera-drawing.component';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ import { BlogsComponent } from '../blogs/blogs.component';
     ProjectsComponent,
     CertificatesComponent,
     BlogsComponent,
+    CameraDrawingComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
