@@ -1,0 +1,90 @@
+<div class="blog-detail-page" *ngIf="blog">
+  <!-- Progress Bar (Optional) -->
+  <div class="reading-progress"></div>
+
+  <!-- Hero Section -->
+  <header class="blog-header">
+    <div class="blogs-container">
+      <nav class="breadcrumb">
+        <a routerLink="/blogs" class="back-link">
+          <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Back to Blogs
+        </a>
+      </nav>
+
+      <div class="header-content" data-aos="fade-up">
+        <div class="blog-meta">
+          <span class="meta-item">{{ blog.date }}</span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item">{{ blog.readTime }} min read</span>
+        </div>
+        <h1 class="blog-title">{{ blog.title }}</h1>
+        <div class="blog-tags">
+          <span *ngFor="let tag of blog.tags" class="tag">{{ tag }}</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Featured Image -->
+  <div class="featured-image-container" data-aos="zoom-in">
+    <div class="blogs-container">
+      <img [src]="blog.image" [alt]="blog.title" class="featured-image" />
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <article class="blog-content pb-20">
+    <div class="blogs-container narrow">
+      <p class="excerpt">{{ blog.excerpt }}</p>
+      
+      <!-- Full Markdown Content -->
+      <div *ngIf="renderedContent" 
+           [innerHTML]="renderedContent" 
+           class="prose prose-lg dark:prose-invert max-w-none 
+                  prose-headings:text-gray-900 dark:prose-headings:text-white 
+                  prose-p:text-gray-700 dark:prose-p:text-gray-300
+                  prose-strong:text-black dark:prose-strong:text-white
+                  prose-code:text-primary dark:prose-code:text-primary-light
+                  prose-a:text-primary hover:prose-a:text-primary-dark
+                  prose-img:rounded-3xl prose-img:shadow-2xl">
+      </div>
+
+      <!-- External Link CTA (shown only if no internal content) -->
+      <div *ngIf="!renderedContent" class="content-preview">
+        <div class="placeholder-text">
+          <p>This article is published on external platforms like <strong>Medium</strong> or <strong>Dev.to</strong> to reach a wider technical community. Click the button below to read the full experience including code snippets, diagrams, and comments.</p>
+        </div>
+        
+        <div class="cta-wrapper">
+          <button (click)="openExternal()" class="read-full-button">
+            Read Full Article on Original Platform
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Suggested Blogs -->
+  <section class="suggested-blogs" *ngIf="suggestedBlogs.length > 0">
+    <div class="blogs-container">
+      <h2 class="section-title">More to Read</h2>
+      <div class="suggested-grid">
+        <div *ngFor="let suggestion of suggestedBlogs" class="suggestion-card" [routerLink]="['/blog', suggestion.id]">
+          <div class="suggestion-image-wrapper">
+            <img [src]="suggestion.image" [alt]="suggestion.title" class="suggestion-image" />
+          </div>
+          <div class="suggestion-content">
+            <h3 class="suggestion-title">{{ suggestion.title }}</h3>
+            <span class="suggestion-date">{{ suggestion.date }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
