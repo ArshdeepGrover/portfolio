@@ -29,7 +29,10 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     globe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>',
     file: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
     email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>',
+    share: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>',
   };
+
+  shareStatus: 'idle' | 'copied' = 'idle';
 
   visibleLinks = links.filter((link) => link.show).map((link) => ({
     ...link,
@@ -112,5 +115,34 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         (card as HTMLElement).style.animation = `cardSlideIn 0.6s ease both`;
       });
     }, 100);
+  }
+
+  async onShare(): Promise<void> {
+    const shareData = {
+      title: 'Arshdeep Singh | Links',
+      text: 'Check out my professional links and portfolio!',
+      url: `${window.location.origin}${window.location.pathname}?utm_source=share&utm_medium=links_page`,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(shareData.url);
+        this.showShareStatus();
+      }
+    } catch (err) {
+      if ((err as Error).name !== 'AbortError') {
+        await navigator.clipboard.writeText(shareData.url);
+        this.showShareStatus();
+      }
+    }
+  }
+
+  private showShareStatus(): void {
+    this.shareStatus = 'copied';
+    setTimeout(() => {
+      this.shareStatus = 'idle';
+    }, 2000);
   }
 }
