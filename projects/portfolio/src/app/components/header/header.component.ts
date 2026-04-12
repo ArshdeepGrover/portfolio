@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
     { label: 'Certificates', href: '#certificates', id: 'certificates' },
     { label: 'Blogs', href: '#blogs', id: 'blogs' },
     { label: 'Contact', route: '/contact', id: 'contact' },
+    { label: 'Links', url: 'https://links.arshdeepsingh.info?utm_source=portfolio&utm_medium=header&utm_campaign=navigation', id: 'links' },
   ];
 
   constructor(private router: Router) {}
@@ -42,7 +43,10 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateOrScroll(item: any) {
-    if (item.route) {
+    if (item.url) {
+      window.location.href = item.url;
+      this.closeMobileMenu();
+    } else if (item.route) {
       this.router.navigate([item.route]);
       this.closeMobileMenu();
     } else if (item.href) {
