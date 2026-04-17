@@ -1,7 +1,14 @@
 .footer {
-  @apply py-16 mt-10;
-  background: rgba(255, 255, 255, 0.02);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  @apply py-16 mt-10 relative;
+  background: rgba(255, 255, 255, 0.01);
+
+  &::before {
+    content: '';
+    @apply absolute top-0 left-1/2 -translate-x-1/2;
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  }
 }
 
 .footer-grid {
@@ -9,7 +16,8 @@
 }
 
 .footer-logo {
-  @apply text-2xl font-bold text-white no-underline mb-4 block;
+  @apply text-xl font-extrabold text-white no-underline mb-4 block tracking-tight;
+  letter-spacing: -0.02em;
 
   .logo-dot {
     color: var(--primary-color);
@@ -17,12 +25,13 @@
 }
 
 .footer-desc {
-  @apply text-gray-400 text-sm leading-relaxed max-w-xs;
+  @apply text-gray-500 text-sm leading-relaxed max-w-xs;
 }
 
 .footer-heading {
-  @apply text-sm font-semibold uppercase tracking-wider mb-4;
+  @apply text-xs font-semibold uppercase tracking-widest mb-5;
   color: var(--primary-color);
+  letter-spacing: 0.15em;
 }
 
 .footer-links {
@@ -30,29 +39,29 @@
 }
 
 .footer-link {
-  @apply text-gray-400 text-sm no-underline transition-colors duration-300 cursor-pointer;
+  @apply text-gray-500 text-sm no-underline transition-all duration-300 cursor-pointer;
 
   &:hover {
     color: white;
+    padding-left: 4px;
   }
 }
 
 .footer-bottom {
-  @apply pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  @apply pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-xs tracking-wide;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .footer-credit {
-  @apply text-gray-500;
+  @apply text-gray-600;
 }
 
 :host-context(.light) {
   .footer {
-    background: rgba(0, 0, 0, 0.02);
-    border-top-color: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.015);
   }
   .footer-logo { @apply text-gray-900; }
   .footer-desc { @apply text-gray-500; }
-  .footer-link { @apply text-gray-500; &:hover { @apply text-gray-900; } }
-  .footer-bottom { border-top-color: rgba(0, 0, 0, 0.08); }
+  .footer-link { @apply text-gray-400; &:hover { @apply text-gray-900; } }
+  .footer-bottom { border-top-color: rgba(0, 0, 0, 0.06); }
 }

@@ -1,10 +1,10 @@
-<section id="portfolio" class="section">
-  <div class="max-w-7xl mx-auto">
+<section id="portfolio" class="section py-24 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
     <div class="section-header" data-aos="fade-up">
-      <p class="section-tag">Our Work</p>
-      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-tag">Portfolio</p>
+      <h2 class="section-title">Selected Works</h2>
       <p class="section-subtitle">
-        A selection of our recent work across web, product, and branding.
+        A collection of digital experiences, products, and creative solutions crafted with precision and passion.
       </p>
     </div>
 
@@ -15,33 +15,51 @@
         [class.active]="activeFilter === filter.value"
         (click)="filterProjects(filter.value)"
       >
-        {{ filter.label }}
+        <span>{{ filter.label }}</span>
       </button>
     </div>
 
     <div class="projects-grid">
       <div
         *ngFor="let project of filteredProjects; let i = index"
-        class="project-card"
+        class="project-card group"
         data-aos="fade-up"
         [attr.data-aos-delay]="(i % 3 + 1) * 100"
       >
+        <!-- Project Image Overlay -->
         <div class="project-image">
-          <div class="project-placeholder">
-            <span class="placeholder-icon">{{ project.category === 'web' ? '🌐' : project.category === 'product' ? '📱' : '✨' }}</span>
-          </div>
+          <ng-container *ngIf="project.image; else placeholder">
+            <img [src]="project.image" [alt]="project.title" loading="lazy" />
+          </ng-container>
+          <ng-template #placeholder>
+            <div class="project-placeholder">
+              <span class="placeholder-icon">{{ project.category === 'web' ? '🌐' : project.category === 'product' ? '📱' : '✨' }}</span>
+            </div>
+          </ng-template>
+          
           <div class="project-overlay">
-            <a [routerLink]="['/work', project.id]" class="view-btn">View Case Study</a>
+            <a *ngIf="project.demoLink" [href]="project.demoLink" target="_blank" class="btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              Live Demo
+            </a>
+            <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" class="btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              View Code
+            </a>
           </div>
         </div>
-        <div class="project-info">
-          <span class="project-category">{{ project.category | titlecase }}</span>
+
+        <!-- Project Info -->
+        <a [routerLink]="['/project', project.id]" class="project-content">
+          <div class="project-top">
+            <span class="project-category">{{ project.category || 'Development' | titlecase }}</span>
+          </div>
           <h3 class="project-title">{{ project.title }}</h3>
-          <p class="project-desc">{{ project.shortDescription }}</p>
+          <p class="project-desc">{{ project.description }}</p>
           <div class="project-tech">
-            <span *ngFor="let tech of project.technologies.slice(0, 3)" class="tech-tag">{{ tech }}</span>
+            <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>

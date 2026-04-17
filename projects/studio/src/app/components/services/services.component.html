@@ -2,9 +2,9 @@
   <div class="max-w-7xl mx-auto">
     <div class="section-header" data-aos="fade-up">
       <p class="section-tag">What We Do</p>
-      <h2 class="section-title">Our Services</h2>
+      <h2 class="section-title">Services</h2>
       <p class="section-subtitle">
-        We offer end-to-end design solutions tailored to your business needs.
+        End-to-end design solutions tailored to your business needs.
       </p>
     </div>
 
@@ -15,12 +15,15 @@
         data-aos="fade-up"
         [attr.data-aos-delay]="(i + 1) * 100"
       >
-        <span class="service-icon">{{ service.icon }}</span>
+        <div class="card-top">
+          <span class="service-number">{{ (i + 1) | number: '2.0-0' }}</span>
+          <span class="service-icon">{{ service.icon }}</span>
+        </div>
         <h3 class="service-title">{{ service.title }}</h3>
         <p class="service-description">{{ service.description }}</p>
         <ul class="service-features">
           <li *ngFor="let feature of service.features" class="feature-item">
-            <span class="feature-dot"></span>
+            <svg class="feature-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             {{ feature }}
           </li>
         </ul>

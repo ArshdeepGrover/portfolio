@@ -3,57 +3,71 @@
 }
 
 .section-tag {
-  @apply text-sm font-semibold tracking-widest uppercase mb-4;
+  @apply text-xs font-semibold tracking-widest uppercase mb-4;
   color: var(--primary-color);
   letter-spacing: 0.2em;
 }
 
 .section-title {
-  @apply text-3xl md:text-5xl font-bold mb-4;
+  @apply text-4xl md:text-5xl font-black mb-5;
+  letter-spacing: -0.03em;
 }
 
 .section-subtitle {
-  @apply text-gray-400 text-lg max-w-2xl mx-auto;
+  @apply text-gray-400 text-base max-w-lg mx-auto leading-relaxed;
 }
 
 .process-timeline {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8;
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
 }
 
 .process-step {
-  @apply relative text-center;
+  @apply relative p-6 rounded-2xl text-center transition-all duration-500;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  &:hover {
+    border-color: rgba(255, 121, 85, 0.15);
+    transform: translateY(-4px);
+    .step-number { border-color: var(--primary-color); background: rgba(255, 121, 85, 0.1); }
+  }
 }
 
 .step-number {
-  @apply w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6 text-lg font-bold;
-  background: rgba(108, 99, 255, 0.15);
+  @apply w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-5 text-sm font-black transition-all duration-300;
+  background: rgba(255, 121, 85, 0.06);
   color: var(--primary-color);
-  border: 2px solid rgba(108, 99, 255, 0.3);
+  border: 1px solid rgba(255, 121, 85, 0.12);
 }
 
 .step-content {
-  @apply px-4;
+  @apply px-2;
 }
 
 .step-icon {
-  @apply text-3xl mb-4 block;
+  @apply text-2xl mb-3 block;
 }
 
 .step-title {
-  @apply text-xl font-bold mb-3;
+  @apply text-base font-bold mb-2;
 }
 
 .step-description {
-  @apply text-gray-400 text-sm leading-relaxed;
+  @apply text-gray-500 text-sm leading-relaxed;
 }
 
 .step-connector {
-  @apply hidden lg:block absolute top-7 -right-4 w-8;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary-color), transparent);
+  @apply hidden lg:block absolute top-1/2 -right-3 w-6;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 121, 85, 0.3), transparent);
 }
 
 :host-context(.light) {
+  .process-step {
+    background: rgba(0, 0, 0, 0.015);
+    border-color: rgba(0, 0, 0, 0.06);
+    &:hover { border-color: rgba(255, 121, 85, 0.2); }
+  }
   .section-subtitle { @apply text-gray-500; }
-  .step-description { @apply text-gray-600; }
+  .step-description { @apply text-gray-500; }
 }

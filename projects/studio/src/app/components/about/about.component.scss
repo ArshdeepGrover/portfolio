@@ -1,68 +1,226 @@
-.about-grid {
-  @apply grid grid-cols-1 lg:grid-cols-2 gap-16 items-center;
+// ── Section Container ──
+.about-section {
+  @apply py-24 lg:py-32 px-6 overflow-hidden;
 }
 
-.about-image {
-  @apply flex justify-center;
-}
-
-.image-container {
-  @apply relative;
-}
-
-.image-placeholder {
-  @apply w-80 h-96 rounded-2xl flex items-center justify-center;
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.15), rgba(90, 82, 224, 0.05));
-  border: 1px solid rgba(108, 99, 255, 0.2);
-}
-
-.placeholder-text {
-  @apply text-6xl font-bold;
-  color: var(--primary-color);
-  opacity: 0.5;
-}
-
-.accent-border {
-  @apply absolute -bottom-4 -right-4 w-80 h-96 rounded-2xl -z-10;
-  border: 2px solid var(--primary-color);
-  opacity: 0.3;
+// ── Header ──
+.about-header {
+  @apply text-center mb-16;
 }
 
 .section-tag {
-  @apply text-sm font-semibold tracking-widest uppercase mb-4;
+  @apply text-xs font-semibold tracking-widest uppercase mb-4;
   color: var(--primary-color);
   letter-spacing: 0.2em;
 }
 
 .about-title {
-  @apply text-3xl md:text-4xl font-bold mb-6;
+  @apply text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mx-auto;
+  letter-spacing: -0.03em;
+  max-width: 600px;
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--primary-color) 0%, #FF8A6B 100%);
+    -webkit-background-clip: text;
+  }
+}
+
+// ── Main Grid ──
+.about-grid {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14;
+}
+
+// ── Left Column: Visual + Text ──
+.about-visual-col {
+  @apply flex flex-col;
+}
+
+.visual-card {
+  @apply relative rounded-2xl overflow-hidden mb-8;
+  aspect-ratio: 16 / 10;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.visual-images {
+  @apply absolute inset-0;
+
+  .image-main {
+    @apply absolute inset-0;
+    img {
+      @apply w-full h-full object-cover transition-transform duration-700;
+    }
+  }
+
+  .image-float {
+    @apply absolute bottom-4 right-4 w-32 h-32 md:w-40 md:h-40 rounded-xl overflow-hidden z-10;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    transition: transform 0.5s ease;
+
+    img {
+      @apply w-full h-full object-cover;
+    }
+  }
+}
+
+.visual-card:hover {
+  .image-main img { transform: scale(1.03); }
+  .image-float { transform: translate(-4px, -4px); }
+}
+
+.visual-overlay {
+  @apply absolute top-4 left-4 z-20;
+}
+
+.experience-badge {
+  @apply flex items-center gap-2 px-4 py-2.5 rounded-xl;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  .badge-number {
+    @apply text-2xl font-black;
+    color: var(--primary-color);
+  }
+  .badge-text {
+    @apply text-[10px] uppercase font-bold tracking-wider text-gray-300;
+  }
 }
 
 .about-text {
-  @apply text-gray-400 leading-relaxed mb-4;
+  @apply text-gray-400 text-sm leading-relaxed max-w-lg;
 }
 
-.about-highlights {
-  @apply mt-8 space-y-6;
+// ── Right Column: Stats + Capabilities + Tools ──
+.about-info-col {
+  @apply flex flex-col gap-6;
 }
 
-.highlight {
-  @apply flex items-start gap-4;
+// Stats Row
+.stats-row {
+  @apply grid grid-cols-3 gap-3;
 }
 
-.highlight-icon {
-  @apply text-2xl mt-1;
+.stat-card {
+  @apply flex flex-col items-center p-5 rounded-2xl text-center transition-all duration-300;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  &:hover {
+    border-color: rgba(255, 121, 85, 0.15);
+    transform: translateY(-2px);
+  }
 }
 
-.highlight-title {
-  @apply font-semibold mb-1;
+.stat-value {
+  @apply text-2xl lg:text-3xl font-black mb-0.5;
+  background: linear-gradient(135deg, #fff 0%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.highlight-desc {
-  @apply text-gray-400 text-sm;
+.stat-label {
+  @apply text-[10px] uppercase font-semibold tracking-wider text-gray-500;
 }
 
+// Capabilities
+.capabilities {
+  @apply p-6 rounded-2xl;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.capabilities-title {
+  @apply text-sm font-bold mb-5;
+}
+
+.capability-list {
+  @apply flex flex-col gap-5;
+}
+
+.capability-item {
+  @apply flex gap-4 items-start;
+}
+
+.capability-icon {
+  @apply text-xl flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center;
+  background: rgba(255, 121, 85, 0.06);
+  border: 1px solid rgba(255, 121, 85, 0.1);
+}
+
+.capability-name {
+  @apply text-sm font-semibold mb-1;
+}
+
+.capability-desc {
+  @apply text-xs text-gray-500 leading-relaxed;
+}
+
+// Tools
+.tools-section {
+  @apply p-6 rounded-2xl;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tools-title {
+  @apply text-sm font-bold mb-4;
+}
+
+.tools-row {
+  @apply flex flex-wrap gap-2;
+}
+
+.tool-pill {
+  @apply text-xs font-medium px-3.5 py-1.5 rounded-full transition-all duration-300 cursor-default;
+  background: rgba(255, 121, 85, 0.06);
+  border: 1px solid rgba(255, 121, 85, 0.1);
+  color: var(--primary-color);
+
+  &:hover {
+    background: rgba(255, 121, 85, 0.12);
+    border-color: rgba(255, 121, 85, 0.25);
+    transform: translateY(-1px);
+  }
+}
+
+// ── Light Mode ──
 :host-context(.light) {
-  .about-text { @apply text-gray-600; }
-  .highlight-desc { @apply text-gray-500; }
+  .about-title { @apply text-gray-900; }
+  .about-text { @apply text-gray-500; }
+
+  .visual-card {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.06);
+  }
+  .image-float { border-color: rgba(255, 255, 255, 0.9); }
+  .experience-badge { background: rgba(255, 255, 255, 0.9); border-color: rgba(0, 0, 0, 0.06); .badge-text { @apply text-gray-600; } }
+
+  .stat-card {
+    background: rgba(0, 0, 0, 0.015);
+    border-color: rgba(0, 0, 0, 0.06);
+    &:hover { border-color: rgba(255, 121, 85, 0.2); }
+  }
+  .stat-value {
+    background: linear-gradient(135deg, #111 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .capabilities, .tools-section {
+    background: rgba(0, 0, 0, 0.015);
+    border-color: rgba(0, 0, 0, 0.06);
+  }
+  .capabilities-title, .tools-title { @apply text-gray-900; }
+  .capability-name { @apply text-gray-900; }
+  .capability-desc { @apply text-gray-500; }
+  .capability-icon { background: rgba(255, 121, 85, 0.05); border-color: rgba(255, 121, 85, 0.08); }
+
+  .tool-pill {
+    background: rgba(255, 121, 85, 0.04);
+    border-color: rgba(255, 121, 85, 0.08);
+  }
 }

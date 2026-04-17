@@ -1,34 +1,39 @@
 .detail-hero {
-  background: linear-gradient(180deg, rgba(108, 99, 255, 0.05) 0%, transparent 100%);
+  @apply relative;
+  background: linear-gradient(180deg, rgba(255, 121, 85, 0.04) 0%, transparent 60%);
 }
 
 .back-link {
-  @apply inline-block text-sm text-gray-400 no-underline mb-8 transition-colors duration-300;
-  &:hover { color: var(--primary-color); }
+  @apply inline-flex items-center gap-2 text-sm text-gray-500 no-underline mb-10 transition-all duration-300;
+  &:hover { color: var(--primary-color); padding-left: 0; }
 }
 
 .project-category {
-  @apply text-sm font-semibold uppercase tracking-widest mb-4 block;
+  @apply text-xs font-semibold uppercase tracking-widest mb-4 inline-block px-4 py-1.5 rounded-full;
   color: var(--primary-color);
-  letter-spacing: 0.2em;
+  background: rgba(255, 121, 85, 0.08);
+  border: 1px solid rgba(255, 121, 85, 0.12);
+  letter-spacing: 0.15em;
 }
 
 .detail-title {
-  @apply text-4xl md:text-5xl font-bold mb-6;
+  @apply text-4xl md:text-5xl font-black mb-6;
+  letter-spacing: -0.03em;
 }
 
 .detail-description {
-  @apply text-gray-400 text-lg leading-relaxed mb-8 max-w-3xl;
+  @apply text-gray-400 text-base leading-relaxed mb-8 max-w-3xl;
 }
 
 .detail-tech {
-  @apply flex flex-wrap gap-3;
+  @apply flex flex-wrap gap-2;
 }
 
 .tech-tag {
-  @apply text-sm px-4 py-2 rounded-full;
-  background: rgba(108, 99, 255, 0.1);
-  color: var(--primary-light);
+  @apply text-xs px-3.5 py-1.5 rounded-lg font-medium;
+  background: rgba(255, 121, 85, 0.06);
+  border: 1px solid rgba(255, 121, 85, 0.1);
+  color: var(--primary-color);
 }
 
 .detail-image-section {
@@ -36,18 +41,18 @@
 }
 
 .detail-image-placeholder {
-  @apply w-full h-80 md:h-96 rounded-2xl flex flex-col items-center justify-center gap-4;
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(90, 82, 224, 0.03));
-  border: 1px solid rgba(108, 99, 255, 0.15);
+  @apply w-full h-72 md:h-96 rounded-2xl flex flex-col items-center justify-center gap-4;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .placeholder-icon {
-  @apply text-6xl;
-  opacity: 0.4;
+  @apply text-5xl;
+  opacity: 0.3;
 }
 
 .placeholder-text {
-  @apply text-gray-500 text-sm;
+  @apply text-gray-600 text-sm;
 }
 
 .detail-content {
@@ -55,22 +60,22 @@
 }
 
 .content-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-12 mb-16;
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6 mb-16;
 }
 
 .content-block {
-  @apply p-8 rounded-2xl;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  @apply p-7 rounded-2xl;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .content-heading {
-  @apply text-2xl font-bold mb-4;
+  @apply text-xl font-bold mb-4;
   color: var(--primary-color);
 }
 
 .content-text {
-  @apply text-gray-400 leading-relaxed;
+  @apply text-gray-400 leading-relaxed text-sm;
 }
 
 .results-section {
@@ -78,41 +83,48 @@
 }
 
 .results-grid {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-6 mt-8;
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4 mt-8;
 }
 
 .result-card {
-  @apply p-6 rounded-xl text-center;
-  background: rgba(108, 99, 255, 0.05);
-  border: 1px solid rgba(108, 99, 255, 0.15);
+  @apply p-5 rounded-xl text-center transition-all duration-300;
+  background: rgba(255, 121, 85, 0.04);
+  border: 1px solid rgba(255, 121, 85, 0.08);
+
+  &:hover {
+    border-color: rgba(255, 121, 85, 0.15);
+    transform: translateY(-2px);
+  }
 }
 
 .result-icon {
-  @apply text-3xl mb-3 block;
+  @apply text-2xl mb-2 block;
 }
 
 .result-text {
-  @apply font-semibold;
+  @apply font-semibold text-sm;
 }
 
 .detail-cta {
-  @apply text-center py-16 px-8 rounded-2xl;
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(90, 82, 224, 0.03));
-  border: 1px solid rgba(108, 99, 255, 0.15);
+  @apply text-center py-14 px-8 rounded-2xl relative overflow-hidden;
+  background: rgba(255, 121, 85, 0.04);
+  border: 1px solid rgba(255, 121, 85, 0.1);
 }
 
 .cta-title {
-  @apply text-3xl font-bold mb-3;
+  @apply text-2xl font-black mb-3;
+  letter-spacing: -0.02em;
 }
 
 .cta-desc {
-  @apply text-gray-400 mb-8;
+  @apply text-gray-400 mb-8 text-sm;
 }
 
 .cta-btn {
-  @apply px-8 py-4 rounded-full text-white font-semibold text-lg no-underline transition-all duration-300 inline-block;
+  @apply px-7 py-3.5 rounded-full text-white font-semibold text-sm no-underline transition-all duration-300 inline-block;
   background: var(--primary-color);
-  &:hover { background: var(--primary-dark); transform: translateY(-2px); }
+  box-shadow: 0 4px 16px rgba(255, 121, 85, 0.2);
+  &:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 121, 85, 0.3); }
 }
 
 .not-found {
@@ -120,17 +132,19 @@
 }
 
 .back-btn {
-  @apply text-lg no-underline transition-colors duration-300;
+  @apply text-base no-underline transition-colors duration-300;
   color: var(--primary-color);
   &:hover { color: var(--primary-light); }
 }
 
 :host-context(.light) {
-  .detail-description { @apply text-gray-600; }
+  .detail-description { @apply text-gray-500; }
   .content-block {
-    background: rgba(0, 0, 0, 0.02);
-    border-color: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.015);
+    border-color: rgba(0, 0, 0, 0.06);
   }
-  .content-text { @apply text-gray-600; }
-  .cta-desc { @apply text-gray-600; }
+  .content-text { @apply text-gray-500; }
+  .cta-desc { @apply text-gray-500; }
+  .detail-cta { background: rgba(255, 121, 85, 0.03); border-color: rgba(255, 121, 85, 0.08); }
+  .result-card { background: rgba(0, 0, 0, 0.015); border-color: rgba(0, 0, 0, 0.06); }
 }

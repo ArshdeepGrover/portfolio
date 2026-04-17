@@ -5,7 +5,14 @@ import { ProjectDetailComponent } from './components/project-detail/project-deta
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'work/:id', component: ProjectDetailComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'project/:id', component: ProjectDetailComponent },
+  {
+    path: 'start-project',
+    loadComponent: () =>
+      import('./components/submit-project/submit-project.component').then(
+        (m) => m.SubmitProjectComponent
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];

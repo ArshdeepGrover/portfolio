@@ -1,0 +1,200 @@
+.submit-project {
+  @apply relative min-h-screen overflow-hidden;
+}
+
+.submit-bg {
+  @apply absolute inset-0 pointer-events-none;
+
+  .gradient-orb {
+    @apply absolute rounded-full;
+    filter: blur(120px);
+    opacity: 0.1;
+  }
+
+  .orb-1 {
+    @apply w-96 h-96 -top-20 -right-20;
+    background: var(--primary-color);
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .orb-2 {
+    @apply w-80 h-80 bottom-0 -left-10;
+    background: #8B85FF;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+}
+
+.back-link {
+  @apply inline-block text-sm text-gray-400 no-underline mb-10 transition-colors duration-300;
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+// Success State
+.success-state {
+  @apply text-center py-20;
+}
+
+.success-icon {
+  @apply text-6xl mb-6;
+}
+
+.success-title {
+  @apply text-3xl md:text-4xl font-black mb-6;
+  letter-spacing: -0.02em;
+}
+
+.success-desc {
+  @apply text-gray-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed;
+}
+
+.success-actions {
+  @apply flex flex-wrap justify-center gap-4;
+}
+
+.btn-primary {
+  @apply px-8 py-4 rounded-full text-white font-semibold text-base transition-all duration-300 no-underline;
+  background: var(--primary-color);
+
+  &:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(108, 99, 255, 0.3);
+  }
+}
+
+.btn-secondary {
+  @apply px-8 py-4 rounded-full text-white font-semibold text-base transition-all duration-300 cursor-pointer bg-transparent;
+  border: 2px solid rgba(108, 99, 255, 0.4);
+
+  &:hover {
+    border-color: var(--primary-color);
+    background: rgba(108, 99, 255, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+// Form Header
+.form-header {
+  @apply text-center mb-12;
+}
+
+.section-tag {
+  @apply text-xs font-semibold tracking-widest uppercase mb-4;
+  color: var(--primary-color);
+  letter-spacing: 0.2em;
+}
+
+.form-title {
+  @apply text-4xl md:text-5xl font-black mb-4;
+  letter-spacing: -0.03em;
+}
+
+.form-subtitle {
+  @apply text-gray-400 text-base max-w-lg mx-auto leading-relaxed;
+}
+
+// Form
+.project-form {
+  @apply p-8 md:p-10 rounded-3xl space-y-6;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.form-row {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.form-group {
+  @apply flex flex-col;
+}
+
+.form-label {
+  @apply text-sm font-medium mb-2;
+}
+
+.form-input {
+  @apply w-full px-4 py-3.5 rounded-xl text-sm transition-all duration-300 outline-none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: inherit;
+
+  &::placeholder {
+    @apply text-gray-500;
+  }
+
+  &:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+  }
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.form-textarea-sm {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.submit-btn {
+  @apply w-full py-4 rounded-xl text-white font-semibold text-base cursor-pointer transition-all duration-300 border-none flex items-center justify-center gap-2;
+  background: var(--primary-color);
+
+  &:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 30px rgba(255, 121, 85, 0.3);
+  }
+
+  &.error {
+    background: #ef4444;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.btn-arrow {
+  @apply w-5 h-5 inline-block;
+  transition: transform 0.3s;
+
+  .submit-btn:hover & {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+:host-context(.light) {
+  .form-title {
+    @apply text-gray-900;
+  }
+  .form-subtitle {
+    @apply text-gray-500;
+  }
+  .success-desc {
+    @apply text-gray-600;
+  }
+  .project-form {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  .form-input {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+  .btn-secondary {
+    @apply text-gray-900;
+    border-color: rgba(108, 99, 255, 0.5);
+  }
+}

@@ -25,7 +25,7 @@ export class HeaderComponent {
   navItems: NavItem[] = [
     { label: 'Home', section: 'hero' },
     { label: 'Services', section: 'services' },
-    { label: 'Work', section: 'portfolio' },
+    { label: 'Portfolio', section: 'portfolio' },
     { label: 'Process', section: 'process' },
     { label: 'About', section: 'about' },
     { label: 'Contact', route: '/contact' },

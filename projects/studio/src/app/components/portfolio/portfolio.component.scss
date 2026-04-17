@@ -1,106 +1,141 @@
 .section-header {
-  @apply text-center mb-12;
+  @apply text-center mb-16;
 }
 
 .section-tag {
-  @apply text-sm font-semibold tracking-widest uppercase mb-4;
+  @apply text-xs font-semibold tracking-widest uppercase mb-4;
   color: var(--primary-color);
   letter-spacing: 0.2em;
 }
 
 .section-title {
-  @apply text-3xl md:text-5xl font-bold mb-4;
+  @apply text-4xl md:text-5xl font-black mb-5;
+  letter-spacing: -0.03em;
 }
 
 .section-subtitle {
-  @apply text-gray-400 text-lg max-w-2xl mx-auto;
+  @apply text-gray-400 text-base max-w-lg mx-auto leading-relaxed;
 }
 
 .filters {
-  @apply flex flex-wrap justify-center gap-3 mb-12;
+  @apply flex flex-wrap justify-center gap-4 mb-16;
 }
 
 .filter-btn {
-  @apply px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #9ca3af;
+  @apply px-6 py-2.5 rounded-full text-[13px] font-medium transition-all duration-300 cursor-pointer;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #666;
 
   &:hover {
-    border-color: rgba(108, 99, 255, 0.3);
-    color: white;
+    @apply text-white;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
   }
 
   &.active {
+    @apply text-white;
     background: var(--primary-color);
     border-color: var(--primary-color);
-    color: white;
+    box-shadow: 0 4px 16px rgba(255, 121, 85, 0.25);
   }
 }
 
 .projects-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  @apply grid grid-cols-1 md:grid-cols-12 gap-6;
 }
 
 .project-card {
-  @apply rounded-2xl overflow-hidden transition-all duration-300;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  @apply relative rounded-2xl overflow-hidden transition-all duration-500;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  // Bento Spans
+  @apply md:col-span-6;
+  
+  &:nth-child(3n+1) { @apply lg:col-span-7; }
+  &:nth-child(3n+2) { @apply lg:col-span-5; }
+  &:nth-child(3n+3) { @apply lg:col-span-12; }
 
   &:hover {
-    transform: translateY(-6px);
-    border-color: rgba(108, 99, 255, 0.2);
+    border-color: rgba(255, 121, 85, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.4);
 
+    .project-image img {
+      transform: scale(1.05);
+    }
+    
     .project-overlay {
-      opacity: 1;
+      @apply opacity-100;
     }
   }
 }
 
 .project-image {
-  @apply relative h-56 overflow-hidden;
+  @apply relative h-64 w-full overflow-hidden;
+  
+  &::after {
+    content: '';
+    @apply absolute inset-0 transition-opacity duration-500;
+    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.6) 100%);
+  }
+
+  img {
+    @apply w-full h-full object-cover transition-transform duration-700;
+  }
 }
 
 .project-placeholder {
   @apply w-full h-full flex items-center justify-center;
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(90, 82, 224, 0.05));
+  background: radial-gradient(circle at center, rgba(255, 121, 85, 0.15), rgba(10, 10, 10, 0.2));
 }
 
 .placeholder-icon {
-  @apply text-5xl;
-  opacity: 0.5;
+  @apply text-7xl transition-transform duration-700 group-hover:scale-125 group-hover:rotate-12;
+  filter: drop-shadow(0 0 20px rgba(255, 121, 85, 0.3));
 }
 
 .project-overlay {
-  @apply absolute inset-0 flex items-center justify-center transition-opacity duration-300;
-  background: rgba(10, 10, 10, 0.8);
-  opacity: 0;
+  @apply absolute inset-0 flex flex-col items-center justify-center gap-4 transition-all duration-500 opacity-0 z-20;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
 }
 
-.view-btn {
-  @apply px-6 py-3 rounded-full text-white text-sm font-semibold no-underline transition-all duration-300;
-  background: var(--primary-color);
-
-  &:hover {
-    background: var(--primary-dark);
-  }
+.btn-primary, .btn-secondary {
+  @apply flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 transform scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100;
 }
 
-.project-info {
-  @apply p-6;
+.btn-primary {
+  @apply bg-white text-black;
+  &:hover { @apply bg-primary text-white; }
+}
+
+.btn-secondary {
+  @apply bg-white/10 text-white border border-white/10;
+  &:hover { @apply bg-white/20 border-white/20; }
+}
+
+.project-content {
+  @apply p-8 relative z-10 transition-transform duration-500 block no-underline;
+  color: inherit;
+}
+
+.project-top {
+  @apply flex justify-between items-start mb-4;
 }
 
 .project-category {
-  @apply text-xs font-semibold uppercase tracking-wider;
+  @apply text-xs font-black uppercase tracking-[0.2em];
   color: var(--primary-color);
 }
 
 .project-title {
-  @apply text-lg font-bold mt-2 mb-2;
+  @apply text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors;
 }
 
 .project-desc {
-  @apply text-gray-400 text-sm leading-relaxed mb-4;
+  @apply text-gray-500 text-sm leading-relaxed mb-6 line-clamp-2;
 }
 
 .project-tech {
@@ -108,23 +143,27 @@
 }
 
 .tech-tag {
-  @apply text-xs px-3 py-1 rounded-full;
-  background: rgba(108, 99, 255, 0.1);
-  color: var(--primary-light);
+  @apply text-[10px] uppercase font-semibold px-2.5 py-1 rounded-md tracking-wider;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #666;
 }
 
 :host-context(.light) {
+  .project-card {
+    background: rgba(0, 0, 0, 0.015);
+    border-color: rgba(0, 0, 0, 0.06);
+    &:hover { border-color: rgba(255, 121, 85, 0.2); box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.08); }
+  }
   .filter-btn {
-    background: rgba(0, 0, 0, 0.03);
-    border-color: rgba(0, 0, 0, 0.1);
-    color: #6b7280;
-    &:hover { color: #111; }
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.06);
+    color: #888;
+    &:hover { color: #333; background: rgba(0, 0, 0, 0.04); }
     &.active { color: white; }
   }
-  .project-card {
-    background: rgba(0, 0, 0, 0.02);
-    border-color: rgba(0, 0, 0, 0.08);
-  }
   .section-subtitle { @apply text-gray-500; }
-  .project-desc { @apply text-gray-600; }
+  .project-desc { @apply text-gray-500; }
+  .project-title { @apply text-gray-900; }
+  .btn-primary { @apply bg-black text-white; &:hover { @apply bg-primary; } }
 }

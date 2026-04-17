@@ -3,50 +3,57 @@
 }
 
 .section-tag {
-  @apply text-sm font-semibold tracking-widest uppercase mb-4;
+  @apply text-xs font-semibold tracking-widest uppercase mb-4;
   color: var(--primary-color);
   letter-spacing: 0.2em;
 }
 
 .section-title {
-  @apply text-3xl md:text-5xl font-bold mb-4;
+  @apply text-4xl md:text-5xl font-black mb-5;
+  letter-spacing: -0.03em;
 }
 
 .section-subtitle {
-  @apply text-gray-400 text-lg max-w-2xl mx-auto;
+  @apply text-gray-400 text-base max-w-lg mx-auto leading-relaxed;
 }
 
 .testimonials-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+  @apply grid grid-cols-1 md:grid-cols-2 gap-5;
 }
 
 .testimonial-card {
-  @apply p-8 rounded-2xl transition-all duration-300;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  @apply p-7 rounded-2xl transition-all duration-500 relative flex flex-col;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 
   &:hover {
-    border-color: rgba(108, 99, 255, 0.2);
-    transform: translateY(-2px);
+    border-color: rgba(255, 121, 85, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.3);
   }
 }
 
-.stars {
-  @apply mb-4;
-  .star { @apply text-sm; }
+.quote-mark {
+  @apply text-4xl font-black leading-none mb-3;
+  color: var(--primary-color);
+  opacity: 0.3;
 }
 
 .quote {
-  @apply text-gray-300 leading-relaxed mb-6 text-lg italic;
+  @apply text-gray-300 leading-relaxed mb-6 text-base flex-1;
+}
+
+.card-bottom {
+  @apply flex items-center justify-between;
 }
 
 .client-info {
-  @apply flex items-center gap-4;
+  @apply flex items-center gap-3;
 }
 
 .avatar-placeholder {
-  @apply w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-white;
-  background: var(--primary-color);
+  @apply w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold text-white;
+  background: linear-gradient(135deg, var(--primary-color), #FF8A6B);
 }
 
 .client-name {
@@ -54,15 +61,24 @@
 }
 
 .client-role {
-  @apply text-gray-400 text-xs;
+  @apply text-gray-500 text-xs;
+}
+
+.stars {
+  @apply flex gap-0.5;
+  .star {
+    @apply text-xs;
+    color: var(--primary-color);
+  }
 }
 
 :host-context(.light) {
   .testimonial-card {
-    background: rgba(0, 0, 0, 0.02);
-    border-color: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.015);
+    border-color: rgba(0, 0, 0, 0.06);
+    &:hover { border-color: rgba(255, 121, 85, 0.2); box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.08); }
   }
   .section-subtitle { @apply text-gray-500; }
   .quote { @apply text-gray-600; }
-  .client-role { @apply text-gray-500; }
+  .client-role { @apply text-gray-400; }
 }

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -10,6 +11,8 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
+  private http = inject(HttpClient);
+
   formData = {
     name: '',
     email: '',
@@ -26,11 +29,35 @@ export class ContactComponent {
   ];
 
   submitted = false;
+  submitting = false;
+  error = false;
 
   onSubmit() {
-    // Integrate with Formspree or your backend
-    console.log('Form submitted:', this.formData);
-    this.submitted = true;
-    setTimeout(() => this.submitted = false, 5000);
+    if (this.submitting) return;
+    this.submitting = true;
+    this.error = false;
+
+    this.http
+      .post('https://formspree.io/f/xpwzgkby', {
+        _subject: `Studio Contact: ${this.formData.name}`,
+        name: this.formData.name,
+        email: this.formData.email,
+        company: this.formData.company,
+        budget: this.formData.budget,
+        message: this.formData.message,
+      })
+      .subscribe({
+        next: () => {
+          this.submitted = true;
+          this.submitting = false;
+          this.formData = { name: '', email: '', company: '', budget: '', message: '' };
+          setTimeout(() => (this.submitted = false), 5000);
+        },
+        error: () => {
+          this.error = true;
+          this.submitting = false;
+          setTimeout(() => (this.error = false), 5000);
+        },
+      });
   }
 }

@@ -64,8 +64,8 @@
             <label for="message" class="form-label">Project Details</label>
             <textarea id="message" [(ngModel)]="formData.message" name="message" class="form-input form-textarea" placeholder="Tell us about your project..." rows="5" required></textarea>
           </div>
-          <button type="submit" class="submit-btn" [class.submitted]="submitted">
-            {{ submitted ? 'Message Sent! ✓' : 'Send Message' }}
+          <button type="submit" class="submit-btn" [class.submitted]="submitted" [class.error]="error" [disabled]="submitting">
+            {{ submitting ? 'Sending...' : submitted ? 'Message Sent! ✓' : error ? 'Failed to send. Try again.' : 'Send Message' }}
           </button>
         </form>
       </div>

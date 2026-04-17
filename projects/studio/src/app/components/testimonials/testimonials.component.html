@@ -2,9 +2,9 @@
   <div class="max-w-7xl mx-auto">
     <div class="section-header" data-aos="fade-up">
       <p class="section-tag">Testimonials</p>
-      <h2 class="section-title">What Clients Say</h2>
+      <h2 class="section-title">Client Stories</h2>
       <p class="section-subtitle">
-        Hear from the people we've worked with.
+        Hear from the people we've had the pleasure of working with.
       </p>
     </div>
 
@@ -15,17 +15,20 @@
         data-aos="fade-up"
         [attr.data-aos-delay]="(i + 1) * 100"
       >
-        <div class="stars">
-          <span *ngFor="let s of getStars(t.rating)" class="star">⭐</span>
-        </div>
-        <p class="quote">"{{ t.quote }}"</p>
-        <div class="client-info">
-          <div class="avatar-placeholder">
-            {{ t.name.charAt(0) }}
+        <div class="quote-mark">“</div>
+        <p class="quote">{{ t.quote }}</p>
+        <div class="card-bottom">
+          <div class="client-info">
+            <div class="avatar-placeholder">
+              {{ t.name.charAt(0) }}
+            </div>
+            <div>
+              <p class="client-name">{{ t.name }}</p>
+              <p class="client-role">{{ t.role }}, {{ t.company }}</p>
+            </div>
           </div>
-          <div>
-            <p class="client-name">{{ t.name }}</p>
-            <p class="client-role">{{ t.role }}, {{ t.company }}</p>
+          <div class="stars">
+            <span *ngFor="let s of getStars(t.rating)" class="star">★</span>
           </div>
         </div>
       </div>

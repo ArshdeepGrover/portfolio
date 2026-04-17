@@ -1,0 +1,168 @@
+<section class="submit-project">
+  <!-- Background -->
+  <div class="submit-bg">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-6 pt-32 pb-20 relative z-10">
+    <!-- Back Link -->
+    <a routerLink="/" class="back-link">← Back to Home</a>
+
+    <!-- Success State -->
+    <div *ngIf="submitted" class="success-state" data-aos="fade-up">
+      <div class="success-icon">🎉</div>
+      <h2 class="success-title">Project Request Submitted!</h2>
+      <p class="success-desc">
+        Thank you for reaching out! We'll review your project details and get back to you
+        within 24-48 hours.
+      </p>
+      <div class="success-actions">
+        <a routerLink="/" class="btn-primary">Back to Home</a>
+        <button (click)="resetForm()" class="btn-secondary">Submit Another</button>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div *ngIf="!submitted">
+      <div class="form-header" data-aos="fade-up">
+        <p class="section-tag">Start a Project</p>
+        <h1 class="form-title">Tell Us About Your Project</h1>
+        <p class="form-subtitle">
+          Fill in the details below and we'll get back to you within 24-48 hours
+          to discuss your project further.
+        </p>
+      </div>
+
+      <form class="project-form" (ngSubmit)="onSubmit()" data-aos="fade-up" data-aos-delay="100">
+        <!-- Name & Email Row -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name" class="form-label">Full Name *</label>
+            <input
+              type="text"
+              id="name"
+              [(ngModel)]="formData.name"
+              name="name"
+              class="form-input"
+              placeholder="John Doe"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              [(ngModel)]="formData.email"
+              name="email"
+              class="form-input"
+              placeholder="john@company.com"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Company & Project Type Row -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company" class="form-label">Company / Organization</label>
+            <input
+              type="text"
+              id="company"
+              [(ngModel)]="formData.company"
+              name="company"
+              class="form-input"
+              placeholder="Your company name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="projectType" class="form-label">Project Type *</label>
+            <select
+              id="projectType"
+              [(ngModel)]="formData.projectType"
+              name="projectType"
+              class="form-input"
+              required
+            >
+              <option value="" disabled>Select project type</option>
+              <option *ngFor="let type of projectTypes" [value]="type">{{ type }}</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Budget & Timeline Row -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="budget" class="form-label">Budget Range</label>
+            <select
+              id="budget"
+              [(ngModel)]="formData.budget"
+              name="budget"
+              class="form-input"
+            >
+              <option value="" disabled>Select budget range</option>
+              <option *ngFor="let option of budgetOptions" [value]="option">{{ option }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="timeline" class="form-label">Timeline</label>
+            <select
+              id="timeline"
+              [(ngModel)]="formData.timeline"
+              name="timeline"
+              class="form-input"
+            >
+              <option value="" disabled>Select timeline</option>
+              <option *ngFor="let option of timelineOptions" [value]="option">{{ option }}</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Project Description -->
+        <div class="form-group">
+          <label for="description" class="form-label">Project Description *</label>
+          <textarea
+            id="description"
+            [(ngModel)]="formData.description"
+            name="description"
+            class="form-input form-textarea"
+            placeholder="Describe your project goals, target audience, features you need, and any specific requirements..."
+            rows="6"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Reference Links -->
+        <div class="form-group">
+          <label for="referenceLinks" class="form-label">Reference Links / Inspiration</label>
+          <textarea
+            id="referenceLinks"
+            [(ngModel)]="formData.referenceLinks"
+            name="referenceLinks"
+            class="form-input form-textarea-sm"
+            placeholder="Share any links to websites, designs, or apps that inspire your vision..."
+            rows="3"
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="submit-btn"
+          [class.error]="error"
+          [disabled]="submitting"
+        >
+          <span *ngIf="!submitting && !error">
+            Submit Project Request
+            <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </span>
+          <span *ngIf="submitting">Submitting...</span>
+          <span *ngIf="error">Something went wrong. Try again.</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
