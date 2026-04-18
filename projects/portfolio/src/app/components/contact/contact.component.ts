@@ -86,7 +86,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
   }
 
   copyEmail() {
-    navigator.clipboard.writeText('arsh199820@gmail.com').then(() => {
+    navigator.clipboard.writeText('arshdeepgroverdev@gmail.com').then(() => {
       this.emailCopied = true;
       setTimeout(() => {
         this.emailCopied = false;

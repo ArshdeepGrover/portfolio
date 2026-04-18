@@ -38,12 +38,12 @@ export const links: ILink[] = [
   {
     id: 4,
     title: 'Email',
-    url: 'mailto:arsh199820@gmail.com',
+    url: 'mailto:arshdeepgroverdev@gmail.com',
     icon: 'https://www.google.com/s2/favicons?domain=gmail.com&sz=128',
     iconType: 'image',
     brandColor: '#EA4335',
     category: 'other',
-    description: 'arsh199820@gmail.com',
+    description: 'arshdeepgroverdev@gmail.com',
     show: true,
   },
 
