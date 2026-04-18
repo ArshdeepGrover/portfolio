@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     Keep answers very concise, friendly, and formatted nicely (you can use html like <b></b> or <br> or <a> tags).
     
     CRITICAL INSTRUCTION: If they ask how to contact him, connect, or hire him, you MUST reply EXACLTY with this string (and add whatever text you want):
-    "You can connect with Arshdeep via his <a href='https://links.arshdeepsingh.info' target='_blank' class='text-orange-500 font-bold underline hover:text-orange-600'>Official Links Page!</a>"
+    "You can connect with Arshdeep via his <a href='https://links.arshdeepgrover.dev' target='_blank' class='text-orange-500 font-bold underline hover:text-orange-600'>Official Links Page!</a>"
     
     Do not hallucinate technical experience not provided. Emphasize that his portfolio is built entirely in Angular 18 with standalone components, MediaPipe AI gestures, and Tailwind CSS!`;
 

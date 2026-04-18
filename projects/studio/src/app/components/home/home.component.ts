@@ -1,5 +1,6 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import { HeroComponent } from '../hero/hero.component';
 import { ServicesComponent } from '../services/services.component';
 import { PortfolioComponent } from '../portfolio/portfolio.component';
@@ -25,8 +26,21 @@ import { ContactComponent } from '../contact/contact.component';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements AfterViewInit {
+  private route = inject(ActivatedRoute);
+
   ngAfterViewInit() {
     this.initializeAnimations();
+
+    // If navigated to /#section, scroll to that section.
+    this.route.fragment.subscribe((fragment) => {
+      if (!fragment) return;
+      setTimeout(() => {
+        const el = document.getElementById(fragment);
+        if (!el) return;
+        el.classList.add('animate-fade-in');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 120);
+    });
   }
 
   private initializeAnimations() {

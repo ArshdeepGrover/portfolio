@@ -61,7 +61,7 @@ GUIDELINES:
 - Keep responses concise and friendly.
 - Use bullet points for lists to keep things readable.
 - If they ask for contact/hire info, ALWAYS include this exact link:
-"You can connect with Arshdeep via his [Official Links Page!](https://links.arshdeepsingh.info)"`;
+"You can connect with Arshdeep via his [Official Links Page!](https://links.arshdeepgrover.dev)"`;
 
     try {
       // Direct REST API Call to Gemini 2.5 Flash
@@ -107,7 +107,7 @@ GUIDELINES:
             const jobs = experiences.map(e => `${e.role} at ${e.company}`).join(' and ');
             resolve(`Arshdeep has awesome experience working as a ${jobs}.`);
         } else if (query.includes('contact') || query.includes('hire') || query.includes('email') || query.includes('connect')) {
-            resolve(`You can connect with Arshdeep via his <a href="https://links.arshdeepsingh.info" target="_blank" class="text-orange-500 font-bold underline hover:text-orange-600">Contact Page!</a>`);
+            resolve(`You can connect with Arshdeep via his <a href="https://links.arshdeepgrover.dev" target="_blank" class="text-orange-500 font-bold underline hover:text-orange-600">Contact Page!</a>`);
         } else {
             resolve(`I am the local fallback! The Gemini API call failed for some reason.`);
         }

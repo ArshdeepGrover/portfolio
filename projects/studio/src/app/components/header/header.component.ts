@@ -5,8 +5,12 @@ import { ThemeService } from '@shared/services/theme.service';
 
 interface NavItem {
   label: string;
+  /** Fragment id on the home page (e.g. 'services' -> /#services). */
   section?: string;
+  /** Internal Angular route (e.g. '/start-project'). */
   route?: string;
+  /** External URL opened in a new tab. */
+  external?: string;
 }
 
 @Component({
@@ -28,7 +32,8 @@ export class HeaderComponent {
     { label: 'Portfolio', section: 'portfolio' },
     { label: 'Process', section: 'process' },
     { label: 'About', section: 'about' },
-    { label: 'Contact', route: '/contact' },
+    { label: 'Contact', section: 'contact' },
+    { label: 'Links', external: 'https://links.arshdeepgrover.dev' },
   ];
 
   constructor(private router: Router) {}
@@ -48,14 +53,28 @@ export class HeaderComponent {
 
   navigateOrScroll(item: NavItem) {
     this.isMobileMenuOpen = false;
+
+    if (item.external) {
+      window.open(item.external, '_blank', 'noopener');
+      return;
+    }
+
     if (item.route) {
       this.router.navigate([item.route]);
-    } else if (item.section) {
-      if (this.router.url !== '/') {
-        this.router.navigate(['/']).then(() => {
-          setTimeout(() => this.scrollToSection(item.section!), 100);
-        });
+      return;
+    }
+
+    if (item.section) {
+      if (this.router.url.split('#')[0].split('?')[0] !== '/') {
+        // Navigate to home first, then scroll once it’s mounted.
+        this.router.navigate(['/'], { fragment: item.section });
       } else {
+        // Already on home — update the URL fragment and scroll.
+        this.router.navigate([], {
+          fragment: item.section,
+          queryParamsHandling: 'preserve',
+          replaceUrl: false,
+        });
         this.scrollToSection(item.section);
       }
     }

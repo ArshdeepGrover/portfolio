@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
     { label: 'Certificates', href: '#certificates', id: 'certificates' },
     { label: 'Blogs', href: '#blogs', id: 'blogs' },
     { label: 'Contact', route: '/contact', id: 'contact' },
-    { label: 'Links', url: 'https://links.arshdeepsingh.info?utm_source=portfolio&utm_medium=header&utm_campaign=navigation', id: 'links' },
+    { label: 'Links', url: 'https://links.arshdeepgrover.dev?utm_source=portfolio&utm_medium=header&utm_campaign=navigation', id: 'links' },
   ];
 
   constructor(private router: Router) {}

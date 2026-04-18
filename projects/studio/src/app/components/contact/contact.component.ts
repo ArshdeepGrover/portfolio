@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { AfterViewInit, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -10,8 +10,32 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent {
+export class ContactComponent implements AfterViewInit {
   private http = inject(HttpClient);
+
+  ngAfterViewInit(): void {
+    // Trigger AOS-like fade-in animations on this standalone route.
+    if (typeof IntersectionObserver === 'undefined') {
+      document
+        .querySelectorAll('[data-aos]')
+        .forEach((el) => el.classList.add('animate-fade-in'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    document.querySelectorAll('[data-aos]').forEach((el) => observer.observe(el));
+  }
 
   formData = {
     name: '',

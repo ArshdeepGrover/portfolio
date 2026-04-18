@@ -1,168 +1,264 @@
 <section class="submit-project">
   <!-- Background -->
-  <div class="submit-bg">
+  <div class="submit-bg" aria-hidden="true">
     <div class="gradient-orb orb-1"></div>
     <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+    <div class="grid-overlay"></div>
   </div>
 
-  <div class="max-w-4xl mx-auto px-6 pt-32 pb-20 relative z-10">
+  <div class="page-container">
     <!-- Back Link -->
-    <a routerLink="/" class="back-link">← Back to Home</a>
+    <a routerLink="/" class="back-link">
+      <svg class="back-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+      Back to Home
+    </a>
 
     <!-- Success State -->
     <div *ngIf="submitted" class="success-state" data-aos="fade-up">
       <div class="success-icon">🎉</div>
-      <h2 class="success-title">Project Request Submitted!</h2>
+      <h1 class="success-title">Request Submitted!</h1>
       <p class="success-desc">
-        Thank you for reaching out! We'll review your project details and get back to you
-        within 24-48 hours.
+        Thank you for reaching out, <strong>{{ formData.name || 'friend' }}</strong>.
+        We’ll review your project and reply to <strong>{{ formData.email }}</strong>
+        within 24–48 hours.
       </p>
       <div class="success-actions">
         <a routerLink="/" class="btn-primary">Back to Home</a>
-        <button (click)="resetForm()" class="btn-secondary">Submit Another</button>
+        <button type="button" (click)="resetForm()" class="btn-secondary">Submit Another</button>
       </div>
     </div>
 
-    <!-- Form -->
-    <div *ngIf="!submitted">
-      <div class="form-header" data-aos="fade-up">
-        <p class="section-tag">Start a Project</p>
-        <h1 class="form-title">Tell Us About Your Project</h1>
-        <p class="form-subtitle">
-          Fill in the details below and we'll get back to you within 24-48 hours
-          to discuss your project further.
+    <!-- Page content -->
+    <ng-container *ngIf="!submitted">
+      <!-- Hero -->
+      <header class="page-hero" data-aos="fade-up">
+        <span class="hero-tag">
+          <span class="tag-dot"></span>
+          Start a Project
+        </span>
+        <h1 class="hero-title">
+          Let’s build something <span class="hero-accent">people love.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Tell us about your idea, your audience and your timeline. We’ll get back to you within
+          24–48 hours with next steps and a tailored proposal.
         </p>
-      </div>
+        <div class="hero-trust">
+          <div class="trust-item"><strong>50+</strong> projects shipped</div>
+          <span class="trust-divider"></span>
+          <div class="trust-item"><strong>30+</strong> happy clients</div>
+          <span class="trust-divider"></span>
+          <div class="trust-item"><strong>24–48h</strong> reply time</div>
+        </div>
+      </header>
 
-      <form class="project-form" (ngSubmit)="onSubmit()" data-aos="fade-up" data-aos-delay="100">
-        <!-- Name & Email Row -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name" class="form-label">Full Name *</label>
-            <input
-              type="text"
-              id="name"
-              [(ngModel)]="formData.name"
-              name="name"
-              class="form-input"
-              placeholder="John Doe"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="email" class="form-label">Email Address *</label>
-            <input
-              type="email"
-              id="email"
-              [(ngModel)]="formData.email"
-              name="email"
-              class="form-input"
-              placeholder="john@company.com"
-              required
-            />
-          </div>
+      <!-- Project type chips -->
+      <section id="services" class="type-section" data-aos="fade-up" data-aos-delay="80">
+        <h2 class="block-title">What can we help with?</h2>
+        <p class="block-subtitle">Pick the closest match — you can refine the details below.</p>
+
+        <div class="type-grid">
+          <button
+            type="button"
+            *ngFor="let opt of projectTypeOptions"
+            class="type-card"
+            [class.type-card--active]="formData.projectType === opt.value"
+            (click)="selectProjectType(opt.value)"
+          >
+            <div class="type-icon">{{ opt.icon }}</div>
+            <div class="type-content">
+              <div class="type-head">
+                <h3 class="type-title">{{ opt.label }}</h3>
+                <span *ngIf="opt.badge" class="type-badge">{{ opt.badge }}</span>
+              </div>
+              <p class="type-desc">{{ opt.description }}</p>
+            </div>
+            <span class="type-check" aria-hidden="true">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Form -->
+      <section id="project-form" class="form-section" data-aos="fade-up" data-aos-delay="120">
+        <div class="form-header">
+          <h2 class="block-title">Project details</h2>
+          <p class="block-subtitle">
+            The more context you can share, the better we can tailor our reply.
+          </p>
         </div>
 
-        <!-- Company & Project Type Row -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="company" class="form-label">Company / Organization</label>
-            <input
-              type="text"
-              id="company"
-              [(ngModel)]="formData.company"
-              name="company"
-              class="form-input"
-              placeholder="Your company name"
-            />
+        <form class="project-form" (ngSubmit)="onSubmit()" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name *</label>
+              <input
+                type="text"
+                id="name"
+                [(ngModel)]="formData.name"
+                name="name"
+                class="form-input"
+                placeholder="Jane Doe"
+                required
+                autocomplete="name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email *</label>
+              <input
+                type="email"
+                id="email"
+                [(ngModel)]="formData.email"
+                name="email"
+                class="form-input"
+                placeholder="jane@company.com"
+                required
+                autocomplete="email"
+              />
+            </div>
           </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company" class="form-label">Company / Organization</label>
+              <input
+                type="text"
+                id="company"
+                [(ngModel)]="formData.company"
+                name="company"
+                class="form-input"
+                placeholder="Acme Inc."
+                autocomplete="organization"
+              />
+            </div>
+            <div class="form-group">
+              <label for="websiteUrl" class="form-label">
+                {{ isAuditSelected ? 'Website to Audit *' : 'Website / Product URL' }}
+              </label>
+              <input
+                type="url"
+                id="websiteUrl"
+                [(ngModel)]="formData.websiteUrl"
+                name="websiteUrl"
+                class="form-input"
+                placeholder="https://yoursite.com"
+                [required]="isAuditSelected"
+              />
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="projectType" class="form-label">Project Type *</label>
-            <select
-              id="projectType"
-              [(ngModel)]="formData.projectType"
-              name="projectType"
-              class="form-input"
+            <div class="select-wrapper">
+              <select
+                id="projectType"
+                [(ngModel)]="formData.projectType"
+                name="projectType"
+                class="form-input"
+                required
+              >
+                <option value="" disabled>Select project type</option>
+                <option *ngFor="let opt of projectTypeOptions" [value]="opt.value">{{ opt.label }}</option>
+              </select>
+              <svg class="select-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="description" class="form-label">Project Description *</label>
+            <textarea
+              id="description"
+              [(ngModel)]="formData.description"
+              name="description"
+              class="form-input form-textarea"
+              [placeholder]="descriptionPlaceholder"
+              rows="6"
               required
-            >
-              <option value="" disabled>Select project type</option>
-              <option *ngFor="let type of projectTypes" [value]="type">{{ type }}</option>
-            </select>
+            ></textarea>
           </div>
-        </div>
 
-        <!-- Budget & Timeline Row -->
-        <div class="form-row">
           <div class="form-group">
-            <label for="budget" class="form-label">Budget Range</label>
-            <select
-              id="budget"
-              [(ngModel)]="formData.budget"
-              name="budget"
-              class="form-input"
-            >
-              <option value="" disabled>Select budget range</option>
-              <option *ngFor="let option of budgetOptions" [value]="option">{{ option }}</option>
-            </select>
+            <label for="referenceLinks" class="form-label">Reference Links / Inspiration</label>
+            <textarea
+              id="referenceLinks"
+              [(ngModel)]="formData.referenceLinks"
+              name="referenceLinks"
+              class="form-input form-textarea-sm"
+              placeholder="Drop links to sites, products or designs that inspire you."
+              rows="3"
+            ></textarea>
           </div>
-          <div class="form-group">
-            <label for="timeline" class="form-label">Timeline</label>
-            <select
-              id="timeline"
-              [(ngModel)]="formData.timeline"
-              name="timeline"
-              class="form-input"
-            >
-              <option value="" disabled>Select timeline</option>
-              <option *ngFor="let option of timelineOptions" [value]="option">{{ option }}</option>
-            </select>
+
+          <button
+            type="submit"
+            class="submit-btn"
+            [class.error]="error"
+            [disabled]="submitting"
+          >
+            <span *ngIf="!submitting && !error">
+              {{ isAuditSelected ? 'Request My Audit' : 'Submit Project Request' }}
+              <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </span>
+            <span *ngIf="submitting" class="submit-loading">
+              <span class="spinner"></span>
+              Sending...
+            </span>
+            <span *ngIf="error">Something went wrong. Try again.</span>
+          </button>
+
+          <p class="form-fineprint">
+            By submitting, you agree to be contacted about your project. We never share your details.
+          </p>
+        </form>
+      </section>
+
+      <!-- Next steps -->
+      <section id="process" class="steps-section" data-aos="fade-up" data-aos-delay="160">
+        <h2 class="block-title">What happens next</h2>
+        <p class="block-subtitle">A short, transparent process — no surprises.</p>
+
+        <ol class="steps-grid">
+          <li class="step-card" *ngFor="let step of nextSteps">
+            <span class="step-number">{{ step.step }}</span>
+            <h3 class="step-title">{{ step.title }}</h3>
+            <p class="step-desc">{{ step.description }}</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="faq-section" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="block-title">Frequently asked</h2>
+        <p class="block-subtitle">Quick answers to the things people ask the most.</p>
+
+        <div class="faq-list">
+          <div
+            *ngFor="let faq of faqs; let i = index"
+            class="faq-item"
+            [class.faq-item--open]="openFaqIndex === i"
+          >
+            <button type="button" class="faq-question" (click)="toggleFaq(i)">
+              <span>{{ faq.question }}</span>
+              <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>{{ faq.answer }}</p>
+            </div>
           </div>
         </div>
-
-        <!-- Project Description -->
-        <div class="form-group">
-          <label for="description" class="form-label">Project Description *</label>
-          <textarea
-            id="description"
-            [(ngModel)]="formData.description"
-            name="description"
-            class="form-input form-textarea"
-            placeholder="Describe your project goals, target audience, features you need, and any specific requirements..."
-            rows="6"
-            required
-          ></textarea>
-        </div>
-
-        <!-- Reference Links -->
-        <div class="form-group">
-          <label for="referenceLinks" class="form-label">Reference Links / Inspiration</label>
-          <textarea
-            id="referenceLinks"
-            [(ngModel)]="formData.referenceLinks"
-            name="referenceLinks"
-            class="form-input form-textarea-sm"
-            placeholder="Share any links to websites, designs, or apps that inspire your vision..."
-            rows="3"
-          ></textarea>
-        </div>
-
-        <!-- Submit -->
-        <button
-          type="submit"
-          class="submit-btn"
-          [class.error]="error"
-          [disabled]="submitting"
-        >
-          <span *ngIf="!submitting && !error">
-            Submit Project Request
-            <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </span>
-          <span *ngIf="submitting">Submitting...</span>
-          <span *ngIf="error">Something went wrong. Try again.</span>
-        </button>
-      </form>
-    </div>
+      </section>
+    </ng-container>
   </div>
 </section>

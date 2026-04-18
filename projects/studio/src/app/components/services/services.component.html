@@ -45,8 +45,27 @@
           </ul>
         </div>
 
-        <a *ngIf="service.featured" routerLink="/start-project" class="card-cta">
-          Request a Free Audit
+        <a
+          *ngIf="service.featured"
+          routerLink="/start-project"
+          [queryParams]="{ service: service.title }"
+          fragment="project-form"
+          class="card-cta"
+        >
+          Request an Audit
+          <svg class="cta-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+
+        <a
+          *ngIf="!service.featured"
+          routerLink="/start-project"
+          [queryParams]="{ service: service.title }"
+          fragment="project-form"
+          class="card-inline-cta"
+        >
+          Start this project
           <svg class="cta-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
           </svg>

@@ -172,6 +172,20 @@
   }
 }
 
+.card-inline-cta {
+  @apply inline-flex items-center gap-2 mt-6 text-sm font-semibold no-underline transition-all duration-300 self-start;
+  color: var(--primary-color);
+
+  .cta-arrow {
+    @apply w-4 h-4 transition-transform duration-300;
+  }
+
+  &:hover {
+    color: var(--primary-dark);
+    .cta-arrow { transform: translateX(4px); }
+  }
+}
+
 .card-corner-arrow {
   @apply absolute top-6 right-6 w-9 h-9 flex items-center justify-center rounded-full opacity-0 transition-all duration-500 text-gray-500 pointer-events-none;
   background: rgba(255, 255, 255, 0.04);
