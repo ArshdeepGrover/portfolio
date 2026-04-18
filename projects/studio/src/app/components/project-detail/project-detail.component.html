@@ -1,59 +1,223 @@
 <div class="project-detail" *ngIf="project">
-  <!-- Hero -->
+  <!-- Background decoration -->
+  <div class="detail-bg" aria-hidden="true">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- ===== Hero ===== -->
   <section class="detail-hero">
-    <div class="max-w-5xl mx-auto px-6 pt-32 pb-16">
-      <a routerLink="/" fragment="portfolio" class="back-link">
-        ← Back to Work
+    <div class="max-w-6xl mx-auto px-6 pt-32 pb-10">
+      <a routerLink="/" fragment="portfolio" class="back-link" data-aos="fade-up">
+        <svg class="back-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to Work
       </a>
-      <span class="project-category">{{ project.category | titlecase }}</span>
-      <h1 class="detail-title">{{ project.title }}</h1>
-      <p class="detail-description">{{ project.description }}</p>
-      <div class="detail-tech">
+
+      <div class="hero-grid">
+        <div class="hero-text" data-aos="fade-up">
+          <span class="project-category">
+            <span class="cat-emoji">{{ categoryEmoji(project.category) }}</span>
+            {{ project.category | titlecase }}
+          </span>
+          <h1 class="detail-title">{{ project.title }}</h1>
+          <p class="detail-description">{{ project.description }}</p>
+
+          <div class="detail-actions">
+            <a *ngIf="project.demoLink" [href]="project.demoLink" target="_blank" rel="noopener" class="btn-primary">
+              Visit Live Site
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3h7v7m0-7L10 14m-4-3v7a2 2 0 002 2h7"></path>
+              </svg>
+            </a>
+            <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" rel="noopener" class="btn-secondary">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              Source Code
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-meta" data-aos="fade-up" data-aos-delay="120">
+          <div *ngIf="project.client" class="meta-item">
+            <span class="meta-label">Client</span>
+            <span class="meta-value">{{ project.client }}</span>
+          </div>
+          <div *ngIf="project.year" class="meta-item">
+            <span class="meta-label">Year</span>
+            <span class="meta-value">{{ project.year }}</span>
+          </div>
+          <div *ngIf="project.role" class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">{{ project.role }}</span>
+          </div>
+          <div *ngIf="project.demoLink" class="meta-item">
+            <span class="meta-label">Live</span>
+            <a [href]="project.demoLink" target="_blank" rel="noopener" class="meta-link">
+              {{ prettyUrl(project.demoLink) }}
+            </a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="detail-tech" data-aos="fade-up" data-aos-delay="160">
         <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
       </div>
     </div>
   </section>
 
-  <!-- Project Image -->
-  <section class="detail-image-section">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="detail-image-placeholder">
-        <span class="placeholder-icon">{{ project.category === 'web' ? '🌐' : project.category === 'product' ? '📱' : '✨' }}</span>
-        <p class="placeholder-text">Project Preview</p>
+  <!-- ===== Showcase ===== -->
+  <section class="detail-showcase" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span class="browser-url">{{ prettyUrl(project.demoLink) || 'preview' }}</span>
+        </div>
+        <div class="browser-body">
+          <img
+            *ngIf="project.mockup; else noShot"
+            [src]="project.mockup"
+            [alt]="project.title + ' preview'"
+            loading="lazy"
+          />
+          <ng-template #noShot>
+            <div class="browser-placeholder">
+              <span class="placeholder-icon">{{ categoryEmoji(project.category) }}</span>
+              <p class="placeholder-text">Project Preview</p>
+            </div>
+          </ng-template>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Challenge & Solution -->
+  <!-- ===== Challenge & Solution ===== -->
   <section class="detail-content">
-    <div class="max-w-5xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
       <div class="content-grid">
-        <div class="content-block">
+        <div class="content-block" data-aos="fade-up" *ngIf="project.challenge">
+          <div class="block-icon">🎯</div>
           <h2 class="content-heading">The Challenge</h2>
           <p class="content-text">{{ project.challenge }}</p>
         </div>
-        <div class="content-block">
+        <div class="content-block" data-aos="fade-up" data-aos-delay="100" *ngIf="project.solution">
+          <div class="block-icon">💡</div>
           <h2 class="content-heading">Our Solution</h2>
           <p class="content-text">{{ project.solution }}</p>
         </div>
       </div>
 
-      <!-- Results -->
-      <div class="results-section">
-        <h2 class="content-heading">Results</h2>
+      <!-- ===== Mockups gallery (pre-framed screenshots) ===== -->
+      <div class="gallery-section" data-aos="fade-up" *ngIf="project.gallery?.length">
+        <h2 class="section-heading">A closer look</h2>
+        <p class="section-sub">Device mockups and product screenshots from the project.</p>
+        <div
+          class="gallery-grid"
+          [class.gallery-grid--2]="project.gallery && project.gallery.length === 2"
+          [class.gallery-grid--1]="project.gallery && project.gallery.length === 1"
+        >
+          <figure
+            *ngFor="let shot of project.gallery; let i = index"
+            class="gallery-item"
+            [class.gallery-item--wide]="project.gallery && project.gallery.length >= 3 && i === 0"
+          >
+            <img [src]="shot" [alt]="project.title + ' screenshot ' + (i + 1)" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+
+      <!-- ===== Fallback CSS devices preview (only when no gallery provided) ===== -->
+      <div
+        class="devices-section"
+        data-aos="fade-up"
+        *ngIf="!project.gallery?.length && project.image"
+      >
+        <h2 class="section-heading">Responsive by design</h2>
+        <p class="section-sub">Looks pixel-perfect across desktop, tablet and mobile.</p>
+        <div class="devices-grid">
+          <div class="device device-desktop">
+            <div class="device-screen">
+              <img [src]="project.image" [alt]="project.title + ' desktop'" loading="lazy" />
+            </div>
+            <div class="device-stand"></div>
+            <div class="device-base"></div>
+          </div>
+          <div class="device device-phone" *ngIf="project.mobileImage">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img
+                [src]="project.mobileImage"
+                [alt]="project.title + ' mobile'"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Results ===== -->
+      <div class="results-section" data-aos="fade-up" *ngIf="project.results?.length">
+        <h2 class="section-heading">Impact &amp; Results</h2>
         <div class="results-grid">
-          <div *ngFor="let result of project.results" class="result-card">
-            <span class="result-icon">📈</span>
+          <div *ngFor="let result of project.results; let i = index" class="result-card">
+            <span class="result-number">{{ (i + 1) | number: '2.0-0' }}</span>
             <p class="result-text">{{ result }}</p>
           </div>
         </div>
       </div>
 
-      <!-- CTA -->
-      <div class="detail-cta">
+      <!-- ===== CTA ===== -->
+      <div class="detail-cta" data-aos="fade-up">
+        <div class="cta-emoji">✨</div>
         <h3 class="cta-title">Like what you see?</h3>
-        <p class="cta-desc">Let's discuss how we can create something similar for your business.</p>
-        <a routerLink="/contact" class="cta-btn">Start a Project</a>
+        <p class="cta-desc">
+          Let’s build something equally great for your team. Tell us about your project — we’ll reply within 24–48 hours.
+        </p>
+        <a
+          routerLink="/start-project"
+          fragment="project-form"
+          class="cta-btn"
+        >
+          Start a Project
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- ===== More projects ===== -->
+      <div class="more-projects" data-aos="fade-up" *ngIf="otherProjects.length">
+        <div class="more-head">
+          <h2 class="section-heading">More work</h2>
+          <a routerLink="/" fragment="portfolio" class="view-all">View all →</a>
+        </div>
+        <div class="more-grid">
+          <a
+            *ngFor="let p of otherProjects"
+            [routerLink]="['/project', p.id]"
+            class="more-card"
+          >
+            <div class="more-thumb">
+              <img
+                *ngIf="p.image; else moreFallback"
+                [src]="p.image"
+                [alt]="p.title"
+                loading="lazy"
+              />
+              <ng-template #moreFallback>
+                <span class="more-fallback">{{ categoryEmoji(p.category) }}</span>
+              </ng-template>
+            </div>
+            <div class="more-body">
+              <span class="more-cat">{{ p.category | titlecase }}</span>
+              <h3 class="more-title">{{ p.title }}</h3>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -62,7 +226,7 @@
 <div class="not-found" *ngIf="!project">
   <div class="max-w-3xl mx-auto px-6 pt-32 text-center">
     <h1 class="text-4xl font-bold mb-4">Project Not Found</h1>
-    <p class="text-gray-400 mb-8">The project you're looking for doesn't exist.</p>
+    <p class="text-gray-400 mb-8">The project you’re looking for doesn’t exist.</p>
     <a routerLink="/" class="back-btn">← Back to Home</a>
   </div>
 </div>

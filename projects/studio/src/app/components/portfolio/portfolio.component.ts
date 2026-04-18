@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { studioProjects } from '@shared/stores/projects.store';
-import { IProject } from '@shared/models/project.model';
+import { visibleStudioProjects } from '@stores/studio_projects_store';
+import { IStudioProject } from '@models/studio-project.model';
 
 @Component({
   selector: 'app-portfolio',
@@ -12,8 +12,8 @@ import { IProject } from '@shared/models/project.model';
   styleUrls: ['./portfolio.component.scss'],
 })
 export class PortfolioComponent {
-  allProjects: IProject[] = studioProjects;
-  filteredProjects: IProject[] = studioProjects;
+  allProjects: IStudioProject[] = visibleStudioProjects;
+  filteredProjects: IStudioProject[] = visibleStudioProjects;
   activeFilter: string = 'all';
 
   filters = [
@@ -25,8 +25,9 @@ export class PortfolioComponent {
 
   filterProjects(category: string) {
     this.activeFilter = category;
-    this.filteredProjects = category === 'all'
-      ? this.allProjects
-      : this.allProjects.filter(p => p.category === category);
+    this.filteredProjects =
+      category === 'all'
+        ? this.allProjects
+        : this.allProjects.filter((p) => p.category === category);
   }
 }
