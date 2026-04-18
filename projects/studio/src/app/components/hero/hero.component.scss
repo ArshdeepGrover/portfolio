@@ -1,6 +1,11 @@
 .hero {
   @apply relative min-h-screen flex flex-col items-center justify-center overflow-hidden;
+  padding-top: 7rem;
   padding-bottom: 6rem;
+
+  @screen lg {
+    padding-top: 6rem;
+  }
 }
 
 .hero-bg {

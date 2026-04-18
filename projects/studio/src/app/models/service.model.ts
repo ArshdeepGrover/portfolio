@@ -4,4 +4,6 @@ export interface IService {
   description: string;
   icon: string;
   features: string[];
+  badge?: string;
+  featured?: boolean;
 }

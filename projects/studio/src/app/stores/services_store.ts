@@ -2,6 +2,22 @@ import { IService } from '@models/service.model';
 
 export const services: IService[] = [
   {
+    id: 5,
+    title: 'Website Audit & Report',
+    description: 'Get a deep, data-driven analysis of your website — performance, SEO, accessibility, design and conversion. We deliver a beautifully formatted report with prioritized, actionable fixes you can ship today.',
+    icon: '📊',
+    features: [
+      'Performance & Core Web Vitals',
+      'SEO & Metadata Audit',
+      'Accessibility (WCAG) Check',
+      'UX & Conversion Review',
+      'Detailed PDF Report',
+      'Prioritized Action Plan',
+    ],
+    badge: 'New',
+    featured: true,
+  },
+  {
     id: 1,
     title: 'Web Design',
     description: 'We craft beautiful, responsive websites that captivate your audience and drive conversions. From landing pages to full-scale web applications.',

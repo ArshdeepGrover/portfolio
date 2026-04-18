@@ -4,30 +4,60 @@
       <p class="section-tag">What We Do</p>
       <h2 class="section-title">Services</h2>
       <p class="section-subtitle">
-        End-to-end design solutions tailored to your business needs.
+        End-to-end design solutions tailored to your business needs — from a single audit to a full product launch.
       </p>
     </div>
 
     <div class="services-grid">
-      <div
+      <article
         *ngFor="let service of services; let i = index"
         class="service-card"
+        [class.service-card--featured]="service.featured"
         data-aos="fade-up"
-        [attr.data-aos-delay]="(i + 1) * 100"
+        [attr.data-aos-delay]="(i + 1) * 80"
       >
-        <div class="card-top">
-          <span class="service-number">{{ (i + 1) | number: '2.0-0' }}</span>
-          <span class="service-icon">{{ service.icon }}</span>
+        <div class="card-glow"></div>
+
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <span class="service-icon">{{ service.icon }}</span>
+          </div>
+          <span *ngIf="service.badge" class="service-badge">
+            <span class="badge-pulse"></span>
+            {{ service.badge }}
+          </span>
+          <span *ngIf="!service.badge" class="service-number">{{ (i + 1) | number: '2.0-0' }}</span>
         </div>
-        <h3 class="service-title">{{ service.title }}</h3>
-        <p class="service-description">{{ service.description }}</p>
-        <ul class="service-features">
-          <li *ngFor="let feature of service.features" class="feature-item">
-            <svg class="feature-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            {{ feature }}
-          </li>
-        </ul>
-      </div>
+
+        <div class="card-body">
+          <div class="card-intro">
+            <h3 class="service-title">{{ service.title }}</h3>
+            <p class="service-description">{{ service.description }}</p>
+          </div>
+
+          <ul class="service-features">
+            <li *ngFor="let feature of service.features" class="feature-item">
+              <svg class="feature-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>{{ feature }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <a *ngIf="service.featured" routerLink="/start-project" class="card-cta">
+          Request a Free Audit
+          <svg class="cta-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+
+        <span *ngIf="!service.featured" class="card-corner-arrow" aria-hidden="true">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path>
+          </svg>
+        </span>
+      </article>
     </div>
   </div>
 </section>

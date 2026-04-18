@@ -14,36 +14,94 @@
 }
 
 .section-subtitle {
-  @apply text-gray-400 text-base max-w-lg mx-auto leading-relaxed;
+  @apply text-gray-400 text-base max-w-xl mx-auto leading-relaxed;
 }
 
 .services-grid {
   @apply grid grid-cols-1 md:grid-cols-2 gap-5;
 }
 
+/* ----- Card base ----- */
 .service-card {
-  @apply p-7 rounded-2xl transition-all duration-500 cursor-default relative overflow-hidden;
+  @apply relative flex flex-col p-7 rounded-2xl transition-all duration-500 overflow-hidden;
   background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  isolation: isolate;
 
-  &::before {
-    content: '';
-    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
-    background: radial-gradient(circle at top right, rgba(255, 121, 85, 0.06), transparent 70%);
+  .card-glow {
+    @apply absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 pointer-events-none;
+    background: radial-gradient(
+      600px circle at var(--mx, 50%) var(--my, 0%),
+      rgba(255, 121, 85, 0.10),
+      transparent 50%
+    );
+    z-index: -1;
   }
 
   &:hover {
-    border-color: rgba(255, 121, 85, 0.15);
+    border-color: rgba(255, 121, 85, 0.22);
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.4);
 
-    &::before { opacity: 1; }
+    .card-glow { opacity: 1; }
     .service-number { color: var(--primary-color); }
+    .icon-wrapper {
+      transform: rotate(-6deg) scale(1.05);
+      box-shadow: 0 12px 32px -8px rgba(255, 121, 85, 0.35);
+    }
+    .card-corner-arrow {
+      opacity: 1;
+      transform: translate(0, 0);
+      color: var(--primary-color);
+    }
   }
 }
 
-.card-top {
-  @apply flex items-center justify-between mb-6;
+/* ----- Featured card ----- */
+.service-card--featured {
+  @apply md:col-span-2 p-8 md:p-10;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 121, 85, 0.10), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(124, 107, 255, 0.08), transparent 50%),
+    rgba(255, 255, 255, 0.025);
+  border-color: rgba(255, 121, 85, 0.2);
+
+  .card-body {
+    @apply md:grid md:grid-cols-2 md:gap-10;
+  }
+
+  .service-title {
+    @apply text-2xl md:text-3xl;
+  }
+
+  .service-description {
+    @apply text-base mb-0 md:max-w-md;
+  }
+
+  .service-features {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 mt-6 md:mt-1;
+  }
+
+  .icon-wrapper {
+    background: linear-gradient(135deg, var(--primary-color), #FF8A6B);
+    box-shadow: 0 12px 32px -8px rgba(255, 121, 85, 0.45);
+    .service-icon { @apply text-white; }
+  }
+}
+
+/* ----- Header row ----- */
+.card-header {
+  @apply flex items-start justify-between mb-6;
+}
+
+.icon-wrapper {
+  @apply flex items-center justify-center rounded-2xl w-14 h-14 transition-all duration-500;
+  background: rgba(255, 121, 85, 0.08);
+  border: 1px solid rgba(255, 121, 85, 0.15);
+}
+
+.service-icon {
+  @apply text-2xl leading-none;
 }
 
 .service-number {
@@ -51,12 +109,32 @@
   letter-spacing: 0.1em;
 }
 
-.service-icon {
-  @apply text-3xl;
+.service-badge {
+  @apply inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full;
+  color: var(--primary-color);
+  background: rgba(255, 121, 85, 0.1);
+  border: 1px solid rgba(255, 121, 85, 0.25);
+  letter-spacing: 0.18em;
+}
+
+.badge-pulse {
+  @apply w-1.5 h-1.5 rounded-full;
+  background: var(--primary-color);
+  animation: badgePulse 1.8s ease-in-out infinite;
+}
+
+/* ----- Body ----- */
+.card-body {
+  @apply flex-1;
+}
+
+.card-intro {
+  @apply mb-6;
 }
 
 .service-title {
   @apply text-lg font-bold mb-3;
+  letter-spacing: -0.01em;
 }
 
 .service-description {
@@ -76,12 +154,67 @@
   color: var(--primary-color);
 }
 
+/* ----- CTA & corner arrow ----- */
+.card-cta {
+  @apply inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full text-white font-semibold text-sm no-underline transition-all duration-300 self-start;
+  background: var(--primary-color);
+  box-shadow: 0 8px 24px -8px rgba(255, 121, 85, 0.4);
+
+  &:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -8px rgba(255, 121, 85, 0.55);
+    .cta-arrow { transform: translateX(4px); }
+  }
+
+  .cta-arrow {
+    @apply w-4 h-4 transition-transform duration-300;
+  }
+}
+
+.card-corner-arrow {
+  @apply absolute top-6 right-6 w-9 h-9 flex items-center justify-center rounded-full opacity-0 transition-all duration-500 text-gray-500 pointer-events-none;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transform: translate(-4px, 4px);
+
+  svg { @apply w-4 h-4; }
+}
+
+@keyframes badgePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+/* ----- Light mode ----- */
 :host-context(.light) {
   .service-card {
     background: rgba(0, 0, 0, 0.015);
     border-color: rgba(0, 0, 0, 0.06);
-    &:hover { border-color: rgba(255, 121, 85, 0.2); box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.08); }
+    &:hover {
+      border-color: rgba(255, 121, 85, 0.25);
+      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.08);
+    }
   }
+
+  .service-card--featured {
+    background:
+      radial-gradient(circle at 0% 0%, rgba(255, 121, 85, 0.08), transparent 45%),
+      radial-gradient(circle at 100% 100%, rgba(124, 107, 255, 0.06), transparent 50%),
+      rgba(0, 0, 0, 0.02);
+    border-color: rgba(255, 121, 85, 0.25);
+  }
+
+  .icon-wrapper {
+    background: rgba(255, 121, 85, 0.08);
+    border-color: rgba(255, 121, 85, 0.18);
+  }
+
+  .card-corner-arrow {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.06);
+  }
+
   .section-subtitle { @apply text-gray-500; }
   .service-description { @apply text-gray-500; }
   .feature-item { @apply text-gray-600; }
