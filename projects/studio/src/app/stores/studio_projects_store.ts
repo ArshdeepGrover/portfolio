@@ -29,10 +29,10 @@ export const studioProjects: IStudioProject[] = [
     mobileImage:
       'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.activerehabclinic.com?w=420&h=900&vpw=420&vph=900',
     gallery: [
-      'https://placehold.co/1600x900/0A0A0A/FF7955?text=Active+Rehab+%E2%80%94+Hero+Mockup&font=inter',
-      'https://placehold.co/1200x800/111111/FF7955?text=Active+Rehab+%E2%80%94+Desktop+Mockup&font=inter',
-      'https://placehold.co/500x900/111111/FF7955?text=Active+Rehab+%E2%80%94+Mobile+Mockup&font=inter',
+      '/assets/projects/arc/arc-desktop.webp',
+      '/assets/projects/arc/arc-mobile.webp',
     ],
+    mockup: '/assets/projects/arc/arc-desktop.webp',
     demoLink: 'https://www.activerehabclinic.com',
     client: 'Active Rehab Clinic',
     year: '2025',
@@ -104,10 +104,11 @@ export const studioProjects: IStudioProject[] = [
     mobileImage:
       'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.theelectronicsbond.com?w=420&h=900&vpw=420&vph=900',
     gallery: [
-      'https://placehold.co/1600x900/0A0A0A/FF7955?text=Electronics+Bond+%E2%80%94+Hero+Mockup&font=inter',
-      'https://placehold.co/1200x800/111111/FF7955?text=Electronics+Bond+%E2%80%94+Desktop+Mockup&font=inter',
-      'https://placehold.co/500x900/111111/FF7955?text=Electronics+Bond+%E2%80%94+Mobile+Mockup&font=inter',
+      '/assets/projects/teb/teb-laptop.webp',
+      '/assets/projects/teb/teb-desktop.webp',
+      '/assets/projects/teb/teb-mobile.webp',
     ],
+    mockup: '/assets/projects/teb/teb-desktop.webp',
     demoLink: 'https://www.theelectronicsbond.com/',
     client: 'The Electronics Bond',
     year: '2025',
