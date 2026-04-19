@@ -167,7 +167,7 @@ export class SubmitProjectComponent implements AfterViewInit, OnInit {
     {
       question: 'Do you work with startups & small teams?',
       answer:
-        'Absolutely. Most of our clients are early-stage startups, indie founders and product teams who need senior design without enterprise overhead.',
+        'Absolutely. Most of our clients are early-stage startups, indie founders and product teams who need lead-level design without enterprise overhead.',
     },
     {
       question: 'What does the Website Audit include?',
