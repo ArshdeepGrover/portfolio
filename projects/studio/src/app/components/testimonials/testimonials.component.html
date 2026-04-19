@@ -8,27 +8,45 @@
       </p>
     </div>
 
-    <div class="testimonials-grid">
+    <div class="testimonials-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <div class="testimonials-container">
       <div
         *ngFor="let t of testimonials; let i = index"
-        class="testimonial-card"
+        [class]="'testimonial-card group card-' + (i + 1)"
+        (mousemove)="onMouseMove($event)"
         data-aos="fade-up"
-        [attr.data-aos-delay]="(i + 1) * 100"
+        [attr.data-aos-delay]="(i + 1) * 150"
       >
-        <div class="quote-mark">“</div>
-        <p class="quote">{{ t.quote }}</p>
-        <div class="card-bottom">
-          <div class="client-info">
-            <div class="avatar-placeholder">
-              {{ getInitials(t.name) }}
-            </div>
-            <div>
-              <p class="client-name">{{ t.name }}</p>
-              <p class="client-role">{{ t.role }}, {{ t.company }}</p>
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="quote-mark">“</div>
+            <div *ngIf="t.outcome" class="outcome-badge">
+              <span class="outcome-dot"></span>
+              {{ t.outcome }}
             </div>
           </div>
-          <div class="stars">
-            <span *ngFor="let s of getStars(t.rating)" class="star">★</span>
+          <p class="quote">{{ t.quote }}</p>
+          <div class="card-bottom">
+            <div class="client-info">
+              <div class="avatar-placeholder">
+                {{ getInitials(t.name) }}
+              </div>
+              <div class="name-box">
+                <p class="client-name">{{ t.name }}</p>
+                <p class="client-role">{{ t.role }} &#64; {{ t.company }}</p>
+              </div>
+            </div>
+            <div class="rating-box">
+              <div class="stars">
+                <span *ngFor="let s of getStars(t.rating)" class="star">★</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

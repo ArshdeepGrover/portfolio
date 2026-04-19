@@ -5,4 +5,5 @@ export interface ITestimonial {
   company: string;
   quote: string;
   rating: number;
+  outcome?: string;
 }

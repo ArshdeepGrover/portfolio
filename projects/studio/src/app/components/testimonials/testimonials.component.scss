@@ -1,84 +1,159 @@
+:host {
+  @apply relative block overflow-hidden;
+}
+
 .section-header {
-  @apply text-center mb-16;
+  @apply text-center mb-12 relative z-10;
 }
 
 .section-tag {
-  @apply text-xs font-semibold tracking-widest uppercase mb-4;
+  @apply text-[10px] font-bold tracking-[0.3em] uppercase mb-3 opacity-60;
   color: var(--primary-color);
-  letter-spacing: 0.2em;
 }
 
 .section-title {
-  @apply text-4xl md:text-5xl font-black mb-5;
-  letter-spacing: -0.03em;
+  @apply text-4xl md:text-5xl font-black mb-4 tracking-tighter;
 }
 
 .section-subtitle {
   @apply text-gray-400 text-base max-w-lg mx-auto leading-relaxed;
 }
 
-.testimonials-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-5;
+/* Fluid Background Blobs - Keep but make smaller */
+.testimonials-bg {
+  @apply absolute inset-0 pointer-events-none z-0;
+  filter: blur(80px);
+  opacity: 0.25;
+}
+
+.blob {
+  @apply absolute rounded-full;
+  background: var(--primary-color);
+  animation: fluid-blob 20s infinite alternate-reverse ease-in-out;
+}
+
+.blob-1 { @apply w-[300px] h-[300px] -top-20 -left-20; }
+.blob-2 { @apply w-[250px] h-[250px] bottom-0 -right-20; background: #ff9f85; animation-delay: -5s; }
+
+@keyframes fluid-blob {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(50px, -20px) scale(1.1); }
+}
+
+.testimonials-container {
+  @apply relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
 }
 
 .testimonial-card {
-  @apply p-7 rounded-2xl transition-all duration-500 relative flex flex-col;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  @apply relative p-[1px] rounded-[2.5rem] transition-all duration-500 ease-out flex flex-col h-full overflow-hidden;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* Border Beam Animation */
+  &::after {
+    content: "";
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300 rounded-[2.5rem];
+    padding: 1px;
+    background: conic-gradient(
+      from var(--border-angle, 0deg),
+      transparent 80%,
+      var(--primary-color),
+      transparent
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 5;
+  }
+
+  /* Hover interactivity */
+  &::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500 rounded-[2.5rem];
+    background: radial-gradient(
+      400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 121, 85, 0.08),
+      transparent 40%
+    );
+  }
+
+  @property --border-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
 
   &:hover {
-    border-color: rgba(255, 121, 85, 0.15);
-    transform: translateY(-3px);
-    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.3);
+    @apply -translate-y-2;
+    background: rgba(255, 255, 255, 0.05);
+
+    &::after {
+      @apply opacity-100;
+      animation: border-beam 3s infinite linear;
+    }
+
+    &::before { @apply opacity-100; }
+    .quote-mark { @apply opacity-60 scale-110; }
   }
 }
 
+@keyframes border-beam {
+  to { --border-angle: 360deg; }
+}
+
+.card-content {
+  @apply relative z-10 p-7 flex flex-col h-full;
+}
+
+.card-top {
+  @apply flex items-center justify-between mb-5;
+}
+
 .quote-mark {
-  @apply text-4xl font-black leading-none mb-3;
+  @apply text-5xl font-serif leading-none transition-all duration-500 opacity-20 -mt-2;
   color: var(--primary-color);
-  opacity: 0.3;
+}
+
+.outcome-badge {
+  @apply flex items-center gap-2 px-3 py-1 rounded-full border border-white/5 bg-white/5 text-[9px] font-bold uppercase tracking-wider text-primary;
+  .outcome-dot { @apply w-1 h-1 rounded-full bg-primary; }
 }
 
 .quote {
-  @apply text-gray-300 leading-relaxed mb-6 text-base flex-1;
+  @apply text-gray-300 leading-relaxed mb-8 text-base font-medium italic flex-1;
+  letter-spacing: -0.01em;
 }
 
 .card-bottom {
-  @apply flex items-center justify-between;
+  @apply flex items-center justify-between mt-auto pt-6 border-t border-white/5;
 }
 
-.client-info {
-  @apply flex items-center gap-3;
-}
+.client-info { @apply flex items-center gap-3; }
 
 .avatar-placeholder {
-  @apply w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold text-white;
-  background: linear-gradient(135deg, var(--primary-color), #FF8A6B);
+  @apply w-10 h-10 rounded-xl flex items-center justify-center text-sm font-black text-white;
+  background: linear-gradient(135deg, var(--primary-color), #ff9f85);
 }
 
-.client-name {
-  @apply font-semibold text-sm;
-}
-
-.client-role {
-  @apply text-gray-500 text-xs;
-}
+.client-name { @apply font-bold text-sm mb-0.5 tracking-tight; }
+.client-role { @apply text-gray-500 text-[10px] font-bold uppercase tracking-wider; }
 
 .stars {
   @apply flex gap-0.5;
   .star {
-    @apply text-xs;
+    @apply text-[10px];
     color: var(--primary-color);
   }
 }
 
 :host-context(.light) {
+  .testimonials-bg { opacity: 0.1; }
   .testimonial-card {
     background: rgba(0, 0, 0, 0.015);
     border-color: rgba(0, 0, 0, 0.06);
-    &:hover { border-color: rgba(255, 121, 85, 0.2); box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.08); }
   }
+  .quote { @apply text-gray-700; }
   .section-subtitle { @apply text-gray-500; }
-  .quote { @apply text-gray-600; }
-  .client-role { @apply text-gray-400; }
 }
