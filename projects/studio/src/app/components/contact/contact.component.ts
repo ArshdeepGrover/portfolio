@@ -41,16 +41,10 @@ export class ContactComponent implements AfterViewInit {
     name: '',
     email: '',
     company: '',
-    budget: '',
     message: '',
   };
 
-  budgetOptions = [
-    'Under $5,000',
-    '$5,000 - $10,000',
-    '$10,000 - $25,000',
-    '$25,000+',
-  ];
+
 
   submitted = false;
   submitting = false;
@@ -61,27 +55,45 @@ export class ContactComponent implements AfterViewInit {
     this.submitting = true;
     this.error = false;
 
-    this.http
-      .post('https://formspree.io/f/xpwzgkby', {
-        _subject: `Studio Contact: ${this.formData.name}`,
-        name: this.formData.name,
-        email: this.formData.email,
-        company: this.formData.company,
-        budget: this.formData.budget,
-        message: this.formData.message,
-      })
-      .subscribe({
-        next: () => {
+    const formData = new FormData();
+    formData.append('access_key', '8e889d8d-2fca-4a43-a5b8-5b5a60bd7a95');
+    formData.append('name', this.formData.name);
+    formData.append('email', this.formData.email);
+    formData.append('company', this.formData.company);
+    formData.append('message', this.formData.message);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    })
+      .then(async (response: Response) => {
+        if (response.ok) {
           this.submitted = true;
           this.submitting = false;
-          this.formData = { name: '', email: '', company: '', budget: '', message: '' };
+          this.formData = {
+            name: "",
+            email: "",
+            company: "",
+            message: "",
+          };
           setTimeout(() => (this.submitted = false), 5000);
-        },
-        error: () => {
+        } else {
+          alert(
+            "Something went wrong. You can reach out from links.arshdeepgrover.dev"
+          );
           this.error = true;
           this.submitting = false;
           setTimeout(() => (this.error = false), 5000);
-        },
+        }
+      })
+      .catch((error: any) => {
+        console.error("Submission error:", error);
+        alert(
+          "Something went wrong. You can reach out from links.arshdeepgrover.dev"
+        );
+        this.error = true;
+        this.submitting = false;
+        setTimeout(() => (this.error = false), 5000);
       });
   }
 }

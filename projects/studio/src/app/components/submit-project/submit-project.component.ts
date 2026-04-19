@@ -213,28 +213,39 @@ export class SubmitProjectComponent implements AfterViewInit, OnInit {
     this.submitting = true;
     this.error = false;
 
-    this.http
-      .post('https://formspree.io/f/xpwzgkby', {
-        _subject: `New Project Request: ${this.formData.projectType || 'Unspecified'} — ${this.formData.name}`,
-        name: this.formData.name,
-        email: this.formData.email,
-        company: this.formData.company,
-        websiteUrl: this.formData.websiteUrl,
-        projectType: this.formData.projectType,
-        description: this.formData.description,
-        referenceLinks: this.formData.referenceLinks,
-      })
-      .subscribe({
-        next: () => {
+    const formData = new FormData();
+    formData.append('access_key', 'c2d86d9f-50bd-47ce-a74b-9413762e1c3b');
+    formData.append('subject', `New Project Request: ${this.formData.projectType || 'Unspecified'} — ${this.formData.name}`);
+    formData.append('name', this.formData.name);
+    formData.append('email', this.formData.email);
+    formData.append('company', this.formData.company);
+    formData.append('websiteUrl', this.formData.websiteUrl);
+    formData.append('projectType', this.formData.projectType);
+    formData.append('description', this.formData.description);
+    formData.append('referenceLinks', this.formData.referenceLinks);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    })
+      .then(async (response: Response) => {
+        if (response.ok) {
           this.submitted = true;
           this.submitting = false;
           window.scrollTo({ top: 0, behavior: 'smooth' });
-        },
-        error: () => {
+        } else {
+          alert('Something went wrong. You can reach out from links.arshdeepgrover.dev');
           this.error = true;
           this.submitting = false;
           setTimeout(() => (this.error = false), 5000);
-        },
+        }
+      })
+      .catch((error: any) => {
+        console.error('Submission error:', error);
+        alert('Something went wrong. You can reach out from links.arshdeepgrover.dev');
+        this.error = true;
+        this.submitting = false;
+        setTimeout(() => (this.error = false), 5000);
       });
   }
 

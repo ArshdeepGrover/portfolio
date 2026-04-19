@@ -24,7 +24,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
   submitMessage = '';
   submitSuccess = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     // Component initialization
@@ -41,47 +41,44 @@ export class ContactComponent implements OnInit, AfterViewInit {
     this.isSubmitting = true;
     this.submitMessage = '';
 
-    // Prepare form data for Formspree
-    const formData = {
-      name: this.contactForm.name,
-      email: this.contactForm.email,
-      subject: this.contactForm.subject,
-      message: this.contactForm.message,
-    };
+    const formData = new FormData();
+    formData.append('access_key', '38c04ba8-73bf-48cb-a3a6-abf1a8a1acfd');
+    formData.append('name', this.contactForm.name);
+    formData.append('email', this.contactForm.email);
+    formData.append('subject', this.contactForm.subject);
+    formData.append('message', this.contactForm.message);
 
-    // Submit to Formspree
-    this.http
-      .post('https://formspree.io/f/xgokabda', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .subscribe({
-        next: (response) => {
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    })
+      .then(async (response: Response) => {
+        const data = await response.json();
+        if (response.ok) {
           this.submitSuccess = true;
           this.submitMessage =
             'Thank you for your message! I will get back to you soon.';
           this.resetForm();
-          this.isSubmitting = false;
-
-          // Clear success message after 5 seconds
-          setTimeout(() => {
-            this.submitMessage = '';
-            this.submitSuccess = false;
-          }, 5000);
-        },
-        error: (error) => {
-          console.error('Form submission error:', error);
+        } else {
+          alert('Something went wrong. You can reach out from links.arshdeepgrover.dev');
           this.submitSuccess = false;
-          this.submitMessage =
-            'Sorry, there was an error sending your message. Please try again or contact me directly via email.';
-          this.isSubmitting = false;
-
-          // Clear error message after 5 seconds
-          setTimeout(() => {
-            this.submitMessage = '';
-          }, 5000);
-        },
+          this.submitMessage = 'Error sending message.';
+        }
+      })
+      .catch((error: any) => {
+        console.error('Form submission error:', error);
+        alert('Something went wrong. You can reach out from links.arshdeepgrover.dev');
+        this.submitSuccess = false;
+        this.submitMessage =
+          'Sorry, there was an error sending your message. Please try again or reach out through links.arshdeepgrover.dev';
+      })
+      .finally(() => {
+        this.isSubmitting = false;
+        // Clear status message after 5 seconds
+        setTimeout(() => {
+          this.submitMessage = '';
+          this.submitSuccess = false;
+        }, 5000);
       });
   }
 
