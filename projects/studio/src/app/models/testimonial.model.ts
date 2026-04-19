@@ -4,6 +4,5 @@ export interface ITestimonial {
   role: string;
   company: string;
   quote: string;
-  avatar: string;
   rating: number;
 }

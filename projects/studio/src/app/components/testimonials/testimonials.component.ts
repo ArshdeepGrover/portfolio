@@ -16,4 +16,12 @@ export class TestimonialsComponent {
   getStars(rating: number): number[] {
     return Array(rating).fill(0);
   }
+
+  getInitials(name: string): string {
+    return name
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .toUpperCase();
+  }
 }
