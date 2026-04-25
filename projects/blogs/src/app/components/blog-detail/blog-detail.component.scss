@@ -1,0 +1,130 @@
+.blog-detail-page {
+  @apply min-h-screen bg-white dark:bg-gray-900 pt-32 pb-20;
+}
+
+.blogs-container {
+  @apply container mx-auto px-4;
+
+  &.narrow {
+    @apply max-w-4xl px-8 md:px-0;
+  }
+}
+
+.breadcrumb {
+  @apply mb-8;
+}
+
+.back-link {
+  @apply flex items-center text-gray-500 dark:text-gray-400 hover:text-primary transition-colors duration-300 font-medium;
+
+  .icon {
+    @apply w-5 h-5 mr-2;
+  }
+}
+
+.blog-header {
+  @apply mb-12;
+}
+
+.header-content {
+  @apply max-w-4xl;
+}
+
+.blog-meta {
+  @apply flex items-center gap-2 mb-4 text-gray-500 dark:text-gray-400 font-medium;
+}
+
+.blog-title {
+  @apply text-4xl md:text-6xl font-black mb-6 text-gray-900 dark:text-white leading-tight;
+}
+
+.blog-tags {
+  @apply flex flex-wrap gap-3;
+}
+
+.tag {
+  @apply px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-semibold;
+}
+
+.featured-image-container {
+  @apply mb-16;
+}
+
+.featured-image {
+  @apply w-full h-96 md:h-[600px] object-cover rounded-3xl shadow-2xl;
+}
+
+.blog-content {
+  @apply mb-20;
+}
+
+.excerpt {
+  @apply text-2xl md:text-3xl text-gray-700 dark:text-gray-200 font-medium mb-12 leading-relaxed;
+}
+
+.content-preview {
+  @apply p-8 md:p-12 bg-gray-50 dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700;
+}
+
+.placeholder-text {
+  @apply text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed;
+}
+
+.cta-wrapper {
+  @apply flex justify-center;
+}
+
+.read-full-button {
+  @apply inline-flex items-center px-10 py-5 bg-primary text-white font-bold rounded-2xl transition-all duration-300 hover:bg-primary-dark hover:scale-[1.02] shadow-xl shadow-primary/30;
+
+  .icon {
+    @apply w-6 h-6 ml-3;
+  }
+}
+
+.suggested-blogs {
+  @apply pt-20 border-t border-gray-200 dark:border-gray-700;
+}
+
+.section-title {
+  @apply text-3xl font-bold mb-10 text-gray-900 dark:text-white;
+}
+
+.suggested-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+
+.suggestion-card {
+  @apply flex flex-col gap-4 cursor-pointer;
+  // Apply 'group' class to let children respond to hover
+}
+
+.suggestion-image-wrapper {
+  @apply h-48 rounded-2xl overflow-hidden;
+}
+
+.suggestion-image {
+  @apply w-full h-full object-cover transition-transform duration-500 group-hover:scale-110;
+}
+
+.suggestion-title {
+  @apply text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors;
+}
+
+.suggestion-date {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+@media (max-width: 768px) {
+  .blog-title {
+    @apply text-3xl;
+  }
+
+  .featured-image {
+    @apply h-64;
+  }
+
+  .excerpt {
+    @apply text-xl;
+  }
+}

@@ -1,0 +1,72 @@
+.blog-card {
+  @apply bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 cursor-pointer h-full flex flex-col;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(255, 121, 85, 0.4),
+      0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
+  }
+}
+
+.blog-image-container {
+  @apply relative h-48 overflow-hidden;
+}
+
+.blog-image {
+  @apply w-full h-full object-cover transition-transform duration-500;
+
+  .blog-card:hover & {
+    @apply scale-110;
+  }
+}
+
+.blog-content {
+  @apply p-6 flex flex-col flex-grow;
+}
+
+.blog-meta {
+  @apply flex justify-between items-center mb-3 text-sm text-gray-500 dark:text-gray-400;
+}
+
+.blog-title {
+  @apply text-xl font-bold mb-3 text-gray-900 dark:text-white line-clamp-2;
+}
+
+.blog-excerpt {
+  @apply text-gray-600 dark:text-gray-300 mb-4 leading-relaxed flex-grow;
+}
+
+.blog-tags {
+  @apply flex flex-wrap gap-2 mb-4;
+}
+
+.blog-tag {
+  @apply px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full;
+}
+
+.blog-link {
+  @apply inline-flex items-center text-primary font-medium transition-colors duration-300 mt-auto;
+
+  &:hover {
+    @apply text-primary-dark;
+  }
+}
+
+.link-icon {
+  @apply w-4 h-4 ml-1;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

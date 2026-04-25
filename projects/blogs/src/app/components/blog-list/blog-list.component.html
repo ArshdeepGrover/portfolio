@@ -1,0 +1,70 @@
+<div class="blog-list-page">
+  <!-- Hero Section -->
+  <header class="blog-hero">
+    <div class="blogs-container">
+      <h1 class="hero-title" data-aos="fade-down">
+        Explore my <span class="text-primary">Insights</span> & Articles
+      </h1>
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+        Thoughtful perspectives on Angular, Web Development, and navigating the tech world.
+      </p>
+    </div>
+  </header>
+
+  <!-- Search and Filter -->
+  <section class="filters-section">
+    <div class="blogs-container">
+      <div class="search-filter-wrapper" data-aos="fade-up" data-aos-delay="200">
+        <!-- Search Bar -->
+        <div class="search-box">
+          <input
+            type="text"
+            [(ngModel)]="searchQuery"
+            (ngModelChange)="onSearch()"
+            placeholder="Search blogs..."
+            class="search-input"
+          />
+          <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+
+        <!-- Tags Filter -->
+        <div class="tags-container">
+          <button
+            *ngFor="let tag of allTags"
+            class="tag-button"
+            [class.active]="selectedTag === tag"
+            (click)="selectTag(tag)"
+          >
+            {{ tag }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blogs Grid -->
+  <section class="blogs-grid-section">
+    <div class="blogs-container">
+      <div class="blogs-grid" *ngIf="filteredBlogs.length > 0; else noResults">
+        <app-blog-card
+          *ngFor="let blog of filteredBlogs; let i = index"
+          [blog]="blog"
+          [index]="i"
+        ></app-blog-card>
+      </div>
+
+      <ng-template #noResults>
+        <div class="no-results" data-aos="fade-up">
+          <svg class="no-results-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M12 12h.01M12 12h.01M12 12h.01M12 12h.01M12 15h.01M12 21a9 9 0 110-18 9 9 0 010 18z"></path>
+          </svg>
+          <h3>No blogs found matching your search.</h3>
+          <p>Try different keywords or tags.</p>
+          <button (click)="selectedTag = 'All'; searchQuery = ''; filterBlogs()" class="reset-button">Show All Blogs</button>
+        </div>
+      </ng-template>
+    </div>
+  </section>
+</div>

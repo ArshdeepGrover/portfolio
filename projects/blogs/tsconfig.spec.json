@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/spec/blogs",
+    "types": ["jasmine"],
+    "paths": {
+      "@shared/*": ["shared/*"],
+      "@models/*": ["projects/blogs/src/app/models/*"],
+      "@stores/*": ["projects/blogs/src/app/stores/*"],
+      "@components/*": ["projects/blogs/src/app/components/*"]
+    }
+  },
+  "include": [
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts",
+    "../../shared/**/*.ts"
+  ]
+}
