@@ -24,6 +24,23 @@ export class SeoService {
         this.metaService.updateTag({ property: tag.property, content: tag.content });
       }
     });
+
+    // Automatically sync some property tags to name tags for broader compatibility (Twitter/OG)
+    metaTags.forEach(tag => {
+      if (tag.property === 'og:title') this.metaService.updateTag({ name: 'twitter:title', content: tag.content });
+      if (tag.property === 'og:description') this.metaService.updateTag({ name: 'twitter:description', content: tag.content });
+      if (tag.property === 'og:image') this.metaService.updateTag({ name: 'twitter:image', content: tag.content });
+    });
+  }
+
+  updateCanonicalUrl(url: string) {
+    let link: HTMLLinkElement | null = this.document.querySelector('link[rel="canonical"]');
+    if (!link) {
+      link = this.document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      this.document.head.appendChild(link);
+    }
+    link.setAttribute('href', url);
   }
 
   setJsonLd(data: any, id: string = 'schema-data') {
@@ -36,4 +53,5 @@ export class SeoService {
     }
     script.text = JSON.stringify(data);
   }
+
 }

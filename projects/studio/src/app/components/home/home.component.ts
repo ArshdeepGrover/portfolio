@@ -33,23 +33,25 @@ export class HomeComponent implements AfterViewInit, OnInit {
   private seoService = inject(SeoService);
 
   ngOnInit() {
-    this.seoService.updateTitle('Arshdeep Studio | Premium Web & Product Design');
+    this.seoService.updateTitle('Studio.Arshdeep | Premium Web & Product Design');
+    this.seoService.updateCanonicalUrl('https://studio.arshdeepgrover.dev/');
     this.seoService.updateMetaTags([
-      { name: 'description', content: 'Premium design studio focused on building high-fidelity digital products, intuitive UX, and memorable brand identities. Let’s build something amazing together.' },
-      { name: 'keywords', content: 'Web Design, Product Design, UI/UX Design, Brand Identity, Arshdeep Studio, Digital Experience' },
-      { property: 'og:title', content: 'Arshdeep Studio | Premium Web & Product Design' },
+      { name: 'description', content: 'Studio.Arshdeep is a premium design studio focused on building high-fidelity digital products, intuitive UX, and memorable brand identities.' },
+      { name: 'keywords', content: 'Studio.Arshdeep, Web Design, Product Design, UI/UX Design, Brand Identity, Arshdeep Studio, Digital Experience' },
+      { property: 'og:title', content: 'Studio.Arshdeep | Premium Web & Product Design' },
       { property: 'og:description', content: 'We craft beautiful, high-performing digital experiences from concept to launch.' },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://arshdeepgrover.dev/studio' },
+      { property: 'og:url', content: 'https://studio.arshdeepgrover.dev/' },
       { name: 'twitter:card', content: 'summary_large_image' },
     ]);
+
 
     this.seoService.setJsonLd({
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
-      'name': 'Arshdeep Studio',
-      'image': 'https://arshdeepgrover.dev/assets/about-studio.png',
-      'url': 'https://arshdeepgrover.dev/studio',
+      'name': 'Studio.Arshdeep',
+      'image': 'https://studio.arshdeepgrover.dev/assets/og-image.png',
+      'url': 'https://studio.arshdeepgrover.dev/',
       'email': CONTACT_INFO.email,
       'address': {
         '@type': 'PostalAddress',
@@ -58,6 +60,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
       'sameAs': CONTACT_INFO.socials.map(s => s.url)
     }, 'studio-org-schema');
   }
+
 
 
   ngAfterViewInit() {

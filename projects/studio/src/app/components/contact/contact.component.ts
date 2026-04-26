@@ -18,13 +18,16 @@ export class ContactComponent implements AfterViewInit, OnInit {
   readonly contact = CONTACT_INFO;
 
   ngOnInit() {
-    this.seoService.updateTitle('Contact | Arshdeep Studio');
+    this.seoService.updateTitle('Contact | Studio.Arshdeep');
+    this.seoService.updateCanonicalUrl('https://studio.arshdeepgrover.dev/contact');
     this.seoService.updateMetaTags([
-      { name: 'description', content: 'Have a project in mind? Let’s talk about how Arshdeep Studio can help you design and build a premium digital product.' },
-      { property: 'og:title', content: 'Contact | Arshdeep Studio' },
-      { property: 'og:description', content: 'Get in touch for web design, product design, and branding projects.' }
+      { name: 'description', content: 'Have a project in mind? Let’s talk about how Studio.Arshdeep can help you design and build a premium digital product.' },
+      { property: 'og:title', content: 'Contact | Studio.Arshdeep' },
+      { property: 'og:description', content: 'Get in touch for web design, product design, and branding projects.' },
+      { property: 'og:url', content: 'https://studio.arshdeepgrover.dev/contact' }
     ]);
   }
+
 
 
 

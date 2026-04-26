@@ -30,14 +30,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.seoService.updateTitle('Arshdeep Singh | Lead Software Developer & UI/UX Specialist');
+    this.seoService.updateCanonicalUrl('https://arshdeepgrover.dev/');
     this.seoService.updateMetaTags([
-      { name: 'description', content: 'Portfolio of Arshdeep Singh, a Lead Software Developer and UI/UX Specialist. Explore projects in Angular, TypeScript, Node.js, and Ruby on Rails.' },
-      { name: 'keywords', content: 'Arshdeep Singh, Software Developer, UI/UX, Portfolio, Angular, TypeScript, Node.js, Ruby on Rails' },
+      { name: 'description', content: 'Explore the portfolio of Arshdeep Singh, a Lead Software Developer specializing in high-end digital experiences, Product Engineering, and UI/UX Design. Expert in Angular and Ruby on Rails.' },
+      { name: 'keywords', content: 'Arshdeep Singh, Lead Software Developer, Product Engineer, UI/UX Specialist, Angular Expert, Ruby on Rails, Node.js, Web Design, Full Stack Developer, India' },
       { property: 'og:title', content: 'Arshdeep Singh | Lead Software Developer & UI/UX Specialist' },
       { property: 'og:description', content: 'Crafting high-end digital experiences and scalable software solutions.' },
-      { property: 'og:url', content: 'https://arshdeepgrover.dev/' }
+      { property: 'og:url', content: 'https://arshdeepgrover.dev/' },
+      { property: 'og:image', content: 'https://arshdeepgrover.dev/images/arshdeep-singh.png' }
     ]);
   }
+
 
 
   ngAfterViewInit() {

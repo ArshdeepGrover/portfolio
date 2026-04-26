@@ -32,12 +32,15 @@ export class ContactComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.seoService.updateTitle('Contact | Arshdeep Singh');
+    this.seoService.updateCanonicalUrl('https://arshdeepgrover.dev/contact');
     this.seoService.updateMetaTags([
       { name: 'description', content: 'Contact Arshdeep Singh for collaboration on software development, UI/UX design, or product engineering projects.' },
       { property: 'og:title', content: 'Contact | Arshdeep Singh' },
-      { property: 'og:description', content: 'Get in touch for your next digital project.' }
+      { property: 'og:description', content: 'Get in touch for your next digital project.' },
+      { property: 'og:url', content: 'https://arshdeepgrover.dev/contact' }
     ]);
   }
+
 
 
   ngAfterViewInit() {

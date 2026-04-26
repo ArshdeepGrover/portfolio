@@ -35,15 +35,18 @@ export class ProjectDetailComponent implements OnInit, AfterViewInit {
   }
 
   private updateSeo(project: IStudioProject) {
-    const title = `${project.title} | Case Study | Arshdeep Studio`;
+    const title = `${project.title} | Case Study | Studio.Arshdeep`;
     const description = project.shortDescription || project.description;
+    const url = `https://studio.arshdeepgrover.dev/project/${project.id}`;
 
     this.seoService.updateTitle(title);
+    this.seoService.updateCanonicalUrl(url);
     this.seoService.updateMetaTags([
       { name: 'description', content: description },
       { property: 'og:title', content: title },
       { property: 'og:description', content: description },
       { property: 'og:image', content: project.image || 'https://studio.arshdeepgrover.dev/assets/og-image.png' },
+      { property: 'og:url', content: url },
       { property: 'og:type', content: 'article' }
     ]);
 
@@ -55,11 +58,12 @@ export class ProjectDetailComponent implements OnInit, AfterViewInit {
       'image': project.image,
       'author': {
         '@type': 'Organization',
-        'name': 'Arshdeep Studio'
+        'name': 'Studio.Arshdeep'
       },
       'genre': project.category
     }, 'project-schema');
   }
+
 
 
   ngAfterViewInit(): void {

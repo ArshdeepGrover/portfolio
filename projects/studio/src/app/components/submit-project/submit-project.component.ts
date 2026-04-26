@@ -40,12 +40,15 @@ export class SubmitProjectComponent implements AfterViewInit, OnInit {
   private seoService = inject(SeoService);
 
   ngOnInit(): void {
-    this.seoService.updateTitle('Start a Project | Arshdeep Studio');
+    this.seoService.updateTitle('Start a Project | Studio.Arshdeep');
+    this.seoService.updateCanonicalUrl('https://studio.arshdeepgrover.dev/start-project');
     this.seoService.updateMetaTags([
       { name: 'description', content: 'Ready to build something amazing? Tell us about your project goals, and we’ll get back to you with a tailored proposal in 24-48 hours.' },
-      { property: 'og:title', content: 'Start a Project | Arshdeep Studio' },
-      { property: 'og:description', content: 'Let’s transform your idea into a digital reality. Reach out today.' }
+      { property: 'og:title', content: 'Start a Project | Studio.Arshdeep' },
+      { property: 'og:description', content: 'Let’s transform your idea into a digital reality. Reach out today.' },
+      { property: 'og:url', content: 'https://studio.arshdeepgrover.dev/start-project' }
     ]);
+
 
     this.seoService.setJsonLd({
       '@context': 'https://schema.org',
