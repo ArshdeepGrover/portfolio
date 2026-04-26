@@ -1,8 +1,9 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
+import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CONTACT_INFO } from '@stores/contact_store';
+import { SeoService } from '@shared/services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,9 +12,20 @@ import { CONTACT_INFO } from '@stores/contact_store';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent implements AfterViewInit {
+export class ContactComponent implements AfterViewInit, OnInit {
   private http = inject(HttpClient);
+  private seoService = inject(SeoService);
   readonly contact = CONTACT_INFO;
+
+  ngOnInit() {
+    this.seoService.updateTitle('Contact | Arshdeep Studio');
+    this.seoService.updateMetaTags([
+      { name: 'description', content: 'Have a project in mind? Let’s talk about how Arshdeep Studio can help you design and build a premium digital product.' },
+      { property: 'og:title', content: 'Contact | Arshdeep Studio' },
+      { property: 'og:description', content: 'Get in touch for web design, product design, and branding projects.' }
+    ]);
+  }
+
 
 
   ngAfterViewInit(): void {

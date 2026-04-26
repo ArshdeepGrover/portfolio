@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { HERO_STATS } from '@stores/stats_store';
+import { SeoService } from '@shared/services/seo.service';
+
 
 interface ProjectTypeOption {
   value: string;
@@ -35,9 +37,31 @@ export class SubmitProjectComponent implements AfterViewInit, OnInit {
   readonly stats = HERO_STATS;
   private http = inject(HttpClient);
   private route = inject(ActivatedRoute);
+  private seoService = inject(SeoService);
 
   ngOnInit(): void {
+    this.seoService.updateTitle('Start a Project | Arshdeep Studio');
+    this.seoService.updateMetaTags([
+      { name: 'description', content: 'Ready to build something amazing? Tell us about your project goals, and we’ll get back to you with a tailored proposal in 24-48 hours.' },
+      { property: 'og:title', content: 'Start a Project | Arshdeep Studio' },
+      { property: 'og:description', content: 'Let’s transform your idea into a digital reality. Reach out today.' }
+    ]);
+
+    this.seoService.setJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': this.faqs.map(faq => ({
+        '@type': 'Question',
+        'name': faq.question,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': faq.answer
+        }
+      }))
+    }, 'faq-schema');
+
     // Pre-select a project type from ?service=... query param, if present.
+
     this.route.queryParamMap.subscribe((params) => {
       const requested = params.get('service');
       if (!requested) return;

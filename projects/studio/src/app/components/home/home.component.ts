@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, inject } from '@angular/core';
+import { Component, AfterViewInit, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HeroComponent } from '../hero/hero.component';
@@ -8,6 +8,8 @@ import { ProcessComponent } from '../process/process.component';
 import { TestimonialsComponent } from '../testimonials/testimonials.component';
 import { AboutComponent } from '../about/about.component';
 import { ContactComponent } from '../contact/contact.component';
+import { SeoService } from '@shared/services/seo.service';
+import { CONTACT_INFO } from '@stores/contact_store';
 
 @Component({
   selector: 'app-home',
@@ -25,8 +27,38 @@ import { ContactComponent } from '../contact/contact.component';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit, OnInit {
+
   private route = inject(ActivatedRoute);
+  private seoService = inject(SeoService);
+
+  ngOnInit() {
+    this.seoService.updateTitle('Arshdeep Studio | Premium Web & Product Design');
+    this.seoService.updateMetaTags([
+      { name: 'description', content: 'Premium design studio focused on building high-fidelity digital products, intuitive UX, and memorable brand identities. Let’s build something amazing together.' },
+      { name: 'keywords', content: 'Web Design, Product Design, UI/UX Design, Brand Identity, Arshdeep Studio, Digital Experience' },
+      { property: 'og:title', content: 'Arshdeep Studio | Premium Web & Product Design' },
+      { property: 'og:description', content: 'We craft beautiful, high-performing digital experiences from concept to launch.' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://arshdeepgrover.dev/studio' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+    ]);
+
+    this.seoService.setJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      'name': 'Arshdeep Studio',
+      'image': 'https://arshdeepgrover.dev/assets/about-studio.png',
+      'url': 'https://arshdeepgrover.dev/studio',
+      'email': CONTACT_INFO.email,
+      'address': {
+        '@type': 'PostalAddress',
+        'addressCountry': 'IN'
+      },
+      'sameAs': CONTACT_INFO.socials.map(s => s.url)
+    }, 'studio-org-schema');
+  }
+
 
   ngAfterViewInit() {
     this.initializeAnimations();
