@@ -13,7 +13,6 @@ NC='\033[0m'
 WORKSPACE_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # ─── Arrow-key menu selector ───────────────────────────
-# Usage: menu_select result_var "Title" "option1" "option2" ...
 menu_select() {
   local result_var=$1
   local title=$2
@@ -58,7 +57,7 @@ menu_select() {
       break
     fi
 
-    # Redraw menu (move cursor up to overwrite)
+    # Redraw menu
     tput cuu $((count + 2))
     tput el
     for i in "${!options[@]}"; do
@@ -94,35 +93,28 @@ print_banner() {
   echo -e "${CYAN}"
   echo "  ╔══════════════════════════════════════╗"
   echo "  ║       Arshdeep's Dev Workspace       ║"
+  echo "  ║      Portfolio • Studio • Links      ║"
   echo "  ╚══════════════════════════════════════╝"
   echo -e "${NC}"
 }
 
 select_project() {
-  echo -e "\n  ${BOLD}Select project:${NC}\n"
-  echo -e "  ${CYAN}1)${NC} Portfolio"
-  echo -e "  ${CYAN}2)${NC} Studio"
-  echo -e "  ${CYAN}3)${NC} Links"
-  echo -e "\n  ${DIM}Enter your choice (1-3):${NC} "
+  local result_var=$1
+  local project_options=("Portfolio" "Studio.Arshdeep" "Links Hub")
+  local project_choice=0
   
-  read -r choice
+  menu_select project_choice "Select Project" "${project_options[@]}"
   
-  case $choice in
-    1) echo "portfolio" ;;
-    2) echo "studio" ;;
-    3) echo "links" ;;
-    *) 
-      echo -e "  ${RED}Invalid choice. Defaulting to portfolio.${NC}"
-      echo "portfolio" 
-      ;;
+  case $project_choice in
+    0) eval "$result_var='portfolio'" ;;
+    1) eval "$result_var='studio'" ;;
+    2) eval "$result_var='links'" ;;
   esac
 }
 
 serve_project() {
   local project
-  project=$(select_project)
-  
-  echo "DEBUG: Selected project is: $project"
+  select_project project
   
   local port=4200
   [ "$project" = "studio" ] && port=4300
@@ -134,17 +126,14 @@ serve_project() {
 
 build_project() {
   local project
-  project=$(select_project)
+  select_project project
 
-  echo -e "\n  ${BOLD}Build configuration:${NC}\n"
-  echo -e "  ${CYAN}1)${NC} Production"
-  echo -e "  ${CYAN}2)${NC} Development"
-  echo -e "\n  ${DIM}Enter your choice (1-2):${NC} "
-  
-  read -r config_choice
+  local config_options=("Production" "Development")
+  local config_choice=0
+  menu_select config_choice "Select Build Configuration" "${config_options[@]}"
   
   local config="production"
-  [ "$config_choice" = "2" ] && config="development"
+  [ "$config_choice" = "1" ] && config="development"
 
   echo -e "\n  ${GREEN}▶ Building ${BOLD}$project${NC}${GREEN} ($config)...${NC}\n"
   cd "$WORKSPACE_DIR" && npx ng build "$project" --configuration "$config"
@@ -223,10 +212,10 @@ clean_install() {
 
 run_tests() {
   local project
-  project=$(select_project)
+  select_project project
 
   echo -e "\n  ${GREEN}▶ Running tests for ${BOLD}$project${NC}${GREEN}...${NC}\n"
-  cd "$WORKSPACE_DIR" && npx ng test "$project"
+  cd "$WORKSPACE_DIR" && npx ng test "$project" --watch=false
 }
 
 clean_dist() {
@@ -241,10 +230,10 @@ MAIN_OPTIONS=(
   "🚀 Serve a project"
   "📦 Build a project"
   "📦 Build all projects"
-  "🚀 Serve all projects"
+  "🚀 Serve all projects (Multi)"
   "📥 Install dependencies"
   "🧹 Clean & reinstall deps"
-  "🧪 Run tests"
+  "🧪 Run tests (Single Run)"
   "🗑️  Clean build output"
   "👋 Exit"
 )

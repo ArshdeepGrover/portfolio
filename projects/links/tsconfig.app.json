@@ -6,8 +6,7 @@
     "paths": {
       "@shared/*": ["shared/*"],
       "@models/*": ["projects/links/src/app/models/*"],
-      "@stores/*": ["projects/links/src/app/stores/*"],
-      "@components/*": ["projects/links/src/app/components/*"]
+      "@stores/*": ["projects/links/src/app/stores/*"]
     }
   },
   "files": [
