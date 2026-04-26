@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SeoService } from '@shared/services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -24,11 +25,20 @@ export class ContactComponent implements OnInit, AfterViewInit {
   submitMessage = '';
   submitSuccess = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private seoService: SeoService
+  ) { }
 
   ngOnInit() {
-    // Component initialization
+    this.seoService.updateTitle('Contact | Arshdeep Singh');
+    this.seoService.updateMetaTags([
+      { name: 'description', content: 'Contact Arshdeep Singh for collaboration on software development, UI/UX design, or product engineering projects.' },
+      { property: 'og:title', content: 'Contact | Arshdeep Singh' },
+      { property: 'og:description', content: 'Get in touch for your next digital project.' }
+    ]);
   }
+
 
   ngAfterViewInit() {
     // Initialize animations after view is ready

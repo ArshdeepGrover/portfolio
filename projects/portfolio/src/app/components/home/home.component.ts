@@ -7,6 +7,7 @@ import { ProjectsComponent } from '../projects/projects.component';
 import { CertificatesComponent } from '../certificates/certificates.component';
 import { BlogsComponent } from '../blogs/blogs.component';
 import { CameraDrawingComponent } from '../camera-drawing/camera-drawing.component';
+import { SeoService } from '@shared/services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -25,9 +26,19 @@ import { CameraDrawingComponent } from '../camera-drawing/camera-drawing.compone
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit, AfterViewInit {
+  constructor(private seoService: SeoService) {}
+
   ngOnInit() {
-    // Component initialization logic here
+    this.seoService.updateTitle('Arshdeep Singh | Lead Software Developer & UI/UX Specialist');
+    this.seoService.updateMetaTags([
+      { name: 'description', content: 'Portfolio of Arshdeep Singh, a Lead Software Developer and UI/UX Specialist. Explore projects in Angular, TypeScript, Node.js, and Ruby on Rails.' },
+      { name: 'keywords', content: 'Arshdeep Singh, Software Developer, UI/UX, Portfolio, Angular, TypeScript, Node.js, Ruby on Rails' },
+      { property: 'og:title', content: 'Arshdeep Singh | Lead Software Developer & UI/UX Specialist' },
+      { property: 'og:description', content: 'Crafting high-end digital experiences and scalable software solutions.' },
+      { property: 'og:url', content: 'https://arshdeepgrover.dev/' }
+    ]);
   }
+
 
   ngAfterViewInit() {
     // Initialize animations after view is ready

@@ -31,7 +31,8 @@
               "projects/portfolio/src/sitemap.xml"
             ],
             "styles": ["projects/portfolio/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "prerender": true
           },
           "configurations": {
             "production": {
@@ -118,7 +119,8 @@
               }
             ],
             "styles": ["projects/links/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "prerender": true
           },
           "configurations": {
             "production": {
@@ -226,7 +228,8 @@
               }
             ],
             "styles": ["projects/studio/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "prerender": true
           },
           "configurations": {
             "production": {
