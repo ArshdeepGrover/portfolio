@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { HERO_STATS } from '@stores/stats_store';
 
 interface ProjectTypeOption {
   value: string;
@@ -31,6 +32,7 @@ interface FaqItem {
   styleUrls: ['./submit-project.component.scss'],
 })
 export class SubmitProjectComponent implements AfterViewInit, OnInit {
+  readonly stats = HERO_STATS;
   private http = inject(HttpClient);
   private route = inject(ActivatedRoute);
 

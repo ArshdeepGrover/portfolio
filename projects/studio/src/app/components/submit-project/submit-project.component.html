@@ -47,12 +47,17 @@
           24–48 hours with next steps and a tailored proposal.
         </p>
         <div class="hero-trust">
-          <div class="trust-item"><strong>50+</strong> projects shipped</div>
-          <span class="trust-divider"></span>
-          <div class="trust-item"><strong>30+</strong> happy clients</div>
-          <span class="trust-divider"></span>
-          <div class="trust-item"><strong>24–48h</strong> reply time</div>
+          @for (stat of stats; track stat.label; let i = $index) {
+            @if (stat.label !== 'Years Experience') {
+              <div class="trust-item"><strong>{{ stat.number }}</strong> {{ stat.label }}</div>
+              @if (i < 1) {
+                <span class="trust-divider"></span>
+              }
+            }
+          }
         </div>
+
+
       </header>
 
       <!-- Project type chips -->

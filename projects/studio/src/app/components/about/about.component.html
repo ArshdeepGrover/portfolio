@@ -26,9 +26,10 @@
           </div>
           <div class="visual-overlay">
             <div class="experience-badge">
-              <span class="badge-number">4+</span>
+              <span class="badge-number">{{ experienceNumber }}</span>
               <span class="badge-text">Years</span>
             </div>
+
           </div>
         </div>
 
@@ -44,19 +45,14 @@
 
         <!-- Stats Row -->
         <div class="stats-row" data-aos="fade-up" data-aos-delay="100">
-          <div class="stat-card">
-            <span class="stat-value">50+</span>
-            <span class="stat-label">Projects Delivered</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-value">25+</span>
-            <span class="stat-label">Happy Clients</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-value">12</span>
-            <span class="stat-label">Awards Won</span>
-          </div>
+          @for (stat of stats; track stat.label) {
+            <div class="stat-card">
+              <span class="stat-value">{{ stat.number }}</span>
+              <span class="stat-label">{{ stat.label }}</span>
+            </div>
+          }
         </div>
+
 
         <!-- Capabilities -->
         <div class="capabilities" data-aos="fade-up" data-aos-delay="200">

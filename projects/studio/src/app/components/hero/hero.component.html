@@ -34,21 +34,17 @@
     </div>
 
     <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
-      <div class="stat-card">
-        <span class="stat-number">10+</span>
-        <span class="stat-label">Projects Delivered</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-card">
-        <span class="stat-number">7+</span>
-        <span class="stat-label">Happy Clients</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-card">
-        <span class="stat-number">~4</span>
-        <span class="stat-label">Years Experience</span>
-      </div>
+      @for (stat of stats; track stat.label; let last = $last) {
+        <div class="stat-card">
+          <span class="stat-number">{{ stat.number }}</span>
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+        @if (!last) {
+          <div class="stat-divider"></div>
+        }
+      }
     </div>
+
   </div>
 
   <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">

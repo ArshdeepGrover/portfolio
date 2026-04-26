@@ -2,6 +2,7 @@ import { Component, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { ThemeService } from '@shared/services/theme.service';
+import { CONTACT_INFO } from '@stores/contact_store';
 
 interface NavItem {
   label: string;
@@ -26,6 +27,8 @@ export class HeaderComponent {
   isMobileMenuOpen = false;
   isScrolled = false;
 
+  readonly contact = CONTACT_INFO;
+
   navItems: NavItem[] = [
     { label: 'Home', section: 'hero' },
     { label: 'Services', section: 'services' },
@@ -33,8 +36,9 @@ export class HeaderComponent {
     { label: 'Process', section: 'process' },
     { label: 'About', section: 'about' },
     { label: 'Contact', section: 'contact' },
-    { label: 'Links', external: 'https://links.arshdeepgrover.dev' },
+    { label: 'Links', external: CONTACT_INFO.linksHub },
   ];
+
 
   constructor(private router: Router) {}
 

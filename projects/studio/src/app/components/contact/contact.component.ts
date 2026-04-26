@@ -2,6 +2,7 @@ import { AfterViewInit, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { CONTACT_INFO } from '@stores/contact_store';
 
 @Component({
   selector: 'app-contact',
@@ -12,6 +13,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContactComponent implements AfterViewInit {
   private http = inject(HttpClient);
+  readonly contact = CONTACT_INFO;
+
 
   ngAfterViewInit(): void {
     // Trigger AOS-like fade-in animations on this standalone route.
@@ -79,8 +82,9 @@ export class ContactComponent implements AfterViewInit {
           setTimeout(() => (this.submitted = false), 5000);
         } else {
           alert(
-            "Something went wrong. You can reach out from links.arshdeepgrover.dev"
+            `Something went wrong. You can reach out from ${this.contact.linksHub}`
           );
+
           this.error = true;
           this.submitting = false;
           setTimeout(() => (this.error = false), 5000);

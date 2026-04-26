@@ -3,10 +3,10 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a routerLink="/" class="footer-logo">
-          ArshdeepStudio<span class="logo-dot">.</span>
+          Studio<span class="logo-dot">.</span>Arshdeep
         </a>
         <p class="footer-desc">
-          We design digital experiences that captivate users and drive business growth.
+          Premium design studio focused on building high-fidelity digital products and memorable brand identities.
         </p>
       </div>
       <div class="footer-links">
@@ -16,25 +16,26 @@
         <a href="#process" class="footer-link">Process</a>
         <a href="#about" class="footer-link">About</a>
         <a routerLink="/contact" class="footer-link">Contact</a>
+        <a [href]="contact.linksHub" target="_blank" class="footer-link">My Links</a>
       </div>
       <div class="footer-links">
         <h4 class="footer-heading">Services</h4>
-        <span class="footer-link">Web Design</span>
-        <span class="footer-link">Product Design</span>
-        <span class="footer-link">UI/UX Design</span>
-        <span class="footer-link">Brand Identity</span>
+        @for (service of services; track service.id) {
+          <span class="footer-link">{{ service.title }}</span>
+        }
       </div>
       <div class="footer-links">
         <h4 class="footer-heading">Connect</h4>
-        <a href="https://linkedin.com/in/ArshdeepGrover" target="_blank" class="footer-link">LinkedIn</a>
-        <a href="https://github.com/ArshdeepGrover" target="_blank" class="footer-link">GitHub</a>
-        <a href="https://x.com/ArshdeepGroverS" target="_blank" class="footer-link">X / Twitter</a>
-        <a href="https://calendly.com/arshdeepgrover" target="_blank" class="footer-link">Book a Call</a>
+        @for (social of contact.socials; track social.name) {
+          <a [href]="social.url" target="_blank" class="footer-link">{{ social.name }}</a>
+        }
+        <a [href]="'mailto:' + contact.email" class="footer-link">Email Us</a>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; {{ currentYear }} Arshdeep Studio. All rights reserved.</p>
-      <p class="footer-credit">Designed & Built with ❤️</p>
+      <p class="footer-credit">Crafting Excellence in Digital Design</p>
     </div>
+
   </div>
 </footer>

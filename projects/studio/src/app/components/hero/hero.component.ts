@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import Typed from 'typed.js';
 
+import { HERO_STATS } from '@stores/stats_store';
+
 @Component({
   selector: 'app-hero',
   standalone: true,
@@ -11,6 +13,8 @@ import Typed from 'typed.js';
   styleUrls: ['./hero.component.scss'],
 })
 export class HeroComponent implements OnInit, OnDestroy {
+  readonly stats = HERO_STATS;
+
   @ViewChild('typedElement', { static: true }) typedElement!: ElementRef;
 
   private typed!: Typed;
