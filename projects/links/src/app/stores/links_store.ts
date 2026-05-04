@@ -119,7 +119,7 @@ export const links: ILink[] = [
   {
     id: 11,
     title: 'Instagram',
-    url: 'https://instagram.com/ArshdeepGrover.dev',
+    url: 'https://instagram.com/ArshdeepGrover.tech',
     icon: 'https://www.google.com/s2/favicons?domain=instagram.com&sz=128',
     iconType: 'image',
     brandColor: '#E1306C',
