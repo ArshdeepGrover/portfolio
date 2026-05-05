@@ -327,6 +327,61 @@
   }
 }
 
+// ─── Search ──────────────────────────────────────────
+.search-wrapper {
+  @apply relative flex items-center mb-4;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:focus-within {
+    border-color: rgba(255, 121, 85, 0.5);
+    box-shadow: 0 0 0 3px rgba(255, 121, 85, 0.1);
+  }
+}
+
+.search-icon {
+  @apply absolute left-3.5 w-4 h-4 pointer-events-none flex-shrink-0;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.search-input {
+  @apply w-full bg-transparent text-sm py-3 pl-10 pr-10 outline-none;
+  color: rgba(255, 255, 255, 0.85);
+  border-radius: 14px;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.search-clear {
+  @apply absolute right-3 w-5 h-5 flex items-center justify-center rounded-full transition-all duration-150 cursor-pointer border-0 bg-transparent p-0;
+  color: rgba(255, 255, 255, 0.35);
+
+  svg {
+    @apply w-3.5 h-3.5;
+  }
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.search-empty {
+  @apply text-center text-sm py-8;
+  color: rgba(255, 255, 255, 0.4);
+
+  strong {
+    color: rgba(255, 255, 255, 0.65);
+  }
+}
+
 // ─── Links
 .links-list {
   @apply flex flex-col gap-3;

@@ -21,10 +21,10 @@
       <h1 class="profile-name">Arshdeep Singh</h1>
       <p class="profile-handle">&#64;arshdeepgrover</p>
       <p class="profile-title">Lead Full-Stack Developer</p>
-      <div class="open-to-work-badge">
+      <!-- <div class="open-to-work-badge">
         <span class="otw-dot"></span>
         Open to Work
-      </div>
+      </div> -->
       <p class="profile-email">arshdeepgroverdev&#64;gmail.com</p>
 
       <div class="profile-actions">
@@ -59,9 +59,53 @@
       </div>
     </div>
 
+    <div class="search-wrapper">
+      <svg
+        class="search-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <path d="M21 21l-4.35-4.35" />
+      </svg>
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search links…"
+        [value]="searchQuery"
+        (input)="onSearch($event)"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button
+        *ngIf="searchQuery"
+        class="search-clear"
+        (click)="clearSearch()"
+        aria-label="Clear search"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+        >
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div *ngIf="filteredLinks.length === 0" class="search-empty">
+      No links match <strong>"{{ searchQuery }}"</strong>
+    </div>
+
     <div class="links-list">
       <a
-        *ngFor="let link of visibleLinks; let i = index"
+        *ngFor="let link of filteredLinks; let i = index"
         [href]="link.url"
         target="_blank"
         rel="noopener noreferrer"
