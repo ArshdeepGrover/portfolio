@@ -1,7 +1,28 @@
 import { IProject } from '../models/project.model';
 
 export const allProjects: IProject[] = [
-  // ─── Ruby Gems & Staff Manager ────────────────────────
+  // ─── Libraries & Open Source ──────────────────────────
+  {
+    id: 4,
+    title: '🚀 Groupix Spinner - NPM Component Library',
+    description:
+      'Groupix Spinner is a lightweight, zero-dependency spinner (loader) component library designed to improve user experience during loading states in modern web applications. It provides developers with a suite of vibrant, responsive, and highly customizable CSS-based loading animations that can be easily integrated into any Web App project.',
+    image: '/project-images/groupix-spinner.gif',
+    technologies: [
+      'Angular',
+      'TypeScript',
+      'Animation',
+      'Open-Source Development',
+      'NPM',
+      'Web App',
+    ],
+    demoLink:
+      'https://groupix-spinner.vercel.app/?utm_source=portfolio&utm_medium=profile&utm_campaign=groupix_spinner',
+    githubUrl:
+      'https://github.com/ArshdeepGrover/groupix-spinner-library?utm_source=portfolio&utm_medium=profile&utm_campaign=groupix_spinner',
+    showInPortfolio: true,
+    showInStudio: false,
+  },
   {
     id: 8,
     title: 'Content Flagging - Ruby Gem for Content Moderation',
@@ -63,6 +84,7 @@ export const allProjects: IProject[] = [
     showInPortfolio: true,
     showInStudio: false,
   },
+  // ─── Web Applications ─────────────────────────────────
   {
     id: 10,
     title: 'Staff Manager - Employee Management System',
@@ -78,29 +100,6 @@ export const allProjects: IProject[] = [
     ],
     demoLink:
       'https://www.staffease.in/?utm_source=portfolio&utm_medium=profile&utm_campaign=staff_manager',
-    showInPortfolio: true,
-    showInStudio: true,
-  },
-  // ─── Portfolio Projects ──────────────────────────────
-  {
-    id: 1,
-    title: 'Quizzy Spark - Interactive Quiz Web App',
-    description:
-      'Quizzy Spark is an electrifying web-based quiz platform built on Vercel, delivering fast-paced, interactive trivia and learning experiences. Likely powered by Next.js, it offers dynamic quiz creation, diverse topics, and a slick interface, with potential features like AI-driven questions, real-time challenges, or multiplayer modes for ultimate user engagement.',
-    image: '/project-images/quizzy-spark.png',
-    technologies: [
-      'Angular',
-      'Tailwind CSS',
-      'Web Application ',
-      'TypeScript',
-      'Vercel',
-      'Trivia',
-      'Interactive Learning',
-    ],
-    demoLink:
-      'https://quizzy-spark.vercel.app?utm_source=portfolio&utm_medium=profile&utm_campaign=quizzy_spark',
-    githubUrl:
-      'https://github.com/ArshdeepGrover/QuizzySpark?utm_source=portfolio&utm_medium=profile&utm_campaign=quizzy_spark',
     showInPortfolio: true,
     showInStudio: true,
   },
@@ -126,8 +125,30 @@ export const allProjects: IProject[] = [
     showInStudio: false,
   },
   {
+    id: 1,
+    title: 'Quizzy Spark - Interactive Quiz Web App',
+    description:
+      'Quizzy Spark is an electrifying web-based quiz platform built on Vercel, delivering fast-paced, interactive trivia and learning experiences. It offers dynamic quiz creation, diverse topics, and a slick interface, with potential features like AI-driven questions, real-time challenges, or multiplayer modes for ultimate user engagement.',
+    image: '/project-images/quizzy-spark.png',
+    technologies: [
+      'Angular',
+      'Tailwind CSS',
+      'Web Application',
+      'TypeScript',
+      'Vercel',
+      'Trivia',
+      'Interactive Learning',
+    ],
+    demoLink:
+      'https://quizzy-spark.vercel.app?utm_source=portfolio&utm_medium=profile&utm_campaign=quizzy_spark',
+    githubUrl:
+      'https://github.com/ArshdeepGrover/QuizzySpark?utm_source=portfolio&utm_medium=profile&utm_campaign=quizzy_spark',
+    showInPortfolio: true,
+    showInStudio: true,
+  },
+  {
     id: 3,
-    title: 'TextTransformer, Chrome Extension for Instant Text Conversion',
+    title: 'TextTransformer - Chrome Extension for Instant Text Conversion',
     description:
       'TextTransformer is a Chrome extension built to simplify text case transformations for developers, writers, and productivity enthusiasts. Designed with an intuitive tabbed interface and real-time conversion display, the tool makes it easy to switch between case styles such as camelCase, snake_case, Title Case, and more.',
     image: '/project-images/text-transformation.png',
@@ -146,27 +167,6 @@ export const allProjects: IProject[] = [
     showInStudio: true,
   },
   {
-    id: 4,
-    title: '🚀 Groupix Spinner - A Customizable Web App',
-    description:
-      'Groupix Spinner is a lightweight, zero-dependency spinner (loader) component library designed to improve user experience during loading states in modern web applications. It provides developers with a suite of vibrant, responsive, and highly customizable CSS-based loading animations that can be easily integrated into Web App project.',
-    image: '/project-images/groupix-spinner.gif',
-    technologies: [
-      'Angular',
-      'TypeScript',
-      'Animation',
-      'Open-Source Development',
-      'NPM',
-      'Web App',
-    ],
-    demoLink:
-      'https://groupix-spinner.vercel.app/?utm_source=portfolio&utm_medium=profile&utm_campaign=groupix_spinner',
-    githubUrl:
-      'https://github.com/ArshdeepGrover/groupix-spinner-library?utm_source=portfolio&utm_medium=profile&utm_campaign=groupix_spinner',
-    showInPortfolio: true,
-    showInStudio: false,
-  },
-  {
     id: 5,
     title: 'AI Tool Collection - Curated AI Tools Directory',
     description:
@@ -179,7 +179,6 @@ export const allProjects: IProject[] = [
       'Tailwind CSS',
       'Vercel',
       'AI Tools',
-      'Directory',
     ],
     demoLink:
       'https://ai-tool-collection.vercel.app?utm_source=portfolio&utm_medium=profile&utm_campaign=ai_tool_collection',
@@ -188,7 +187,7 @@ export const allProjects: IProject[] = [
     showInPortfolio: true,
     showInStudio: true,
   },
-  // ─── Removed from main grid ──────────────────────────
+  // ─── Experiments (hidden from main grid) ─────────────
   {
     id: 6,
     title: 'Tic Tac Toe Game - Classic Strategy Game',
