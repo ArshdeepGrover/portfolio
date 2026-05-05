@@ -1,6 +1,86 @@
 import { IProject } from '../models/project.model';
 
 export const allProjects: IProject[] = [
+  // ─── Ruby Gems & Staff Manager ────────────────────────
+  {
+    id: 8,
+    title: 'Content Flagging - Ruby Gem for Content Moderation',
+    description:
+      'A Ruby gem that provides content moderation and flagging capabilities for web applications. Features automated content filtering, customizable flagging rules, and easy integration with Rails applications for maintaining clean and safe user-generated content.',
+    image: '/project-images/content-flagging.svg',
+    technologies: [
+      'Ruby',
+      'Ruby Gem',
+      'Content Moderation',
+      'Rails',
+      'Open Source',
+      'RubyGems',
+    ],
+    demoLink:
+      'https://content-flagging.netlify.app?utm_source=portfolio&utm_medium=profile&utm_campaign=content_flagging',
+    githubUrl:
+      'https://rubygems.org/gems/content_flagging?utm_source=portfolio&utm_medium=profile&utm_campaign=content_flagging',
+    showInPortfolio: true,
+    showInStudio: false,
+  },
+  {
+    id: 9,
+    title: 'Rails Health Monitor - Application Health Monitoring',
+    description:
+      'A comprehensive health monitoring solution for Ruby on Rails applications. Provides real-time monitoring of application health, database connectivity, system resources, and service dependencies. Features include customizable health checks, status dashboards, and alerting capabilities for maintaining robust Rails applications.',
+    image: '/project-images/rails-health-monitor.png',
+    technologies: [
+      'Ruby on Rails',
+      'Monitoring',
+      'Health Checks',
+      'System Monitoring',
+      'Netlify',
+      'DevOps',
+    ],
+    demoLink:
+      'https://rails-health-monitor.netlify.app/?utm_source=portfolio&utm_medium=profile&utm_campaign=rails_health_monitor',
+    githubUrl:
+      'https://github.com/ArshdeepGrover/rails-health-monitor?utm_source=portfolio&utm_medium=profile&utm_campaign=rails_health_monitor',
+    showInPortfolio: true,
+    showInStudio: false,
+  },
+  {
+    id: 11,
+    title: 'Rails Map - Ruby on Rails Route Visualization',
+    description:
+      'A Ruby gem that provides visual mapping and documentation of Rails application routes. Features include route visualization, endpoint analysis, and interactive route exploration. Helps developers understand and navigate complex Rails application routing structures with ease.',
+    image: '/project-images/rails-map.png',
+    technologies: [
+      'Ruby',
+      'Ruby Gem',
+      'Developer Tools',
+      'Route Mapping',
+      'Rails',
+      'Open Source',
+    ],
+    demoLink:
+      'https://rails-map.netlify.app/?utm_source=portfolio&utm_medium=profile&utm_campaign=rails_map',
+    showInPortfolio: true,
+    showInStudio: false,
+  },
+  {
+    id: 10,
+    title: 'Staff Manager - Employee Management System',
+    description:
+      'A modern staff management application designed to streamline employee data management and organizational workflows. Features include employee profiles, role management, department organization, and administrative tools. Built with a clean, intuitive interface for efficient HR operations and team management.',
+    image: '/project-images/staff-manager.png',
+    technologies: [
+      'Angular',
+      'TypeScript',
+      'Tailwind CSS',
+      'Vercel',
+      'CRUD Operations',
+    ],
+    demoLink:
+      'https://www.staffease.in/?utm_source=portfolio&utm_medium=profile&utm_campaign=staff_manager',
+    showInPortfolio: true,
+    showInStudio: true,
+  },
   // ─── Portfolio Projects ──────────────────────────────
   {
     id: 1,
@@ -108,6 +188,7 @@ export const allProjects: IProject[] = [
     showInPortfolio: true,
     showInStudio: true,
   },
+  // ─── Removed from main grid ──────────────────────────
   {
     id: 6,
     title: 'Tic Tac Toe Game - Classic Strategy Game',
@@ -126,7 +207,7 @@ export const allProjects: IProject[] = [
       'https://tic-tac-toe-nu-ten-20.vercel.app?utm_source=portfolio&utm_medium=profile&utm_campaign=tic_tac_toe',
     githubUrl:
       'https://github.com/ArshdeepGrover/tic-tac-toe?utm_source=portfolio&utm_medium=profile&utm_campaign=tic_tac_toe',
-    showInPortfolio: true,
+    showInPortfolio: false,
     showInStudio: true,
   },
   {
@@ -146,87 +227,8 @@ export const allProjects: IProject[] = [
       'https://periodic-table-phi-mocha.vercel.app?utm_source=portfolio&utm_medium=profile&utm_campaign=periodic_table',
     githubUrl:
       'https://github.com/ArshdeepGrover/periodic-table?utm_source=portfolio&utm_medium=profile&utm_campaign=periodic_table',
-    showInPortfolio: true,
+    showInPortfolio: false,
     showInStudio: true,
-  },
-  {
-    id: 8,
-    title: 'Content Flagging - Ruby Gem for Content Moderation',
-    description:
-      'A Ruby gem that provides content moderation and flagging capabilities for web applications. Features automated content filtering, customizable flagging rules, and easy integration with Rails applications for maintaining clean and safe user-generated content.',
-    image: '/project-images/content-flagging.svg',
-    technologies: [
-      'Ruby',
-      'Ruby Gem',
-      'Content Moderation',
-      'Rails',
-      'Open Source',
-      'RubyGems',
-    ],
-    demoLink:
-      'https://content-flagging.netlify.app?utm_source=portfolio&utm_medium=profile&utm_campaign=content_flagging',
-    githubUrl:
-      'https://rubygems.org/gems/content_flagging?utm_source=portfolio&utm_medium=profile&utm_campaign=content_flagging',
-    showInPortfolio: true,
-    showInStudio: false,
-  },
-  {
-    id: 9,
-    title: 'Rails Health Monitor - Application Health Monitoring',
-    description:
-      'A comprehensive health monitoring solution for Ruby on Rails applications. Provides real-time monitoring of application health, database connectivity, system resources, and service dependencies. Features include customizable health checks, status dashboards, and alerting capabilities for maintaining robust Rails applications.',
-    image: '/project-images/rails-health-monitor.png',
-    technologies: [
-      'Ruby on Rails',
-      'Monitoring',
-      'Health Checks',
-      'System Monitoring',
-      'Netlify',
-      'DevOps',
-    ],
-    demoLink:
-      'https://rails-health-monitor.netlify.app/?utm_source=portfolio&utm_medium=profile&utm_campaign=rails_health_monitor',
-    githubUrl:
-      'https://github.com/ArshdeepGrover/rails-health-monitor?utm_source=portfolio&utm_medium=profile&utm_campaign=rails_health_monitor',
-    showInPortfolio: true,
-    showInStudio: false,
-  },
-  {
-    id: 10,
-    title: 'Staff Manager - Employee Management System',
-    description:
-      'A modern staff management application designed to streamline employee data management and organizational workflows. Features include employee profiles, role management, department organization, and administrative tools. Built with a clean, intuitive interface for efficient HR operations and team management.',
-    image: '/project-images/staff-manager.png',
-    technologies: [
-      'Angular',
-      'TypeScript',
-      'Tailwind CSS',
-      'Vercel',
-      'CRUD Operations',
-    ],
-    demoLink:
-      'https://www.staffease.in/?utm_source=portfolio&utm_medium=profile&utm_campaign=staff_manager',
-    showInPortfolio: true,
-    showInStudio: true,
-  },
-  {
-    id: 11,
-    title: 'Rails Map - Ruby on Rails Route Visualization',
-    description:
-      'A Ruby gem that provides visual mapping and documentation of Rails application routes. Features include route visualization, endpoint analysis, and interactive route exploration. Helps developers understand and navigate complex Rails application routing structures with ease.',
-    image: '/project-images/rails-map.png',
-    technologies: [
-      'Ruby',
-      'Ruby Gem',
-      'Developer Tools',
-      'Route Mapping',
-      'Rails',
-      'Open Source',
-    ],
-    demoLink:
-      'https://rails-map.netlify.app/?utm_source=portfolio&utm_medium=profile&utm_campaign=rails_map',
-    showInPortfolio: true,
-    showInStudio: false,
   },
 ];
 
