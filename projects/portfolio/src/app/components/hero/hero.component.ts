@@ -29,7 +29,7 @@ export class HeroComponent implements OnInit, OnDestroy {
     // Role typing animation
     this.typed = new Typed(this.typedElement.nativeElement, {
       strings: [
-        'Full Stack Developer',
+        'Lead Full-Stack Developer',
         'Angular Developer', 
         'Ruby on Rails Developer',
         'Hackathon Mentor & Judge',

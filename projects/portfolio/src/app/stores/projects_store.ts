@@ -10,7 +10,7 @@ export const projects: IProject[] = [
     technologies: [
       'Angular',
       'Tailwind CSS',
-      'Web Application ',
+      'Web Application',
       'TypeScript',
       'Vercel',
       'Trivia',
@@ -28,7 +28,7 @@ export const projects: IProject[] = [
     technologies: [
       'Angular',
       'Tailwind CSS',
-      'OMDb API ',
+      'OMDb API',
       'TypeScript',
       'Vercel',
       'Movie Search',
@@ -55,7 +55,7 @@ export const projects: IProject[] = [
   },
   {
     id: 4,
-    title: '🚀 Groupix Spinner - A Customizable Web App',
+    title: 'Groupix Spinner - A Customizable Web App',
     description:
       'Groupix Spinner is a lightweight, zero-dependency spinner (loader) component library designed to improve user experience during loading states in modern web applications. It provides developers with a suite of vibrant, responsive, and highly customizable CSS-based loading animations that can be easily integrated into Web App project.',
     image: '/project-images/groupix-spinner.gif',
