@@ -277,51 +277,76 @@
 }
 
 .hero-actions {
-  @apply flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start;
+  @apply flex flex-wrap gap-3 justify-center md:justify-start;
 }
 
 .hero-button {
-  @apply px-6 py-3 bg-primary text-white rounded-md transition-colors duration-300;
+  @apply inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg transition-all duration-300;
+  box-shadow: 0 4px 20px rgba(255, 121, 85, 0.35);
+
+  .btn-arrow {
+    @apply w-4 h-4 flex-shrink-0 transition-transform duration-300;
+  }
 
   &:hover {
-    @apply bg-primary-dark;
+    @apply -translate-y-0.5;
+    box-shadow: 0 8px 28px rgba(255, 121, 85, 0.55);
+
+    .btn-arrow {
+      @apply translate-x-1;
+    }
+  }
+
+  &:active {
+    @apply scale-95;
   }
 }
 
 .meeting-button {
-  @apply inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-md transition-colors duration-300;
+  @apply inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-white font-semibold rounded-lg transition-all duration-300;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
 
   &:hover {
-    @apply bg-green-700;
+    @apply bg-emerald-600 -translate-y-0.5;
+    box-shadow: 0 8px 22px rgba(16, 185, 129, 0.4);
   }
-}
 
-.email-button {
-  @apply inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-md transition-colors duration-300;
-
-  &:hover {
-    @apply bg-blue-700;
-  }
-}
-
-.resume-button {
-  @apply inline-flex items-center px-6 py-3 bg-transparent border-2 border-primary text-primary rounded-md transition-all duration-300;
-
-  &:hover {
-    @apply bg-primary text-white;
+  &:active {
+    @apply scale-95;
   }
 }
 
 .links-button {
-  @apply inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-md transition-all duration-300 shadow-lg shadow-indigo-600/20;
+  @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-indigo-500 text-indigo-600 dark:text-indigo-400 font-semibold rounded-lg bg-transparent transition-all duration-300;
 
   &:hover {
-    @apply bg-indigo-700 -translate-y-1 shadow-indigo-600/40;
+    @apply bg-indigo-500 text-white -translate-y-0.5;
+    box-shadow: 0 8px 22px rgba(99, 102, 241, 0.35);
+  }
+
+  &:active {
+    @apply scale-95;
+  }
+}
+
+.resume-button {
+  @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-lg bg-transparent transition-all duration-300;
+
+  &:hover {
+    @apply border-primary text-primary -translate-y-0.5 bg-primary/5;
+  }
+
+  &:active {
+    @apply scale-95;
   }
 }
 
 .button-icon {
-  @apply w-4 h-4 mr-2;
+  @apply w-4 h-4 flex-shrink-0;
+}
+
+.btn-arrow {
+  @apply w-4 h-4 flex-shrink-0;
 }
 
 .hero-social {
