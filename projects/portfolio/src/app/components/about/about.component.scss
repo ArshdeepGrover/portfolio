@@ -110,3 +110,20 @@
 .position-description {
   @apply text-gray-600 dark:text-gray-400 mt-1 text-sm leading-relaxed;
 }
+
+// ── Personal Bio ─────────────────────────────────────────────────────────────
+.about-bio {
+  @apply mb-10;
+
+  .bio-text {
+    @apply text-gray-600 dark:text-gray-300 text-base leading-relaxed max-w-3xl;
+  }
+
+  .bio-link {
+    @apply font-medium text-blue-600 dark:text-blue-400 hover:underline;
+  }
+}
+
+.section-sub-title {
+  @apply text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6;
+}
