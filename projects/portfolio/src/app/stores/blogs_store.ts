@@ -110,17 +110,17 @@ export const blogs: IBlog[] = [
     ],
     url: 'https://dev.to/arshdeepgrover/introducing-contentflagging-effortless-content-moderation-for-rails-apps-3d93',
   },
-  {
-    id: 7,
-    title:
-      "What Is Vibe Coding? The Chill Way to Build Apps with AI (And Why It's the Future)",
-    excerpt:
-      "Imagine sipping coffee on a lazy Sunday, dreaming up a quirky web app — no syntax errors, no endless debugging, just a casual chat with an AI that spits out working code. That's vibe coding.",
-    image:
-      'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*dmbNkD5D-u45r44go_cf0g.png',
-    date: 'October 6, 2025',
-    readTime: 5,
-    tags: ['AI', 'Vibe Coding', 'Web Development', 'Future', 'Programming'],
-    url: 'https://medium.com/@ArshdeepGrover/what-is-vibe-coding-the-chill-way-to-build-apps-with-ai-and-why-its-the-future-a5f438568dd7',
-  },
+  // {
+  //   id: 7,
+  //   title:
+  //     "What Is Vibe Coding? The Chill Way to Build Apps with AI (And Why It's the Future)",
+  //   excerpt:
+  //     "Imagine sipping coffee on a lazy Sunday, dreaming up a quirky web app — no syntax errors, no endless debugging, just a casual chat with an AI that spits out working code. That's vibe coding.",
+  //   image:
+  //     'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*dmbNkD5D-u45r44go_cf0g.png',
+  //   date: 'October 6, 2025',
+  //   readTime: 5,
+  //   tags: ['AI', 'Vibe Coding', 'Web Development', 'Future', 'Programming'],
+  //   url: 'https://medium.com/@ArshdeepGrover/what-is-vibe-coding-the-chill-way-to-build-apps-with-ai-and-why-its-the-future-a5f438568dd7',
+  // },
 ];
