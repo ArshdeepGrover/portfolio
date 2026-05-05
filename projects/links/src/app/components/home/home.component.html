@@ -7,30 +7,50 @@
 
   <div class="links-container">
     <div class="profile">
-      <a href="https://www.arshdeepgrover.dev/" target="_blank" class="avatar-wrapper">
-        <img src="/images/arshdeep-singh.png" alt="Arshdeep Singh" class="avatar"/>
+      <a
+        href="https://arshdeepgrover.dev/"
+        target="_blank"
+        class="avatar-wrapper"
+      >
+        <img
+          src="/images/arshdeep-singh.png"
+          alt="Arshdeep Singh"
+          class="avatar"
+        />
       </a>
       <h1 class="profile-name">Arshdeep Singh</h1>
       <p class="profile-handle">&#64;arshdeepgrover</p>
       <p class="profile-title">Lead Full-Stack Developer</p>
+      <div class="open-to-work-badge">
+        <span class="otw-dot"></span>
+        Open to Work
+      </div>
       <p class="profile-email">arshdeepgroverdev&#64;gmail.com</p>
-      
+
       <div class="profile-actions">
-        <a 
-          href="https://arshdeepgrover.dev/resume/Arshdeep_Singh_SoftwareDeveloper_Resume.pdf" 
-          target="_blank" 
+        <a
+          href="https://arshdeepgrover.dev/resume/Arshdeep_Singh_SoftwareDeveloper_Resume.pdf"
+          target="_blank"
           class="resume-btn"
         >
-          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
+          <svg
+            class="btn-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"
+            />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
           </svg>
           Resume
         </a>
       </div>
-      
+
       <div class="profile-highlights">
         <span class="highlight">⚡ Angular Expert</span>
         <span class="highlight">💎 Ruby on Rails</span>
@@ -48,16 +68,19 @@
         class="link-card"
         [style.animation-delay]="i * 0.06 + 's'"
       >
-        <div class="link-icon-wrapper" [ngClass]="{'brand-icon': link.iconType === 'image'}">
-          <img 
-            *ngIf="link.iconType === 'image' && link.imageUrl" 
-            [src]="link.imageUrl" 
-            [alt]="link.title" 
+        <div
+          class="link-icon-wrapper"
+          [ngClass]="{ 'brand-icon': link.iconType === 'image' }"
+        >
+          <img
+            *ngIf="link.iconType === 'image' && link.imageUrl"
+            [src]="link.imageUrl"
+            [alt]="link.title"
             class="link-icon-img"
           />
-          <span 
-            *ngIf="link.iconType !== 'image'" 
-            class="link-icon" 
+          <span
+            *ngIf="link.iconType !== 'image'"
+            class="link-icon"
             [innerHTML]="link.safeSvg"
           ></span>
         </div>
@@ -65,29 +88,57 @@
           <span class="link-title">{{ link.title }}</span>
           <span class="link-description">{{ link.description }}</span>
         </div>
-        <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
+        <svg
+          class="link-arrow"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </a>
     </div>
   </div>
 
-  <button 
-    class="share-fab" 
+  <button
+    class="share-fab"
     [class.copied]="shareStatus === 'copied'"
     (click)="onShare()"
     aria-label="Share profile"
   >
     <div class="share-icon-wrapper">
-      <svg *ngIf="shareStatus === 'idle'" class="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-        <polyline points="16 6 12 2 8 6"/>
-        <line x1="12" y1="2" x2="12" y2="15"/>
+      <svg
+        *ngIf="shareStatus === 'idle'"
+        class="share-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+        <polyline points="16 6 12 2 8 6" />
+        <line x1="12" y1="2" x2="12" y2="15" />
       </svg>
-      <svg *ngIf="shareStatus === 'copied'" class="share-icon success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="20 6 9 17 4 12"/>
+      <svg
+        *ngIf="shareStatus === 'copied'"
+        class="share-icon success"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="20 6 9 17 4 12" />
       </svg>
     </div>
-    <span class="share-text">{{ shareStatus === 'idle' ? 'Share' : 'Copied!' }}</span>
+    <span class="share-text">{{
+      shareStatus === "idle" ? "Share" : "Copied!"
+    }}</span>
   </button>
 </div>
