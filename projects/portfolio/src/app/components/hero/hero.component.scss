@@ -204,7 +204,7 @@
 }
 
 .hero-description {
-  @apply text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-6 max-w-lg mx-auto md:mx-0;
+  @apply text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-6 max-w-xl mx-auto md:mx-0 text-justify md:text-left;
 }
 
 .hero-highlights {
