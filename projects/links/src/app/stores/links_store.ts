@@ -90,7 +90,7 @@ export const links: ILink[] = [
     brandColor: '#FFA116',
     category: 'professional',
     description: 'My LeetCode problem solving profile',
-    show: false,
+    show: true,
   },
   {
     id: 9,
@@ -197,7 +197,7 @@ export const links: ILink[] = [
     brandColor: '#006BFF',
     category: 'professional',
     description: 'Schedule a meeting',
-    show: true,
+    show: false,
   },
   {
     id: 18,
