@@ -1,6 +1,6 @@
 export const CONTACT_INFO = {
   email: 'arshdeepgroverdev@gmail.com',
-  calendly: 'https://calendly.com/arshdeepgrover',
+  calendly: 'https://topmate.io/arshdeepgrover',
   linksHub: 'https://links.arshdeepgrover.dev',
   socials: [
     { name: 'LinkedIn', url: 'https://linkedin.com/in/ArshdeepGrover' },

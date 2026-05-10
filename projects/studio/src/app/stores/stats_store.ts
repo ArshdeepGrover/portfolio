@@ -10,7 +10,7 @@ export const HERO_STATS: IStat[] = [
     label: 'Happy Clients'
   },
   {
-    number: '~4',
+    number: '4+',
     label: 'Years Experience'
   }
 ];
