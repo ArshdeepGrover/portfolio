@@ -49,10 +49,12 @@
 }
 
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(-20px) rotate(180deg);
   }
@@ -71,58 +73,72 @@
   @apply top-[10%] left-[20%];
   animation-delay: 0s;
 }
+
 .particle-2 {
   @apply top-[20%] left-[80%];
   animation-delay: 1s;
 }
+
 .particle-3 {
   @apply top-[60%] left-[10%];
   animation-delay: 2s;
 }
+
 .particle-4 {
   @apply top-[80%] left-[70%];
   animation-delay: 3s;
 }
+
 .particle-5 {
   @apply top-[30%] left-[60%];
   animation-delay: 4s;
 }
+
 .particle-6 {
   @apply top-[70%] left-[30%];
   animation-delay: 5s;
 }
+
 .particle-7 {
   @apply top-[40%] left-[90%];
   animation-delay: 6s;
 }
+
 .particle-8 {
   @apply top-[90%] left-[50%];
   animation-delay: 7s;
 }
+
 .particle-9 {
   @apply top-[15%] left-[45%];
   animation-delay: 0.5s;
 }
+
 .particle-10 {
   @apply top-[35%] left-[15%];
   animation-delay: 1.5s;
 }
+
 .particle-11 {
   @apply top-[55%] left-[85%];
   animation-delay: 2.5s;
 }
+
 .particle-12 {
   @apply top-[75%] left-[55%];
   animation-delay: 3.5s;
 }
+
 .particle-13 {
   @apply top-[25%] left-[35%];
   animation-delay: 4.5s;
 }
+
 .particle-14 {
   @apply top-[65%] left-[75%];
   animation-delay: 5.5s;
 }
+
 .particle-15 {
   @apply top-[85%] left-[25%];
   animation-delay: 6.5s;
@@ -133,10 +149,12 @@
     transform: translateY(0px) scale(1);
     opacity: 0.3;
   }
+
   50% {
     transform: translateY(-30px) scale(1.2);
     opacity: 0.6;
   }
+
   100% {
     transform: translateY(-60px) scale(0.8);
     opacity: 0;
@@ -173,10 +191,12 @@
 }
 
 @keyframes blink {
+
   0%,
   50% {
     opacity: 1;
   }
+
   51%,
   100% {
     opacity: 0;
@@ -403,6 +423,7 @@
 }
 
 @keyframes bounce {
+
   0%,
   20%,
   50%,
@@ -410,10 +431,27 @@
   100% {
     transform: translateY(0);
   }
+
   40% {
     transform: translateY(-10px);
   }
+
   60% {
     transform: translateY(-5px);
+  }
+}
+
+
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
   }
 }
