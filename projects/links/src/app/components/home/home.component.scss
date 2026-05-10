@@ -9,16 +9,12 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(
-        circle at 30% 20%,
+      radial-gradient(circle at 30% 20%,
         rgba(255, 121, 85, 0.03) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 70% 80%,
+        transparent 50%),
+      radial-gradient(circle at 70% 80%,
         rgba(255, 121, 85, 0.02) 0%,
-        transparent 50%
-      );
+        transparent 50%);
     pointer-events: none;
     animation: gentleGlow 15s ease-in-out infinite;
   }
@@ -33,25 +29,23 @@
     background-size: 64px 64px;
     pointer-events: none;
     z-index: 0;
-    mask-image: radial-gradient(
-      ellipse 60% 50% at 50% 50%,
-      black 25%,
-      transparent 70%
-    );
-    -webkit-mask-image: radial-gradient(
-      ellipse 60% 50% at 50% 50%,
-      black 25%,
-      transparent 70%
-    );
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 50%,
+        black 25%,
+        transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 50%,
+        black 25%,
+        transparent 70%);
   }
 }
 
 @keyframes gentleGlow {
+
   0%,
   100% {
     opacity: 0.5;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(1.05);
@@ -63,16 +57,12 @@
 
   &::before {
     background:
-      radial-gradient(
-        circle at 30% 20%,
+      radial-gradient(circle at 30% 20%,
         rgba(255, 121, 85, 0.02) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 70% 80%,
+        transparent 50%),
+      radial-gradient(circle at 70% 80%,
         rgba(255, 121, 85, 0.015) 0%,
-        transparent 50%
-      );
+        transparent 50%);
     animation: gentleGlow 15s ease-in-out infinite;
   }
 
@@ -82,6 +72,7 @@
       linear-gradient(90deg, rgba(255, 121, 85, 0.08) 1px, transparent 1px);
   }
 }
+
 // ─── Cursor glow ─────────────────────────────────────
 .cursor-glow {
   position: fixed;
@@ -96,12 +87,10 @@
   z-index: 1;
   will-change: transform;
   transition: opacity 0.3s ease;
-  background: radial-gradient(
-    circle,
-    rgba(255, 121, 85, 0.14) 0%,
-    rgba(255, 121, 85, 0.05) 35%,
-    transparent 65%
-  );
+  background: radial-gradient(circle,
+      rgba(255, 121, 85, 0.14) 0%,
+      rgba(255, 121, 85, 0.05) 35%,
+      transparent 65%);
 }
 
 // ─── Animated background orbs ────────────────────────
@@ -150,47 +139,58 @@
 .light .orb-1 {
   background: rgba(255, 121, 85, 0.1);
 }
+
 .light .orb-2 {
   background: rgba(230, 94, 59, 0.06);
 }
+
 .light .orb-3 {
   background: rgba(255, 155, 128, 0.05);
 }
 
 @keyframes orbFloat1 {
+
   0%,
   100% {
     transform: translate(0, 0) scale(1);
   }
+
   33% {
     transform: translate(80px, 60px) scale(1.1);
   }
+
   66% {
     transform: translate(-40px, 100px) scale(0.9);
   }
 }
 
 @keyframes orbFloat2 {
+
   0%,
   100% {
     transform: translate(0, 0) scale(1);
   }
+
   33% {
     transform: translate(-60px, -80px) scale(1.15);
   }
+
   66% {
     transform: translate(50px, -40px) scale(0.85);
   }
 }
 
 @keyframes orbFloat3 {
+
   0%,
   100% {
     transform: translate(-50%, 0) scale(1);
   }
+
   33% {
     transform: translate(-30%, -60px) scale(1.2);
   }
+
   66% {
     transform: translate(-70%, 40px) scale(0.9);
   }
@@ -257,11 +257,13 @@
 }
 
 @keyframes pulse-dot {
+
   0%,
   100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.6;
     transform: scale(0.85);
@@ -320,6 +322,7 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+
   &:hover {
     background: rgba(255, 121, 85, 0.15);
     border-color: rgba(255, 121, 85, 0.35);
@@ -393,11 +396,13 @@
     transform: translateY(60px) rotateX(-20deg) scale(0.8);
     filter: blur(10px);
   }
+
   60% {
     opacity: 0.8;
     transform: translateY(-5px) rotateX(5deg) scale(1.02);
     filter: blur(2px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) rotateX(0deg) scale(1);
@@ -427,12 +432,10 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.15),
-      transparent
-    );
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.15),
+        transparent);
     transition: left 0.6s ease;
   }
 
@@ -441,12 +444,10 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0.05) 50%,
-      rgba(255, 255, 255, 0.02) 100%
-    );
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.02) 100%);
     pointer-events: none;
   }
 
@@ -468,12 +469,10 @@
     }
 
     &::after {
-      background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.15) 0%,
-        rgba(255, 255, 255, 0.08) 50%,
-        rgba(255, 255, 255, 0.04) 100%
-      );
+      background: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.15) 0%,
+          rgba(255, 255, 255, 0.08) 50%,
+          rgba(255, 255, 255, 0.04) 100%);
     }
 
     .link-icon-wrapper {
@@ -535,11 +534,9 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.15) 0%,
-      rgba(255, 255, 255, 0.05) 100%
-    );
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.05) 100%);
     pointer-events: none;
   }
 }
@@ -596,6 +593,7 @@
 
 // ─── Reduced Motion Support ─────────────────────────
 @media (prefers-reduced-motion: reduce) {
+
   .links-page::before,
   .links-page::after {
     animation: none;
@@ -682,5 +680,18 @@
     bottom: 24px;
     right: 24px;
     @apply px-5 py-3;
+  }
+}
+
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
   }
 }
