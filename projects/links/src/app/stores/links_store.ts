@@ -16,7 +16,7 @@ export const links: ILink[] = [
   {
     id: 2,
     title: 'Resume',
-    url: 'https://arshdeepgrover.dev/resume/Arshdeep_Singh_SoftwareDeveloper_Resume.pdf',
+    url: 'https://www.arshdeepgrover.dev/resume/Arshdeep_Singh_SoftwareDeveloper_Resume.pdf',
     icon: 'file',
     iconType: 'svg',
     brandColor: '#FF7955',
@@ -27,7 +27,7 @@ export const links: ILink[] = [
   {
     id: 3,
     title: 'Portfolio',
-    url: 'https://arshdeepgrover.dev',
+    url: 'https://www.arshdeepgrover.dev',
     icon: 'https://www.google.com/s2/favicons?domain=arshdeepgrover.dev&sz=128',
     iconType: 'image',
     brandColor: '#FF7955',
