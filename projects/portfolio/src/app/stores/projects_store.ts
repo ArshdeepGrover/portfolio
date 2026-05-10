@@ -69,7 +69,6 @@ export const projects: IProject[] = [
     ],
     demoLink: 'https://rails-map.netlify.app/?utm_source=portfolio&utm_medium=profile&utm_campaign=rails_map',
   },
-];
 
   {
     id: 10,
@@ -189,3 +188,4 @@ export const projects: IProject[] = [
     demoLink: 'https://periodic-table-phi-mocha.vercel.app?utm_source=portfolio&utm_medium=profile&utm_campaign=periodic_table',
     githubUrl: 'https://github.com/ArshdeepGrover/periodic-table?utm_source=portfolio&utm_medium=profile&utm_campaign=periodic_table',
   },
+];
