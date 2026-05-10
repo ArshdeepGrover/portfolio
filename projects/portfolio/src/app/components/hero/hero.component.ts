@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Typed from 'typed.js';
+import { TiltDirective } from '../../directives/tilt.directive';
+import { MagneticDirective } from '../../directives/magnetic.directive';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TiltDirective, MagneticDirective],
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']
 })

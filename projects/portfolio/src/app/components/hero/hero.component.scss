@@ -178,7 +178,30 @@
 }
 
 .hero-name {
-  @apply text-primary;
+  background: linear-gradient(
+    to right,
+    #ff7955,
+    #ff477e,
+    #9f7aea,
+    #ff7955
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-subtitle {
@@ -281,7 +304,7 @@
 }
 
 .highlight-item {
-  @apply flex items-center space-x-2 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg;
+  @apply flex items-center space-x-2 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg cursor-pointer;
 }
 
 .highlight-number {
