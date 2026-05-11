@@ -44,7 +44,7 @@ export const communityEntries: ICommunityEntry[] = [
   {
     id: 4,
     role: 'Judge',
-    event: 'The Dev Arena — Feature Enhancement Challenge',
+    event: 'The Dev Arena, Feature Enhancement Challenge',
     organizer: 'GDG × CULMYCA, JC Bose UST',
     date: 'Apr 2026',
     location: 'Faridabad',
