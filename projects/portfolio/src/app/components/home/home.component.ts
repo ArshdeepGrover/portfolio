@@ -6,6 +6,7 @@ import { SkillsComponent } from '../skills/skills.component';
 import { ProjectsComponent } from '../projects/projects.component';
 import { CertificatesComponent } from '../certificates/certificates.component';
 import { BlogsComponent } from '../blogs/blogs.component';
+import { CommunityComponent } from '../community/community.component';
 import { CameraDrawingComponent } from '../camera-drawing/camera-drawing.component';
 import { SeoService } from '@shared/services/seo.service';
 
@@ -20,6 +21,7 @@ import { SeoService } from '@shared/services/seo.service';
     ProjectsComponent,
     CertificatesComponent,
     BlogsComponent,
+    CommunityComponent,
     CameraDrawingComponent,
   ],
   templateUrl: './home.component.html',
