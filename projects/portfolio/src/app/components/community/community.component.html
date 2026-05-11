@@ -1,0 +1,93 @@
+<section id="community" class="community-section">
+  <div class="community-container">
+
+    <!-- Section Header -->
+    <div class="community-header" data-aos="fade-up">
+      <h2 class="section-title">
+        <span class="highlight">Community</span> & Volunteering
+      </h2>
+      <p class="section-description">
+        Giving back through mentorship, judging, and speaking at developer events across India
+      </p>
+    </div>
+
+    <!-- Volunteering Cards -->
+    <div class="community-grid">
+      <div
+        *ngFor="let entry of volunteering; let i = index"
+        class="community-card"
+        [attr.data-aos]="'fade-up'"
+        [attr.data-aos-delay]="i * 100"
+      >
+        <div class="card-badge" [ngClass]="entry.role.toLowerCase()">
+          {{ entry.role }}
+        </div>
+
+        <div class="card-body">
+          <h3 class="card-event">{{ entry.event }}</h3>
+          <p class="card-organizer">{{ entry.organizer }}</p>
+
+          <div class="card-meta">
+            <span class="meta-item">
+              <svg viewBox="0 0 20 20" fill="currentColor" class="meta-icon">
+                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+              </svg>
+              {{ entry.date }}
+            </span>
+            <span class="meta-item">
+              <svg viewBox="0 0 20 20" fill="currentColor" class="meta-icon">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+              {{ entry.location }}
+            </span>
+          </div>
+
+          <p class="card-description">{{ entry.description }}</p>
+
+          <span *ngIf="entry.highlight" class="card-highlight">
+            🏆 {{ entry.highlight }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Speaking Engagements -->
+    <div class="speaking-section" data-aos="fade-up" data-aos-delay="100">
+      <h3 class="speaking-title">Speaking Engagements</h3>
+      <div class="speaking-grid">
+        <div
+          *ngFor="let entry of speaking; let i = index"
+          class="speaking-card"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="i * 100"
+        >
+          <div class="speaking-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            </svg>
+          </div>
+          <div class="speaking-content">
+            <h4 class="speaking-event">{{ entry.event }}</h4>
+            <p class="speaking-organizer">{{ entry.organizer }}</p>
+            <div class="card-meta">
+              <span class="meta-item">
+                <svg viewBox="0 0 20 20" fill="currentColor" class="meta-icon">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+                </svg>
+                {{ entry.date }}
+              </span>
+              <span class="meta-item">
+                <svg viewBox="0 0 20 20" fill="currentColor" class="meta-icon">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                </svg>
+                {{ entry.location }}
+              </span>
+            </div>
+            <p class="card-description">{{ entry.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

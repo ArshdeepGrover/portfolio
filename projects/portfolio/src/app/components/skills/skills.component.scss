@@ -28,6 +28,7 @@
 
 .skill-card {
   @apply rounded-3xl shadow-xl p-8 relative;
+  transform-style: preserve-3d;
 
   &.frontend-card {
     @apply col-span-12 lg:col-span-8 bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-gray-800 dark:to-gray-700;
@@ -52,6 +53,7 @@
 
 .card-header {
   @apply flex items-center gap-4 mb-6;
+  transform: translateZ(40px);
 
   .category-icon {
     @apply text-4xl;
@@ -68,6 +70,7 @@
 
 .card-header-small {
   @apply flex items-center gap-3 mb-4;
+  transform: translateZ(40px);
 
   .category-icon {
     @apply text-3xl;
@@ -80,6 +83,7 @@
 
 .skills-grid {
   @apply grid gap-3;
+  transform: translateZ(60px);
 
   &.grid-2-3 {
     @apply grid-cols-2 md:grid-cols-3;
@@ -96,6 +100,7 @@
 
 .skills-list {
   @apply space-y-3;
+  transform: translateZ(60px);
 }
 
 .skill-item {
@@ -187,15 +192,44 @@
     @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 max-w-6xl mx-auto;
   }
 
-  .tech-card {
-    @apply bg-white dark:bg-gray-800 rounded-xl p-4 shadow-md flex flex-col items-center gap-2;
+  .tech-card-container {
+    perspective: 1000px;
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
 
-    .tech-logo {
-      @apply w-8 h-8 object-contain;
-    }
+  .tech-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
 
-    .tech-name {
-      @apply text-sm font-medium text-gray-900 dark:text-white text-center;
-    }
+  .tech-card-container:hover .tech-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .tech-card-front, .tech-card-back {
+    position: absolute;
+    inset: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md flex items-center justify-center;
+    border: 1px solid rgba(255, 121, 85, 0.1);
+  }
+
+  .tech-card-back {
+    transform: rotateY(180deg);
+    @apply p-2;
+    background: linear-gradient(135deg, rgba(255, 121, 85, 0.1), transparent);
+  }
+
+  .tech-logo {
+    @apply w-10 h-10 object-contain;
+  }
+
+  .tech-name {
+    @apply text-xs sm:text-sm font-bold text-gray-900 dark:text-white text-center;
   }
 }

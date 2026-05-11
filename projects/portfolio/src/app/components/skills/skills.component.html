@@ -120,9 +120,15 @@
       </div>
 
       <div class="tech-grid">
-        <div *ngFor="let tech of otherTechnologies" class="tech-card">
-          <img [src]="tech.icon" [alt]="tech.name" class="tech-logo">
-          <span class="tech-name">{{ tech.name }}</span>
+        <div *ngFor="let tech of otherTechnologies" class="tech-card-container">
+          <div class="tech-card-inner">
+            <div class="tech-card-front">
+              <img [src]="tech.icon" [alt]="tech.name" class="tech-logo">
+            </div>
+            <div class="tech-card-back">
+              <span class="tech-name">{{ tech.name }}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

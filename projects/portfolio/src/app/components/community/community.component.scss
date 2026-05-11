@@ -1,0 +1,141 @@
+.community-section {
+  @apply py-20 bg-white dark:bg-gray-800;
+}
+
+.community-container {
+  @apply container mx-auto px-4;
+}
+
+.community-header {
+  @apply max-w-4xl mx-auto text-center mb-16;
+
+  .section-title {
+    @apply text-4xl font-bold mb-6 text-gray-900 dark:text-white;
+
+    .highlight {
+      color: #ff7955;
+    }
+  }
+
+  .section-description {
+    @apply text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto;
+  }
+}
+
+// ── Volunteering Grid ──────────────────────────────────────
+.community-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16;
+}
+
+.community-card {
+  @apply bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col overflow-hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(255, 121, 85, 0.35),
+      0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
+  }
+}
+
+.card-badge {
+  @apply text-xs font-bold uppercase tracking-widest px-4 py-2 text-white;
+  background-color: #ff7955;
+
+  &.judge {
+    background-color: #7c3aed;
+  }
+
+  &.mentor {
+    background-color: #ff7955;
+  }
+
+  &.speaker {
+    background-color: #0891b2;
+  }
+}
+
+.card-body {
+  @apply p-5 flex flex-col flex-1;
+}
+
+.card-event {
+  @apply text-base font-bold text-gray-900 dark:text-white mb-1 leading-snug;
+}
+
+.card-organizer {
+  @apply text-sm font-medium mb-3;
+  color: #ff7955;
+}
+
+.card-meta {
+  @apply flex flex-wrap gap-3 mb-3;
+}
+
+.meta-item {
+  @apply flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400;
+}
+
+.meta-icon {
+  @apply w-3.5 h-3.5 flex-shrink-0;
+}
+
+.card-description {
+  @apply text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-1;
+}
+
+.card-highlight {
+  @apply inline-block mt-3 text-xs font-semibold px-2 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400;
+}
+
+// ── Speaking Section ──────────────────────────────────────
+.speaking-section {
+  @apply max-w-7xl mx-auto;
+}
+
+.speaking-title {
+  @apply text-2xl font-bold text-gray-900 dark:text-white mb-6;
+
+  &::after {
+    content: '';
+    @apply block mt-2 w-12 h-1 rounded-full;
+    background-color: #ff7955;
+  }
+}
+
+.speaking-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.speaking-card {
+  @apply bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-5 flex gap-4;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(255, 121, 85, 0.35),
+      0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
+  }
+}
+
+.speaking-icon {
+  @apply flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-white;
+  background-color: #ff7955;
+
+  svg {
+    @apply w-5 h-5;
+  }
+}
+
+.speaking-content {
+  @apply flex-1;
+}
+
+.speaking-event {
+  @apply text-base font-bold text-gray-900 dark:text-white mb-0.5;
+}
+
+.speaking-organizer {
+  @apply text-sm font-medium mb-2;
+  color: #ff7955;
+}
