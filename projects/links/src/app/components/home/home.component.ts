@@ -74,6 +74,20 @@ export class HomeComponent implements AfterViewInit, OnDestroy, OnInit {
 
   shareStatus: 'idle' | 'copied' = 'idle';
   searchQuery = '';
+  activeCategory: 'all' | 'professional' | 'social' | 'content' | 'packages' | 'other' = 'all';
+
+  readonly categories = [
+    { key: 'all',          label: 'All' },
+    { key: 'professional', label: 'Professional' },
+    { key: 'social',       label: 'Social' },
+    { key: 'content',      label: 'Writing' },
+    { key: 'packages',     label: 'Packages' },
+  ] as const;
+
+  setCategory(cat: typeof this.activeCategory): void {
+    this.activeCategory = cat;
+    this.searchQuery = '';
+  }
 
   visibleLinks = links
     .filter((link) => link.show)
@@ -88,13 +102,25 @@ export class HomeComponent implements AfterViewInit, OnDestroy, OnInit {
 
   get filteredLinks() {
     const q = this.searchQuery.trim().toLowerCase();
-    if (!q) return this.visibleLinks;
-    return this.visibleLinks.filter(
+    let pool = this.visibleLinks;
+
+    // Category filter (ignored when searching)
+    if (!q && this.activeCategory !== 'all') {
+      pool = pool.filter((link) => link.category === this.activeCategory);
+    }
+
+    if (!q) return pool;
+    return pool.filter(
       (link) =>
         link.title.toLowerCase().includes(q) ||
         link.description.toLowerCase().includes(q) ||
         link.category.toLowerCase().includes(q),
     );
+  }
+
+  getCategoryCount(cat: string): number {
+    if (cat === 'all') return this.visibleLinks.length;
+    return this.visibleLinks.filter((l) => l.category === cat).length;
   }
 
   onSearch(event: Event): void {

@@ -695,3 +695,119 @@
     opacity: 0.4;
   }
 }
+
+// ══════════════════════════════════════════════════════
+// CATEGORY FILTER TABS
+// ══════════════════════════════════════════════════════
+
+.category-tabs {
+  @apply flex flex-wrap gap-2 mb-4;
+}
+
+.cat-tab {
+  @apply flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border-0 cursor-pointer transition-all duration-250 outline-none;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.75);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &.active {
+    background: rgba(255, 121, 85, 0.18);
+    border-color: rgba(255, 121, 85, 0.5);
+    color: #ff7955;
+    box-shadow: 0 0 16px rgba(255, 121, 85, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+}
+
+.cat-count {
+  @apply inline-flex items-center justify-center w-4 h-4 rounded-full text-[10px] font-bold;
+  background: rgba(255, 255, 255, 0.1);
+  color: inherit;
+
+  .active & {
+    background: rgba(255, 121, 85, 0.3);
+  }
+}
+
+// ══════════════════════════════════════════════════════
+// BRAND-COLOR GLOW ON HOVER
+// --brand is set per-card via Angular style binding
+// ══════════════════════════════════════════════════════
+
+.link-card {
+  --brand: #ff7955; // fallback
+
+  // Brand-color glow pseudo-element (sits under the card)
+  &::before {
+    // Keep existing shimmer sweep on before, so we layer the glow on after
+  }
+
+  // Replace the existing ::after gradient with brand-glow layer
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 50%,
+      rgba(255, 255, 255, 0.01) 100%
+    );
+    pointer-events: none;
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+  }
+
+  &:hover {
+    // Override the base hover box-shadow to add brand-color glow
+    box-shadow:
+      0 16px 48px rgba(0, 0, 0, 0.22),
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.15),
+      0 0 40px color-mix(in srgb, var(--brand) 35%, transparent);
+
+    border-color: color-mix(in srgb, var(--brand) 40%, rgba(255,255,255,0.15));
+
+    .link-icon-wrapper {
+      box-shadow:
+        0 0 20px color-mix(in srgb, var(--brand) 45%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .link-arrow {
+      color: var(--brand);
+      filter: drop-shadow(0 0 6px var(--brand));
+    }
+  }
+}
+
+// Light mode adjustments
+.light .cat-tab {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.45);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.07);
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  &.active {
+    background: rgba(255, 121, 85, 0.12);
+    border-color: rgba(255, 121, 85, 0.4);
+    color: #e65e3b;
+  }
+}
+
+.light .cat-count {
+  background: rgba(0, 0, 0, 0.08);
+}
