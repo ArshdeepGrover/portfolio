@@ -455,3 +455,122 @@
     transform: scale(0.85);
   }
 }
+
+// ══════════════════════════════════════════════════════
+// SCROLL-DRIVEN 3-D PARALLAX
+// --scroll-y is set by HeroComponent (raw scrollY value)
+// ══════════════════════════════════════════════════════
+
+// Give the hero a 3-D stage so children can translateZ
+.hero {
+  perspective: 1200px;
+}
+
+// Floating tech icons — fastest layer (foreground depth)
+.floating-icons {
+  will-change: transform;
+  transform: translateY(calc(var(--scroll-y, 0) * -0.12px));
+  transition: transform 0.05s linear;
+}
+
+// Individual icon depth variation via translateZ
+.tech-icon-1 { transform: translateZ(40px); }
+.tech-icon-2 { transform: translateZ(20px); }
+.tech-icon-3 { transform: translateZ(60px); }
+.tech-icon-4 { transform: translateZ(10px); }
+.tech-icon-5 { transform: translateZ(50px); }
+.tech-icon-6 { transform: translateZ(30px); }
+
+// Particle field — slowest drift
+.particles {
+  will-change: transform;
+  transform: translateY(calc(var(--scroll-y, 0) * -0.05px));
+  transition: transform 0.05s linear;
+}
+
+// Hero text — subtle lift (anchors the eye)
+.hero-text {
+  will-change: transform;
+  transform: translateY(calc(var(--scroll-y, 0) * -0.08px));
+  transition: transform 0.05s linear;
+}
+
+// Hero image column — medium parallax (creates depth gap vs text)
+.hero-image {
+  will-change: transform;
+  transition: transform 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+
+  // The scroll layer sits under the tilt
+  // We apply scroll offset via a wrapper approach:
+  // onImageMouseMove overrides this; scroll shifts a parent
+}
+
+// Scroll-driven offset for the image column  
+.hero-image-container {
+  will-change: transform;
+  transform: translateY(calc(var(--scroll-y, 0) * -0.18px));
+  transition: transform 0.05s linear;
+}
+
+// Background blur orbs — slowest parallax for depth
+.bg-blur-1 {
+  will-change: transform;
+  transform: translateY(calc(var(--scroll-y, 0) * -0.06px));
+  transition: transform 0.05s linear;
+}
+
+.bg-blur-2 {
+  will-change: transform;
+  transform: translateY(calc(var(--scroll-y, 0) * 0.04px));
+  transition: transform 0.05s linear;
+}
+
+// Code snippet floats at medium depth
+.code-snippet {
+  will-change: transform;
+  transform: translateY(calc(var(--scroll-y, 0) * -0.14px));
+  transition: transform 0.05s linear;
+}
+
+// Scroll indicator fades out as user scrolls
+.scroll-indicator {
+  will-change: opacity, transform;
+  opacity: calc(1 - var(--scroll-y, 0) * 0.005);
+  transform: translateY(calc(var(--scroll-y, 0) * -0.2px));
+  transition: opacity 0.05s linear, transform 0.05s linear;
+}
+
+// ── 3-D Tilt — hero image block ───────────────────────
+// (transform applied inline by onImageMouseMove)
+// Smooth reset is handled by the transition in .hero-image
+.hero-image {
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center center;
+}
+
+// Enhance the glow ring on tilt
+.hero-image:hover .hero-image-wrapper {
+  box-shadow:
+    0 0 60px rgba(255, 121, 85, 0.5),
+    0 0 120px rgba(255, 121, 85, 0.2);
+}
+
+// ── Respect reduced-motion ────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+  .floating-icons,
+  .particles,
+  .hero-text,
+  .hero-image-container,
+  .bg-blur-1,
+  .bg-blur-2,
+  .code-snippet,
+  .scroll-indicator {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-image {
+    transition: none !important;
+  }
+}

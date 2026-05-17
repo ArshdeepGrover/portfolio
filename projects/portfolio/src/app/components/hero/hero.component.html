@@ -130,7 +130,10 @@
           </a>
         </div>
       </div>
-      <div class="hero-image" data-aos="fade-left" data-aos-delay="400">
+      <div class="hero-image" data-aos="fade-left" data-aos-delay="400"
+           #heroImageRef
+           (mousemove)="onImageMouseMove($event)"
+           (mouseleave)="onImageMouseLeave()">
         <div class="hero-image-container">
           <div class="bg-blur-1"></div>
           <div class="bg-blur-2"></div>
