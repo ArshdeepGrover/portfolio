@@ -99,19 +99,6 @@
       </button>
     </div>
 
-    <!-- Category filter tabs -->
-    <div class="category-tabs" *ngIf="!searchQuery">
-      <button
-        *ngFor="let cat of categories"
-        class="cat-tab"
-        [class.active]="activeCategory === cat.key"
-        (click)="setCategory(cat.key)"
-      >
-        {{ cat.label }}
-        <span class="cat-count">{{ getCategoryCount(cat.key) }}</span>
-      </button>
-    </div>
-
     <div *ngIf="filteredLinks.length === 0" class="search-empty">
       No links match <strong>"{{ searchQuery }}"</strong>
     </div>

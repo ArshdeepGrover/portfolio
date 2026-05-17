@@ -9,12 +9,16 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(circle at 30% 20%,
+      radial-gradient(
+        circle at 30% 20%,
         rgba(255, 121, 85, 0.03) 0%,
-        transparent 50%),
-      radial-gradient(circle at 70% 80%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 70% 80%,
         rgba(255, 121, 85, 0.02) 0%,
-        transparent 50%);
+        transparent 50%
+      );
     pointer-events: none;
     animation: gentleGlow 15s ease-in-out infinite;
   }
@@ -29,17 +33,20 @@
     background-size: 64px 64px;
     pointer-events: none;
     z-index: 0;
-    mask-image: radial-gradient(ellipse 60% 50% at 50% 50%,
-        black 25%,
-        transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 50%,
-        black 25%,
-        transparent 70%);
+    mask-image: radial-gradient(
+      ellipse 60% 50% at 50% 50%,
+      black 25%,
+      transparent 70%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 60% 50% at 50% 50%,
+      black 25%,
+      transparent 70%
+    );
   }
 }
 
 @keyframes gentleGlow {
-
   0%,
   100% {
     opacity: 0.5;
@@ -57,12 +64,16 @@
 
   &::before {
     background:
-      radial-gradient(circle at 30% 20%,
+      radial-gradient(
+        circle at 30% 20%,
         rgba(255, 121, 85, 0.02) 0%,
-        transparent 50%),
-      radial-gradient(circle at 70% 80%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 70% 80%,
         rgba(255, 121, 85, 0.015) 0%,
-        transparent 50%);
+        transparent 50%
+      );
     animation: gentleGlow 15s ease-in-out infinite;
   }
 
@@ -87,10 +98,12 @@
   z-index: 1;
   will-change: transform;
   transition: opacity 0.3s ease;
-  background: radial-gradient(circle,
-      rgba(255, 121, 85, 0.14) 0%,
-      rgba(255, 121, 85, 0.05) 35%,
-      transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 121, 85, 0.14) 0%,
+    rgba(255, 121, 85, 0.05) 35%,
+    transparent 65%
+  );
 }
 
 // ─── Animated background orbs ────────────────────────
@@ -149,7 +162,6 @@
 }
 
 @keyframes orbFloat1 {
-
   0%,
   100% {
     transform: translate(0, 0) scale(1);
@@ -165,7 +177,6 @@
 }
 
 @keyframes orbFloat2 {
-
   0%,
   100% {
     transform: translate(0, 0) scale(1);
@@ -181,7 +192,6 @@
 }
 
 @keyframes orbFloat3 {
-
   0%,
   100% {
     transform: translate(-50%, 0) scale(1);
@@ -257,7 +267,6 @@
 }
 
 @keyframes pulse-dot {
-
   0%,
   100% {
     opacity: 1;
@@ -432,10 +441,12 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg,
-        transparent,
-        rgba(255, 255, 255, 0.15),
-        transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
     transition: left 0.6s ease;
   }
 
@@ -444,10 +455,12 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: linear-gradient(135deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.05) 50%,
-        rgba(255, 255, 255, 0.02) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
     pointer-events: none;
   }
 
@@ -469,10 +482,12 @@
     }
 
     &::after {
-      background: linear-gradient(135deg,
-          rgba(255, 255, 255, 0.15) 0%,
-          rgba(255, 255, 255, 0.08) 50%,
-          rgba(255, 255, 255, 0.04) 100%);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.08) 50%,
+        rgba(255, 255, 255, 0.04) 100%
+      );
     }
 
     .link-icon-wrapper {
@@ -534,9 +549,11 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: linear-gradient(135deg,
-        rgba(255, 255, 255, 0.15) 0%,
-        rgba(255, 255, 255, 0.05) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
     pointer-events: none;
   }
 }
@@ -593,7 +610,6 @@
 
 // ─── Reduced Motion Support ─────────────────────────
 @media (prefers-reduced-motion: reduce) {
-
   .links-page::before,
   .links-page::after {
     animation: none;
@@ -683,9 +699,7 @@
   }
 }
 
-
 @keyframes blink {
-
   0%,
   100% {
     opacity: 1;
@@ -705,7 +719,7 @@
 }
 
 .cat-tab {
-  @apply flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border-0 cursor-pointer transition-all duration-250 outline-none;
+  @apply flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border-0 cursor-pointer transition-all duration-300 outline-none;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.45);
@@ -722,7 +736,8 @@
     background: rgba(255, 121, 85, 0.18);
     border-color: rgba(255, 121, 85, 0.5);
     color: #ff7955;
-    box-shadow: 0 0 16px rgba(255, 121, 85, 0.25),
+    box-shadow:
+      0 0 16px rgba(255, 121, 85, 0.25),
       inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
 }
@@ -735,79 +750,4 @@
   .active & {
     background: rgba(255, 121, 85, 0.3);
   }
-}
-
-// ══════════════════════════════════════════════════════
-// BRAND-COLOR GLOW ON HOVER
-// --brand is set per-card via Angular style binding
-// ══════════════════════════════════════════════════════
-
-.link-card {
-  --brand: #ff7955; // fallback
-
-  // Brand-color glow pseudo-element (sits under the card)
-  &::before {
-    // Keep existing shimmer sweep on before, so we layer the glow on after
-  }
-
-  // Replace the existing ::after gradient with brand-glow layer
-  &::after {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(255, 255, 255, 0.03) 50%,
-      rgba(255, 255, 255, 0.01) 100%
-    );
-    pointer-events: none;
-    transition: box-shadow 0.3s ease, background 0.3s ease;
-  }
-
-  &:hover {
-    // Override the base hover box-shadow to add brand-color glow
-    box-shadow:
-      0 16px 48px rgba(0, 0, 0, 0.22),
-      0 0 0 1px rgba(255, 255, 255, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.15),
-      0 0 40px color-mix(in srgb, var(--brand) 35%, transparent);
-
-    border-color: color-mix(in srgb, var(--brand) 40%, rgba(255,255,255,0.15));
-
-    .link-icon-wrapper {
-      box-shadow:
-        0 0 20px color-mix(in srgb, var(--brand) 45%, transparent),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    }
-
-    .link-arrow {
-      color: var(--brand);
-      filter: drop-shadow(0 0 6px var(--brand));
-    }
-  }
-}
-
-// Light mode adjustments
-.light .cat-tab {
-  background: rgba(0, 0, 0, 0.04);
-  border-color: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.45);
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.07);
-    color: rgba(0, 0, 0, 0.7);
-  }
-
-  &.active {
-    background: rgba(255, 121, 85, 0.12);
-    border-color: rgba(255, 121, 85, 0.4);
-    color: #e65e3b;
-  }
-}
-
-.light .cat-count {
-  background: rgba(0, 0, 0, 0.08);
 }
