@@ -88,8 +88,10 @@ export class HomeComponent implements AfterViewInit, OnDestroy, OnInit {
 
   get filteredLinks() {
     const q = this.searchQuery.trim().toLowerCase();
-    if (!q) return this.visibleLinks;
-    return this.visibleLinks.filter(
+    let pool = this.visibleLinks;
+
+    if (!q) return pool;
+    return pool.filter(
       (link) =>
         link.title.toLowerCase().includes(q) ||
         link.description.toLowerCase().includes(q) ||
