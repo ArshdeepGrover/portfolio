@@ -232,4 +232,15 @@ export const links: ILink[] = [
     description: 'My speaker profile & talks',
     show: false,
   },
+  {
+    id: 24,
+    title: 'Blog',
+    url: 'https://blogs.arshdeepgrover.dev',
+    icon: 'https://www.google.com/s2/favicons?domain=blogs.arshdeepgrover.dev&sz=128',
+    iconType: 'image',
+    brandColor: '#ff7955',
+    category: 'content',
+    description: 'Technical articles on Angular, Rails & more',
+    show: true,
+  },
 ];

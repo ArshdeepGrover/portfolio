@@ -1,0 +1,105 @@
+<!-- Demo banner when Sanity is not yet connected -->
+<div *ngIf="isPlaceholder" class="demo-banner">
+  ✦ Demo mode — connect Sanity to publish real posts.
+  <a href="https://www.sanity.io/manage" target="_blank">Set up Sanity →</a>
+</div>
+
+<div class="blog-home">
+
+  <!-- Hero -->
+  <section class="blog-hero">
+    <div class="container">
+      <p class="hero-label">Writing & Thoughts</p>
+      <h1 class="hero-title">
+        Angular, Rails &amp; <span class="accent">everything</span> in between
+      </h1>
+      <p class="hero-sub">
+        Practical articles on full-stack development, team leadership, and open source —
+        by <a href="https://arshdeepgrover.dev" target="_blank" class="hero-link">Arshdeep Singh</a>.
+      </p>
+    </div>
+  </section>
+
+  <div class="container" *ngIf="!loading; else skeleton">
+
+    <!-- Featured post -->
+    <section *ngIf="featuredPost" class="featured-section">
+      <a [routerLink]="['/post', featuredPost.slug.current]" class="featured-card">
+        <div class="featured-cover">
+          <div class="featured-cover-placeholder">
+            <span class="cover-icon">✦</span>
+          </div>
+          <div class="featured-badge">Featured</div>
+        </div>
+        <div class="featured-body">
+          <div class="post-meta">
+            <span class="post-date">{{ formatDate(featuredPost.publishedAt) }}</span>
+            <span class="read-time" *ngIf="featuredPost.readTime">· {{ featuredPost.readTime }} min read</span>
+          </div>
+          <h2 class="featured-title">{{ featuredPost.title }}</h2>
+          <p class="featured-excerpt">{{ featuredPost.excerpt }}</p>
+          <div class="post-tags" *ngIf="featuredPost.categories?.length">
+            <span class="tag" *ngFor="let cat of featuredPost.categories"
+                  [style.--tag-color]="cat.color">{{ cat.title }}</span>
+          </div>
+          <span class="read-link">Read article →</span>
+        </div>
+      </a>
+    </section>
+
+    <!-- Category filter -->
+    <div class="filter-bar" *ngIf="categories.length">
+      <button class="filter-btn" [class.active]="activeCategory === 'all'"
+              (click)="setCategory('all')">All</button>
+      <button class="filter-btn" *ngFor="let cat of categories"
+              [class.active]="activeCategory === cat.slug"
+              [style.--tag-color]="cat.color"
+              (click)="setCategory(cat.slug)">{{ cat.title }}</button>
+    </div>
+
+    <!-- Posts grid -->
+    <section class="posts-grid" *ngIf="filteredPosts.length; else empty">
+      <a class="post-card" *ngFor="let post of filteredPosts; let i = index"
+         [routerLink]="['/post', post.slug.current]"
+         [style.animation-delay]="i * 0.06 + 's'">
+        <div class="card-cover">
+          <div class="card-cover-placeholder">
+            <span class="cover-icon">{{ getCoverEmoji(post) }}</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="post-meta">
+            <span class="post-date">{{ formatDate(post.publishedAt) }}</span>
+            <span class="read-time" *ngIf="post.readTime">· {{ post.readTime }} min</span>
+          </div>
+          <h3 class="card-title">{{ post.title }}</h3>
+          <p class="card-excerpt">{{ post.excerpt }}</p>
+          <div class="post-tags" *ngIf="post.categories?.length">
+            <span class="tag" *ngFor="let cat of post.categories"
+                  [style.--tag-color]="cat.color">{{ cat.title }}</span>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <ng-template #empty>
+      <div class="empty-state">No posts in this category yet.</div>
+    </ng-template>
+
+  </div>
+
+  <!-- Loading skeleton -->
+  <ng-template #skeleton>
+    <div class="container skeleton-grid">
+      <div class="skeleton-card" *ngFor="let n of [1,2,3,4,5,6]">
+        <div class="skeleton-cover"></div>
+        <div class="skeleton-body">
+          <div class="skeleton-line short"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line medium"></div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+</div>

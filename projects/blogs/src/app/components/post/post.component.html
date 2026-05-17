@@ -1,0 +1,76 @@
+<!-- Loading -->
+<div *ngIf="loading" class="post-loading">
+  <div class="skeleton-title"></div>
+  <div class="skeleton-meta"></div>
+  <div class="skeleton-body">
+    <div class="skeleton-line" *ngFor="let n of [1,2,3,4,5]"></div>
+  </div>
+</div>
+
+<!-- Not found -->
+<div *ngIf="!loading && notFound" class="not-found-msg">
+  <p>Post not found.</p>
+  <a routerLink="/">← Back to blog</a>
+</div>
+
+<!-- Post -->
+<article *ngIf="!loading && post" class="post-article">
+
+  <!-- Back -->
+  <div class="post-nav">
+    <a routerLink="/" class="back-link">← All posts</a>
+  </div>
+
+  <!-- Header -->
+  <header class="post-header">
+    <div class="post-tags" *ngIf="post.categories?.length">
+      <span class="tag" *ngFor="let cat of post.categories"
+            [style.--tag-color]="cat.color">{{ cat.title }}</span>
+    </div>
+    <h1 class="post-title">{{ post.title }}</h1>
+    <p class="post-excerpt">{{ post.excerpt }}</p>
+    <div class="post-byline">
+      <div class="author-info" *ngIf="post.author">
+        <div class="author-avatar">{{ post.author.name[0] }}</div>
+        <span class="author-name">{{ post.author.name }}</span>
+      </div>
+      <span class="byline-sep">·</span>
+      <span class="post-date">{{ formatDate(post.publishedAt) }}</span>
+      <span class="byline-sep" *ngIf="post.readTime">·</span>
+      <span class="read-time" *ngIf="post.readTime">{{ post.readTime }} min read</span>
+      <button class="share-btn" (click)="share()" title="Share">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
+          <polyline points="16 6 12 2 8 6"/>
+          <line x1="12" y1="2" x2="12" y2="15"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Cover image placeholder -->
+  <div class="post-cover-placeholder">
+    <span class="cover-glyph">✦</span>
+  </div>
+
+  <!-- Demo note -->
+  <div class="demo-note" *ngIf="!post.body">
+    <p>📝 This is a demo post. Connect Sanity to render full article content here.</p>
+    <a href="https://www.sanity.io/manage" target="_blank">Set up Sanity →</a>
+  </div>
+
+  <!-- Portable text body -->
+  <div class="post-body" *ngIf="post.body" [innerHTML]="post.body | portableText"></div>
+
+  <!-- Footer -->
+  <footer class="post-footer">
+    <div class="post-tags" *ngIf="post.categories?.length">
+      <span class="tag" *ngFor="let cat of post.categories"
+            [style.--tag-color]="cat.color">{{ cat.title }}</span>
+    </div>
+    <div class="back-cta">
+      <a routerLink="/" class="back-link">← Back to all posts</a>
+    </div>
+  </footer>
+
+</article>

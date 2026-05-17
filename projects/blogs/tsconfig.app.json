@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/blogs",
+    "types": [],
+    "paths": {
+      "@shared/*": ["shared/*"],
+      "@models/*": ["projects/blogs/src/app/models/*"],
+      "@services/*": ["projects/blogs/src/app/services/*"]
+    }
+  },
+  "files": [
+    "src/main.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts",
+    "../../shared/**/*.ts"
+  ]
+}

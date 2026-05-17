@@ -1,0 +1,17 @@
+<header class="site-header" [class.scrolled]="scrolled">
+  <div class="header-inner">
+    <a routerLink="/" class="logo">
+      <span class="logo-accent">A</span>rsh<span class="logo-accent">.</span>blog
+    </a>
+
+    <nav class="nav-links" [class.open]="menuOpen">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="menuOpen=false">Home</a>
+      <a routerLink="/tags" routerLinkActive="active" (click)="menuOpen=false">Tags</a>
+      <a href="https://arshdeepgrover.dev" target="_blank" class="nav-external">Portfolio ↗</a>
+    </nav>
+
+    <button class="hamburger" (click)="toggleMenu()" [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

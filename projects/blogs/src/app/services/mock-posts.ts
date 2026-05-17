@@ -1,0 +1,88 @@
+import { Post } from '@models/post.model';
+
+export const MOCK_POSTS: Post[] = [
+  {
+    _id: '1',
+    title: 'Building Scalable Angular Apps with Signals and OnPush',
+    slug: { current: 'angular-signals-onpush' },
+    excerpt: 'Deep dive into Angular 17+ Signals, OnPush change detection, and how to architect apps that handle 50,000+ users without performance issues.',
+    publishedAt: '2025-08-15T09:00:00Z',
+    readTime: 8,
+    featured: true,
+    categories: [
+      { _id: 'c1', title: 'Angular', slug: 'angular', color: '#DD0031' },
+      { _id: 'c4', title: 'Performance', slug: 'performance', color: '#ff7955' },
+    ],
+    author: { _id: 'a1', name: 'Arshdeep Singh', slug: 'arshdeep-singh' },
+  },
+  {
+    _id: '2',
+    title: 'Razorpay Integration in Ruby on Rails — A Complete Guide',
+    slug: { current: 'razorpay-rails-integration' },
+    excerpt: 'Step-by-step guide to integrating Razorpay payment gateway in a Ruby on Rails app — webhooks, subscriptions, and error handling included.',
+    publishedAt: '2025-07-28T09:00:00Z',
+    readTime: 12,
+    featured: false,
+    categories: [
+      { _id: 'c2', title: 'Ruby on Rails', slug: 'ruby-on-rails', color: '#CC0000' },
+      { _id: 'c3', title: 'Payments', slug: 'payments', color: '#1DBF73' },
+    ],
+    author: { _id: 'a1', name: 'Arshdeep Singh', slug: 'arshdeep-singh' },
+  },
+  {
+    _id: '3',
+    title: 'Google Tag Manager for Single Page Applications',
+    slug: { current: 'gtm-spa-angular' },
+    excerpt: 'How to set up GTM in an Angular SPA without redeployments — virtual pageviews, custom events, and dataLayer patterns that actually work.',
+    publishedAt: '2025-06-10T09:00:00Z',
+    readTime: 7,
+    featured: false,
+    categories: [
+      { _id: 'c1', title: 'Angular', slug: 'angular', color: '#DD0031' },
+      { _id: 'c5', title: 'Analytics', slug: 'analytics', color: '#F9AB00' },
+    ],
+    author: { _id: 'a1', name: 'Arshdeep Singh', slug: 'arshdeep-singh' },
+  },
+  {
+    _id: '4',
+    title: 'Sanity.io + Ruby on Rails: Headless CMS in Practice',
+    slug: { current: 'sanity-rails-headless-cms' },
+    excerpt: 'Real-world setup of Sanity as a headless CMS for a Rails API — GROQ queries, webhooks for cache invalidation, and live preview setup.',
+    publishedAt: '2025-05-05T09:00:00Z',
+    readTime: 10,
+    featured: false,
+    categories: [
+      { _id: 'c2', title: 'Ruby on Rails', slug: 'ruby-on-rails', color: '#CC0000' },
+      { _id: 'c6', title: 'CMS', slug: 'cms', color: '#F03E2F' },
+    ],
+    author: { _id: 'a1', name: 'Arshdeep Singh', slug: 'arshdeep-singh' },
+  },
+  {
+    _id: '5',
+    title: 'Leading a Dev Team: Sprint Planning & Code Review That Works',
+    slug: { current: 'dev-team-sprint-planning' },
+    excerpt: 'Lessons from growing from intern to Lead Developer — how we run Agile sprints, what makes code reviews effective, and how to mentor without micromanaging.',
+    publishedAt: '2025-04-12T09:00:00Z',
+    readTime: 9,
+    featured: false,
+    categories: [
+      { _id: 'c7', title: 'Leadership', slug: 'leadership', color: '#7C3AED' },
+      { _id: 'c8', title: 'Career', slug: 'career', color: '#ff7955' },
+    ],
+    author: { _id: 'a1', name: 'Arshdeep Singh', slug: 'arshdeep-singh' },
+  },
+  {
+    _id: '6',
+    title: 'Get Started with AI: From Prompt Engineering to Real Projects',
+    slug: { current: 'get-started-with-ai' },
+    excerpt: 'A practical intro to AI tools for developers — prompt patterns, API integration, and how to go from curiosity to shipping something useful.',
+    publishedAt: '2025-03-01T09:00:00Z',
+    readTime: 6,
+    featured: false,
+    categories: [
+      { _id: 'c9', title: 'AI', slug: 'ai', color: '#059669' },
+      { _id: 'c8', title: 'Career', slug: 'career', color: '#ff7955' },
+    ],
+    author: { _id: 'a1', name: 'Arshdeep Singh', slug: 'arshdeep-singh' },
+  },
+];
