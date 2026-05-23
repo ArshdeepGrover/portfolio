@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.seoService.updateTitle('Arshdeep Singh | Lead Software Developer & UI/UX Specialist');
+    this.seoService.updateTitle('Arshdeep Singh | Software Developer');
     this.seoService.updateCanonicalUrl('https://arshdeepgrover.dev/');
     this.seoService.updateMetaTags([
       { name: 'description', content: 'Explore the portfolio of Arshdeep Singh, a Lead Software Developer specializing in high-end digital experiences, Product Engineering, and UI/UX Design. Expert in Angular and Ruby on Rails.' },
