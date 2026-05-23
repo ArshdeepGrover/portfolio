@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { getPrimarySocialLinks } from '@stores/social_store';
+import { ISocialLink } from '@models/social.model';
 
 @Component({
   selector: 'app-footer',
@@ -10,4 +12,5 @@ import { CommonModule } from '@angular/common';
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
+  socialLinks: ISocialLink[] = getPrimarySocialLinks();
 }

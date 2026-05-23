@@ -80,7 +80,7 @@ export const blogs: IBlog[] = [
     date: 'August 1, 2025',
     readTime: 5,
     tags: [
-      'Manifest',
+      'Extension',
       'Javascript',
       'JSON',
       'Chrome Extension',
