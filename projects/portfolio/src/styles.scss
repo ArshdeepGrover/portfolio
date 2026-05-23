@@ -3,3 +3,13 @@
 @import "tailwindcss/utilities";
 @import "../../../shared/styles/base";
 @import "../../../shared/styles/animations";
+
+// Smooth scrolling for fragment navigation
+html {
+  scroll-behavior: smooth;
+}
+
+// Scroll offset for fixed headers
+html {
+  scroll-padding-top: 80px;
+}

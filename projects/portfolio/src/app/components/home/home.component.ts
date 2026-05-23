@@ -1,5 +1,6 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import { HeroComponent } from '../hero/hero.component';
 import { AboutComponent } from '../about/about.component';
 import { SkillsComponent } from '../skills/skills.component';
@@ -9,6 +10,7 @@ import { BlogsComponent } from '../blogs/blogs.component';
 import { CommunityComponent } from '../community/community.component';
 import { CameraDrawingComponent } from '../camera-drawing/camera-drawing.component';
 import { SeoService } from '@shared/services/seo.service';
+import { FragmentService } from '../../services/fragment.service';
 
 @Component({
   selector: 'app-home',
@@ -27,8 +29,12 @@ import { SeoService } from '@shared/services/seo.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit, AfterViewInit {
-  constructor(private seoService: SeoService) {}
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  constructor(
+    private seoService: SeoService,
+    private fragmentService: FragmentService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.seoService.updateTitle('Arshdeep Singh | Lead Software Developer & UI/UX Specialist');
@@ -41,13 +47,27 @@ export class HomeComponent implements OnInit, AfterViewInit {
       { property: 'og:url', content: 'https://arshdeepgrover.dev/' },
       { property: 'og:image', content: 'https://arshdeepgrover.dev/images/arshdeep-singh.png' }
     ]);
+
+    // Handle initial fragment from URL
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        setTimeout(() => {
+          this.fragmentService.scrollToFragment(fragment);
+        }, 1000);
+      }
+    });
   }
-
-
 
   ngAfterViewInit() {
     // Initialize animations after view is ready
     this.initializeAnimations();
+    
+    // Initialize fragment navigation
+    this.fragmentService.initializeFragmentNavigation();
+  }
+
+  ngOnDestroy() {
+    this.fragmentService.destroy();
   }
 
   private initializeAnimations() {
