@@ -42,8 +42,13 @@
 
   &:hover {
     // transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    border-color: rgba(255, 121, 85, 0.2);
+    box-shadow: 0 0 20px rgba(255, 121, 85, 0.35),
+      0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
+
+    // .card-image {
+    //   transform: scale(1.05);
+    // }
 
     .card-footer {
       .read-more {
