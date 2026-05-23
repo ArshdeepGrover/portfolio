@@ -53,3 +53,7 @@ Thumbs.db
 #cursor
 .cursor/
 .cursor/*
+
+# Agents
+.agents/
+.agents/*

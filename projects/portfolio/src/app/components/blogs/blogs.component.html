@@ -1,84 +1,53 @@
 <section id="blogs" class="blogs-section">
   <div class="blogs-container">
-    <div class="blogs-header">
-      <h2 class="blogs-title" data-aos="fade-up">
-        Latest <span class="title-highlight">Blogs</span>
-      </h2>
-      <p class="blogs-description" data-aos="fade-up" data-aos-delay="100">
-        Sharing insights, tutorials, and experiences from my development
-        journey.
+    <div class="blogs-header" data-aos="fade-up">
+      <h2 class="section-title">Latest <span class="highlight">Blogs</span></h2>
+      <p class="section-description">
+        Sharing insights, tutorials, and experiences from my development journey
       </p>
     </div>
 
     <div class="blogs-grid">
-      <div
+      <article
         *ngFor="let blog of blogs; let i = index"
         class="blog-card"
         [attr.data-aos]="'fade-up'"
         [attr.data-aos-delay]="i * 100"
         (click)="openBlog(blog.url)"
       >
-        <div class="blog-image-container">
-          <img [src]="blog.image" [alt]="blog.title" class="blog-image" />
-        </div>
-        <div class="blog-content">
-          <div class="blog-meta">
-            <span class="blog-date">{{ blog.date }}</span>
-            <span class="blog-read-time">{{ blog.readTime }} min read</span>
+        <div class="card-image-container">
+          <img
+            [src]="blog.image"
+            [alt]="blog.title"
+            class="card-image"
+            loading="lazy"
+          />
+          <div class="category-badge">
+            <span class="category-tag">{{ blog.tags[0] }}</span>
           </div>
+        </div>
+
+        <div class="card-content">
+          <div class="content-header">
+            <span class="blog-date">{{ blog.date }}</span>
+            <span class="blog-read-time">{{ blog.readTime }} min</span>
+          </div>
+
           <h3 class="blog-title">{{ blog.title }}</h3>
           <p class="blog-excerpt">{{ blog.excerpt }}</p>
-          <div class="blog-tags">
-            <span *ngFor="let tag of blog.tags" class="blog-tag">{{
-              tag
-            }}</span>
-          </div>
-          <a
-            [href]="blog.url"
-            target="_blank"
-            class="blog-link"
-            (click)="$event.stopPropagation()"
-          >
-            Read More
-            <svg
-              class="link-icon"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              ></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
 
-    <div class="blogs-cta" data-aos="fade-up">
-      <a
-        href="https://medium.com/@ArshdeepGrover"
-        target="_blank"
-        class="cta-button"
-      >
-        View All Articles
-        <svg
-          class="button-icon"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M17 8l4 4m0 0l-4 4m4-4H3"
-          ></path>
-        </svg>
-      </a>
+          <div class="card-footer">
+            <span class="read-more">Read Article</span>
+            <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>

@@ -1,3 +1,13 @@
+@keyframes arrowBounce {
+  0%,
+  100% {
+    transform: translateX(6px) scale(1.1);
+  }
+  50% {
+    transform: translateX(8px) scale(1.15);
+  }
+}
+
 .blogs-section {
   @apply py-20 bg-white dark:bg-gray-900;
 }
@@ -7,104 +17,103 @@
 }
 
 .blogs-header {
-  @apply text-center mb-16;
-}
+  @apply max-w-4xl mx-auto text-center mb-16;
 
-.blogs-title {
-  @apply text-3xl font-bold mb-6 text-gray-900 dark:text-white;
-}
+  .section-title {
+    @apply text-4xl font-bold mb-6 text-gray-900 dark:text-white;
 
-.title-highlight {
-  @apply text-primary;
-}
+    .highlight {
+      color: #ff7955;
+    }
+  }
 
-.blogs-description {
-  @apply text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto;
+  .section-description {
+    @apply text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto;
+  }
 }
 
 .blogs-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16;
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto;
 }
 
 .blog-card {
-  @apply bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 cursor-pointer;
+  @apply bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: 0 0 20px rgba(255, 121, 85, 0.4),
-      0 10px 25px -5px rgba(0, 0, 0, 0.1);
-    border-color: transparent;
+    // transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 121, 85, 0.2);
+
+    .card-footer {
+      .read-more {
+        color: #ff7955;
+        font-weight: 600;
+      }
+
+      .arrow-icon {
+        color: #ff7955;
+        transform: translateX(6px) scale(1.1);
+        animation: arrowBounce 0.6s ease-in-out;
+      }
+    }
   }
 }
 
-.blog-image-container {
+.card-image-container {
   @apply relative h-48 overflow-hidden;
+
+  .card-image {
+    @apply w-full h-full object-cover;
+    transition: transform 0.5s ease;
+  }
+
+  .category-badge {
+    @apply absolute top-4 left-4;
+
+    .category-tag {
+      @apply px-3 py-1 text-white text-xs font-semibold rounded-full shadow-lg;
+      background-color: #ff7955;
+      backdrop-filter: blur(8px);
+    }
+  }
 }
 
-.blog-image {
-  @apply w-full h-full object-cover;
-}
-
-.blog-category {
-  @apply absolute top-4 left-4 px-3 py-1 bg-primary text-white text-sm font-medium rounded-full;
-}
-
-.blog-content {
+.card-content {
   @apply p-6;
-}
 
-.blog-meta {
-  @apply flex justify-between items-center mb-3 text-sm text-gray-500 dark:text-gray-400;
-}
-
-.blog-date {
-  // No additional styles needed
-}
-
-.blog-read-time {
-  // No additional styles needed
-}
-
-.blog-title {
-  @apply text-xl font-bold mb-3 text-gray-900 dark:text-white;
-}
-
-.blog-excerpt {
-  @apply text-gray-600 dark:text-gray-300 mb-4 leading-relaxed;
-}
-
-.blog-tags {
-  @apply flex flex-wrap gap-2 mb-4;
-}
-
-.blog-tag {
-  @apply px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full;
-}
-
-.blog-link {
-  @apply inline-flex items-center text-primary font-medium transition-colors duration-300;
-
-  &:hover {
-    @apply text-primary-dark;
+  .content-header {
+    @apply flex justify-between items-center mb-3 text-sm text-gray-500 dark:text-gray-400;
   }
-}
 
-.link-icon {
-  @apply w-4 h-4 ml-1;
-}
-
-.blogs-cta {
-  @apply text-center;
-}
-
-.cta-button {
-  @apply inline-flex items-center px-8 py-3 bg-primary text-white font-semibold rounded-lg transition-colors duration-300;
-
-  &:hover {
-    @apply bg-primary-dark;
+  .blog-title {
+    @apply text-xl font-bold mb-3 text-gray-900 dark:text-white leading-tight;
+    transition: color 0.3s ease;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
-}
 
-.button-icon {
-  @apply w-5 h-5 ml-2;
+  .blog-excerpt {
+    @apply text-gray-600 dark:text-gray-300 mb-4 leading-relaxed;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-footer {
+    @apply flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700;
+
+    .read-more {
+      @apply text-sm font-medium text-gray-700 dark:text-gray-300;
+      transition: all 0.3s ease;
+    }
+
+    .arrow-icon {
+      @apply w-5 h-5 text-gray-400 dark:text-gray-500;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
 }

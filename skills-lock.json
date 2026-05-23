@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "skills": {
+    "blog-seo-check": {
+      "source": "agricidaniel/claude-blog",
+      "sourceType": "github",
+      "skillPath": "skills/blog-seo-check/SKILL.md",
+      "computedHash": "58c364816b818f6eaf78d409a935a24f4f4c32f548b4ef3d0da7e3e50f04077f"
+    },
+    "blog-writing-guide": {
+      "source": "getsentry/skills",
+      "sourceType": "github",
+      "skillPath": "skills/blog-writing-guide/SKILL.md",
+      "computedHash": "f885b9890d8a1c43e8ed0386e2ef2c17e941a403aa354513d6b844e99229ffb7"
+    },
+    "blogwatcher": {
+      "source": "steipete/clawdis",
+      "sourceType": "github",
+      "skillPath": "skills/blogwatcher/SKILL.md",
+      "computedHash": "4450088e99b1993dcf0fcdf6402ffeca1c62bb66c9cb85904f4816a0982bb78d"
+    },
+    "ckm:banner-design": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/banner-design/SKILL.md",
+      "computedHash": "7bbf0f48704f5c40436e3466d7ef9bcbafe35a84eb8c3e9d0ab76408a57bac5c"
+    },
+    "copywriting": {
+      "source": "kostja94/marketing-skills",
+      "sourceType": "github",
+      "skillPath": "skills/content/copywriting/SKILL.md",
+      "computedHash": "79162e47f9a2eabcff5b69a5347909463cdded2608be7d2886392f9f28a7cd17"
+    },
+    "google-search-console": {
+      "source": "kostja94/marketing-skills",
+      "sourceType": "github",
+      "skillPath": "skills/analytics/seo/google-search-console/SKILL.md",
+      "computedHash": "211104a946051497f2726df67d8ada3317542e47b720521c14dbc287aea29fc1"
+    },
+    "linkedin-posts": {
+      "source": "kostja94/marketing-skills",
+      "sourceType": "github",
+      "skillPath": "skills/platforms/linkedin/SKILL.md",
+      "computedHash": "d487f95483268a7571e4a1a3be63a888388277863ad95def651ed33ee53b2dbd"
+    },
+    "social-media": {
+      "source": "langchain-ai/deepagents",
+      "sourceType": "github",
+      "skillPath": "examples/content-builder-agent/skills/social-media/SKILL.md",
+      "computedHash": "ede71a9ae8de94bb9c4b633fb087a760b20ecb5fd4d0266f6ddd8934e03fbd84"
+    }
+  }
+}
