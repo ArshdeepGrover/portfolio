@@ -590,6 +590,59 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
+.card-actions {
+  @apply flex items-center gap-2 flex-shrink-0;
+}
+
+.copy-btn {
+  @apply w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0;
+  @apply transition-all duration-200 cursor-pointer;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.35);
+  opacity: 0;
+  transform: scale(0.85);
+
+  svg {
+    @apply w-3.5 h-3.5;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &.copied {
+    background: color-mix(in srgb, var(--brand, #7c3aed) 20%, transparent);
+    border-color: color-mix(in srgb, var(--brand, #7c3aed) 40%, transparent);
+    color: color-mix(in srgb, var(--brand, #7c3aed) 90%, white);
+
+    svg {
+      transform: scale(1.15);
+    }
+  }
+}
+
+// Show copy button when card is hovered
+.link-card:hover .copy-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+// Always visible on touch devices (no hover)
+@media (hover: none) {
+  .copy-btn {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .link-arrow {
   @apply w-4 h-4 flex-shrink-0 transition-all duration-300;
   color: rgba(255, 255, 255, 0.15);
