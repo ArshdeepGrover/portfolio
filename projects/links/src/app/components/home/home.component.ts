@@ -73,6 +73,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy, OnInit {
   };
 
   shareStatus: 'idle' | 'copied' = 'idle';
+  copiedId: number | null = null;
   searchQuery = '';
 
   visibleLinks = links
@@ -185,6 +186,32 @@ export class HomeComponent implements AfterViewInit, OnDestroy, OnInit {
         (card as HTMLElement).style.animation = `cardSlideIn 0.6s ease both`;
       });
     }, 100);
+  }
+
+  async copyLink(url: string, id: number, event: MouseEvent): Promise<void> {
+    event.preventDefault();
+    event.stopPropagation();
+
+    // Strip UTM params
+    try {
+      const parsed = new URL(url);
+      parsed.searchParams.forEach((_, key) => {
+        if (key.startsWith('utm_')) parsed.searchParams.delete(key);
+      });
+      url = parsed.toString();
+    } catch {
+      // fallback: use url as-is
+    }
+
+    try {
+      await navigator.clipboard.writeText(url);
+      this.copiedId = id;
+      setTimeout(() => {
+        if (this.copiedId === id) this.copiedId = null;
+      }, 2000);
+    } catch (err) {
+      console.error('Copy failed', err);
+    }
   }
 
   async onShare(): Promise<void> {
