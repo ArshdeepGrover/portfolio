@@ -4,7 +4,7 @@ export const services: IService[] = [
   {
     id: 5,
     title: 'Website Audit & Report',
-    description: 'Get a deep, data-driven analysis of your website — performance, SEO, accessibility, design and conversion. We deliver a beautifully formatted report with prioritized, actionable fixes you can ship today.',
+    description: 'Get a deep, data-driven analysis of your website performance, SEO, accessibility, design and conversion. We deliver a beautifully formatted report with prioritized, actionable fixes you can ship today.',
     icon: '📊',
     features: [
       'Performance & Core Web Vitals',

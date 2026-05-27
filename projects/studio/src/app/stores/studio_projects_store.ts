@@ -8,11 +8,11 @@ import { IStudioProject } from '@models/studio-project.model';
 export const studioProjects: IStudioProject[] = [
   {
     id: 1,
-    title: 'Active Rehab Clinic — Brand & Digital Identity',
+    title: 'Active Rehab Clinic Brand & Digital Identity',
     shortDescription:
-      'End-to-end brand and digital identity for a physiotherapy clinic in Dwarka, Delhi — built from scratch.',
+      'End-to-end brand and digital identity for a physiotherapy clinic in Dwarka, Delhi built from scratch.',
     description:
-      'Built the Active Rehab Clinic identity from the ground up: naming direction, logo, visual system, templates, and a complete digital presence. Shipped a patient-first marketing site covering musculoskeletal, neurological and sports rehabilitation, plus a dedicated Home Visit funnel for elderly and post-surgery patients — all unified under one consistent brand language.',
+      'Built the Active Rehab Clinic identity from the ground up: naming direction, logo, visual system, templates, and a complete digital presence. Shipped a patient-first marketing site covering musculoskeletal, neurological and sports rehabilitation, plus a dedicated Home Visit funnel for elderly and post-surgery patients all unified under one consistent brand language.',
     category: 'branding',
     technologies: [
       'Brand Strategy',
