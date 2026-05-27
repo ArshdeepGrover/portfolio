@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { HERO_STATS } from '@stores/stats_store';
 import { SeoService } from '@shared/services/seo.service';
@@ -38,6 +38,7 @@ export class SubmitProjectComponent implements AfterViewInit, OnInit {
   private http = inject(HttpClient);
   private route = inject(ActivatedRoute);
   private seoService = inject(SeoService);
+  private cdr = inject(ChangeDetectorRef);
 
   ngOnInit(): void {
     this.seoService.updateTitle('Start a Project | Studio.Arshdeep');
@@ -238,7 +239,29 @@ export class SubmitProjectComponent implements AfterViewInit, OnInit {
   }
 
   onSubmit() {
-    if (this.submitting) return;
+    console.log('Form submission started');
+    console.log('Form data:', this.formData);
+    console.log('Form valid check:', {
+      name: !!this.formData.name,
+      email: !!this.formData.email,
+      projectType: !!this.formData.projectType,
+      description: !!this.formData.description
+    });
+    
+    if (this.submitting) {
+      console.log('Already submitting, returning');
+      return;
+    }
+    
+    // Basic validation
+    if (!this.formData.name || !this.formData.email || !this.formData.projectType || !this.formData.description) {
+      console.log('Form validation failed');
+      this.error = true;
+      setTimeout(() => (this.error = false), 5000);
+      return;
+    }
+    
+    console.log('Setting submitting to true');
     this.submitting = true;
     this.error = false;
 
@@ -253,33 +276,42 @@ export class SubmitProjectComponent implements AfterViewInit, OnInit {
     formData.append('description', this.formData.description);
     formData.append('referenceLinks', this.formData.referenceLinks);
 
+    console.log('Sending form data to web3forms');
+    
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: formData,
     })
       .then(async (response: Response) => {
+        console.log('Submit project response:', { ok: response.ok, status: response.status });
+        
         if (response.ok) {
+          console.log('Setting submitted to true');
           this.submitted = true;
           this.submitting = false;
+          console.log('Final state - Submitted:', this.submitted, 'Submitting:', this.submitting);
+          this.cdr.detectChanges(); // Force change detection
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-          alert('Something went wrong. You can reach out from links.arshdeepgrover.dev');
+          console.error('Form submission failed:', response.status);
           this.error = true;
           this.submitting = false;
-          setTimeout(() => (this.error = false), 5000);
+          this.cdr.detectChanges(); // Force change detection
         }
       })
       .catch((error: any) => {
         console.error('Submission error:', error);
-        alert('Something went wrong. You can reach out from links.arshdeepgrover.dev');
         this.error = true;
         this.submitting = false;
-        setTimeout(() => (this.error = false), 5000);
+        this.cdr.detectChanges(); // Force change detection
       });
   }
 
   resetForm() {
+    console.log('Resetting form');
     this.submitted = false;
+    this.submitting = false;
+    this.error = false;
     this.formData = {
       name: '',
       email: '',

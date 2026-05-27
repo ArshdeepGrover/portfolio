@@ -1,0 +1,331 @@
+// Base Section
+.section {
+  @apply min-h-screen py-16 px-4;
+}
+
+// Header
+.testimonial-header {
+  @apply text-center mb-12;
+}
+
+.back-link {
+  @apply inline-flex items-center gap-2 text-gray-400 no-underline text-sm font-medium mb-8 transition-colors duration-300;
+  
+  svg {
+    @apply w-4 h-4;
+  }
+  
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.section-tag {
+  @apply text-sm font-semibold tracking-widest uppercase mb-4;
+  color: var(--primary-color);
+  letter-spacing: 0.2em;
+}
+
+.testimonial-title {
+  @apply text-3xl md:text-4xl font-black mb-6 mt-10 text-primary-500;
+  letter-spacing: -0.02em;
+}
+
+.testimonial-desc {
+  @apply text-gray-400 leading-relaxed max-w-2xl mx-auto mb-12;
+}
+
+// Success Page
+.success-page {
+  @apply min-h-screen flex items-center justify-center;
+}
+
+.success-content {
+  @apply text-center max-w-md mx-auto;
+}
+
+.success-animation {
+  @apply mb-8;
+}
+
+.checkmark {
+  @apply w-20 h-20 mx-auto mb-6;
+  
+  svg {
+    @apply w-full h-full;
+  }
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #22c55e;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-width: 3;
+  stroke: #22c55e;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.success-title {
+  @apply text-3xl font-bold mb-4;
+  color: #22c55e;
+}
+
+.success-message {
+  @apply text-gray-400 leading-relaxed mb-8;
+}
+
+.success-actions {
+  @apply space-y-4;
+}
+
+.home-btn {
+  @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  
+  svg {
+    @apply w-5 h-5;
+  }
+  
+  &:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+}
+
+.redirect-text {
+  @apply text-sm text-gray-500;
+}
+
+.countdown {
+  @apply font-semibold;
+  color: var(--primary-color);
+}
+
+// Form
+.testimonial-form-wrapper {
+  @apply p-8 rounded-2xl block;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.testimonial-form {
+  @apply space-y-8 block;
+}
+
+.form-section {
+  @apply space-y-6 block;
+}
+
+.section-title {
+  @apply text-lg font-semibold mb-4 pb-2 block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+  @apply space-y-2 block;
+}
+
+.form-row {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.form-label {
+  @apply text-sm font-medium block;
+}
+
+.required {
+  @apply text-red-400;
+}
+
+// Form Inputs
+.form-input {
+  @apply w-full px-4 py-3 rounded-xl text-sm transition-all duration-300 outline-none block;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: inherit;
+
+  &::placeholder {
+    @apply text-gray-500;
+  }
+
+  &:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 121, 85, 0.1);
+  }
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+.char-count {
+  @apply text-xs text-gray-500 text-right block;
+}
+
+// Rating Stars
+.rating-container {
+  @apply flex flex-col sm:flex-row sm:items-center gap-3;
+}
+
+.stars {
+  @apply flex gap-1;
+}
+
+.star {
+  @apply bg-transparent border-none text-2xl text-gray-600 cursor-pointer transition-all duration-200 p-1;
+  
+  &:hover,
+  &.active {
+    @apply text-yellow-400 scale-110;
+  }
+}
+
+.rating-text {
+  @apply text-sm font-medium;
+  color: var(--primary-color);
+}
+
+// Radio Group
+.radio-group {
+  @apply flex flex-col sm:flex-row gap-4;
+}
+
+.radio-option {
+  @apply flex items-center gap-3 cursor-pointer;
+}
+
+.radio-input {
+  @apply absolute opacity-0 pointer-events-none;
+}
+
+.radio-custom {
+  @apply w-5 h-5 rounded-full border-2 border-gray-600 bg-transparent relative transition-all duration-200;
+  
+  .radio-input:checked + & {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    
+    &::after {
+      content: '';
+      @apply absolute top-1/2 left-1/2 w-2 h-2 bg-white rounded-full;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.radio-label {
+  @apply text-sm font-medium;
+}
+
+// Checkbox
+.checkbox-container {
+  @apply flex items-start gap-3 cursor-pointer;
+}
+
+.checkbox-input {
+  @apply absolute opacity-0 pointer-events-none;
+}
+
+.checkbox-custom {
+  @apply w-5 h-5 rounded border-2 border-gray-600 bg-transparent flex items-center justify-center transition-all duration-200 flex-shrink-0 mt-0.5;
+  
+  .checkbox-input:checked + & {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    
+    &::after {
+      content: '✓';
+      @apply text-white text-xs font-bold;
+    }
+  }
+}
+
+.checkbox-text {
+  @apply text-sm leading-relaxed;
+}
+
+// Error Message
+.error-message {
+  @apply flex items-start gap-3 p-4 rounded-xl text-sm block;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  
+  svg {
+    @apply w-5 h-5 flex-shrink-0 mt-0.5;
+  }
+  
+  a {
+    @apply underline font-medium;
+    color: inherit;
+  }
+}
+
+// Submit Button
+.submit-btn {
+  @apply w-full py-4 rounded-xl text-white font-semibold text-base cursor-pointer transition-all duration-300 border-none block;
+  background: var(--primary-color);
+
+  &:hover:not(:disabled) {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+
+  &.submitted {
+    background: #22c55e;
+  }
+
+  &.error {
+    background: #ef4444;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+// Light Mode
+:host-context(.light) {
+  .testimonial-desc { @apply text-gray-600; }
+  .back-link { @apply text-gray-500; }
+  .testimonial-form-wrapper {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  .section-title {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  .form-input {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+  .radio-custom {
+    border-color: rgba(0, 0, 0, 0.3);
+  }
+  .checkbox-custom {
+    border-color: rgba(0, 0, 0, 0.3);
+  }
+  .char-count { @apply text-gray-400; }
+}

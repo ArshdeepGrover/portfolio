@@ -1,0 +1,254 @@
+<section class="section">
+  <div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="testimonial-header" data-aos="fade-up">
+      <!-- <a routerLink="/" class="back-link">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M19 12H5M12 5l-7 7 7 7" />
+        </svg>
+        Back to Studio
+      </a> -->
+
+      <!-- <p class="section-tag">Testimonials</p> -->
+      <h1 class="testimonial-title">Share Your Experience</h1>
+      <!-- <p class="testimonial-desc">
+        Your feedback helps others understand what it's like to work with me.
+        All fields marked with * are required.
+      </p> -->
+    </div>
+
+    <!-- Success State -->
+    <div *ngIf="submitted" class="success-page">
+      <div class="success-content">
+        <div class="success-animation">
+          <div class="checkmark">
+            <svg viewBox="0 0 52 52">
+              <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+              <path class="checkmark-check" fill="none" d="m14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+        </div>
+        
+        <h2 class="success-title">Thank You!</h2>
+        <p class="success-message">
+          Your testimonial has been submitted successfully. I appreciate you taking the time to share your experience.
+        </p>
+        
+        <div class="success-actions">
+          <button (click)="goHome()" class="home-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+            Back to Home
+          </button>
+          
+          <p class="redirect-text">
+            Redirecting to home page in <span class="countdown">{{ countdown }}</span> seconds...
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div *ngIf="!submitted" class="testimonial-form-wrapper" data-aos="fade-up">
+      <form class="testimonial-form" (ngSubmit)="onSubmit()" novalidate>
+        <!-- Personal Information -->
+        <div class="form-section">
+          <h3 class="section-title">About You</h3>
+
+          <div class="form-group">
+            <label class="form-label" for="name">
+              Full Name <span class="required">*</span>
+            </label>
+            <input
+              id="name"
+              type="text"
+              class="form-input"
+              placeholder="Enter your full name"
+              [(ngModel)]="formData.name"
+              name="name"
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="role"> Your Role </label>
+              <input
+                id="role"
+                type="text"
+                class="form-input"
+                placeholder="e.g., CEO, Designer, Developer"
+                [(ngModel)]="formData.role"
+                name="role"
+                autocomplete="organization-title"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="company"> Company </label>
+              <input
+                id="company"
+                type="text"
+                class="form-input"
+                placeholder="e.g., Acme Inc."
+                [(ngModel)]="formData.company"
+                name="company"
+                autocomplete="organization"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Information -->
+        <div class="form-section">
+          <h3 class="section-title">Project Details</h3>
+
+          <div class="form-group">
+            <label class="form-label" for="service"> Service Type </label>
+            <select
+              id="service"
+              class="form-input"
+              [(ngModel)]="formData.service"
+              name="service"
+            >
+              <option value="" disabled>Select the service we worked on</option>
+              <option *ngFor="let service of serviceOptions" [value]="service">
+                {{ service }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              Overall Rating <span class="required">*</span>
+            </label>
+            <div class="rating-container">
+              <div class="stars">
+                <button
+                  *ngFor="let star of stars"
+                  type="button"
+                  class="star"
+                  [class.active]="star <= activeRating"
+                  (click)="setRating(star)"
+                  (mouseenter)="setHover(star)"
+                  (mouseleave)="clearHover()"
+                  [attr.aria-label]="star + ' stars'"
+                >
+                  ★
+                </button>
+              </div>
+              <span class="rating-text" *ngIf="rating > 0">
+                {{ ratingLabels[rating] }} ({{ rating }}/5)
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial -->
+        <div class="form-section">
+          <h3 class="section-title">Your Testimonial</h3>
+
+          <div class="form-group">
+            <label class="form-label" for="message">
+              Your Experience <span class="required">*</span>
+            </label>
+            <textarea
+              id="message"
+              class="form-input form-textarea"
+              placeholder="Share your experience working with me. What did you like? How did the project go? Would you recommend my services?"
+              [(ngModel)]="formData.message"
+              name="message"
+              rows="5"
+              required
+            ></textarea>
+            <div class="char-count">{{ formData.message.length }}/500</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"> Would you work with me again? </label>
+            <div class="radio-group">
+              <label
+                *ngFor="let option of workAgainOptions"
+                class="radio-option"
+              >
+                <input
+                  type="radio"
+                  class="radio-input"
+                  [value]="option.value"
+                  [(ngModel)]="formData.workAgain"
+                  name="workAgain"
+                />
+                <span class="radio-custom"></span>
+                <span class="radio-label">{{ option.label }}</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Permissions -->
+        <div class="form-group">
+          <label class="checkbox-container">
+            <input
+              type="checkbox"
+              class="checkbox-input"
+              [(ngModel)]="formData.permission"
+              name="permission"
+              required
+            />
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-text">
+              I give permission to display my name and testimonial publicly on
+              the website.
+              <span class="required">*</span>
+            </span>
+          </label>
+        </div>
+
+        <!-- Error Message -->
+        <div *ngIf="error" class="error-message">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="15" y1="9" x2="9" y2="15" />
+            <line x1="9" y1="9" x2="15" y2="15" />
+          </svg>
+          Something went wrong. Please try again or email me directly at
+          <a href="mailto:arshdeepgrover.dev&#64;gmail.com"
+            >arshdeepgrover.dev&#64;gmail.com</a
+          >
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="submit-btn"
+          [class.submitted]="submitted"
+          [class.error]="error"
+          [disabled]="!isValid || submitting"
+        >
+          {{
+            submitting
+              ? "Sending..."
+              : submitted
+                ? "Message Sent! ✓"
+                : error
+                  ? "Failed to send. Try again."
+                  : "Submit Testimonial"
+          }}
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
