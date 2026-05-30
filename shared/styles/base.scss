@@ -16,11 +16,16 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .dark {
@@ -31,20 +36,73 @@ body {
   @apply bg-white text-gray-900;
 }
 
-// Scrollbar
-::-webkit-scrollbar { width: 4px; }
-// ::-webkit-scrollbar-track { background: #111; }
-::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 4px; }
+// Mobile-optimized scrollbar
+::-webkit-scrollbar { 
+  width: 3px;
+  @media (min-width: 768px) {
+    width: 4px;
+  }
+}
+::-webkit-scrollbar-thumb { 
+  background: var(--primary-color); 
+  border-radius: 4px; 
+}
 
-// Section utilities
+// Section utilities with mobile-first approach
 .section {
-  @apply py-20 px-6;
+  @apply py-12 px-4;
+  
+  @media (min-width: 640px) {
+    @apply px-6;
+  }
+  
+  @media (min-width: 768px) {
+    @apply py-16;
+  }
+  
+  @media (min-width: 1024px) {
+    @apply py-20;
+  }
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-bold mb-4;
+  @apply text-2xl font-bold mb-3;
+  
+  @media (min-width: 640px) {
+    @apply text-3xl mb-4;
+  }
+  
+  @media (min-width: 768px) {
+    @apply text-4xl;
+  }
 }
 
 .section-subtitle {
-  @apply text-gray-400 text-lg max-w-2xl;
+  @apply text-gray-400 text-base max-w-2xl;
+  
+  @media (min-width: 768px) {
+    @apply text-lg;
+  }
+}
+
+// Performance optimizations
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+// Reduce motion for users who prefer it
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
 }

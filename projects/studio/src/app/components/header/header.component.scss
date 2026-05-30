@@ -1,18 +1,23 @@
 .header {
-  @apply fixed top-0 left-0 right-0 z-50 transition-all duration-500;
+  @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
   background: transparent;
+  will-change: background-color, backdrop-filter;
 
   &.scrolled {
-    background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.04);
   }
 }
 
 .nav {
-  @apply max-w-7xl mx-auto px-6 py-5 flex items-center justify-between;
-  transition: padding 0.4s ease;
+  @apply max-w-7xl mx-auto px-4 py-4 flex items-center justify-between;
+  transition: padding 0.3s ease;
+
+  @media (min-width: 640px) {
+    @apply px-6;
+  }
 
   .scrolled & {
     @apply py-3;
@@ -20,17 +25,21 @@
 }
 
 .logo {
-  @apply text-xl font-extrabold text-white no-underline cursor-pointer tracking-tight;
+  @apply text-lg font-extrabold text-white no-underline cursor-pointer tracking-tight;
   letter-spacing: -0.02em;
+  
+  @media (min-width: 640px) {
+    @apply text-xl;
+  }
 
   .logo-dot {
     color: var(--primary-color);
     display: inline-block;
-    transition: transform 0.3s;
+    transition: transform 0.2s ease;
   }
 
   &:hover .logo-dot {
-    transform: scale(1.4);
+    transform: scale(1.2);
   }
 }
 
@@ -42,7 +51,11 @@
 }
 
 .nav-link {
-  @apply text-gray-400 transition-all duration-300 cursor-pointer text-[13px] font-medium px-4 py-2 rounded-full;
+  @apply text-gray-400 transition-all duration-200 cursor-pointer text-xs font-medium px-3 py-2 rounded-full;
+  
+  @media (min-width: 1280px) {
+    @apply text-sm px-4;
+  }
 
   &:hover {
     @apply text-white;
@@ -51,10 +64,11 @@
 }
 
 .theme-toggle {
-  @apply bg-transparent border-none cursor-pointer p-2 rounded-full transition-all duration-300 mx-1;
+  @apply bg-transparent border-none cursor-pointer p-2 rounded-full transition-all duration-200;
+  
   &:hover {
     @apply bg-white/10;
-    transform: rotate(30deg);
+    transform: rotate(15deg);
   }
 }
 
@@ -63,72 +77,143 @@
 }
 
 .cta-button {
-  @apply px-5 py-2 rounded-full text-white text-[13px] font-semibold cursor-pointer transition-all duration-300;
+  @apply px-4 py-2 rounded-full text-white text-xs font-semibold cursor-pointer transition-all duration-200;
   background: var(--primary-color);
-  box-shadow: 0 0 20px rgba(255, 121, 85, 0.15);
+  box-shadow: 0 0 15px rgba(255, 121, 85, 0.15);
+  
+  @media (min-width: 1280px) {
+    @apply px-5 text-sm;
+  }
 
   &:hover {
     background: var(--primary-dark);
     transform: translateY(-1px);
-    box-shadow: 0 4px 24px rgba(255, 121, 85, 0.3);
+    box-shadow: 0 4px 20px rgba(255, 121, 85, 0.25);
   }
 }
 
 .mobile-controls {
-  @apply flex lg:hidden items-center gap-2;
+  @apply flex lg:hidden items-center gap-1;
 }
 
 .mobile-menu-toggle {
-  @apply bg-transparent border-none cursor-pointer p-2.5 rounded-xl transition-colors;
-  &:hover { @apply bg-white/5; }
+  @apply bg-transparent border-none cursor-pointer p-2 rounded-xl transition-colors duration-200;
+  
+  &:hover { 
+    @apply bg-white/5; 
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
 .menu-icon {
-  @apply w-5 h-5 text-white;
+  @apply w-5 h-5 text-white transition-transform duration-200;
 }
 
 .mobile-menu {
-  @apply hidden flex-col items-center gap-2 py-6 px-4 lg:hidden;
+  @apply hidden flex-col items-center gap-1 py-4 px-4 lg:hidden;
   background: rgba(10, 10, 10, 0.98);
   backdrop-filter: blur(24px);
   border-top: 1px solid rgba(255, 255, 255, 0.04);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
 
   &.mobile-menu-open {
     @apply flex;
+    max-height: 400px;
     animation: slideDown 0.3s ease-out;
   }
 }
 
 .mobile-nav-link {
-  @apply text-gray-300 text-base cursor-pointer transition-all duration-300 py-3 px-6 rounded-xl w-full text-center;
-
+  @apply text-gray-300 text-base cursor-pointer transition-all duration-200 py-2 px-4 rounded-lg w-full text-center;
+  
   &:hover {
     color: var(--primary-color);
     background: rgba(255, 121, 85, 0.05);
   }
+  
+  &:active {
+    transform: scale(0.98);
+  }
 }
 
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateY(-10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
+// Light mode optimizations
 :host-context(.light) {
   .header.scrolled {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.06);
   }
-  .logo { @apply text-gray-900; }
+  
+  .logo { 
+    @apply text-gray-900; 
+  }
+  
   .desktop-nav {
     background: rgba(0, 0, 0, 0.03);
     border-color: rgba(0, 0, 0, 0.06);
   }
+  
   .nav-link {
     @apply text-gray-500;
-    &:hover { @apply text-gray-900; background: rgba(0, 0, 0, 0.04); }
+    
+    &:hover { 
+      @apply text-gray-900; 
+      background: rgba(0, 0, 0, 0.04); 
+    }
   }
-  .theme-icon { @apply text-gray-500; }
-  .menu-icon { @apply text-gray-900; }
-  .mobile-menu { background: rgba(255, 255, 255, 0.98); border-top-color: rgba(0, 0, 0, 0.06); }
-  .mobile-nav-link { @apply text-gray-600; }
+  
+  .theme-icon { 
+    @apply text-gray-500; 
+  }
+  
+  .menu-icon { 
+    @apply text-gray-900; 
+  }
+  
+  .mobile-menu { 
+    background: rgba(255, 255, 255, 0.98); 
+    border-top-color: rgba(0, 0, 0, 0.06); 
+  }
+  
+  .mobile-nav-link { 
+    @apply text-gray-600; 
+  }
+}
+
+// Mobile-specific optimizations
+@media (max-width: 640px) {
+  .header {
+    backdrop-filter: blur(15px);
+  }
+  
+  .nav {
+    @apply px-3;
+  }
+  
+  .logo {
+    @apply text-base;
+  }
+  
+  .mobile-menu {
+    @apply py-3;
+  }
+  
+  .mobile-nav-link {
+    @apply text-sm py-2;
+  }
 }

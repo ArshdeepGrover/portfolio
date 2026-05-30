@@ -1,0 +1,31 @@
+// Mobile-optimized app styles
+:host {
+  display: block;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+main {
+  min-height: calc(100vh - 140px);
+  padding-top: 70px;
+  
+  @media (min-width: 768px) {
+    padding-top: 80px;
+  }
+}
+
+// Performance optimizations
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+// Smooth scrolling for mobile
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
