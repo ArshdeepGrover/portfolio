@@ -1,0 +1,72 @@
+<div class="cs-page section">
+
+  <!-- Header -->
+  <div class="cs-header" data-aos="fade-up">
+    <p class="section-tag">Real Work. Real Results.</p>
+    <h1 class="cs-title">Case Studies</h1>
+    <p class="cs-subtitle">
+      A look at client projects — the problems we solved, how we solved them,
+      and the outcomes that followed.
+    </p>
+  </div>
+
+  <!-- Loading -->
+  <div class="cs-grid" *ngIf="loading">
+    <div class="cs-skeleton" *ngFor="let i of [1,2,3]"></div>
+  </div>
+
+  <!-- Grid -->
+  <div class="cs-grid" *ngIf="!loading && caseStudies.length > 0">
+    <a
+      *ngFor="let cs of caseStudies; let i = index"
+      [routerLink]="['/case-study', cs.slug]"
+      class="cs-card"
+      data-aos="fade-up"
+      [attr.data-aos-delay]="i * 100"
+    >
+      <!-- Cover -->
+      <div class="cs-cover">
+        <img *ngIf="cs.coverImage" [src]="cs.coverImage" [alt]="cs.title" class="cs-cover-img" loading="lazy"/>
+        <div *ngIf="!cs.coverImage" class="cs-cover-placeholder">
+          <span>{{ cs.title.charAt(0) }}</span>
+        </div>
+        <div class="cs-cover-overlay"></div>
+
+        <!-- Services -->
+        <div class="cs-badges">
+          <span *ngFor="let s of cs.services?.slice(0, 2)" class="cs-badge">{{ s }}</span>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="cs-body">
+        <div class="cs-client" *ngIf="cs.clientName || cs.clientCompany">
+          <span class="cs-client-ico">👤</span>
+          {{ cs.clientName }}{{ cs.clientCompany ? ' · ' + cs.clientCompany : '' }}
+        </div>
+
+        <h3 class="cs-name">{{ cs.title }}</h3>
+        <p class="cs-summary">{{ cs.summary }}</p>
+
+        <div class="cs-tech" *ngIf="cs.techStack?.length">
+          <span *ngFor="let t of cs.techStack.slice(0, 4)" class="cs-tech-tag">{{ t }}</span>
+        </div>
+
+        <div class="cs-cta">
+          View case study
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Empty -->
+  <div class="cs-empty" *ngIf="!loading && caseStudies.length === 0" data-aos="fade-up">
+    <p>Case studies coming soon.</p>
+    <a routerLink="/contact" class="resume-btn">Start a project</a>
+  </div>
+
+</div>

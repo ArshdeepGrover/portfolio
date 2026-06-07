@@ -16,5 +16,15 @@ export const routes: Routes = [
       ),
   },
   { path: 'testimonials', component: TestimonialFormComponent },
+  {
+    path: 'case-studies',
+    loadComponent: () =>
+      import('./components/case-studies/case-studies.component').then(m => m.CaseStudiesComponent),
+  },
+  {
+    path: 'case-study/:slug',
+    loadComponent: () =>
+      import('./components/case-study-detail/case-study-detail.component').then(m => m.CaseStudyDetailComponent),
+  },
   { path: '**', redirectTo: '' },
 ];

@@ -1,3 +1,4 @@
 {
+  "_comment": "Each app is deployed as a separate Vercel project. See individual vercel.json in each project folder.",
   "redirects": []
 }

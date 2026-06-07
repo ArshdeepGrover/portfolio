@@ -1,0 +1,8 @@
+:host { display: block; }
+
+.main-content {
+  padding-top: 80px;
+  min-height: 100vh;
+  background: var(--bg);
+  transition: background-color 0.3s ease;
+}

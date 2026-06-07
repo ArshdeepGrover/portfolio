@@ -1,0 +1,124 @@
+<!-- Reading Progress -->
+<div class="reading-progress" [style.width.%]="progress"></div>
+
+<!-- Loading -->
+<div class="loading" *ngIf="loading">
+  <div class="container">
+    <div class="loading-back"></div>
+    <div class="loading-badge"></div>
+    <div class="loading-title"></div>
+    <div class="loading-title short"></div>
+    <div class="loading-meta"></div>
+    <div class="loading-cover"></div>
+    <div class="loading-content">
+      <div class="loading-text" *ngFor="let i of [1,2,3,4,5,6]"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Article -->
+<article class="article" *ngIf="blog && !loading">
+  <div class="container">
+    <!-- Back nav -->
+    <nav class="nav">
+      <a routerLink="/" class="back">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        All articles
+      </a>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="header">
+      <div class="header-meta">
+        <span *ngIf="blog.category?.name" class="badge category-badge">
+          {{ blog.category!.name }}
+        </span>
+        <span *ngIf="blog.series?.name" class="badge series-badge">
+          {{ blog.series!.name }}{{ blog.seriesPart ? ' · Part ' + blog.seriesPart : '' }}
+        </span>
+      </div>
+
+      <h1 class="title">{{ blog.title }}</h1>
+
+      <div class="meta-row">
+        <div class="meta-left">
+          <time class="meta-date">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            {{ blog.date | date:'MMMM d, yyyy' }}
+          </time>
+          <span class="meta-read" *ngIf="blog.readTime">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            {{ blog.readTime }} min read
+          </span>
+        </div>
+        <button (click)="shareArticle()" class="share-btn" aria-label="Share article">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+          </svg>
+          Share
+        </button>
+      </div>
+
+      <div class="tags" *ngIf="blog.tags?.length">
+        <span *ngFor="let tag of blog.tags" class="tag">
+          {{ tag.name }}
+        </span>
+      </div>
+    </header>
+
+    <!-- Cover Image -->
+    <div class="cover" *ngIf="blog.image">
+      <img [src]="blog.image" [alt]="blog.title" />
+    </div>
+
+    <!-- Article Content -->
+    <div class="content">
+      <div class="excerpt" *ngIf="blog.excerpt">
+        {{ blog.excerpt }}
+      </div>
+
+      <div
+        *ngIf="renderedContent"
+        [innerHTML]="renderedContent"
+        class="prose"
+      ></div>
+
+      <div *ngIf="!renderedContent" class="external">
+        <div class="external-icon">
+          <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </div>
+        <p>This article is hosted on an external platform.</p>
+        <a (click)="openExternal()" class="external-link">
+          Continue reading →
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom nav -->
+    <div class="article-footer">
+      <a routerLink="/" class="footer-back">← Back to all articles</a>
+    </div>
+  </div>
+</article>
+
+<!-- Not Found -->
+<div class="not-found" *ngIf="!blog && !loading">
+  <div class="container">
+    <div class="not-found-icon">
+      <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+    </div>
+    <p class="not-found-title">Article not found</p>
+    <p class="not-found-sub">The article you’re looking for doesn’t exist or has been removed.</p>
+    <a routerLink="/" class="not-found-link">← Back to articles</a>
+  </div>
+</div>

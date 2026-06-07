@@ -1,0 +1,131 @@
+<!-- Loading -->
+<div class="csd-loading section" *ngIf="loading">
+  <div class="skel-title"></div>
+  <div class="skel-img"></div>
+  <div class="skel-lines"><div *ngFor="let i of [1,2,3,4]" class="skel-line"></div></div>
+</div>
+
+<!-- Detail -->
+<div class="csd-page" *ngIf="cs && !loading">
+
+  <!-- Header -->
+  <header class="csd-header section">
+    <div class="max-w-5xl mx-auto">
+      <a routerLink="/case-studies" class="back-link" data-aos="fade-up">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        All Case Studies
+      </a>
+
+      <div class="csd-meta" data-aos="fade-up">
+        <span *ngIf="cs.industry" class="industry-tag">{{ cs.industry }}</span>
+        <span *ngIf="cs.duration" class="meta-item">⏱ {{ cs.duration }}</span>
+      </div>
+
+      <h1 class="csd-title" data-aos="fade-up">{{ cs.title }}</h1>
+
+      <div class="client-row" *ngIf="cs.clientName" data-aos="fade-up">
+        <span class="client-label">Client</span>
+        <span class="client-value">{{ cs.clientName }}{{ cs.clientRole ? ', ' + cs.clientRole : '' }}{{ cs.clientCompany ? ' · ' + cs.clientCompany : '' }}</span>
+      </div>
+
+      <!-- Services + Tech -->
+      <div class="tag-rows" data-aos="fade-up">
+        <div class="tag-row" *ngIf="cs.services?.length">
+          <span class="tag-row-label">Services</span>
+          <div class="tags"><span *ngFor="let s of cs.services" class="service-tag">{{ s }}</span></div>
+        </div>
+        <div class="tag-row" *ngIf="cs.techStack?.length">
+          <span class="tag-row-label">Tech Stack</span>
+          <div class="tags"><span *ngFor="let t of cs.techStack" class="tech-tag">{{ t }}</span></div>
+        </div>
+      </div>
+
+      <a *ngIf="cs.liveUrl" [href]="cs.liveUrl" target="_blank" rel="noopener" class="live-btn" data-aos="fade-up">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+        </svg>
+        View Live Site
+      </a>
+    </div>
+  </header>
+
+  <!-- Cover image -->
+  <div class="csd-cover" *ngIf="cs.coverImage" data-aos="zoom-in">
+    <div class="max-w-5xl mx-auto px-6">
+      <img [src]="cs.coverImage" [alt]="cs.title" class="cover-img"/>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="csd-content section">
+    <div class="max-w-3xl mx-auto">
+
+      <!-- Challenge → Solution → Results -->
+      <div class="content-block" *ngIf="cs.challenge" data-aos="fade-up">
+        <h2 class="block-title">
+          <span class="block-icon">🎯</span> The Challenge
+        </h2>
+        <p class="block-text">{{ cs.challenge }}</p>
+      </div>
+
+      <div class="content-block" *ngIf="cs.solution" data-aos="fade-up">
+        <h2 class="block-title">
+          <span class="block-icon">⚡</span> The Solution
+        </h2>
+        <p class="block-text">{{ cs.solution }}</p>
+      </div>
+
+      <!-- Metrics -->
+      <div class="results-section" *ngIf="cs.results?.length" data-aos="fade-up">
+        <h2 class="block-title">
+          <span class="block-icon">📈</span> Results
+        </h2>
+        <div class="metrics-grid">
+          <div *ngFor="let m of cs.results" class="metric-card">
+            <span class="metric-icon" *ngIf="m.icon">{{ m.icon }}</span>
+            <span class="metric-value">{{ m.value }}</span>
+            <span class="metric-label">{{ m.label }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery -->
+      <div class="gallery-section" *ngIf="cs.gallery?.length" data-aos="fade-up">
+        <h2 class="block-title"><span class="block-icon">🖼</span> Gallery</h2>
+        <div class="gallery-grid">
+          <img *ngFor="let img of cs.gallery" [src]="img" [alt]="cs.title" class="gallery-img" loading="lazy"/>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="testimonial-block" *ngIf="cs.testimonialQuote" data-aos="fade-up">
+        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M14.017 21v-7.391C14.017 10.69 16.187 8.094 20 7.5v2c-2.5.5-3.983 2.083-3.983 4.109V21h-2zm-8 0v-7.391C6.017 10.69 8.187 8.094 12 7.5v2C9.5 10 8.017 11.583 8.017 13.609V21h-2z"/>
+        </svg>
+        <blockquote class="quote-text">{{ cs.testimonialQuote }}</blockquote>
+        <cite class="quote-author" *ngIf="cs.testimonialAuthor">— {{ cs.testimonialAuthor }}</cite>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="csd-cta section" data-aos="fade-up">
+    <div class="max-w-xl mx-auto text-center cta-card">
+      <h3>Have a similar project in mind?</h3>
+      <p>Let's talk about what we can build together.</p>
+      <a routerLink="/contact" class="resume-btn">Start a conversation</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Not found -->
+<div class="not-found section" *ngIf="!cs && !loading">
+  <p>Case study not found.</p>
+  <a routerLink="/case-studies" class="back-link">← All case studies</a>
+</div>
