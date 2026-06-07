@@ -25,7 +25,7 @@ export class BlogCardComponent {
     event.stopPropagation();
     event.preventDefault();
 
-    const url = `${window.location.origin}/blog/${this.blog.slug}`;
+    const url = `${window.location.origin}/${this.blog.slug}`;
     const shareData = {
       title: this.blog.title,
       text: this.blog.excerpt || 'Check out this article',
