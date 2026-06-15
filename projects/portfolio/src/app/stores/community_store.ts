@@ -18,7 +18,8 @@ export const communityEntries: ICommunityEntry[] = [
     organizer: 'Meerut Coders',
     date: 'Aug 2025',
     location: 'Online',
-    description: 'Delivered a free online webinar introducing AI concepts and practical tools to developers in the Meerut Coders community.',
+    description:
+      'Delivered a free online webinar introducing AI concepts and practical tools to developers in the Meerut Coders community.',
     type: 'speaking',
   },
   {
@@ -28,7 +29,8 @@ export const communityEntries: ICommunityEntry[] = [
     organizer: 'GDG Cloud New Delhi (in partnership with Agora)',
     date: 'Nov 2025',
     location: 'Online',
-    description: 'Mentored teams at a 24-hour online hackathon, guiding participants on architecture, tech stack choices, and product thinking.',
+    description:
+      'Mentored teams at a 24-hour online hackathon, guiding participants on architecture, tech stack choices, and product thinking.',
     type: 'volunteering',
   },
   {
@@ -37,8 +39,9 @@ export const communityEntries: ICommunityEntry[] = [
     event: 'HackNagpur 2.0',
     organizer: 'GDG Nagpur',
     date: 'Jan 2026',
-    location: 'Nagpur',
-    description: 'Mentored at the 24-hour Adaptive Systems Challenge hackathon, helping teams tackle complex problem statements with scalable solutions.',
+    location: 'Online',
+    description:
+      'Mentored at the 24-hour Adaptive Systems Challenge hackathon, helping teams tackle complex problem statements with scalable solutions.',
     type: 'volunteering',
   },
   {
@@ -48,7 +51,8 @@ export const communityEntries: ICommunityEntry[] = [
     organizer: 'GDG × CULMYCA, JC Bose UST',
     date: 'Apr 2026',
     location: 'Faridabad',
-    description: 'Evaluated projects at a HackerEarth-powered competition with a ₹17K+ prize pool, assessing technical depth, innovation, and presentation.',
+    description:
+      'Evaluated projects at a HackerEarth-powered competition with a ₹17K+ prize pool, assessing technical depth, innovation, and presentation.',
     type: 'volunteering',
     highlight: '₹17K+ prize pool',
   },
@@ -59,8 +63,21 @@ export const communityEntries: ICommunityEntry[] = [
     organizer: 'Code Rangers, TIIPS',
     date: 'May 2026',
     location: 'Greater Noida',
-    description: 'Guided 200+ participants through a 24-hour hackathon at TIIPS, Greater Noida, providing technical mentorship and product feedback.',
+    description:
+      'Guided 200+ participants through a 24-hour hackathon at TIIPS, Greater Noida, providing technical mentorship and product feedback.',
     type: 'volunteering',
     highlight: '200+ participants',
+  },
+  {
+    id: 6,
+    role: 'Mentor',
+    event: 'Hack Days Delhi',
+    organizer: 'CDN Commudle Developer Network',
+    date: 'Jun 2026',
+    location: 'Delhi',
+    description:
+      'Mentored teams at a hybrid innovation sprint with ₹50,000 prize pool, sponsored by Google, MLH, GitHub & more. Guided participants across Web3, AI agent, and data tracks on ideation and rapid prototyping.',
+    type: 'volunteering',
+    highlight: '₹50,000 prize pool',
   },
 ];

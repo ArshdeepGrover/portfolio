@@ -1,5 +1,5 @@
 .community-section {
-  @apply py-20 bg-white dark:bg-gray-800;
+  @apply py-20 bg-white dark:bg-gray-900;
 }
 
 .community-container {
@@ -24,43 +24,73 @@
 
 // ── Volunteering Grid ──────────────────────────────────────
 .community-grid {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-16;
 }
 
 .community-card {
-  @apply bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col overflow-hidden;
-  transition: all 0.3s ease;
+  @apply relative rounded-2xl overflow-hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    box-shadow: 0 0 20px rgba(255, 121, 85, 0.35),
-      0 10px 25px -5px rgba(0, 0, 0, 0.1);
-    border-color: transparent;
+    transform: translateY(-4px);
+
+    .card-glow {
+      opacity: 1;
+    }
   }
 }
 
-.card-badge {
-  @apply text-xs font-bold uppercase tracking-widest px-4 py-2 text-white;
-  background-color: #ff7955;
-
-  &.judge {
-    background-color: #7c3aed;
-  }
+.card-glow {
+  @apply absolute inset-0 rounded-2xl opacity-0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
 
   &.mentor {
-    background-color: #ff7955;
+    box-shadow: inset 0 0 0 1.5px rgba(255, 121, 85, 0.6),
+      0 0 30px rgba(255, 121, 85, 0.15);
+  }
+
+  &.judge {
+    box-shadow: inset 0 0 0 1.5px rgba(124, 58, 237, 0.6),
+      0 0 30px rgba(124, 58, 237, 0.15);
   }
 
   &.speaker {
-    background-color: #0891b2;
+    box-shadow: inset 0 0 0 1.5px rgba(8, 145, 178, 0.6),
+      0 0 30px rgba(8, 145, 178, 0.15);
   }
 }
 
-.card-body {
-  @apply p-5 flex flex-col flex-1;
+.card-inner {
+  @apply relative z-10 h-full flex flex-col p-5 rounded-2xl border border-gray-200 dark:border-gray-700/50 bg-gray-50 dark:bg-gray-800/80 backdrop-blur-sm;
+}
+
+.card-top {
+  @apply flex items-center justify-between mb-4;
+}
+
+.card-badge {
+  @apply text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full text-white;
+
+  &.mentor {
+    background: linear-gradient(135deg, #ff7955, #ff5533);
+  }
+
+  &.judge {
+    background: linear-gradient(135deg, #7c3aed, #5b21b6);
+  }
+
+  &.speaker {
+    background: linear-gradient(135deg, #0891b2, #0e7490);
+  }
+}
+
+.card-highlight {
+  @apply text-[11px] font-semibold px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300;
 }
 
 .card-event {
-  @apply text-base font-bold text-gray-900 dark:text-white mb-1 leading-snug;
+  @apply text-lg font-bold text-gray-900 dark:text-white mb-1 leading-tight;
 }
 
 .card-organizer {
@@ -68,24 +98,20 @@
   color: #ff7955;
 }
 
-.card-meta {
-  @apply flex flex-wrap gap-3 mb-3;
+.card-description {
+  @apply text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-1 mb-4;
+}
+
+.card-footer {
+  @apply flex items-center gap-4 pt-3 border-t border-gray-200 dark:border-gray-700/50;
 }
 
 .meta-item {
-  @apply flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400;
+  @apply flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400;
 }
 
 .meta-icon {
   @apply w-3.5 h-3.5 flex-shrink-0;
-}
-
-.card-description {
-  @apply text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-1;
-}
-
-.card-highlight {
-  @apply inline-block mt-3 text-xs font-semibold px-2 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400;
 }
 
 // ── Speaking Section ──────────────────────────────────────
@@ -99,7 +125,7 @@
   &::after {
     content: '';
     @apply block mt-2 w-12 h-1 rounded-full;
-    background-color: #ff7955;
+    background: linear-gradient(90deg, #ff7955, #ff5533);
   }
 }
 
@@ -108,34 +134,43 @@
 }
 
 .speaking-card {
-  @apply bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-5 flex gap-4;
-  transition: all 0.3s ease;
+  @apply relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700/50 bg-gray-50 dark:bg-gray-800/80;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    box-shadow: 0 0 20px rgba(255, 121, 85, 0.35),
-      0 10px 25px -5px rgba(0, 0, 0, 0.1);
-    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(8, 145, 178, 0.2),
+      0 10px 30px -10px rgba(0, 0, 0, 0.15);
   }
 }
 
+.speaking-accent {
+  @apply h-1 w-full;
+  background: linear-gradient(90deg, #0891b2, #06b6d4, #22d3ee);
+}
+
+.speaking-body {
+  @apply p-5;
+}
+
+.speaking-header {
+  @apply flex items-start gap-3 mb-3;
+}
+
 .speaking-icon {
-  @apply flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-white;
-  background-color: #ff7955;
+  @apply flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-white;
+  background: linear-gradient(135deg, #0891b2, #0e7490);
 
   svg {
     @apply w-5 h-5;
   }
 }
 
-.speaking-content {
-  @apply flex-1;
-}
-
 .speaking-event {
-  @apply text-base font-bold text-gray-900 dark:text-white mb-0.5;
+  @apply text-base font-bold text-gray-900 dark:text-white leading-tight;
 }
 
 .speaking-organizer {
-  @apply text-sm font-medium mb-2;
-  color: #ff7955;
+  @apply text-sm font-medium mt-0.5;
+  color: #0891b2;
 }
