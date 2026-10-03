@@ -11,9 +11,9 @@ import { CertificatesComponent } from './sections/certificates.component';
 import { ContactComponent } from './sections/contact.component';
 import { StatusFooterComponent } from './sections/status-footer.component';
 
-const TITLE = 'Arshdeep Singh | Full-Stack Developer & Technical Trainer';
+const TITLE = 'Arshdeep Singh | Training Delivery Specialist & Full-Stack Developer';
 const DESC =
-  'Arshdeep Singh | full-stack developer working in Angular and Ruby on Rails, now delivering technical training at Google Operations Center. Based in Delhi NCR.';
+  'Arshdeep Singh | Training Delivery Specialist at Google Operations Center and full-stack developer (Angular, Ruby on Rails). Speaker, mentor and hackathon judge.';
 
 @Component({
   selector: 'os-home',
@@ -51,7 +51,7 @@ export class OsHomeComponent implements OnInit {
     this.seo.updateMetaTags([
       { name: 'description', content: DESC },
       { property: 'og:title', content: TITLE },
-      { property: 'og:description', content: 'Full-stack developer (Angular, Ruby on Rails) and technical trainer at Google Operations Center. Based in Delhi NCR.' },
+      { property: 'og:description', content: 'Training Delivery Specialist at Google Operations Center and full-stack developer (Angular, Ruby on Rails). Based in Delhi NCR.' },
       { property: 'og:url', content: 'https://arshdeepgrover.dev/' },
       { property: 'og:image', content: 'https://arshdeepgrover.dev/images/arshdeep-singh.png' },
     ]);
