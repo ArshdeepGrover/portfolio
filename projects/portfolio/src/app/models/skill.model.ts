@@ -1,13 +1,17 @@
 export interface ISkill {
   name: string;
   description: string;
+  /**
+   * Either a logo URL or a single emoji. Skills that describe a practice
+   * rather than a product have no logo, so they use an emoji instead.
+   */
   icon?: string;
   category:
-    | 'frontend'
-    | 'backend'
-    | 'database'
+    | 'languages'
+    | 'frameworks'
+    | 'practice'
     | 'tools'
-    | 'analytics'
+    | 'training'
     | 'other';
   proficiency: 'beginner' | 'intermediate' | 'advanced' | 'expert';
 }

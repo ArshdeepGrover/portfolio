@@ -1,6 +1,65 @@
 import { IProject } from '../models/project.model';
 
 export const allProjects: IProject[] = [
+  // ─── Client & Product Work ────────────────────────────
+  {
+    id: 15,
+    title: 'BiltyX - SaaS for the Packers and Movers Industry',
+    description:
+      'SaaS for the packers and movers industry. Rails and Angular, with OTP login, JWT in HttpOnly cookies, TOTP two-factor auth, Hindi/English support, canvas signatures and in-app PDF viewing.',
+    image: '/project-images/biltyx.svg',
+    technologies: [
+      'Ruby on Rails',
+      'Angular',
+      'Authentication (JWT, OTP, TOTP)',
+      'Internationalisation',
+      'PDF & Canvas',
+      'SaaS',
+    ],
+    demoLink:
+      'https://www.biltyx.com?utm_source=portfolio&utm_medium=profile&utm_campaign=biltyx',
+    showInPortfolio: true,
+    showInStudio: true,
+  },
+  {
+    id: 14,
+    title: 'Simply IELTS - Coaching Institute Website',
+    description:
+      'Full-stack website for an IELTS coaching institute. Built solo, start to finish.',
+    image: '/project-images/simply-ielts.svg',
+    technologies: [
+      'Angular',
+      'Ruby on Rails',
+      'Responsive Design',
+      'Full-Stack',
+    ],
+    showInPortfolio: true,
+    showInStudio: true,
+  },
+  {
+    id: 13,
+    title: 'Studio - My Freelance Practice',
+    description:
+      'My freelance practice at studio.arshdeepgrover.dev. Rebuilt in 2026 with Three.js, GSAP and Lenis.',
+    image: '/project-images/studio.svg',
+    technologies: ['Angular', 'Three.js', 'GSAP', 'Lenis', 'Tailwind CSS'],
+    demoLink:
+      'https://studio.arshdeepgrover.dev?utm_source=portfolio&utm_medium=profile&utm_campaign=studio',
+    showInPortfolio: true,
+    showInStudio: false,
+  },
+  {
+    id: 12,
+    title: 'Writing - Notes on Web Development',
+    description:
+      'Notes on web development at blogs.arshdeepgrover.dev, cross-posted to Medium. Built on Angular with Sanity as the headless CMS.',
+    image: '/project-images/writing.svg',
+    technologies: ['Angular', 'Sanity', 'Markdown', 'Technical Writing'],
+    demoLink:
+      'https://blogs.arshdeepgrover.dev?utm_source=portfolio&utm_medium=profile&utm_campaign=writing',
+    showInPortfolio: true,
+    showInStudio: false,
+  },
   // ─── Libraries & Open Source ──────────────────────────
   {
     id: 4,

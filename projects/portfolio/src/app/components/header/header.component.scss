@@ -1,5 +1,5 @@
 .header {
-  @apply sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md;
+  @apply sticky top-0 z-50 bg-white/90 dark:bg-black/40 backdrop-blur-xl border-b border-transparent dark:border-white/10 shadow-md dark:shadow-none;
 }
 
 .nav {

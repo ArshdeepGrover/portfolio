@@ -1,5 +1,5 @@
 .projects-section {
-  @apply py-20 bg-white dark:bg-gray-900;
+  @apply py-20 bg-white dark:bg-transparent;
 }
 
 .projects-container {
@@ -27,10 +27,11 @@
 }
 
 .project-card {
-  @apply bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 cursor-pointer;
+  @apply bg-gray-50 dark:bg-white/[0.04] dark:backdrop-blur-xl rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 cursor-pointer;
   transition: all 0.3s ease;
 
   &:hover {
+    @apply -translate-y-1;
     box-shadow: 0 0 20px rgba(255, 121, 85, 0.4),
       0 10px 25px -5px rgba(0, 0, 0, 0.1);
     border-color: transparent;

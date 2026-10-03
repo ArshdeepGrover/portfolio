@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { projects } from '../stores/projects_store';
+import { portfolioProjects as projects } from '@shared/stores/projects.store';
 import { skillCategories } from '../stores/skills_store';
 import { experiences } from '../stores/experience_store';
 
@@ -96,16 +96,21 @@ GUIDELINES:
             const projectNames = projects.map(p => p.title).join(', ');
             resolve(`Arshdeep has worked on some amazing projects including: ${projectNames}. You can check them out in the Projects section!`);
         } else if (query.includes('skill') || query.includes('tech') || query.includes('angular') || query.includes('react')) {
-            const frontendCat = skillCategories.find((s: any) => s.name === 'Frontend Development');
-            const frontendSkills = frontendCat?.skills.map((i: any) => i.name).join(', ');
-            if (frontendSkills) {
-              resolve(`Arshdeep is highly skilled in frontend development, especially with ${frontendSkills}. He's a master of styling and interactive web apps.`);
+            const frameworks = skillCategories.find((s: any) => s.name === 'Frameworks & libraries');
+            const frameworkSkills = frameworks?.skills.map((i: any) => i.name).join(', ');
+            if (frameworkSkills) {
+              resolve(`Arshdeep works mainly in ${frameworkSkills}. The skills section has the full breakdown.`);
             } else {
-              resolve(`Arshdeep is highly skilled in frontend development! Check out the skills section for more.`);
+              resolve(`Arshdeep works mainly in Angular and Ruby on Rails. Check out the skills section for more.`);
             }
         } else if (query.includes('experience') || query.includes('work') || query.includes('job')) {
-            const jobs = experiences.map(e => `${e.role} at ${e.company}`).join(' and ');
-            resolve(`Arshdeep has awesome experience working as a ${jobs}.`);
+            const current = experiences.find(e => e.endDate === null);
+            const previous = experiences.filter(e => e.endDate !== null).slice(0, 2);
+            const history = previous.map(e => `${e.role} at ${e.company}`).join(', ');
+            const intro = current
+              ? `Arshdeep is currently ${current.role} at ${current.company}.`
+              : `Arshdeep has 4+ years of experience building web products.`;
+            resolve(history ? `${intro} Before that: ${history}.` : intro);
         } else if (query.includes('contact') || query.includes('hire') || query.includes('email') || query.includes('connect')) {
             resolve(`You can connect with Arshdeep via his <a href="https://links.arshdeepgrover.dev" target="_blank" class="text-orange-500 font-bold underline hover:text-orange-600">Contact Page!</a>`);
         } else {

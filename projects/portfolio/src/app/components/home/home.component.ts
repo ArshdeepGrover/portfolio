@@ -37,13 +37,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.seoService.updateTitle('Arshdeep Singh | Software Developer');
+    this.seoService.updateTitle('Arshdeep Singh — Full-Stack Developer & Technical Trainer');
     this.seoService.updateCanonicalUrl('https://arshdeepgrover.dev/');
     this.seoService.updateMetaTags([
-      { name: 'description', content: 'Explore the portfolio of Arshdeep Singh, a Lead Software Developer specializing in high-end digital experiences, Product Engineering, and UI/UX Design. Expert in Angular and Ruby on Rails.' },
-      { name: 'keywords', content: 'Arshdeep Singh, Lead Software Developer, Product Engineer, UI/UX Specialist, Angular Expert, Ruby on Rails, Node.js, Web Design, Full Stack Developer, India' },
-      { property: 'og:title', content: 'Arshdeep Singh | Lead Software Developer & UI/UX Specialist' },
-      { property: 'og:description', content: 'Crafting high-end digital experiences and scalable software solutions.' },
+      { name: 'description', content: 'Arshdeep Singh — full-stack developer working in Angular and Ruby on Rails, now delivering technical training at Google Operations Center. Based in Delhi NCR.' },
+      { name: 'keywords', content: 'Arshdeep Singh, Arshdeep Grover, full-stack developer, technical trainer, training delivery specialist, Angular developer, Ruby on Rails developer, TypeScript, hackathon mentor, Delhi NCR, India' },
+      { property: 'og:title', content: 'Arshdeep Singh — Full-Stack Developer & Technical Trainer' },
+      { property: 'og:description', content: 'Full-stack developer (Angular, Ruby on Rails) and technical trainer at Google Operations Center. Based in Delhi NCR.' },
       { property: 'og:url', content: 'https://arshdeepgrover.dev/' },
       { property: 'og:image', content: 'https://arshdeepgrover.dev/images/arshdeep-singh.png' }
     ]);

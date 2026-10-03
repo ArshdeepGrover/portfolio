@@ -1,0 +1,28 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Simply IELTS">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7955;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#FF7955;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)" />
+
+  <!-- Open book -->
+  <g transform="translate(120, 84)">
+    <path d="M0 18 q40 -18 80 0 q40 -18 80 0 L160 104 q-40 -16 -80 0 q-40 -16 -80 0 Z" fill="#ffffff" />
+    <path d="M80 18 L80 104" stroke="#FF7955" stroke-width="4" opacity="0.7" />
+    <rect x="16" y="40" width="48" height="6" rx="3" fill="#FF7955" opacity="0.4" />
+    <rect x="16" y="56" width="40" height="6" rx="3" fill="#FF7955" opacity="0.28" />
+    <rect x="96" y="40" width="48" height="6" rx="3" fill="#FF7955" opacity="0.4" />
+    <rect x="96" y="56" width="40" height="6" rx="3" fill="#FF7955" opacity="0.28" />
+  </g>
+
+  <!-- Graduation cap -->
+  <g transform="translate(176, 46)">
+    <path d="M24 0 L52 14 L24 28 L-4 14 Z" fill="#FF7955" opacity="0.9" />
+    <path d="M44 19 L44 32" stroke="#FF7955" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <text x="200" y="244" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#FF7955">Simply IELTS</text>
+  <text x="200" y="266" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" fill="#6b7280">Coaching institute website</text>
+</svg>

@@ -1,19 +1,32 @@
 <section id="experience" class="about-section">
   <div class="about-container">
     <div class="about-header">
-      <h2 id="experience" class="about-title" data-aos="fade-up">
+      <h2 class="about-title" data-aos="fade-up">
         About <span class="title-highlight">Me</span>
       </h2>
-      <p class="about-bio" data-aos="fade-up" data-aos-delay="100">
-        I'm a Lead Full-Stack Developer based in India, passionate about
-        building products that are fast, accessible, and delightful to use. Over
-        4+ years at Commudle I've grown from writing my first Angular components
-        to leading sprint planning, architecting payment flows, and mentoring a
-        team of developers. Outside of work I contribute to open source, speak
-        at community meetups, and occasionally judge hackathons - because I
-        believe the best way to grow is to give back to the ecosystem that
-        taught me.
+      <p
+        *ngFor="let paragraph of bioParagraphs; let i = index"
+        class="about-bio"
+        [attr.data-aos]="'fade-up'"
+        [attr.data-aos-delay]="100 + i * 50"
+      >
+        {{ paragraph }}
       </p>
+
+      <div class="about-highlights">
+        <div
+          *ngFor="let stat of aboutHighlights; let i = index"
+          class="about-highlight-item glass-card glass-card-hover gradient-border-glow float-idle"
+          appTilt
+          [maxTilt]="8"
+          [attr.data-aos]="'zoom-in'"
+          [attr.data-aos-delay]="150 + i * 50"
+        >
+          <span class="about-highlight-icon">{{ stat.icon }}</span>
+          <span class="about-highlight-number" *ngIf="stat.number">{{ stat.number }}</span>
+          <span class="about-highlight-text">{{ stat.label }}</span>
+        </div>
+      </div>
     </div>
 
     <div class="experience-section" data-aos="fade-up">
@@ -26,25 +39,37 @@
           [attr.data-aos-delay]="i * 100"
         >
           <div class="timeline-marker"></div>
-          <div class="company-header">
-            <h4 class="company-title">{{ exp.company }}</h4>
-            <span class="total-period">{{ exp.totalPeriod }}</span>
-          </div>
+          <div class="timeline-card glass-card glass-card-hover">
+            <div class="company-header">
+              <h4 class="company-title">{{ exp.company }}</h4>
+              <span class="total-period">{{ exp.totalPeriod }}</span>
+            </div>
 
-          <div class="positions-list">
-            <div
-              *ngFor="let position of exp.positions; let j = index"
-              class="position-item"
-              [class.multiple-positions]="exp.positions.length > 1"
-            >
+            <div class="positions-list">
               <div
-                class="position-marker"
-                *ngIf="exp.positions.length > 1"
-              ></div>
-              <div class="position-content">
-                <h5 class="position-title">{{ position.title }}</h5>
-                <span class="position-period">{{ position.period }}</span>
-                <p class="position-description">{{ position.description }}</p>
+                *ngFor="let position of exp.positions; let j = index"
+                class="position-item"
+                [class.multiple-positions]="exp.positions.length > 1"
+              >
+                <div
+                  class="position-marker"
+                  *ngIf="exp.positions.length > 1"
+                ></div>
+                <div class="position-content">
+                  <h5 class="position-title">{{ position.title }}</h5>
+                  <span class="position-period">{{ position.period }}</span>
+                  <p class="position-description" *ngIf="position.description">
+                    {{ position.description }}
+                  </p>
+                  <ul
+                    class="position-highlights"
+                    *ngIf="position.highlights?.length"
+                  >
+                    <li *ngFor="let highlight of position.highlights">
+                      {{ highlight }}
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -62,13 +87,15 @@
           [attr.data-aos-delay]="i * 100"
         >
           <div class="timeline-marker"></div>
-          <h4 class="item-title">{{ edu.degree }}</h4>
-          <div class="item-meta">
-            <span class="company-name">{{ edu.institution }}</span>
-            <span class="meta-separator">•</span>
-            <span class="period">{{ edu.year }}</span>
+          <div class="timeline-card glass-card glass-card-hover">
+            <h4 class="item-title">{{ edu.degree }}</h4>
+            <div class="item-meta">
+              <span class="company-name">{{ edu.institution }}</span>
+              <span class="meta-separator">•</span>
+              <span class="period">{{ edu.year }}</span>
+            </div>
+            <p class="item-description">{{ edu.description }}</p>
           </div>
-          <p class="item-description">{{ edu.description }}</p>
         </div>
       </div>
     </div>

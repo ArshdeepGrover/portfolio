@@ -1,5 +1,5 @@
 .contact-section {
-  @apply py-12 bg-gray-50 dark:bg-gray-900 min-h-screen;
+  @apply py-12 bg-gray-50 dark:bg-transparent min-h-screen;
 }
 
 .contact-container {
@@ -34,7 +34,7 @@
   @apply lg:w-2/5;
 
   .info-card {
-    @apply bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-6 shadow-lg;
+    @apply bg-white dark:bg-white/[0.04] dark:backdrop-blur-xl dark:border dark:border-white/10 rounded-2xl p-4 md:p-6 shadow-lg;
   }
 
   .info-title {
@@ -113,7 +113,7 @@
 }
 
 .contact-form-container {
-  @apply lg:w-3/5 bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-6 shadow-lg;
+  @apply lg:w-3/5 bg-white dark:bg-white/[0.04] dark:backdrop-blur-xl dark:border dark:border-white/10 rounded-2xl p-4 md:p-6 shadow-lg;
 
   .contact-form {
     .form-group {

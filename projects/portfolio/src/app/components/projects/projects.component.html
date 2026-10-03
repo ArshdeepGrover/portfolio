@@ -1,18 +1,19 @@
 <section id="projects" class="projects-section">
   <div class="projects-container">
     <div class="projects-header" data-aos="fade-up">
-      <h2 id="projects" class="section-title">My <span class="highlight">Projects</span></h2>
+      <h2 class="section-title">My <span class="highlight">Projects</span></h2>
       <p class="section-description">
-        A showcase of my recent work and creative solutions
+        Client work, open source libraries and things I built because I wanted
+        to.
       </p>
     </div>
 
     <div class="projects-grid">
       <div
         *ngFor="let project of projects; let i = index"
-        class="project-card"
-        [attr.data-aos]="'fade-up'"
-        [attr.data-aos-delay]="i * 100"
+        class="project-card gradient-border-glow float-idle"
+        appGsapReveal="up"
+        [gsapDelay]="(i % 4) * 0.08"
         (click)="openProject(project.demoLink)"
       >
         <div class="project-image-container">
@@ -25,6 +26,7 @@
           <div class="project-overlay">
             <div class="project-actions">
               <a
+                *ngIf="project.demoLink"
                 [href]="project.demoLink"
                 class="action-btn demo-btn"
                 target="_blank"
@@ -76,6 +78,7 @@
 
           <div class="project-buttons">
             <a
+              *ngIf="project.demoLink"
               [href]="project.demoLink"
               class="btn-demo"
               target="_blank"

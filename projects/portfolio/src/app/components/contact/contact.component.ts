@@ -34,9 +34,9 @@ export class ContactComponent implements OnInit, AfterViewInit {
     this.seoService.updateTitle('Contact | Arshdeep Singh');
     this.seoService.updateCanonicalUrl('https://arshdeepgrover.dev/contact');
     this.seoService.updateMetaTags([
-      { name: 'description', content: 'Contact Arshdeep Singh for collaboration on software development, UI/UX design, or product engineering projects.' },
+      { name: 'description', content: 'Contact Arshdeep Singh — full-stack developer (Angular, Ruby on Rails) and technical trainer based in Delhi NCR. Email is the fastest way to reach me.' },
       { property: 'og:title', content: 'Contact | Arshdeep Singh' },
-      { property: 'og:description', content: 'Get in touch for your next digital project.' },
+      { property: 'og:description', content: 'Get in touch about development work, technical training, speaking or mentoring.' },
       { property: 'og:url', content: 'https://arshdeepgrover.dev/contact' }
     ]);
   }

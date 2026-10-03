@@ -23,7 +23,9 @@ export class ThemeService {
     if (saved) {
       return saved === 'dark';
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Site is designed dark-first (glassmorphic/gradient theme); only
+    // fall back to light when the visitor has explicitly opted into it.
+    return !window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
 
   private applyTheme(isDark: boolean): void {

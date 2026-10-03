@@ -1,0 +1,21 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Studio">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7955;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#FF7955;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)" />
+
+  <!-- Isometric cube, a nod to the Three.js rebuild -->
+  <g transform="translate(200, 128)">
+    <path d="M0 -62 L62 -26 L62 36 L0 72 L-62 36 L-62 -26 Z" fill="#ffffff" opacity="0.65" />
+    <path d="M0 -62 L62 -26 L0 10 L-62 -26 Z" fill="#FF7955" opacity="0.9" />
+    <path d="M0 10 L62 -26 L62 36 L0 72 Z" fill="#FF7955" opacity="0.55" />
+    <path d="M0 10 L-62 -26 L-62 36 L0 72 Z" fill="#FF7955" opacity="0.35" />
+    <path d="M0 -62 L0 10 M0 10 L62 -26 M0 10 L-62 -26" stroke="#ffffff" stroke-width="2" opacity="0.8" fill="none" />
+  </g>
+
+  <text x="200" y="244" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#FF7955">Studio</text>
+  <text x="200" y="266" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" fill="#6b7280">studio.arshdeepgrover.dev</text>
+</svg>

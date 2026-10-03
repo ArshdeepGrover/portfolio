@@ -1,5 +1,5 @@
 .about-section {
-  @apply py-12 bg-gray-50 dark:bg-gray-800;
+  @apply py-12 bg-gray-50 dark:bg-transparent;
 }
 
 .about-container {
@@ -22,6 +22,28 @@
   @apply text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed mt-4;
 }
 
+.about-highlights {
+  @apply grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto mt-8;
+  perspective: 1000px;
+}
+
+.about-highlight-item {
+  @apply flex flex-col items-center justify-center text-center gap-1 p-4 cursor-pointer;
+  transform-style: preserve-3d;
+}
+
+.about-highlight-icon {
+  @apply text-2xl mb-1;
+}
+
+.about-highlight-number {
+  @apply text-xl font-bold text-primary;
+}
+
+.about-highlight-text {
+  @apply text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300;
+}
+
 .experience-section {
   @apply mb-8;
 }
@@ -39,7 +61,12 @@
 }
 
 .timeline-marker {
-  @apply absolute left-[-8px] top-0 w-4 h-4 rounded-full bg-primary;
+  @apply absolute left-[-8px] top-0 w-4 h-4 rounded-full bg-primary z-10;
+  box-shadow: 0 0 0 4px rgba(255, 121, 85, 0.15);
+}
+
+.timeline-card {
+  @apply p-4 sm:p-5;
 }
 
 .item-title {
@@ -113,4 +140,8 @@
 
 .position-description {
   @apply text-gray-600 dark:text-gray-400 mt-1 text-sm leading-relaxed;
+}
+
+.position-highlights {
+  @apply text-gray-600 dark:text-gray-400 mt-2 text-sm leading-relaxed list-disc pl-5 space-y-1;
 }

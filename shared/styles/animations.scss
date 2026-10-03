@@ -86,6 +86,26 @@
   transform: translate3d(0, 0, 0);
 }
 
+[data-aos="zoom-in"] {
+  transform: scale3d(0.85, 0.85, 1);
+}
+
+[data-aos="zoom-in"].animate-fade-in {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+
+// 3D flip-up: rotates in around the X axis for a card/depth feel
+[data-aos="flip-up"] {
+  transform: perspective(800px) rotateX(35deg) translate3d(0, 30px, 0);
+  transform-origin: center bottom;
+}
+
+[data-aos="flip-up"].animate-fade-in {
+  opacity: 1;
+  transform: perspective(800px) rotateX(0deg) translate3d(0, 0, 0);
+}
+
 // Optimized animation delays
 [data-aos-delay="50"] { transition-delay: 0.05s; }
 [data-aos-delay="100"] { transition-delay: 0.1s; }

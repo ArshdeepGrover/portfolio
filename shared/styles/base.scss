@@ -29,11 +29,174 @@ body {
 }
 
 .dark {
-  @apply bg-[#0A0A0A] text-white;
+  @apply text-white;
+  background-color: #06070a;
+  position: relative;
+
+  // Living aurora background - continuously drifting colored blobs.
+  // Fixed + behind everything so it reads as one seamless canvas as you scroll.
+  &::before {
+    content: '';
+    position: fixed;
+    inset: -15%;
+    z-index: -2;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255, 121, 85, 0.38), transparent 35%),
+      radial-gradient(circle at 80% 10%, rgba(159, 122, 234, 0.32), transparent 40%),
+      radial-gradient(circle at 60% 85%, rgba(16, 185, 129, 0.26), transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(255, 71, 126, 0.28), transparent 42%);
+    filter: blur(70px);
+    animation: aurora-drift 22s ease-in-out infinite alternate;
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  // Faint grain texture for a less "flat" premium feel.
+  &::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@keyframes aurora-drift {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(4%, -5%) scale(1.1) rotate(4deg); }
+  66% { transform: translate(-5%, 4%) scale(0.95) rotate(-3deg); }
+  100% { transform: translate(3%, 3%) scale(1.06) rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dark::before {
+    animation: none;
+  }
 }
 
 .light {
   @apply bg-white text-gray-900;
+}
+
+// ---------------------------------------------------------------------------
+// Glassmorphic / gradient design system
+// Reusable across all sections for the "dark, glassmorphic & gradient-heavy"
+// redesign. Works in both themes: light mode gets a lighter frosted-glass
+// treatment, dark mode gets the deep glow.
+// ---------------------------------------------------------------------------
+
+.glass-card {
+  @apply relative rounded-2xl border backdrop-blur-xl;
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.08);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+
+  .dark & {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.glass-card-hover {
+  &:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: rgba(255, 121, 85, 0.6);
+    box-shadow: 0 16px 48px rgba(255, 121, 85, 0.25);
+  }
+}
+
+// Animated gradient border glow, layered behind a .glass-card via ::before.
+// Idles as a faint, slowly color-cycling outline; brightens sharply on hover
+// so cards read as "alive" even before you touch them.
+.gradient-border-glow {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: linear-gradient(135deg, #ff7955, #ff477e, #9f7aea, #10b981, #ff7955);
+    background-size: 300% 300%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    animation: gradient-shift-slow 5s ease infinite;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// Gentle, perpetual bob so grids of cards never sit perfectly still.
+// Three phase variants keep neighboring cards from moving in lockstep.
+@keyframes float-bob-a { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes float-bob-b { 0%, 100% { transform: translateY(-3px); } 50% { transform: translateY(4px); } }
+@keyframes float-bob-c { 0%, 100% { transform: translateY(2px); } 50% { transform: translateY(-5px); } }
+
+.float-idle {
+  &:nth-child(3n+1) { animation: float-bob-a 5s ease-in-out infinite; }
+  &:nth-child(3n+2) { animation: float-bob-b 6s ease-in-out infinite; }
+  &:nth-child(3n) { animation: float-bob-c 5.5s ease-in-out infinite; }
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-idle {
+    animation: none !important;
+  }
+}
+
+@keyframes gradient-shift-slow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #ff7955, #ff477e, #9f7aea, #ff7955);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift-slow 8s ease-in-out infinite;
+}
+
+.mesh-bg {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255, 121, 85, 0.18), transparent 35%),
+      radial-gradient(circle at 80% 15%, rgba(159, 122, 234, 0.16), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.12), transparent 45%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-border-glow::before,
+  .gradient-text {
+    animation: none !important;
+  }
 }
 
 // Mobile-optimized scrollbar

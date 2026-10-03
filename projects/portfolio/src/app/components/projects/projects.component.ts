@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IProject } from '@shared/models/project.model';
 import { portfolioProjects } from '@shared/stores/projects.store';
+import { GsapRevealDirective } from '../../directives/gsap-reveal.directive';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, GsapRevealDirective],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
 })

@@ -1,0 +1,30 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Writing">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7955;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#FF7955;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)" />
+
+  <!-- Article -->
+  <g transform="translate(118, 62)">
+    <rect x="0" y="0" width="128" height="148" rx="10" fill="#ffffff" />
+    <rect x="20" y="24" width="64" height="10" rx="5" fill="#FF7955" opacity="0.85" />
+    <rect x="20" y="52" width="88" height="6" rx="3" fill="#FF7955" opacity="0.32" />
+    <rect x="20" y="68" width="88" height="6" rx="3" fill="#FF7955" opacity="0.32" />
+    <rect x="20" y="84" width="68" height="6" rx="3" fill="#FF7955" opacity="0.32" />
+    <rect x="20" y="108" width="88" height="6" rx="3" fill="#FF7955" opacity="0.2" />
+    <rect x="20" y="124" width="52" height="6" rx="3" fill="#FF7955" opacity="0.2" />
+  </g>
+
+  <!-- Pen -->
+  <g transform="translate(228, 92)">
+    <path d="M52 0 L68 16 L24 60 L4 64 L8 44 Z" fill="#FF7955" opacity="0.9" />
+    <path d="M4 64 L8 44 L24 60 Z" fill="#1f2937" opacity="0.7" />
+    <path d="M44 8 L60 24" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <text x="200" y="248" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#FF7955">Writing</text>
+  <text x="200" y="270" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" fill="#6b7280">blogs.arshdeepgrover.dev</text>
+</svg>

@@ -1,111 +1,59 @@
 <section id="skills" class="skills-section">
   <div class="skills-container">
     <div class="skills-header" data-aos="fade-up">
-      <h2 id="skills" class="section-title">
-        My <span class="highlight">Skills</span> & Expertise
+      <h2 class="section-title">
+        <span class="highlight">Skills</span>
       </h2>
       <p class="section-description" data-aos="fade-up" data-aos-delay="100">
-        A comprehensive overview of the technologies and tools I've mastered through years of hands-on experience.
+        The languages, frameworks and practices I work with, and the teaching
+        side that sits alongside them.
       </p>
     </div>
 
-    <!-- Bento Grid Layout -->
-    <div class="bento-grid">
-      <!-- Frontend Development - Large Card -->
-      <div class="skill-card frontend-card" data-aos="fade-up">
-        <div class="card-header">
-          <span class="category-icon">🎨</span>
-          <div>
-            <h3 class="category-title">Frontend Development</h3>
-            <p class="category-description">Modern web technologies and frameworks</p>
-          </div>
-        </div>
-        <div class="skills-grid grid-2-3">
-          <div *ngFor="let skill of skillCategories[0]?.skills" class="skill-item">
-            <img [src]="skill.icon" [alt]="skill.name" class="skill-logo">
-            <div class="skill-info">
-              <span class="skill-name">{{ skill.name }}</span>
-              <span class="skill-proficiency" [ngClass]="skill.proficiency">
-                {{ getProficiencyBadge(skill.proficiency) }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Category Filter Tabs -->
+    <div class="category-tabs" data-aos="fade-up" data-aos-delay="100">
+      <button
+        *ngFor="let tab of categoryTabs"
+        type="button"
+        class="category-tab"
+        [class.active]="activeCategory === tab.name"
+        (click)="selectCategory(tab.name)"
+      >
+        <span class="tab-icon">{{ tab.icon }}</span>
+        <span class="tab-name">{{ tab.name }}</span>
+        <span class="tab-count">{{ tab.count }}</span>
+      </button>
+    </div>
 
-      <!-- Backend Development - Medium Card -->
-      <div class="skill-card backend-card" data-aos="fade-up" data-aos-delay="150">
-        <div class="card-header-small">
-          <span class="category-icon">⚙️</span>
-          <h3 class="category-title">Backend Development</h3>
+    <!-- Filtered Skill Cards Grid -->
+    <div class="skills-cards-grid">
+      <div
+        *ngFor="let skill of filteredSkills; let i = index"
+        class="skill-card-tile glass-card glass-card-hover gradient-border-glow float-idle"
+        appTilt
+        [maxTilt]="8"
+        [style.animation-delay.ms]="(i % 8) * 60"
+      >
+        <div class="skill-tile-header">
+          <img
+            *ngIf="isLogo(skill.icon)"
+            [src]="skill.icon"
+            [alt]="skill.name"
+            class="skill-tile-logo"
+          >
+          <span
+            *ngIf="!isLogo(skill.icon)"
+            class="skill-tile-logo skill-tile-emoji"
+            aria-hidden="true"
+          >{{ skill.icon }}</span>
+          <span class="skill-tile-name" [title]="skill.name">{{ skill.name }}</span>
         </div>
-        <div class="skills-list">
-          <div *ngFor="let skill of skillCategories[1]?.skills" class="skill-item-compact">
-            <div class="skill-header">
-              <img [src]="skill.icon" [alt]="skill.name" class="skill-logo">
-              <span class="skill-name">{{ skill.name }}</span>
-            </div>
-            <span class="skill-proficiency" [ngClass]="skill.proficiency">
-              {{ getProficiencyBadge(skill.proficiency) }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Database & Cloud - Large Card -->
-      <div class="skill-card database-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="card-header-small">
-          <span class="category-icon">🗄️</span>
-          <h3 class="category-title">Database & Cloud</h3>
-        </div>
-        <div class="skills-grid grid-2-3">
-          <div *ngFor="let skill of skillCategories[2]?.skills" class="skill-item-compact">
-            <div class="skill-header">
-              <img [src]="skill.icon" [alt]="skill.name" class="skill-logo">
-              <span class="skill-name">{{ skill.name }}</span>
-            </div>
-            <span class="skill-proficiency" [ngClass]="skill.proficiency">
-              {{ getProficiencyBadge(skill.proficiency) }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tools & DevOps - Medium Card -->
-      <div class="skill-card tools-card" data-aos="fade-up" data-aos-delay="450">
-        <div class="card-header-small">
-          <span class="category-icon">🛠️</span>
-          <h3 class="category-title">Tools & DevOps</h3>
-        </div>
-        <div class="skills-grid grid-2">
-          <div *ngFor="let skill of skillCategories[3]?.skills" class="skill-item-compact">
-            <div class="skill-header">
-              <img [src]="skill.icon" [alt]="skill.name" class="skill-logo">
-              <span class="skill-name">{{ skill.name }}</span>
-            </div>
-            <span class="skill-proficiency" [ngClass]="skill.proficiency">
-              {{ getProficiencyBadge(skill.proficiency) }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Analytics & Marketing - Full Width Card -->
-      <div class="skill-card analytics-card" data-aos="fade-up" data-aos-delay="600">
-        <div class="card-header-small">
-          <span class="category-icon">📊</span>
-          <h3 class="category-title">Analytics & Marketing</h3>
-        </div>
-        <div class="skills-grid grid-2-4">
-          <div *ngFor="let skill of skillCategories[4]?.skills" class="skill-item-compact">
-            <div class="skill-header">
-              <img [src]="skill.icon" [alt]="skill.name" class="skill-logo">
-              <span class="skill-name">{{ skill.name }}</span>
-            </div>
-            <span class="skill-proficiency" [ngClass]="skill.proficiency">
-              {{ getProficiencyBadge(skill.proficiency) }}
-            </span>
-          </div>
+        <div class="skill-proficiency-track">
+          <div
+            class="skill-proficiency-fill"
+            [ngClass]="skill.proficiency"
+            [style.width.%]="getProficiencyWidth(skill.proficiency)"
+          ></div>
         </div>
       </div>
     </div>
@@ -113,9 +61,10 @@
     <!-- Additional Technologies Grid -->
     <div class="additional-tech-section" data-aos="fade-up">
       <div class="section-header">
-        <h3 class="section-title">Additional Technologies</h3>
+        <h3 class="section-title">Also worked with</h3>
         <p class="section-description">
-          Technologies and tools I've worked with and continue to explore.
+          Technologies I've used on projects without claiming them as a
+          specialism.
         </p>
       </div>
 

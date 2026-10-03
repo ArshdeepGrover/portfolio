@@ -1,126 +1,118 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TiltDirective } from '../../directives/tilt.directive';
+
+import { experiences as workHistory } from '@stores/experience_store';
+import { IExperience } from '@models/experience.model';
+
+interface IProcessedPosition {
+  title: string;
+  period: string;
+  description?: string;
+  highlights?: string[];
+}
+
+interface IProcessedCompany {
+  company: string;
+  totalPeriod: string;
+  positions: IProcessedPosition[];
+}
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TiltDirective],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
-  experiencesData = [
-    {
-      company: 'Commudle, New Delhi',
-      positions: [
-        {
-          title: 'Lead Software Developer',
-          startDate: '2024-05-01',
-          endDate: null, // null means current/present
-          description:
-            'Spearheaded development of scalable web applications using Angular and Ruby on Rails. Designed secure payment integrations with Razorpay. Mentored developers and led Agile sprint planning.',
-        },
-        {
-          title: 'Software Developer',
-          startDate: '2022-08-01',
-          endDate: '2024-04-30',
-          description:
-            'Built high-performance Angular applications with reusable components, improving frontend load times by 20%. Integrated Google Tag Manager for real-time analytics and marketing tracking.',
-        },
-        {
-          title: 'Software Developer, Intern',
-          startDate: '2022-05-01',
-          endDate: '2022-07-31',
-          description:
-            'Developed responsive web interfaces using Angular for 10,000+ monthly users. Integrated Sanity.io as headless CMS, reducing content update times by 30%.',
-        },
-      ],
-    },
-    {
-      company: 'Netplus Broadband PVT LTD, Ludhiana',
-      positions: [
-        {
-          title: 'Technical Support Executive',
-          startDate: '2020-12-01',
-          endDate: '2022-04-30',
-          description:
-            'Managed network support and troubleshooting for broadband customers. Led team of 4 technicians, improving ticket resolution time by 25%. Resolved 50+ daily support tickets.',
-        },
-      ],
-    },
-    {
-      company: 'Coding Ninjas, New Delhi',
-      positions: [
-        {
-          title: 'Teaching Assistant (TA)',
-          startDate: '2020-04-01',
-          endDate: '2020-08-31',
-          description:
-            'Supported 50+ students in debugging Node.js and frontend code. Guided learners through assignments, fostering proficiency in full-stack development concepts.',
-        },
-      ],
-    },
-    {
-      company: 'BBSBEC, Sirhind, Punjab',
-      positions: [
-        {
-          title: 'Social Media Handler',
-          startDate: '2019-11-01',
-          endDate: '2020-11-30',
-          description:
-            'Managed college social media channels, boosting student engagement by 40%. Coordinated marketing campaigns and event promotions, significantly increasing participation.',
-        },
-      ],
-    },
+  bioParagraphs = [
+    `I started at Commudle as an intern in 2022 and left four years later as
+     lead developer. In between I built most of what I'm proud of: a hackathon
+     platform taken from an empty repo to production, a payments integration
+     that runs real money, a frontend that got measurably faster. Angular and
+     Ruby on Rails are where I'm most at home.`,
+    `In August 2026 I moved into training delivery at Google Operations Center.
+     It's a change of job, not a change of field — the work is still technical,
+     just pointed at helping people learn rather than shipping features myself.
+     Explaining something well turns out to be harder than building it, which is
+     most of why I took the role.`,
+    `Outside work I mentor and judge at hackathons, run workshops for students,
+     and write about what I learn. I build side projects because I like building
+     things, and because teaching stays honest when you're still making things
+     yourself.`,
+  ].map((paragraph) => paragraph.replace(/\s+/g, ' ').trim());
+
+  aboutHighlights = [
+    { icon: '💼', number: '4+', label: 'Years Building Web Products' },
+    { icon: '🎓', number: null, label: 'Training Delivery Specialist @ GOC' },
+    { icon: '🏆', number: '6', label: 'Hackathons Mentored & Judged' },
+    { icon: '🎤', number: '2', label: 'Talks at Colleges & Meetups' },
   ];
 
-  experiences: any[] = [];
+  experiences: IProcessedCompany[] = [];
 
   ngOnInit() {
-    this.experiences = this.processExperiences();
+    this.experiences = this.groupByCompany(workHistory);
   }
 
-  private processExperiences() {
-    return this.experiencesData.map((company) => {
-      const processedPositions = company.positions.map((position) => ({
-        ...position,
-        period:
-          this.formatDateRange(position.startDate, position.endDate) +
-          ' · ' +
-          this.calculatePeriod(position.startDate, position.endDate),
-      }));
+  /**
+   * Collapses the flat work history into one card per company, keeping the
+   * store's newest-first order and listing each role held there.
+   */
+  private groupByCompany(history: IExperience[]): IProcessedCompany[] {
+    const byCompany = new Map<string, IExperience[]>();
 
-      // Calculate total company period
-      const earliestStart = company.positions.reduce(
-        (earliest, pos) =>
-          pos.startDate < earliest ? pos.startDate : earliest,
-        company.positions[0].startDate
+    for (const role of history) {
+      const existing = byCompany.get(role.company);
+      if (existing) {
+        existing.push(role);
+      } else {
+        byCompany.set(role.company, [role]);
+      }
+    }
+
+    return Array.from(byCompany.entries()).map(([company, roles]) => {
+      const location = roles[0].location;
+      const today = new Date().toISOString().split('T')[0];
+
+      const earliestStart = roles.reduce(
+        (earliest, role) =>
+          role.startDate < earliest ? role.startDate : earliest,
+        roles[0].startDate
       );
 
-      const latestEnd = company.positions.reduce((latest, pos) => {
-        const endDate = pos.endDate || new Date().toISOString().split('T')[0];
-        return endDate > latest ? endDate : latest;
-      }, company.positions[0].endDate || new Date().toISOString().split('T')[0]);
+      const isCurrentlyWorking = roles.some((role) => role.endDate === null);
 
-      const isCurrentlyWorking = company.positions.some(
-        (pos) => pos.endDate === null
+      const latestEnd = roles.reduce(
+        (latest, role) => {
+          const endDate = role.endDate ?? today;
+          return endDate > latest ? endDate : latest;
+        },
+        roles[0].endDate ?? today
       );
+
+      const companyEnd = isCurrentlyWorking ? null : latestEnd;
 
       return {
-        company: company.company,
-        totalPeriod:
-          this.formatDateRange(
-            earliestStart,
-            isCurrentlyWorking ? null : latestEnd
-          ) +
-          ' · ' +
-          this.calculatePeriod(
-            earliestStart,
-            isCurrentlyWorking ? null : latestEnd
-          ),
-        positions: processedPositions,
+        company: location ? `${company}, ${location}` : company,
+        totalPeriod: this.describePeriod(earliestStart, companyEnd),
+        positions: roles.map((role) => ({
+          title: role.role,
+          period: this.describePeriod(role.startDate, role.endDate),
+          description: role.description,
+          highlights: role.highlights,
+        })),
       };
     });
+  }
+
+  private describePeriod(startDate: string, endDate: string | null): string {
+    return (
+      this.formatDateRange(startDate, endDate) +
+      ' · ' +
+      this.calculatePeriod(startDate, endDate)
+    );
   }
 
   private calculatePeriod(startDate: string, endDate: string | null): string {

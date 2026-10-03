@@ -1,5 +1,5 @@
 <section id="hero" class="hero">
-  <div class="floating-icons">
+  <div class="floating-icons" appParallax [parallaxSpeed]="0.12">
     <div class="tech-icon tech-icon-1">🌟</div>
     <div class="tech-icon tech-icon-2">💎</div>
     <div class="tech-icon tech-icon-3">🅰️</div>
@@ -28,67 +28,67 @@
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title" data-aos="fade-up">
-          Hi, I'm <span class="hero-name">Arshdeep Singh</span>
+          <span class="hero-name">Arshdeep Singh</span>
         </h1>
         <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
           <span #typedElement></span><span class="typing-cursor">|</span>
         </p>
-        <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
-          Full-Stack Developer with 4+ years of experience designing and shipping scalable
-          web applications using Angular and Ruby on Rails. Progressed from Software
-          Developer Intern to Lead Developer at Commudle, demonstrating sustained
-          technical growth and end-to-end delivery ownership. Proven expertise in
-          payment integration (Razorpay), headless CMS (Sanity.io), analytics
-          instrumentation (Google Tag Manager), and Agile team leadership. Active
-          hackathon mentor and technology enthusiast.
+        <p class="hero-headline" data-aos="fade-up" data-aos-delay="150">
+          I build web products, and I teach people how to build them.
         </p>
-        <div class="hero-highlights" data-aos="fade-up" data-aos-delay="250">
+        <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
+          Full-stack developer with 4+ years in Angular and Ruby on Rails.
+          Currently a Training Delivery Specialist at Google Operations Center,
+          where I help teams learn the technical side of their work. Based in
+          Delhi NCR.
+        </p>
+        <div class="hero-highlights hero-highlights-glass">
           <div class="highlight-item" appMagnetic>
             <span class="highlight-number">4+</span>
-            <span class="highlight-text">Years Experience</span>
+            <span class="highlight-text">Years in Angular & Rails</span>
           </div>
           <div class="highlight-item" appMagnetic>
-            <span class="highlight-number">10+</span>
-            <span class="highlight-text">Projects Delivered</span>
-          </div>
-          <div class="highlight-item" appMagnetic>
-            <span class="highlight-icon">⚡</span>
-            <span class="highlight-text">Angular Expert</span>
-          </div>
-          <div class="highlight-item" appMagnetic>
-            <span class="highlight-icon">💎</span>
-            <span class="highlight-text">Ruby on Rails</span>
+            <span class="highlight-icon">🎓</span>
+            <span class="highlight-text">Training Delivery at GOC</span>
           </div>
           <div class="highlight-item" appMagnetic>
             <span class="highlight-icon">🏆</span>
             <span class="highlight-text">Hackathon Mentor & Judge</span>
           </div>
           <div class="highlight-item" appMagnetic>
-            <span class="highlight-icon">🌟</span>
-            <span class="highlight-text">Open Source Contributor</span>
+            <span class="highlight-icon">🎤</span>
+            <span class="highlight-text">Speaks at Colleges & Meetups</span>
+          </div>
+          <div class="highlight-item" appMagnetic>
+            <span class="highlight-icon">💎</span>
+            <span class="highlight-text">Open Source Gems & Packages</span>
+          </div>
+          <div class="highlight-item" appMagnetic>
+            <span class="highlight-icon">✍️</span>
+            <span class="highlight-text">Writes at blogs.arshdeepgrover.dev</span>
           </div>
         </div>
         <div class="hero-actions" data-aos="fade-up" data-aos-delay="275">
           <a href="#projects" class="hero-button">
-            <span>View Projects</span>
+            <span>View work</span>
             <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-          <a href="https://topmate.io/arshdeepgrover" target="_blank" class="meeting-button">
+          <a href="https://blogs.arshdeepgrover.dev?utm_source=portfolio&utm_medium=hero&utm_campaign=navigation"
+            target="_blank" rel="noopener" class="links-button">
             <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
-            <span>Book a Meeting</span>
+            <span>Read the blog</span>
           </a>
-          <a href="https://links.arshdeepgrover.dev?utm_source=portfolio&utm_medium=hero&utm_campaign=navigation"
-            target="_blank" class="links-button">
+          <a routerLink="/contact" class="meeting-button">
             <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.826a4 4 0 015.656 0l4 4a4 4 0 01-5.656 5.656l-1.1-1.1" />
+                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <span>My Links</span>
+            <span>Get in touch</span>
           </a>
           <a href="/resume/Arshdeep_Singh_SoftwareDeveloper_Resume.pdf" target="_blank" class="resume-button">
             <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,16 +130,18 @@
           </a>
         </div>
       </div>
-      <div class="hero-image" data-aos="fade-left" data-aos-delay="400">
+      <div class="hero-image">
         <div class="hero-image-container">
-          <div class="bg-blur-1"></div>
-          <div class="bg-blur-2"></div>
-          <div class="hero-image-wrapper">
-            <img src="/images/arshdeep-singh.png" alt="Arshdeep Singh - Full Stack Developer"
-              class="hero-profile-image" />
+          <div class="bg-blur-1" appParallax [parallaxSpeed]="0.45"></div>
+          <div class="bg-blur-2" appParallax [parallaxSpeed]="-0.35"></div>
+          <div class="hero-image-float">
+            <div class="hero-image-wrapper gradient-border-glow" appTilt [maxTilt]="10" [scale]="1.03">
+              <img src="/images/arshdeep-singh.png" alt="Arshdeep Singh - Full Stack Developer"
+                class="hero-profile-image" />
+            </div>
           </div>
         </div>
-        <div class="code-snippet" appTilt data-aos="fade-up" data-aos-delay="450">
+        <div class="code-snippet gradient-border-glow" appTilt>
           <div class="code-header">
             <div class="code-dots">
               <span class="dot red"></span>

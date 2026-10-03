@@ -78,6 +78,29 @@ export const communityEntries: ICommunityEntry[] = [
     description:
       'Mentored teams at a hybrid innovation sprint with ₹50,000 prize pool, sponsored by Google, MLH, GitHub & more. Guided participants across Web3, AI agent, and data tracks on ideation and rapid prototyping.',
     type: 'volunteering',
-    highlight: '₹50,000 prize pool',
+    highlight: 'Mentor award',
+  },
+  {
+    id: 7,
+    role: 'Mentor',
+    event: 'NexHack 2.0',
+    organizer: 'NexVerse, IITM',
+    date: 'Sep 2026',
+    location: 'Delhi NCR',
+    description:
+      'Mentored teams through build and demo, reviewing architecture choices and helping them scope what was achievable in the time available.',
+    type: 'volunteering',
+  },
+  {
+    id: 8,
+    role: 'Speaker',
+    event:
+      '"Building Faster with AI: A Hands-On Intro to AI-Assisted Coding"',
+    organizer: 'MAIMS, Delhi',
+    date: 'Oct 2026',
+    location: 'Delhi',
+    description:
+      'Hands-on session for students on working with AI coding agents: where they help, where they get in the way, and how to review what they produce.',
+    type: 'speaking',
   },
 ];

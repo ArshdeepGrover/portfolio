@@ -9,7 +9,7 @@
 }
 
 .blogs-section {
-  @apply py-20 bg-white dark:bg-gray-900;
+  @apply py-20 bg-white dark:bg-transparent;
 }
 
 .blogs-container {
@@ -37,11 +37,11 @@
 }
 
 .blog-card {
-  @apply bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer;
+  @apply bg-white dark:bg-white/[0.04] dark:backdrop-blur-xl rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-white/10 cursor-pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    // transform: translateY(-4px);
+    transform: translateY(-4px);
     box-shadow: 0 0 20px rgba(255, 121, 85, 0.35),
       0 10px 25px -5px rgba(0, 0, 0, 0.1);
     border-color: transparent;
