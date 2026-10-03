@@ -13,7 +13,20 @@ export const experiences: IExperience[] = [
     startDate: '2026-08-01',
     endDate: null,
     description:
-      'Deliver technical training and build the material that goes with it, helping teams get hands-on with the tools their work depends on.',
+      'Deliver technical programmes to development and QA teams, and build the material that goes with them.',
+    highlights: [
+      'Facilitate hands-on learning sessions and workshops on the tools and workflows teams use day to day',
+      'Design and maintain training material: walkthroughs, exercises and reference guides',
+      'Turn technical concepts into practical, step-by-step learning that teams can apply straight away',
+      'Assess how effective each session is and refine the content based on learner feedback',
+    ],
+    technologies: [
+      'Training Delivery',
+      'Workshop Facilitation',
+      'Training Material Development',
+      'HTML/CSS',
+      'Email Marketing',
+    ],
   },
   {
     id: 2,

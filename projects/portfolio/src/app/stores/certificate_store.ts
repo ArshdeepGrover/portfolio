@@ -63,4 +63,14 @@ export const certificates: ICertificate[] = [
     image: '/certificates/javascript_basic.jpg',
     credentialUrl: 'https://www.hackerrank.com/certificates/bc19ebd388e9',
   },
+  {
+    id: 7,
+    title: 'Introduction to Email Marketing',
+    issuer: 'Google',
+    date: 'Sep 2026',
+    description:
+      'Online course authorized by Google and offered through Coursera, covering the fundamentals of email marketing.',
+    image: '/certificates/google_email_marketing.jpg',
+    credentialUrl: 'https://coursera.org/verify/K00YVGNM17ZV',
+  },
 ];

@@ -275,7 +275,7 @@ export class CatComponent implements AfterViewInit {
   }
 
   private pet(): void {
-    this.say(['mrrp', 'purr…', 'meow', '♥'][Math.floor(Math.random() * 4)], 1200);
+    this.say(['mrrp', 'meow', '♥'][Math.floor(Math.random() * 4)], 1200);
     for (let i = 0; i < 3; i++) {
       const h = document.createElement('span');
       h.className = 'os-heart';

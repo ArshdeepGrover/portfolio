@@ -262,7 +262,7 @@ export class TerminalAppComponent implements AfterViewChecked {
       case 'pet':
         this.os.setCat(true);
         this.os.catPet$.next();
-        this.print({ text: 'purr.', cls: 'acc' });
+        this.print({ text: 'Null.', cls: 'acc' });
         break;
       case 'sudo':
         this.print(

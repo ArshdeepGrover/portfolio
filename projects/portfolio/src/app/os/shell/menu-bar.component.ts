@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, computed, inject, signal } from '@angular/core';
-import { OsService, PROFILE } from '../os.service';
+import { CAT_NAME, OsService, PROFILE } from '../os.service';
 import { OsThemeService } from '../theme.service';
 
 /**
@@ -15,7 +15,7 @@ import { OsThemeService } from '../theme.service';
     <nav class="bar" aria-label="Main">
       <button type="button" class="brand" (click)="os.scrollTo('hero')" aria-label="Back to top">
         <span class="logo" aria-hidden="true"><i></i></span>
-        <span class="brand-name">arsh<b>OS</b></span>
+        <span class="brand-name">Arshdeep<b>Grover</b></span>
       </button>
 
       <ul class="menu">
@@ -35,7 +35,7 @@ import { OsThemeService } from '../theme.service';
           <span class="search-label">Search</span>
           <kbd class="os-kbd">{{ mod }}K</kbd>
         </button>
-        <span class="perch" data-cat-perch [class.empty]="!os.catEnabled()" title="The cat's spot">
+        <span class="perch" data-cat-perch [class.empty]="!os.catEnabled()" [attr.title]="perchTitle">
           <i class="cushion"></i>
         </span>
         <button type="button" class="icon" (click)="os.toggleTerminal()" aria-label="Open terminal" title="Terminal ( \` )">
@@ -105,6 +105,7 @@ export class MenuBarComponent {
   readonly os = inject(OsService);
   readonly theme = inject(OsThemeService);
   readonly PROFILE = PROFILE;
+  readonly perchTitle = `${CAT_NAME}'s spot`;
   readonly menu = this.os.sections.filter((s) => s.id !== 'hero' && s.id !== 'certificates');
   readonly mod = /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘' : 'Ctrl ';
 

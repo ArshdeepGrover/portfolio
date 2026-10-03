@@ -33,7 +33,7 @@ export const allProjects: IProject[] = [
       'Responsive Design',
       'Full-Stack',
     ],
-    showInPortfolio: true,
+    showInPortfolio: false,
     showInStudio: true,
   },
   {
@@ -45,7 +45,7 @@ export const allProjects: IProject[] = [
     technologies: ['Angular', 'Three.js', 'GSAP', 'Lenis', 'Tailwind CSS'],
     demoLink:
       'https://studio.arshdeepgrover.dev?utm_source=portfolio&utm_medium=profile&utm_campaign=studio',
-    showInPortfolio: true,
+    showInPortfolio: false,
     showInStudio: false,
   },
   {

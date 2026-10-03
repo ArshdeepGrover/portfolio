@@ -10,7 +10,7 @@ import {
   signal,
 } from '@angular/core';
 import { portfolioProjects } from '@shared/stores/projects.store';
-import { OsService, PROFILE } from '../os.service';
+import { CAT_NAME, OsService, PROFILE } from '../os.service';
 import { OsThemeService } from '../theme.service';
 
 interface ICommand {
@@ -49,10 +49,10 @@ interface ICommand {
               @if (c.hint) { <span class="hint">{{ c.hint }}</span> }
             </li>
           } @empty {
-            <li class="empty">No matches. Try "projects", "theme" or "cat".</li>
+            <li class="empty">No matches. Try "projects", "theme" or "null".</li>
           }
         </ul>
-        <footer><span><kbd class="os-kbd">↑</kbd><kbd class="os-kbd">↓</kbd> move</span><span><kbd class="os-kbd">↵</kbd> open</span><span class="r">arshOS</span></footer>
+        <footer><span><kbd class="os-kbd">↑</kbd><kbd class="os-kbd">↓</kbd> move</span><span><kbd class="os-kbd">↵</kbd> open</span><span class="r">ArshdeepGrover</span></footer>
       </div>
     }
   `,
@@ -104,15 +104,15 @@ export class CommandPaletteComponent {
     { group: 'Actions', label: 'Toggle light / dark theme', glyph: '◑', keywords: 'theme dark light mode', run: () => this.theme.toggle() },
     {
       group: 'Actions',
-      label: 'Let the cat out / put it away',
+      label: `Let ${CAT_NAME} out / put ${CAT_NAME} away`,
       glyph: '🐈',
-      keywords: 'cat kitty neko pet toggle hide show',
+      keywords: `cat kitty neko pet toggle hide show ${CAT_NAME.toLowerCase()}`,
       run: () => {
         this.os.setCat(!this.os.catEnabled());
-        this.os.notify(this.os.catEnabled() ? 'The cat is back' : 'The cat went for a nap');
+        this.os.notify(this.os.catEnabled() ? `${CAT_NAME} is back` : `${CAT_NAME} went for a nap`);
       },
     },
-    { group: 'Actions', label: 'Send the cat back to the menu bar', glyph: '⌂', keywords: 'cat home perch', run: () => this.os.catHome$.next() },
+    { group: 'Actions', label: `Send ${CAT_NAME} back to the menu bar`, glyph: '⌂', keywords: `cat home perch ${CAT_NAME.toLowerCase()}`, run: () => this.os.catHome$.next() },
     { group: 'Actions', label: 'Copy email address', hint: PROFILE.email, glyph: '@', keywords: 'mail contact', run: () => this.os.copyEmail() },
     { group: 'Actions', label: 'Download résumé', hint: 'PDF', glyph: 'CV', keywords: 'resume cv pdf', run: () => window.open(PROFILE.resume, '_blank') },
     ...portfolioProjects.map<ICommand>((p) => ({
@@ -130,8 +130,8 @@ export class CommandPaletteComponent {
       [
         ['GitHub', PROFILE.links.github],
         ['LinkedIn', PROFILE.links.linkedin],
-        ['Blog — blogs.arshdeepgrover.dev', PROFILE.links.blogs],
-        ['Studio — freelance work', PROFILE.links.studio],
+        ['Blog: blogs.arshdeepgrover.dev', PROFILE.links.blogs],
+        // ['Studio — freelance work', PROFILE.links.studio],
         ['Medium', PROFILE.links.medium],
         ['Book a 1:1 on Topmate', PROFILE.links.topmate],
       ] as const

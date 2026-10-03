@@ -4,6 +4,8 @@ export interface ICommunityEntry {
   event: string;
   organizer: string;
   date: string;
+  /** Day of the month, when known. Used to place the event on the calendar. */
+  day?: number;
   location: string;
   description: string;
   type: 'volunteering' | 'speaking';
@@ -17,6 +19,7 @@ export const communityEntries: ICommunityEntry[] = [
     event: '"Get Started with AI" Workshop',
     organizer: 'Meerut Coders',
     date: 'Aug 2025',
+    day: 25,
     location: 'Online',
     description:
       'Delivered a free online webinar introducing AI concepts and practical tools to developers in the Meerut Coders community.',
@@ -74,6 +77,7 @@ export const communityEntries: ICommunityEntry[] = [
     event: 'Hack Days Delhi',
     organizer: 'CDN Commudle Developer Network',
     date: 'Jun 2026',
+    day: 13,
     location: 'Delhi',
     description:
       'Mentored teams at a hybrid innovation sprint with ₹50,000 prize pool, sponsored by Google, MLH, GitHub & more. Guided participants across Web3, AI agent, and data tracks on ideation and rapid prototyping.',
@@ -86,6 +90,7 @@ export const communityEntries: ICommunityEntry[] = [
     event: 'NexHack 2.0',
     organizer: 'NexVerse, IITM',
     date: 'Sep 2026',
+    day: 5,
     location: 'Delhi NCR',
     description:
       'Mentored teams through build and demo, reviewing architecture choices and helping them scope what was achievable in the time available.',
@@ -98,6 +103,7 @@ export const communityEntries: ICommunityEntry[] = [
       '"Building Faster with AI: A Hands-On Intro to AI-Assisted Coding"',
     organizer: 'MAIMS, Delhi',
     date: 'Oct 2026',
+    day: 7,
     location: 'Delhi',
     description:
       'Hands-on session for students on working with AI coding agents: where they help, where they get in the way, and how to review what they produce.',

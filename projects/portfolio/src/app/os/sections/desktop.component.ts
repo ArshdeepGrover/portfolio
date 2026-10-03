@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, inject, signal } from '@angular/core';
 import { communityEntries } from '@stores/community_store';
 import { portfolioProjects } from '@shared/stores/projects.store';
-import { OsService, PROFILE } from '../os.service';
+import { CAT_NAME, OsService, PROFILE } from '../os.service';
 
 interface IDeskWin {
   id: 'status' | 'me' | 'note' | 'shell';
@@ -26,19 +26,12 @@ interface IDeskWin {
 export class DesktopComponent {
   readonly os = inject(OsService);
   readonly PROFILE = PROFILE;
+  readonly catName = CAT_NAME;
   private host = inject(ElementRef<HTMLElement>);
 
   readonly mentored = communityEntries.filter((e) => e.type === 'volunteering').length;
   readonly talks = communityEntries.filter((e) => e.type === 'speaking').length;
   readonly shipped = portfolioProjects.length;
-  readonly nextTalk = [...communityEntries].reverse().find((e) => e.type === 'speaking');
-  readonly nextTalkUpcoming = (() => {
-    if (!this.nextTalk) return false;
-    const d = new Date(`1 ${this.nextTalk.date}`);
-    const now = new Date();
-    return d.getFullYear() * 12 + d.getMonth() >= now.getFullYear() * 12 + now.getMonth();
-  })();
-  readonly nextTalkTitle = this.nextTalk?.event.replace(/"/g, '') ?? '';
 
   readonly wins = signal<IDeskWin[]>([
     { id: 'status', x: 2, y: 6, z: 3 },

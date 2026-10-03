@@ -11,7 +11,7 @@ import {
 import { experiences } from '@stores/experience_store';
 import { skillCategories } from '@stores/skills_store';
 import { portfolioProjects } from '@shared/stores/projects.store';
-import { OsService, PROFILE } from '../os.service';
+import { CAT_NAME, OsService, PROFILE } from '../os.service';
 import { OsThemeService } from '../theme.service';
 
 interface ILine {
@@ -37,7 +37,7 @@ const BIO =
             <button type="button" class="l r" (click)="os.toggleTerminal(false)" aria-label="Close terminal"></button>
             <span class="l y"></span><span class="l g"></span>
           </div>
-          <span class="t">arshdeep&#64;arshos: ~ — zsh</span>
+          <span class="t">arshdeep&#64;arshdeepgrover: ~ — zsh</span>
         </header>
         <div class="out" #out>
           @for (l of lines(); track $index) {
@@ -48,7 +48,7 @@ const BIO =
             }
           }
           <label class="prompt">
-            <span class="ps"><b>arshdeep</b>&#64;arshos <i>~</i> %</span>
+            <span class="ps"><b>arshdeep</b>&#64;arshdeepgrover <i>~</i> %</span>
             <input #inp type="text" [value]="draft()" (input)="draft.set(inp.value)" (keydown)="onKey($event)"
               aria-label="Terminal input" autocomplete="off" autocapitalize="off" spellcheck="false" />
           </label>
@@ -93,7 +93,7 @@ export class TerminalAppComponent implements AfterViewChecked {
 
   readonly draft = signal('');
   readonly lines = signal<ILine[]>([
-    { text: 'arshOS 26.10 — last login: just now', cls: 'dim' },
+    { text: 'ArshdeepGrover 26.10 — last login: just now', cls: 'dim' },
     { text: "Type 'help' to see what this shell can do.", cls: 'dim' },
   ]);
   private history: string[] = [];
@@ -112,8 +112,8 @@ export class TerminalAppComponent implements AfterViewChecked {
     resume: 'open the résumé PDF',
     open: 'open <section>  e.g. open projects',
     theme: 'toggle light / dark',
-    cat: "cat <file> to read one, or just 'cat' to call the cat",
-    pet: 'pet the cat',
+    cat: `cat <file> to read one, or just 'cat' to call ${CAT_NAME}`,
+    pet: `pet ${CAT_NAME}`,
     ls: 'list files',
     clear: 'clear the screen',
     exit: 'close the terminal',
@@ -213,7 +213,7 @@ export class TerminalAppComponent implements AfterViewChecked {
         }
         break;
       case 'contact':
-        this.print({ text: `  email     ${PROFILE.email}`, href: `mailto:${PROFILE.email}` }, { text: '  or scroll to the mail window: open contact', cls: 'dim' });
+        this.print({ text: `  email     ${PROFILE.email}`, href: `mailto:${PROFILE.email}` }, { text: '  or book a 1:1: topmate.io/arshdeepgrover', cls: 'dim' });
         break;
       case 'socials':
         Object.entries(PROFILE.links).forEach(([k, v]) => this.print({ text: `  ${k.padEnd(10)}${v.split('?')[0]}`, href: v }));
@@ -250,7 +250,7 @@ export class TerminalAppComponent implements AfterViewChecked {
         if (!arg) {
           this.os.setCat(true);
           this.os.catHome$.next();
-          this.print({ text: 'pspspsps… the cat is heading to the menu bar.', cls: 'ok' });
+          this.print({ text: `pspspsps… ${CAT_NAME} is heading to the menu bar.`, cls: 'ok' });
         } else if (arg.startsWith('about')) {
           this.print({ text: BIO });
         } else if (arg.startsWith('resume')) {
@@ -259,10 +259,13 @@ export class TerminalAppComponent implements AfterViewChecked {
           this.print({ text: `cat: ${arg}: No such file or directory`, cls: 'err' });
         }
         break;
+      case 'null':
+        this.print({ text: `${CAT_NAME} is not undefined. ${CAT_NAME} is a cat. Try 'pet'.`, cls: 'acc' });
+        break;
       case 'pet':
         this.os.setCat(true);
         this.os.catPet$.next();
-        this.print({ text: 'purr.', cls: 'acc' });
+        this.print({ text: `${CAT_NAME} null.`, cls: 'acc' });
         break;
       case 'sudo':
         this.print(

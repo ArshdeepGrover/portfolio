@@ -7,6 +7,7 @@ import { ProjectsComponent } from './sections/projects.component';
 import { SkillsComponent } from './sections/skills.component';
 import { CommunityComponent } from './sections/community.component';
 import { LibraryComponent } from './sections/library.component';
+import { CertificatesComponent } from './sections/certificates.component';
 import { ContactComponent } from './sections/contact.component';
 import { StatusFooterComponent } from './sections/status-footer.component';
 
@@ -25,7 +26,7 @@ const DESC =
     SkillsComponent,
     CommunityComponent,
     LibraryComponent,
-    ContactComponent,
+    CertificatesComponent,
     StatusFooterComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,7 +38,7 @@ const DESC =
     <os-skills />
     <os-community />
     <os-library />
-    <os-contact />
+    <os-certificates />
     <os-status-footer />
   `,
 })

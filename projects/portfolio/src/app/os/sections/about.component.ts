@@ -29,7 +29,7 @@ import { RevealDirective } from '../ui/reveal.directive';
             <p class="facts-h">// quick facts</p>
             <dl>
               @for (f of facts; track f[0]) {
-                <div><dt>{{ f[0] }}</dt><dd>{{ f[1] }}</dd></div>
+                <div><dt>{{ f[0] }}</dt><dd [class.nowrap]="f[0] === 'at'">{{ f[1] }}</dd></div>
               }
             </dl>
             <div class="quote">
@@ -56,6 +56,7 @@ import { RevealDirective } from '../ui/reveal.directive';
       dl div:first-child { border-top: 0; }
       dt { font: 500 12.5px/1.5 var(--font-mono); color: var(--dim); }
       dd { margin: 0; font-size: 14.5px; line-height: 1.5; }
+      dd.nowrap { white-space: nowrap; }
       .quote {
         margin-top: 22px; padding: 16px 18px; border-radius: 10px; background: var(--accent-soft); color: var(--text);
         font: 500 17px/1.35 var(--font-display); letter-spacing: -.01em; border-left: 3px solid var(--accent);
@@ -67,30 +68,31 @@ import { RevealDirective } from '../ui/reveal.directive';
 export class AboutComponent {
   readonly paragraphs = [
     {
-      h: 'Four years at Commudle',
-      t: `I started at Commudle as an intern in 2022 and left four years later as lead developer. In between I built most of
-          what I'm proud of: a hackathon platform taken from an empty repo to production, a payments integration that runs
-          real money, a frontend that got measurably faster. Angular and Ruby on Rails are where I'm most at home.`,
+      h: 'Training delivery',
+      t: `I'm a Training Delivery Specialist at Google Operations Center, delivering technical programmes to development
+          and QA teams. It's a change of job, not a change of field. The work is still technical, just aimed at helping
+          teams get hands-on with the tools their work depends on. Explaining something well turns out to be harder than
+          building it, which is most of why I took the role.`,
     },
     {
-      h: 'Now: teaching the technical side',
-      t: `In August 2026 I moved into training delivery at Google Operations Center. It's a change of job, not a change of
-          field. The work is still technical, just pointed at helping people learn rather than shipping features myself.
-          Explaining something well turns out to be harder than building it, which is most of why I took the role.`,
+      h: 'Engineering',
+      t: `Before this, I built full-stack products in Angular and Ruby on Rails, growing from intern to lead developer.
+          The work I'm proudest of: a hackathon platform taken from an empty repo to production, a payments integration
+          that runs real money, and a frontend that got measurably faster.`,
     },
     {
       h: 'Off the clock',
-      t: `I mentor and judge at hackathons, run workshops for students, and write about what I learn. I build side projects
-          because I like building things, and because teaching stays honest when you're still making things yourself.`,
+      t: `I speak at colleges and meetups, mentor and judge at hackathons, and write about what I learn. I still build side
+          projects because I like making things, and because training stays honest when you're still building yourself.`,
     },
   ].map((p) => ({ ...p, t: p.t.replace(/\s+/g, ' ').trim() }));
 
   readonly facts: [string, string][] = [
     ['based', 'Delhi NCR, India'],
-    ['now', 'Training Delivery Specialist, Google Operations Center'],
+    ['now', 'Training Delivery Specialist'],
+    ['at', 'Google Operations Center'],
     ['before', 'Lead Software Developer, Commudle'],
-    ['stack', 'Angular, Ruby on Rails, TypeScript, PostgreSQL'],
-    ['degree', 'B.Tech, Information Technology'],
-    ['off-hours', 'Hackathons, workshops, writing, side projects'],
+    ['stack', 'Angular, Ruby on Rails, TypeScript, JavaScript, PostgreSQL, Tailwind CSS, Sanity, GitHub Actions'],
+    ['off-hours', 'Speaking, hackathons, writing, side projects'],
   ];
 }

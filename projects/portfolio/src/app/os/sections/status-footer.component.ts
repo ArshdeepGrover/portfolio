@@ -7,7 +7,7 @@ import { PROFILE } from '../os.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <footer class="os-container foot">
-      <div class="big" aria-hidden="true">arsh<span>OS</span></div>
+      <div class="big" aria-hidden="true">Arshdeep<span>Grover</span></div>
       <div class="bar">
         <span>© {{ year }} {{ PROFILE.name }}</span>
         <span class="sep">·</span>
@@ -23,8 +23,8 @@ import { PROFILE } from '../os.service';
     `
       .foot { padding: clamp(64px, 10vw, 120px) 0 24px; }
       .big {
-        font: 800 clamp(72px, 19vw, 260px)/.8 var(--font-display); letter-spacing: -.06em; text-align: center; user-select: none;
-        background: linear-gradient(to bottom, var(--surface-3), transparent 92%); -webkit-background-clip: text; background-clip: text; color: transparent;
+        font: 800 clamp(44px, 11.5vw, 168px)/.85 var(--font-display); letter-spacing: -.05em; white-space: nowrap; text-align: center; user-select: none;
+        background: linear-gradient(to bottom, color-mix(in srgb, var(--text) 16%, transparent), transparent 92%); -webkit-background-clip: text; background-clip: text; color: transparent;
       }
       .big span { background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 55%, transparent), transparent 92%); -webkit-background-clip: text; background-clip: text; }
       .bar { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; padding-top: 18px; margin-top: 8px; border-top: 1px solid var(--line); font: 500 12.5px/1 var(--font-mono); color: var(--dim); }

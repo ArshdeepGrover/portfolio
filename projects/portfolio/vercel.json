@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/resume",
+      "destination": "/resume/Arshdeep_Singh_Resume.pdf",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!assets/).*)",

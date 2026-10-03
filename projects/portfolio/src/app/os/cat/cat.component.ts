@@ -9,7 +9,7 @@ import {
   effect,
   inject,
 } from '@angular/core';
-import { OsService } from '../os.service';
+import { CAT_NAME, OsService } from '../os.service';
 import { CAT_FRAMES, CatFrame } from './cat-sprites';
 
 type CatState = 'perch' | 'chase' | 'idle' | 'goto' | 'sit' | 'groom' | 'sleep' | 'gohome';
@@ -183,6 +183,7 @@ export class CatComponent implements AfterViewInit {
   }
 
   private wasClickSit = false;
+  private petted = false;
   private wakePending = false;
 
   private setState(s: CatState): void {
@@ -275,7 +276,10 @@ export class CatComponent implements AfterViewInit {
   }
 
   private pet(): void {
-    this.say(['mrrp', 'purr…', 'meow', '♥'][Math.floor(Math.random() * 4)], 1200);
+    // First pet introduces itself; after that, the usual noises.
+    const lines = [`${CAT_NAME}: mrrp`, `${CAT_NAME}: null…`, `${CAT_NAME}: meow`, `${CAT_NAME} ♥`, `hi, I'm ${CAT_NAME}`];
+    this.say(this.petted ? lines[Math.floor(Math.random() * lines.length)] : `hi, I'm ${CAT_NAME}`, this.petted ? 1200 : 1800);
+    this.petted = true;
     for (let i = 0; i < 3; i++) {
       const h = document.createElement('span');
       h.className = 'os-heart';

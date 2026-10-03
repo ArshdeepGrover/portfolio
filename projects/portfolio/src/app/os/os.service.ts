@@ -22,17 +22,19 @@ export const OS_SECTIONS: IOsSection[] = [
   { id: 'community', label: 'Community', file: 'calendar', glyph: '◷', key: '5' },
   { id: 'blogs', label: 'Writing', file: 'feed.rss', glyph: '¶', key: '6' },
   { id: 'certificates', label: 'Certificates', file: 'certs/', glyph: '✦', key: '7' },
-  { id: 'contact', label: 'Contact', file: 'mail', glyph: '✉', key: '8' },
 ];
+
+/** The cat's name. Used in the palette, terminal, hero hint and its speech bubble. */
+export const CAT_NAME = 'Null';
 
 export const PROFILE = {
   name: 'Arshdeep Singh',
   handle: 'arshdeep',
-  email: 'arshdeepgroverdev@gmail.com',
+  email: 'arshdeepgrover.dev@gmail.com',
   role: 'Training Delivery Specialist',
   company: 'Google Operations Center',
   location: 'Delhi NCR, India',
-  resume: '/resume/Arshdeep_Singh_SoftwareDeveloper_Resume.pdf',
+  resume: '/resume/Arshdeep_Singh_Resume.pdf',
   links: {
     github: 'https://github.com/ArshdeepGrover',
     linkedin: 'https://linkedin.com/in/ArshdeepGrover',

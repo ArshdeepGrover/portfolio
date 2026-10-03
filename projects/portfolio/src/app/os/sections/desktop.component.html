@@ -6,12 +6,11 @@
     </p>
     <h1 id="hero-title">
       <span class="name">Arshdeep<br />Singh<span class="dot">.</span></span>
-      <span class="line">I build web products, and I teach people how to build them.</span>
+      <span class="line">I build web products, and help teams get better at building them.</span>
     </h1>
     <p class="lede">
-      Full-stack developer with four years in <b>Angular</b> and <b>Ruby on Rails</b>, most recently leading
-      development at Commudle. Now delivering technical training at Google Operations Center. Mentor and judge
-      at hackathons across Delhi NCR.
+      Training Delivery Specialist at <b>Google Operations Center</b>, delivering technical programmes to development
+      and QA teams. Full-stack developer working in <b>Angular</b> and <b>Ruby on Rails</b>. Speaker, mentor and judge.
     </p>
     <div class="cta">
       <a href="#projects" class="os-btn primary" (click)="$event.preventDefault(); os.scrollTo('projects')">
@@ -24,7 +23,7 @@
     <p class="hints">
       <span><kbd class="os-kbd">⌘</kbd><kbd class="os-kbd">K</kbd> jump anywhere</span>
       <span><kbd class="os-kbd">`</kbd> terminal</span>
-      <span class="cat-hint">move the mouse, the cat will follow</span>
+      <span class="cat-hint">move the mouse, {{ catName }} will follow</span>
     </p>
   </div>
 
@@ -56,13 +55,14 @@
     </article>
 
     <!-- sticky note -->
-    @if (nextTalk) {
-      <article class="dw dw-note" [style.left.%]="win('note').x" [style.top.%]="win('note').y" [style.z-index]="win('note').z" (pointerdown)="focus('note'); startDrag($event, 'note')">
-        <p class="note-k">{{ nextTalkUpcoming ? 'next talk' : 'latest talk' }} · {{ nextTalk.date }}</p>
-        <p class="note-t">{{ nextTalkTitle }}</p>
-        <p class="note-o">{{ nextTalk.organizer }}</p>
-      </article>
-    }
+    <article class="dw dw-note" [style.left.%]="win('note').x" [style.top.%]="win('note').y" [style.z-index]="win('note').z" (pointerdown)="focus('note'); startDrag($event, 'note')">
+      <p class="note-k">todo.txt</p>
+      <ul class="todo">
+        <li class="done"><span class="box" aria-hidden="true">☑</span>ship it</li>
+        <li class="done"><span class="box" aria-hidden="true">☑</span>teach it</li>
+        <li><span class="box" aria-hidden="true">☐</span>more coffee</li>
+      </ul>
+    </article>
 
     <!-- tiny shell -->
     <article class="dw dw-shell" [style.left.%]="win('shell').x" [style.top.%]="win('shell').y" [style.z-index]="win('shell').z" (pointerdown)="focus('shell')">
@@ -71,7 +71,7 @@
       </header>
       <div class="sh">
         <p><b>›</b> uptime</p>
-        <p class="o">4y in prod · {{ shipped }} things shipped</p>
+        <p class="o">5y in prod · {{ shipped }} things shipped</p>
         <p><b>›</b> ls community/</p>
         <p class="o">{{ mentored }} hackathons · {{ talks }} talks</p>
         <button type="button" class="sh-open" (click)="os.toggleTerminal(true)"><b>›</b> open full terminal<i class="caret"></i></button>
@@ -80,7 +80,7 @@
   </div>
 
   <dl class="stats">
-    <div><dt>Years shipping</dt><dd>4+</dd></div>
+    <div><dt>Years shipping</dt><dd>5+</dd></div>
     <div><dt>Projects & libraries</dt><dd>{{ shipped }}</dd></div>
     <div><dt>Hackathons mentored / judged</dt><dd>{{ mentored }}</dd></div>
     <div><dt>Talks & workshops</dt><dd>{{ talks }}</dd></div>
