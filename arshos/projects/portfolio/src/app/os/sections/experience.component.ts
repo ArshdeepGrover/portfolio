@@ -27,13 +27,13 @@ const fmt = new Intl.DateTimeFormat('en-GB', { month: 'short', year: 'numeric' }
     <section id="experience" class="os-section os-container" aria-labelledby="exp-title">
       <div class="os-head" osReveal>
         <div>
-          <span class="os-kicker">02 — git log --graph</span>
+          <span class="os-kicker">02 | git log --graph</span>
           <h2 id="exp-title" class="os-h2">Where I've worked</h2>
           <p class="os-lede">Newest first. Intern to lead at Commudle, then a move into training at Google Operations Center.</p>
         </div>
       </div>
 
-      <os-window title="~/career — git log --graph --stat" icon="⎇" [flush]="true" osReveal="80">
+      <os-window title="~/career | git log --graph --stat" icon="⎇" [flush]="true" osReveal="80">
         <span osBar class="os-chip">{{ commits.length }} commits · {{ companies }} branches</span>
         <ol class="log">
           @for (c of commits; track c.x.id; let last = $last) {

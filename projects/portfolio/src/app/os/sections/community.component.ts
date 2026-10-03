@@ -23,13 +23,13 @@ interface IEvent {
     <section id="community" class="os-section os-container" aria-labelledby="com-title">
       <div class="os-head" osReveal>
         <div>
-          <span class="os-kicker">05 — calendar</span>
+          <span class="os-kicker">05 | calendar</span>
           <h2 id="com-title" class="os-h2">In the community</h2>
           <p class="os-lede">Hackathons I've mentored and judged, and the talks and workshops I've given.</p>
         </div>
       </div>
 
-      <os-window title="Calendar — community.ics" icon="◷" [flush]="true" osReveal="80">
+      <os-window title="Calendar | community.ics" icon="◷" [flush]="true" osReveal="80">
         <div osBar class="seg" role="tablist" aria-label="Filter events">
           @for (f of filters; track f.k) {
             <button type="button" role="tab" [attr.aria-selected]="filter() === f.k" [class.on]="filter() === f.k" (click)="filter.set(f.k)">{{ f.label }}</button>

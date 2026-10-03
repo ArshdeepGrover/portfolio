@@ -27,13 +27,13 @@ interface ICert {
     <section id="certificates" class="os-section os-container" aria-labelledby="cert-title">
       <div class="os-head" osReveal>
         <div>
-          <span class="os-kicker">07 — keychain</span>
+          <span class="os-kicker">07 | keychain</span>
           <h2 id="cert-title" class="os-h2">Certificates</h2>
           <p class="os-lede">Courses and assessments I've completed. Select one to inspect it, or open the credential to verify.</p>
         </div>
       </div>
 
-      <os-window title="Keychain Access — certificates" icon="🔏" [flush]="true" osReveal="80">
+      <os-window title="Keychain Access | certificates" icon="🔏" [flush]="true" osReveal="80">
         <span osBar class="os-chip">{{ items.length }} certificates</span>
 
         <div class="kc">

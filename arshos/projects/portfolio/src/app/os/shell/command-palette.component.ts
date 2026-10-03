@@ -22,7 +22,7 @@ interface ICommand {
   run: () => void;
 }
 
-/** ⌘K / Ctrl K / "/" — jump anywhere, open any project, flip any switch. */
+/** ⌘K / Ctrl K / "/" | jump anywhere, open any project, flip any switch. */
 @Component({
   selector: 'os-command-palette',
   standalone: true,
@@ -114,7 +114,7 @@ export class CommandPaletteComponent {
     },
     { group: 'Actions', label: 'Send the cat back to the menu bar', glyph: '⌂', keywords: 'cat home perch', run: () => this.os.catHome$.next() },
     { group: 'Actions', label: 'Copy email address', hint: PROFILE.email, glyph: '@', keywords: 'mail contact', run: () => this.os.copyEmail() },
-    { group: 'Actions', label: 'Download résumé', hint: 'PDF', glyph: 'CV', keywords: 'resume cv pdf', run: () => window.open(PROFILE.resume, '_blank') },
+    { group: 'Actions', label: 'Download resume', hint: 'PDF', glyph: 'CV', keywords: 'resume cv pdf', run: () => window.open(PROFILE.resume, '_blank') },
     ...portfolioProjects.map<ICommand>((p) => ({
       group: 'Projects',
       label: p.title.replace(/^[^\w]+/, '').split(' - ')[0],
@@ -131,7 +131,7 @@ export class CommandPaletteComponent {
         ['GitHub', PROFILE.links.github],
         ['LinkedIn', PROFILE.links.linkedin],
         ['Blog: blogs.arshdeepgrover.dev', PROFILE.links.blogs],
-        // ['Studio — freelance work', PROFILE.links.studio],
+        // ['Studio | freelance work', PROFILE.links.studio],
         ['Medium', PROFILE.links.medium],
         ['Book a 1:1 on Topmate', PROFILE.links.topmate],
       ] as const

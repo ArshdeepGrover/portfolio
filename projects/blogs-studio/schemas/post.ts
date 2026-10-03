@@ -98,7 +98,7 @@ export const postType = defineType({
       name:  'externalUrl',
       title: 'External URL',
       type:  'url',
-      description: 'Medium or Dev.to link — used if no markdown content is provided',
+      description: 'Medium or Dev.to link | used if no markdown content is provided',
     }),
   ],
   preview: {

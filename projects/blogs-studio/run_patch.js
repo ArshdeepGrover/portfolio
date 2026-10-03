@@ -1,5 +1,5 @@
 process.env.SANITY_TOKEN = 'skgnGuiKBa1ZQKvlUxO6WlcMfpkVqXeu3hjaUbWXPg12CExV6XG0EzKMfCUgYDZYwYQg7yoRgrd0jrjOLalKzFaovLiCq2fn6INcPWZRjo3duPAZhyUZt5DxlL8moQWW7jPyqGzvXkhL2XdUBbiux2XGJBwgb4kLDuITY4QIFUyq8XCxZ0ud';/**
- * Patch / seed Sanity reference data — Categories, Series, Tags
+ * Patch / seed Sanity reference data | Categories, Series, Tags
  * Run independently of blog import.
  *
  * Usage:
@@ -38,9 +38,9 @@ const CATEGORIES = [
 
 // ── SERIES ────────────────────────────────────────────────────────────────────
 const SERIES = [
-  { name: 'Database Engineering, Decoded', description: 'From first principles — pages, indexes, ACID, WAL, connection pooling and beyond. 15-part series.' },
-  { name: 'Angular, Decoded',              description: 'Every Angular config file and concept explained clearly — angular.json, tsconfig, environments, and more.' },
-  { name: 'Rails in Production',           description: 'Real-world Rails patterns for scalable, maintainable apps — N+1s, Hotwire, API design and beyond.' },
+  { name: 'Database Engineering, Decoded', description: 'From first principles | pages, indexes, ACID, WAL, connection pooling and beyond. 15-part series.' },
+  { name: 'Angular, Decoded',              description: 'Every Angular config file and concept explained clearly | angular.json, tsconfig, environments, and more.' },
+  { name: 'Rails in Production',           description: 'Real-world Rails patterns for scalable, maintainable apps | N+1s, Hotwire, API design and beyond.' },
   // Add more:
   // { name: 'TypeScript Deep Dive', description: '...' },
 ];
@@ -137,7 +137,7 @@ async function main() {
   }
 
   const only = (process.argv.find(a => a.startsWith('--only=')) || '').replace('--only=', '');
-  console.log('Sanity patch script — project: ga7xrwxs / production');
+  console.log('Sanity patch script | project: ga7xrwxs / production');
 
   if (!only || only === 'categories') await patchCategories();
   if (!only || only === 'series')     await patchSeries();

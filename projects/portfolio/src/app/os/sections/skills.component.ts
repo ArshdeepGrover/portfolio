@@ -25,7 +25,7 @@ const LEVEL: Record<ISkill['proficiency'], number> = { beginner: 1, intermediate
     <section id="skills" class="os-section os-container" aria-labelledby="skills-title">
       <div class="os-head" osReveal>
         <div>
-          <span class="os-kicker">04 — package.json</span>
+          <span class="os-kicker">04 | package.json</span>
           <h2 id="skills-title" class="os-h2">What I work with</h2>
           <p class="os-lede">Every dependency is real and in use. Hover or tap a line to inspect it; click a key to fold it.</p>
         </div>

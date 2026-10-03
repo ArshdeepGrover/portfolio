@@ -114,7 +114,7 @@ export class CommandPaletteComponent {
     },
     { group: 'Actions', label: `Send ${CAT_NAME} back to the menu bar`, glyph: '⌂', keywords: `cat home perch ${CAT_NAME.toLowerCase()}`, run: () => this.os.catHome$.next() },
     { group: 'Actions', label: 'Copy email address', hint: PROFILE.email, glyph: '@', keywords: 'mail contact', run: () => this.os.copyEmail() },
-    { group: 'Actions', label: 'Download résumé', hint: 'PDF', glyph: 'CV', keywords: 'resume cv pdf', run: () => window.open(PROFILE.resume, '_blank') },
+    { group: 'Actions', label: 'Download resume', hint: 'PDF', glyph: 'CV', keywords: 'resume cv pdf', run: () => window.open(PROFILE.resume, '_blank') },
     ...portfolioProjects.map<ICommand>((p) => ({
       group: 'Projects',
       label: p.title.replace(/^[^\w]+/, '').split(' - ')[0],

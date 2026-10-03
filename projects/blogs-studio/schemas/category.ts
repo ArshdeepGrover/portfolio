@@ -35,7 +35,7 @@ export const categoryType = defineType({
       name:  'color',
       title: 'Accent Colour (hex)',
       type:  'string',
-      description: 'e.g. #FF7955 — used for category badge on the blog',
+      description: 'e.g. #FF7955 | used for category badge on the blog',
       validation: Rule => Rule.regex(/^#[0-9A-Fa-f]{6}$/, { name: 'hex colour' }).warning(),
     }),
   ],

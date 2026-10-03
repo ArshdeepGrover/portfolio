@@ -11,7 +11,7 @@ import { RevealDirective } from '../ui/reveal.directive';
     <section id="about" class="os-section os-container" aria-labelledby="about-title">
       <div class="os-head" osReveal>
         <div>
-          <span class="os-kicker">01 — about.md</span>
+          <span class="os-kicker">01 | about.md</span>
           <h2 id="about-title" class="os-h2">Builder turned teacher.<br /><span class="mute">Still a builder.</span></h2>
         </div>
       </div>

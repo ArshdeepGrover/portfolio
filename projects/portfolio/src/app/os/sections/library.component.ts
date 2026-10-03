@@ -15,14 +15,14 @@ import { PROFILE } from '../os.service';
     <section id="blogs" class="os-section os-container" aria-labelledby="blog-title">
       <div class="os-head" osReveal>
         <div>
-          <span class="os-kicker">06 — feed.rss</span>
+          <span class="os-kicker">06 | feed.rss</span>
           <h2 id="blog-title" class="os-h2">Writing</h2>
           <p class="os-lede">Notes on web development, on Medium and Dev.to, and now at blogs.arshdeepgrover.dev.</p>
         </div>
         <a class="os-btn" [href]="PROFILE.links.blogs" target="_blank" rel="noopener">All posts ↗</a>
       </div>
 
-      <os-window title="Reader — feed.rss" icon="¶" [flush]="true" osReveal="80">
+      <os-window title="Reader | feed.rss" icon="¶" [flush]="true" osReveal="80">
         <span osBar class="os-chip">{{ posts.length }} unread</span>
         <div class="reader">
           <ul class="posts">

@@ -10,9 +10,9 @@ import { LibraryComponent } from './sections/library.component';
 import { ContactComponent } from './sections/contact.component';
 import { StatusFooterComponent } from './sections/status-footer.component';
 
-const TITLE = 'Arshdeep Singh — Full-Stack Developer & Technical Trainer';
+const TITLE = 'Arshdeep Singh | Full-Stack Developer & Technical Trainer';
 const DESC =
-  'Arshdeep Singh — full-stack developer working in Angular and Ruby on Rails, now delivering technical training at Google Operations Center. Based in Delhi NCR.';
+  'Arshdeep Singh | full-stack developer working in Angular and Ruby on Rails, now delivering technical training at Google Operations Center. Based in Delhi NCR.';
 
 @Component({
   selector: 'os-home',
@@ -67,7 +67,7 @@ export class OsHomeComponent implements OnInit {
 export class OsContactPageComponent implements OnInit {
   private seo = inject(SeoService);
   ngOnInit(): void {
-    this.seo.updateTitle('Contact — Arshdeep Singh');
+    this.seo.updateTitle('Contact | Arshdeep Singh');
     this.seo.updateCanonicalUrl('https://arshdeepgrover.dev/contact');
   }
 }

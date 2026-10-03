@@ -37,7 +37,7 @@ const BIO =
             <button type="button" class="l r" (click)="os.toggleTerminal(false)" aria-label="Close terminal"></button>
             <span class="l y"></span><span class="l g"></span>
           </div>
-          <span class="t">arshdeep&#64;arshos: ~ — zsh</span>
+          <span class="t">arshdeep&#64;arshdeepgrover: ~ — zsh</span>
         </header>
         <div class="out" #out>
           @for (l of lines(); track $index) {
@@ -109,7 +109,7 @@ export class TerminalAppComponent implements AfterViewChecked {
     skills: 'what I work with',
     contact: 'how to reach me',
     socials: 'links elsewhere',
-    resume: 'open the résumé PDF',
+    resume: 'open the resume PDF',
     open: 'open <section>  e.g. open projects',
     theme: 'toggle light / dark',
     cat: "cat <file> to read one, or just 'cat' to call the cat",
@@ -220,7 +220,7 @@ export class TerminalAppComponent implements AfterViewChecked {
         break;
       case 'resume':
         window.open(PROFILE.resume, '_blank');
-        this.print({ text: 'Opening résumé…', cls: 'ok' });
+        this.print({ text: 'Opening resume…', cls: 'ok' });
         break;
       case 'open':
       case 'cd': {

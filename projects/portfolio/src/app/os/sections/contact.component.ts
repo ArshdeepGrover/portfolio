@@ -14,7 +14,7 @@ import { OsService, PROFILE } from '../os.service';
     <section id="contact" class="os-section os-container" aria-labelledby="contact-title">
       <div class="os-head" osReveal>
         <div>
-          <span class="os-kicker">08 — mail</span>
+          <span class="os-kicker">08 | mail</span>
           <h2 id="contact-title" class="os-h2">Say hello<span class="dot">.</span></h2>
           <p class="os-lede">Workshops, mentoring, a hackathon that needs a judge, or a product that needs building. I reply within a couple of days.</p>
         </div>

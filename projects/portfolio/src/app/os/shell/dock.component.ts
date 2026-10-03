@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { OsService, PROFILE } from '../os.service';
 
 /**
- * Bottom dock. One tile per section plus the terminal, résumé and GitHub.
+ * Bottom dock. One tile per section plus the terminal, resume and GitHub.
  * Tiles magnify on hover (neighbours grow a little too). On phones it
  * becomes a scrollable tab strip and is the main navigation.
  */
@@ -22,8 +22,8 @@ import { OsService, PROFILE } from '../os.service';
       <button type="button" class="tile" (click)="os.toggleTerminal()" aria-label="Terminal">
         <span class="glyph term">&gt;_</span><span class="tip">Terminal</span>
       </button>
-      <a class="tile" [href]="PROFILE.resume" target="_blank" rel="noopener" aria-label="Résumé (PDF)">
-        <span class="glyph pdf">CV</span><span class="tip">Résumé.pdf</span>
+      <a class="tile" [href]="PROFILE.resume" target="_blank" rel="noopener" aria-label="Resume (PDF)">
+        <span class="glyph pdf">CV</span><span class="tip">Resume.pdf</span>
       </a>
       <a class="tile" [href]="PROFILE.links.github" target="_blank" rel="noopener" aria-label="GitHub">
         <span class="glyph gh">

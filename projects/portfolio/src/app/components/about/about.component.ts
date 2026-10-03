@@ -33,7 +33,7 @@ export class AboutComponent implements OnInit {
      that runs real money, a frontend that got measurably faster. Angular and
      Ruby on Rails are where I'm most at home.`,
     `In August 2026 I moved into training delivery at Google Operations Center.
-     It's a change of job, not a change of field — the work is still technical,
+     It's a change of job, not a change of field - the work is still technical,
      just pointed at helping people learn rather than shipping features myself.
      Explaining something well turns out to be harder than building it, which is
      most of why I took the role.`,

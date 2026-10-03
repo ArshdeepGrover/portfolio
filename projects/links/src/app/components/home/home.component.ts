@@ -27,15 +27,15 @@ export class HomeComponent implements AfterViewInit, OnDestroy, OnInit {
   private seoService = inject(SeoService);
 
   ngOnInit() {
-    this.seoService.updateTitle('Arshdeep Singh — Links Hub');
+    this.seoService.updateTitle('Arshdeep Singh | Links Hub');
     this.seoService.updateCanonicalUrl('https://links.arshdeepgrover.dev/');
     this.seoService.updateMetaTags([
       {
         name: 'description',
         content:
-          'Explore all professional links for Arshdeep Singh — Lead Software Developer. Connect on LinkedIn, GitHub, X, and more.',
+          'Explore all professional links for Arshdeep Singh | Lead Software Developer. Connect on LinkedIn, GitHub, X, and more.',
       },
-      { property: 'og:title', content: 'Arshdeep Singh — Links Hub' },
+      { property: 'og:title', content: 'Arshdeep Singh | Links Hub' },
       {
         property: 'og:description',
         content:
@@ -140,7 +140,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy, OnInit {
     // Cursor glow
     this.glowEl.style.transform = `translate(${this.mouseX}px, ${this.mouseY}px)`;
 
-    // Parallax orbs — each orb shifts at a different speed for depth
+    // Parallax orbs | each orb shifts at a different speed for depth
     const offsetX = (this.mouseX - window.innerWidth / 2) / window.innerWidth;
     const offsetY = (this.mouseY - window.innerHeight / 2) / window.innerHeight;
 
