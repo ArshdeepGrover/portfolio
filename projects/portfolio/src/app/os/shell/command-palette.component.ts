@@ -130,7 +130,7 @@ export class CommandPaletteComponent {
       [
         ['GitHub', PROFILE.links.github],
         ['LinkedIn', PROFILE.links.linkedin],
-        ['Blog: blogs.arshdeepgrover.dev', PROFILE.links.blogs],
+        // ['Blog: blogs.arshdeepgrover.dev', PROFILE.links.blogs],
         // ['Studio — freelance work', PROFILE.links.studio],
         ['Medium', PROFILE.links.medium],
         ['Book a 1:1 on Topmate', PROFILE.links.topmate],
