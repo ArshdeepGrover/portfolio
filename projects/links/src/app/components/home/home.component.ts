@@ -33,15 +33,16 @@ export class HomeComponent implements AfterViewInit, OnDestroy, OnInit {
       {
         name: 'description',
         content:
-          'Explore all professional links for Arshdeep Singh | Lead Software Developer. Connect on LinkedIn, GitHub, X, and more.',
+          'All links for Arshdeep Singh, Training Delivery Specialist at Google Operations Center and full-stack developer. Social, blog, portfolio, talks and resume in one place.',
       },
       { property: 'og:title', content: 'Arshdeep Singh | Links Hub' },
       {
         property: 'og:description',
         content:
-          'Find my social media, blog, portfolio, and studio links in one place.',
+          'Find my social media, blog, portfolio, talks and resume in one place.',
       },
       { property: 'og:url', content: 'https://links.arshdeepgrover.dev/' },
+      { property: 'og:image', content: 'https://links.arshdeepgrover.dev/images/og-links.png' },
     ]);
   }
 

@@ -16,7 +16,7 @@ export const links: ILink[] = [
   {
     id: 2,
     title: 'Resume',
-    url: 'https://www.arshdeepgrover.dev/resume/Arshdeep_Singh_SoftwareDeveloper_Resume.pdf',
+    url: 'https://www.arshdeepgrover.dev/resume/Arshdeep_Singh_Resume.pdf',
     icon: 'file',
     iconType: 'svg',
     brandColor: '#FF7955',
@@ -38,12 +38,12 @@ export const links: ILink[] = [
   {
     id: 4,
     title: 'Email',
-    url: 'mailto:arshdeepgroverdev@gmail.com',
+    url: 'mailto:arshdeepgrover.dev@gmail.com',
     icon: 'https://www.google.com/s2/favicons?domain=gmail.com&sz=128',
     iconType: 'image',
     brandColor: '#EA4335',
     category: 'other',
-    description: 'arshdeepgroverdev@gmail.com',
+    description: 'arshdeepgrover.dev@gmail.com',
     show: true,
   },
 
