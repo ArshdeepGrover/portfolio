@@ -47,13 +47,13 @@ export class OsHomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.seo.updateTitle(TITLE);
-    this.seo.updateCanonicalUrl('https://arshdeepgrover.dev/');
+    this.seo.updateCanonicalUrl('https://www.arshdeepgrover.dev/');
     this.seo.updateMetaTags([
       { name: 'description', content: DESC },
       { property: 'og:title', content: TITLE },
       { property: 'og:description', content: 'Training Delivery Specialist at Google Operations Center and full-stack developer (Angular, Ruby on Rails). Based in Delhi NCR.' },
-      { property: 'og:url', content: 'https://arshdeepgrover.dev/' },
-      { property: 'og:image', content: 'https://arshdeepgrover.dev/images/og-cover.png' },
+      { property: 'og:url', content: 'https://www.arshdeepgrover.dev/' },
+      { property: 'og:image', content: 'https://www.arshdeepgrover.dev/images/og-cover.png' },
     ]);
   }
 }
@@ -69,6 +69,6 @@ export class OsContactPageComponent implements OnInit {
   private seo = inject(SeoService);
   ngOnInit(): void {
     this.seo.updateTitle('Contact | Arshdeep Singh');
-    this.seo.updateCanonicalUrl('https://arshdeepgrover.dev/contact');
+    this.seo.updateCanonicalUrl('https://www.arshdeepgrover.dev/contact');
   }
 }
