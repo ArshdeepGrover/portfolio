@@ -53,7 +53,7 @@ export class OsHomeComponent implements OnInit {
       { property: 'og:title', content: TITLE },
       { property: 'og:description', content: 'Training Delivery Specialist at Google Operations Center and full-stack developer (Angular, Ruby on Rails). Based in Delhi NCR.' },
       { property: 'og:url', content: 'https://arshdeepgrover.dev/' },
-      { property: 'og:image', content: 'https://arshdeepgrover.dev/images/arshdeep-singh.png' },
+      { property: 'og:image', content: 'https://arshdeepgrover.dev/images/og-cover.png' },
     ]);
   }
 }
