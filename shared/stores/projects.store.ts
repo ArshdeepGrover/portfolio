@@ -57,7 +57,7 @@ export const allProjects: IProject[] = [
     technologies: ['Angular', 'Sanity', 'Markdown', 'Technical Writing'],
     demoLink:
       'https://blogs.arshdeepgrover.dev?utm_source=portfolio&utm_medium=profile&utm_campaign=writing',
-    showInPortfolio: true,
+    showInPortfolio: false,
     showInStudio: false,
   },
   // ─── Libraries & Open Source ──────────────────────────
