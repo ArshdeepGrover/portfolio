@@ -100,7 +100,7 @@ export const communityEntries: ICommunityEntry[] = [
     id: 8,
     role: 'Speaker',
     event:
-      '"Building Faster with AI: A Hands-On Intro to AI-Assisted Coding"',
+      '"Build with AI: From Resume to Live Portfolio"',
     organizer: 'MAIMS, Delhi',
     date: 'Oct 2026',
     day: 7,

@@ -73,4 +73,14 @@ export const certificates: ICertificate[] = [
     image: '/certificates/google_email_marketing.jpg',
     credentialUrl: 'https://coursera.org/verify/K00YVGNM17ZV',
   },
+  {
+    id: 8,
+    title: 'Introduction to Generative AI',
+    issuer: 'Google Cloud',
+    date: 'Oct 2026',
+    description:
+      'Online course authorized by Google and offered through Coursera, covering the fundamentals of email marketing.',
+    image: '/certificates/introduction_to_generative_ai.jpg',
+    credentialUrl: 'https://coursera.org/verify/FI66INQSZ4O2',
+  },
 ];
