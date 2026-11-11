@@ -1,4 +1,4 @@
+# Studio is kept out of search results via noindex (meta tag + X-Robots-Tag header).
+# Crawling stays allowed so Google can see the noindex and drop the pages.
 User-agent: *
 Allow: /
-
-Sitemap: https://studio.arshdeepgrover.dev/sitemap.xml
